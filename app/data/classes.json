@@ -1,0 +1,835 @@
+{
+  "classes": [
+    {
+      "id": "barbarian",
+      "name": "Barbarian",
+      "hit_die": "d12",
+      "primary_ability": "Strength",
+      "saves": ["Strength", "Constitution"],
+      "armor": ["Light armor", "Medium armor", "Shields"],
+      "weapons": ["Simple weapons", "Martial weapons"],
+      "skills": "Choose 2 from: Animal Handling, Athletics, Intimidation, Nature, Perception, Survival",
+      "flavor": "Primal forces of the land. Barbarians draw rage from the Weirding's chaos, ancient storms, natural fury, or the spirit of Hurstwold and Dollow Canyon.",
+      "subclasses": [
+        {
+          "id": "howling_tempest",
+          "name": "Path of the Howling Tempest",
+          "description": "Elemental winds and storms. You harness the power of hurricanes and tempests, becoming a living storm that tears through the battlefield.",
+          "features": [
+            {
+              "level": 3,
+              "name": "Stormbound Rage",
+              "description": "While raging: +10 ft. movement speed. If you move 10+ ft toward a creature and hit it with a melee attack, deal additional 1d6 thunder damage (2d6 at 10th, 3d6 at 14th). The 10-ft area around you becomes difficult terrain for enemies while raging."
+            },
+            {
+              "level": 6,
+              "name": "Gale's Reprieve",
+              "description": "Reaction: When a creature within 30 ft attacks you or an ally, push that target 10 ft in any direction. Does not provoke opportunity attacks. Uses: Constitution modifier (min 1) per long rest."
+            },
+            {
+              "level": 10,
+              "name": "Tempest's Embrace",
+              "description": "While raging: Resistance to lightning and thunder damage. When you take damage from a creature within 10 ft, that creature makes a Strength save (DC = 8 + proficiency + Constitution modifier) or is pushed 15 ft away."
+            },
+            {
+              "level": 14,
+              "name": "Eye of the Storm",
+              "description": "Action while raging: Summon a 20-ft-radius aura for 1 minute. While active: you and friendly creatures have advantage on Dexterity saving throws, ranged attacks against you have disadvantage, and all gain resistance to lightning and thunder damage. 1/long rest."
+            }
+          ]
+        }
+      ],
+      "icon": "⚡"
+    },
+    {
+      "id": "bard",
+      "name": "Bard",
+      "hit_die": "d8",
+      "primary_ability": "Charisma",
+      "saves": ["Dexterity", "Charisma"],
+      "armor": ["Light armor"],
+      "weapons": ["Simple weapons", "Hand crossbow", "Longsword", "Rapier", "Shortsword"],
+      "skills": "Choose 3 from any skills",
+      "flavor": "Storytellers, historians, diplomats, and conduits of ancient truths. Some channel the Weirding's echoes—'Weirding-Touched Bards' are seen as both geniuses and outcasts.",
+      "subclasses": [
+        {
+          "id": "college_lanterns",
+          "name": "College of Lanterns",
+          "description": "Harness the Weirding's strange energies through enchanted lanterns to reveal hidden truths, pierce illusions, and illuminate what truly is.",
+          "features": [
+            {
+              "level": 3,
+              "name": "Guiding Light",
+              "description": "Action: Summon a Weirdlight Lantern (floats nearby, bright light 30 ft + 30 ft dim, lasts 1 hour). Uses: Proficiency bonus per long rest. While active: Illusions falter in bright light (revealing true forms), Weirding-influenced creatures shimmer (advantage on Insight to understand them), and chosen creatures gain advantage on Perception checks and can't be surprised."
+            },
+            {
+              "level": 6,
+              "name": "Lantern of Clarity",
+              "description": "While Weirdlight Lantern is active: Advantage on saves against fear, charm, and confusion. Bonus action: Reveal one hidden magical or Weirding influence within 30 ft (visible until end of next turn). Also: Cast Detect Magic or Identify once per long rest without a spell slot while lantern is active."
+            },
+            {
+              "level": 14,
+              "name": "Radiant Lantern of the Weirding",
+              "description": "When summoning your lantern, optionally activate one effect (1/long rest): Weirdlight Surge (Wisdom save or dazed), Lantern of Duality (temporarily revert Weirded objects/creatures to pre-Weirded state), or Weirding Resonance (extra psychic damage = Charisma modifier to spell/magic damage targets inside light)."
+            }
+          ]
+        }
+      ],
+      "icon": "🏮"
+    },
+    {
+      "id": "cleric",
+      "name": "Cleric",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom",
+      "saves": ["Wisdom", "Charisma"],
+      "armor": ["Light armor", "Medium armor", "Heavy armor", "Shields"],
+      "weapons": ["Simple weapons"],
+      "skills": "Choose 2 from: History, Insight, Medicine, Persuasion, Religion",
+      "flavor": "Divine magic behaves unpredictably in Weird Zones. Clerics serve as stabilizers, spiritual guides, or explorers of the Weirding's distortions.",
+      "subclasses": [
+        {
+          "id": "domain_resonance",
+          "name": "Domain of Resonance",
+          "description": "Attuned to the magical frequencies between the material and astral planes. You maintain balance between order and chaos through sound, vibration, and perception.",
+          "domain_spells": {
+            "1st": ["Dissonant Whispers", "Thunderwave"],
+            "3rd": ["Shatter", "Calm Emotions"],
+            "5th": ["Dispel Magic", "Hypnotic Pattern"],
+            "7th": ["Greater Invisibility", "Freedom of Movement"],
+            "9th": ["Modify Memory", "Wall of Force"]
+          },
+          "features": [
+            {
+              "level": 1,
+              "name": "Vibrational Insight",
+              "description": "Gain proficiency in Performance OR Arcana. Cast Detect Magic at will as a ritual. When used this way, you hear vibrations that reveal the aura and intent of magical items or beings."
+            },
+            {
+              "level": 2,
+              "name": "Channel Divinity: Amplify Vibration",
+              "description": "Action: Create a resonant pulse in a 30-ft radius for 1 minute. All spell damage in area gains +1d6 thunder damage. The next enemy to fail a save must make a Constitution save or become dazed (incapacitated until end of their next turn). Can end early as a bonus action."
+            },
+            {
+              "level": 6,
+              "name": "Harmonic Surge",
+              "description": "Reaction when you or an ally within 30 ft casts a spell: grant one of—Harmonic Boost (+1d8 thunder damage to spell's effect), or Resonant Echo (if target moves next turn, it takes 1d8 psychic damage). Uses: Wisdom modifier (min 1) per long rest."
+            },
+            {
+              "level": 8,
+              "name": "Divine Strike (Thunder)",
+              "description": "Once per turn when you hit with a weapon attack, deal +1d8 thunder damage. Increases to +2d8 at 14th level."
+            },
+            {
+              "level": 17,
+              "name": "Cosmic Resonance",
+              "description": "Action: Create a 60-ft sphere for 1 minute (1/long rest). Allies' spell attacks and save DCs +2. Enemies have disadvantage on saves vs. thunder or psychic damage. Planar Feedback: If an enemy fails a save inside the field, they become vulnerable to thunder damage until end of your next turn."
+            }
+          ]
+        }
+      ],
+      "icon": "🔔"
+    },
+    {
+      "id": "druid",
+      "name": "Druid",
+      "hit_die": "d8",
+      "primary_ability": "Wisdom",
+      "saves": ["Intelligence", "Wisdom"],
+      "armor": ["Light armor (non-metal)", "Medium armor (non-metal)", "Shields (non-metal)"],
+      "weapons": ["Clubs", "Daggers", "Javelins", "Maces", "Quarterstaffs", "Scimitars", "Sickles", "Slings", "Spears"],
+      "skills": "Choose 2 from: Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival",
+      "flavor": "More than protectors of nature—intermediaries between natural and unnatural. The Weirding has unsettled druids, splitting them into Ancient Guardians, Wayfarers, and Weird-Touched Mystics.",
+      "subclasses": [
+        {
+          "id": "circle_weird",
+          "name": "Circle of the Weird",
+          "description": "Embrace the chaotic, unstable energies between the material and astral planes. Use the Weirding's influence to reshape the battlefield, adapt to bizarre forms, and reveal hidden truths.",
+          "circle_spells": {
+            "3rd": ["Mirror Image", "Misty Step"],
+            "5th": ["Blink", "Hypnotic Pattern"],
+            "7th": ["Greater Invisibility", "Confusion"],
+            "9th": ["Mislead", "Passwall"]
+          },
+          "features": [
+            {
+              "level": 2,
+              "name": "Weird Shape",
+              "description": "Bonus action: Expend a Wild Shape use to assume a Weirded Beast form. At the start of each turn, roll d6 OR keep previous result: 1=+10 ft reach, 2=+2 AC (phase), 3=Illusions (attackers disadvantage on Wisdom save), 4=1d6 fire/cold to attackers, 5=Advantage on Perception, 6=Voice twists (Intimidation advantage + 1d6 psychic to listeners)."
+            },
+            {
+              "level": 6,
+              "name": "Revelation of the Real",
+              "description": "Cast Light at will. When cast this way, the light reveals the true nature of Weirding-affected creatures and objects. When concentrating on a light spell (Daylight, Faerie Fire), illuminated creatures have disadvantage on saves against your druid spells."
+            },
+            {
+              "level": 10,
+              "name": "Twist the Unseen",
+              "description": "When using Wild Shape, choose one effect: Flicker Between (resistance to all damage, move through creatures/objects as difficult terrain for 1 minute), or Illusory Echo (create duplicate; creatures make DC 15 Intelligence save to identify you)."
+            },
+            {
+              "level": 14,
+              "name": "Weird Manifestation",
+              "description": "Action: Unleash a 30-ft radius Weird Manifestation (1/long rest). Choose 2 effects or roll d8: 1=No reactions for 1 min, 2=Gravity shifts (push/pull 10 ft), 3=Frightened on Wisdom save, 4=Disadvantage on attacks for 1 min, 5=Difficult terrain spreads, 6=Objects levitate, 7=All creatures regain 2d8 HP, 8=Invisible creatures forced visible for 1 min."
+            }
+          ]
+        }
+      ],
+      "icon": "🌿"
+    },
+    {
+      "id": "fighter",
+      "name": "Fighter",
+      "hit_die": "d10",
+      "primary_ability": "Strength or Dexterity",
+      "saves": ["Strength", "Constitution"],
+      "armor": ["All armor", "Shields"],
+      "weapons": ["Simple weapons", "Martial weapons"],
+      "skills": "Choose 2 from: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival",
+      "flavor": "Disciplined warriors, gladiators, knights, airship crew, and Kigan Uldar champions. The Weirding has forced adaptation of combat techniques.",
+      "subclasses": [
+        {
+          "id": "skybound_captain",
+          "name": "Skybound Captain",
+          "description": "Tactical master of airship command and aerial combat. Your leadership, aerial maneuvering, and lightning-fast decisions inspire crews and terrify foes.",
+          "features": [
+            {
+              "level": 3,
+              "name": "Airship Command",
+              "description": "Gain proficiency with Navigator's tools and vehicles (air). Sky Orders (bonus action): Give a tactical order to an ally within 30 ft—they gain advantage on their next attack roll, ability check, or saving throw. Uses: Proficiency bonus per long rest. Acrobatic Proficiency: Gain Acrobatics proficiency (or expertise if already proficient)."
+            },
+            {
+              "level": 7,
+              "name": "Windborne Maneuvering",
+              "description": "When you take the Dash action, you can make one weapon attack as part of that action. Ignore non-magical difficult terrain. Move through the space of friendly creatures without extra movement cost."
+            },
+            {
+              "level": 10,
+              "name": "Captain's Aura",
+              "description": "10-ft radius leadership aura (expands to 30 ft at 18th level): Allies add your proficiency bonus to initiative rolls. Allies operating air/water vehicles add your proficiency bonus to navigation and control skill checks."
+            },
+            {
+              "level": 15,
+              "name": "Eye of the Storm",
+              "description": "On initiative roll, you can swap your result with a willing ally within 30 ft. If an ally within 10 ft must make a saving throw, you can use your reaction to grant them advantage."
+            },
+            {
+              "level": 18,
+              "name": "Stormlord's Wrath",
+              "description": "1/long rest: Summon an electrical storm for 1 minute. Enemies have disadvantage on ranged attacks against your crew. Airship speed +10 ft. You and allies within 30 ft deal extra 2d8 lightning/thunder damage on one attack per turn. While aboard an airship, you and allies gain resistance to lightning and thunder damage."
+            }
+          ]
+        }
+      ],
+      "icon": "⚔️"
+    },
+    {
+      "id": "monk",
+      "name": "Monk",
+      "hit_die": "d8",
+      "primary_ability": "Dexterity & Wisdom",
+      "saves": ["Strength", "Dexterity"],
+      "armor": [],
+      "weapons": ["Simple weapons", "Shortswords"],
+      "skills": "Choose 2 from: Acrobatics, Athletics, History, Insight, Religion, Stealth",
+      "flavor": "Channel the physical and metaphysical into harmony. Elemental balance and ancient philosophy guide their practice. Some orders are infused by the Weirding.",
+      "subclasses": [
+        {
+          "id": "shifting_powers",
+          "name": "Way of Shifting Powers",
+          "description": "Channel and manipulate volatile elemental resonance. You are a vessel for elemental energy that ebbs and flows through you with each strike.",
+          "features": [
+            {
+              "level": 3,
+              "name": "Resonant Strike",
+              "description": "When making an unarmed strike, infuse it with shifting resonance. Choose an energy type (fire, cold, thunder, or radiant). The attack deals additional 1d6 damage of the chosen type. The energy type can change with each unarmed strike."
+            },
+            {
+              "level": 6,
+              "name": "Flux Step",
+              "description": "Bonus action (1 Ki point): Teleport up to 20 ft to a visible location. When you reappear, creatures within 5 ft make a Dexterity save (DC = 8 + proficiency + Wisdom modifier) or take 2d6 force damage."
+            },
+            {
+              "level": 11,
+              "name": "Elemental Confluence",
+              "description": "At the start of each turn, attune to an element: Fire (+1d8 fire damage on attacks), Air (+10 ft movement + Acrobatics advantage), Water (heal self or ally within 10 ft for 1d8 as bonus action), or Earth (gain temporary HP equal to Wisdom modifier). Change attunement at start of each turn freely."
+            },
+            {
+              "level": 17,
+              "name": "Avatar of Resonance",
+              "description": "Action (5 Ki points): Enter perfect elemental harmony for 1 minute (1/long rest). Resistance to all non-psychic damage. Each Attack action lets you switch resonance mid-attack for different elemental bonuses on each hit. Teleport up to 30 ft as bonus action, leaving a 3d8 force blast at departure point."
+            }
+          ]
+        }
+      ],
+      "icon": "☯️"
+    },
+    {
+      "id": "paladin",
+      "name": "Paladin",
+      "hit_die": "d10",
+      "primary_ability": "Strength & Charisma",
+      "saves": ["Wisdom", "Charisma"],
+      "armor": ["All armor", "Shields"],
+      "weapons": ["Simple weapons", "Martial weapons"],
+      "skills": "Choose 2 from: Athletics, Insight, Intimidation, Medicine, Persuasion, Religion",
+      "flavor": "Champions of conviction. The Weirding can corrupt broken oaths, twisting powers in unforeseen ways. Some patrol Weirded zones as reality anchors.",
+      "subclasses": [
+        {
+          "id": "oath_resonance",
+          "name": "Oath of Resonance",
+          "description": "Maintain harmony between the forces of Ryndor. You are a guardian of equilibrium—neither imposing rigid order nor chaos, but preserving the balance.",
+          "tenets": ["Balance in All Things", "Resonance with Others (empathy over judgment)", "Ward Against the Unnatural", "Flow Like Water, Stand Like Stone"],
+          "oath_spells": {
+            "3rd": ["Detect Magic", "Sanctuary"],
+            "5th": ["Calm Emotions", "Warding Bond"],
+            "9th": ["Dispel Magic", "Protection from Energy"],
+            "13th": ["Aura of Purity", "Guardian of Nature"],
+            "17th": ["Wall of Force", "Greater Restoration"]
+          },
+          "features": [
+            {
+              "level": 3,
+              "name": "Channel Divinity",
+              "description": "Resonant Strike (bonus action): Infuse weapon with elemental energy—next hit deals +2d10 damage (choose fire/cold/lightning/radiant) and pushes target 10 ft. OR Field of Alignment (action): Create aura within 10 ft for 1 minute; creatures inside can reroll saves against conditions."
+            },
+            {
+              "level": 7,
+              "name": "Aura of Equilibrium",
+              "description": "10-ft radius (30 ft at 18th level): When a creature rolls with advantage or disadvantage, treat both rolls as equal to the higher of the two values."
+            },
+            {
+              "level": 15,
+              "name": "Resonant Reflection",
+              "description": "Reaction to elemental effect (fire/cold/lightning/etc.): Take half damage; your next melee attack within 1 minute deals the absorbed damage type as extra damage."
+            },
+            {
+              "level": 20,
+              "name": "Avatar of Balance",
+              "description": "Action (1/long rest): Become a beacon of cosmic harmony for 1 minute. Resistance to all damage. Creatures within 30 ft cannot have advantage or disadvantage. Change damage type of any attack to fire, cold, radiant, or necrotic."
+            }
+          ]
+        },
+        {
+          "id": "oath_discord",
+          "name": "Oath of Discord",
+          "description": "Revel in chaos, destruction, and entropy. These Paladins reject balance, serving malevolent forces or entropy itself. They are agents of glorious ruin.",
+          "tenets": ["Spread Chaos (instability is power)", "Foster Betrayal (trust is weakness)", "Revel in Ruin (destruction fuels growth)", "Embrace Power (seize it by any means)"],
+          "oath_spells": {
+            "3rd": ["Cause Fear", "Bane"],
+            "5th": ["Crown of Madness", "Shatter"],
+            "9th": ["Bestow Curse", "Fear"],
+            "13th": ["Greater Invisibility", "Confusion"],
+            "17th": ["Cloudkill", "Dominate Person"]
+          },
+          "features": [
+            {
+              "level": 3,
+              "name": "Channel Divinity",
+              "description": "Agony's Touch (bonus action): Curse a creature within 30 ft—for 1 minute, they take +1d8 necrotic damage whenever they take damage. OR Seed of Discord (action): Two creatures within 30 ft must succeed on a Wisdom save or be compelled to attack one another for 1 minute."
+            },
+            {
+              "level": 7,
+              "name": "Aura of Strife",
+              "description": "10-ft radius (30 ft at 18th level): Creatures within cannot benefit from temporary HP. When a creature in the aura makes a melee attack, it deals extra damage equal to your Charisma modifier (min +1)."
+            },
+            {
+              "level": 15,
+              "name": "Harbinger of Betrayal",
+              "description": "Resistance to psychic damage. Reaction when an ally within 10 ft makes a saving throw: That ally automatically fails; you gain 2d8 temporary HP."
+            },
+            {
+              "level": 20,
+              "name": "Avatar of Chaos",
+              "description": "Action (1/long rest): Enter full power of discord for 1 minute. Creatures within 30 ft have disadvantage on saving throws. When a creature takes damage in your aura, another creature of your choice within range also takes half that damage. Once per turn on a hit, the target becomes frightened until end of your next turn."
+            }
+          ]
+        }
+      ],
+      "icon": "🛡️"
+    },
+    {
+      "id": "ranger",
+      "name": "Ranger",
+      "hit_die": "d10",
+      "primary_ability": "Dexterity & Wisdom",
+      "saves": ["Strength", "Dexterity"],
+      "armor": ["Light armor", "Medium armor", "Shields"],
+      "weapons": ["Simple weapons", "Martial weapons"],
+      "skills": "Choose 3 from: Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival",
+      "flavor": "Masters of survival and navigation. They blend ancient traditions with elemental resonance and primal intuition. Archetypes include Skyward Stalkers, Echo Wardens, and Lantern Guides.",
+      "subclasses": [
+        {
+          "id": "arcane_mechanist",
+          "name": "Arcane Mechanist",
+          "description": "Merge nature's mastery with technological ingenuity. You use and maintain advanced tools, airships, and mechanical companions.",
+          "features": [
+            {
+              "level": 3,
+              "name": "Tinker's Tools & Tech Sense",
+              "description": "Gain proficiency with Tinker's Tools. Action: Detect magical or technological traps, contraptions, and energy sources within 30 ft. You have advantage on checks to dismantle, repair, or understand mechanical devices."
+            },
+            {
+              "level": 3,
+              "name": "Mechanical Companion",
+              "description": "Construct a small mechanical companion (similar to a ranger's beast companion). It follows your commands, can scout, and has limited combat capability. Repair on a short rest using Tinker's Tools."
+            },
+            {
+              "level": 7,
+              "name": "Arcane Gadgets",
+              "description": "Craft gadgets using Tinker's Tools. You can maintain a number of gadgets equal to your proficiency bonus. Examples: Flashbang (blind in 10-ft radius), Grappling Hook Launcher (reach up to 60 ft), Arcane Shield (absorb 2d6 damage once), Smoke Bomb (obscure 10-ft area)."
+            },
+            {
+              "level": 11,
+              "name": "Arcane Infusion",
+              "description": "Infuse one weapon or piece of ammunition with arcane energy. Grants +1 to attack and damage rolls and adds 1d6 force damage. Lasts until you use this feature on a new item."
+            },
+            {
+              "level": 15,
+              "name": "Master Mechanist",
+              "description": "Your mechanical companion gains the ability to act independently (makes attacks and uses abilities on its own turn). Gadgets become more powerful (double the effect or area). Once per long rest, activate Overclock: double the mechanical companion's speed and damage for 1 minute."
+            }
+          ]
+        }
+      ],
+      "icon": "🏹"
+    },
+    {
+      "id": "rogue",
+      "name": "Rogue",
+      "hit_die": "d8",
+      "primary_ability": "Dexterity",
+      "saves": ["Dexterity", "Intelligence"],
+      "armor": ["Light armor"],
+      "weapons": ["Simple weapons", "Hand crossbow", "Longsword", "Rapier", "Shortsword"],
+      "skills": "Choose 4 from: Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, Stealth",
+      "flavor": "Thieves, assassins, spies, and opportunists. In Ryndor, rogues navigate the complex politics of cities like Eveltoft and Surreymouth.",
+      "subclasses": [
+        {
+          "id": "riftstalker",
+          "name": "Riftstalker",
+          "description": "Harness dimensional energy to slip between spaces in reality. You strike from impossible angles, teleporting through the battlefield and attacking through the fabric of space itself.",
+          "features": [
+            {
+              "level": 3,
+              "name": "Rift Step",
+              "description": "Bonus action: Teleport up to 30 ft to an unoccupied space you can see. If you teleport adjacent to a creature, your next attack before end of turn gains advantage and deals +2d6 force damage. Uses: Proficiency bonus per long rest."
+            },
+            {
+              "level": 9,
+              "name": "Phase Strike",
+              "description": "When you use Rift Step, you can make a Sneak Attack through the rift even if you don't have advantage, as long as you don't have disadvantage. Additionally, Sneak Attack can be dealt as force damage."
+            },
+            {
+              "level": 13,
+              "name": "Spatial Anchor",
+              "description": "Reaction when a creature within 60 ft tries to teleport or plane shift: Make an Intelligence save contested by their spell/ability. On success, their teleportation fails. Uses: Wisdom modifier (min 1) per long rest."
+            },
+            {
+              "level": 17,
+              "name": "Rift Mastery",
+              "description": "Teleportation distance increases to 60 ft. Once per turn, when you deal Sneak Attack damage, you can teleport the target up to 10 ft in any direction. Rift Step no longer has a usage limit."
+            }
+          ]
+        }
+      ],
+      "icon": "🗡️"
+    },
+    {
+      "id": "sorcerer",
+      "name": "Sorcerer",
+      "hit_die": "d6",
+      "primary_ability": "Charisma",
+      "saves": ["Constitution", "Charisma"],
+      "armor": [],
+      "weapons": ["Daggers", "Darts", "Slings", "Quarterstaffs", "Light crossbows"],
+      "skills": "Choose 2 from: Arcana, Deception, Insight, Intimidation, Persuasion, Religion",
+      "flavor": "Magic flows through them unbidden and untamed. In Ryndor, the Rift's influence can twist sorcerous power in strange and terrible ways.",
+      "subclasses": [
+        {
+          "id": "riftborn_origin",
+          "name": "Riftborn Origin",
+          "description": "Your magic is born from exposure to—or origin within—the Rift between planes. Your power is volatile, unpredictable, and carries echoes of Nebernoria itself.",
+          "features": [
+            {
+              "level": 1,
+              "name": "Rift Surge",
+              "description": "When you cast a spell using a spell slot, roll d20. On a natural 1, roll on the Wild Magic Surge table OR the Rift Surge table (d6): 1=Reality tears (target teleported 10 ft in random direction), 2=Dimensional echo (duplicate caster in adjacent space for 1 round), 3=Temporal blur (next attack against you has disadvantage), 4=Spatial inversion (gravity inverts 10-ft area for 1 round), 5=Rift whispers (target hears voices, disadvantage on next concentration save), 6=Power surge (next spell deals +2d6 force damage)."
+            },
+            {
+              "level": 1,
+              "name": "Dimensional Instincts",
+              "description": "You have a natural sense for spatial anomalies. You can't be surprised if you're not incapacitated. You have advantage on saves against being teleported against your will or banished."
+            },
+            {
+              "level": 6,
+              "name": "Rift Empowerment",
+              "description": "Spend 2 Sorcery Points: Next spell ignores resistance to its damage type. Spend 3 Sorcery Points: Add your Charisma modifier as force damage to a spell's damage roll."
+            },
+            {
+              "level": 14,
+              "name": "Spatial Mastery",
+              "description": "Misty Step costs no spell slot (1/short rest). Dimension Door costs no spell slot (1/long rest). You can take other creatures with you through Dimension Door (up to Charisma modifier, min 1)."
+            },
+            {
+              "level": 18,
+              "name": "Tear Reality",
+              "description": "Action (1/long rest): Tear a rift in reality in a 30-ft radius for 1 minute. Creatures of your choice take 8d8 force damage at start of their turns (Constitution save for half). The area is difficult terrain. You can teleport anywhere within the area as a bonus action."
+            }
+          ]
+        }
+      ],
+      "icon": "✨"
+    },
+    {
+      "id": "warlock",
+      "name": "Warlock",
+      "hit_die": "d8",
+      "primary_ability": "Charisma",
+      "saves": ["Wisdom", "Charisma"],
+      "armor": ["Light armor"],
+      "weapons": ["Simple weapons"],
+      "skills": "Choose 2 from: Arcana, Deception, History, Intimidation, Investigation, Nature, Religion",
+      "flavor": "Power comes with a price—always. In Ryndor, Warlocks often make pacts with entities from beyond the Rift, beings of impossible hunger and alien design.",
+      "subclasses": [
+        {
+          "id": "planebinder",
+          "name": "Pact of the Planebinder",
+          "description": "You have made a pact with one of five Rift Patrons—entities of immense power from beyond the Rift. Your patron shapes your powers and what it demands in return.",
+          "patrons": [
+            {
+              "name": "The Blighted Conductor",
+              "description": "A being of corrupted music and infectious entropy. Grants powers over disease, sound, and cascading decay."
+            },
+            {
+              "name": "The Endless Dreamer",
+              "description": "An alien consciousness lost in perpetual dream. Grants powers over illusion, sleep, and the boundary between waking and dreaming."
+            },
+            {
+              "name": "The Shattered One",
+              "description": "A fractured god-thing broken across multiple planes. Grants powers over division, fracture, and impossible geometry."
+            },
+            {
+              "name": "The Hunger Between Stars",
+              "description": "An ancient void-entity of pure consumption. Grants powers over necrotic energy, fear, and absolute emptiness."
+            },
+            {
+              "name": "The Many-Mouthed Mother",
+              "description": "A vast plural entity of insatiable appetite and reproduction. Grants powers over swarms, transformation, and consuming growth."
+            }
+          ],
+          "features": [
+            {
+              "level": 1,
+              "name": "Patron's Mark",
+              "description": "Your patron brands you with a mark of their essence. Choose your Rift Patron. You gain a unique cantrip tied to their nature and resistance to one damage type appropriate to your patron."
+            },
+            {
+              "level": 6,
+              "name": "Rift Communion",
+              "description": "Once per long rest, enter a trance to commune with your patron. Ask up to 3 questions (yes/no, or cryptic hints for complex questions). The patron may also impose a compulsion or demand in exchange."
+            },
+            {
+              "level": 10,
+              "name": "Planebinder's Power",
+              "description": "Your patron grants you expanded power. You learn one spell from any spell list that reflects your patron's nature (DM approval). This spell counts as a Warlock spell for you and doesn't count against your spells known."
+            },
+            {
+              "level": 14,
+              "name": "Avatar of the Rift",
+              "description": "1/long rest: Channel your patron's essence for 1 minute. You gain resistance to all damage, your Eldritch Blast deals +2d10 damage of your patron's damage type, and creatures that start their turn within 10 ft take psychic damage equal to your Charisma modifier."
+            }
+          ]
+        }
+      ],
+      "icon": "👁️"
+    },
+    {
+      "id": "wizard",
+      "name": "Wizard",
+      "hit_die": "d6",
+      "primary_ability": "Intelligence",
+      "saves": ["Intelligence", "Wisdom"],
+      "armor": [],
+      "weapons": ["Daggers", "Darts", "Slings", "Quarterstaffs", "Light crossbows"],
+      "skills": "Choose 2 from: Arcana, History, Insight, Investigation, Medicine, Religion",
+      "flavor": "Students of arcane truth, Crystal Scholars, and masters of magical theory. In Ryndor, the Weirding has created new fields of arcane research.",
+      "subclasses": [
+        {
+          "id": "school_harmonics",
+          "name": "School of Harmonics",
+          "description": "Study the resonant frequencies underlying all magic. Harmonics wizards understand that all spells are vibrations—and by tuning those vibrations, they can amplify, redirect, or disrupt them.",
+          "features": [
+            {
+              "level": 2,
+              "name": "Resonant Pulse",
+              "description": "When you deal damage with a spell, you can spend 1 spell slot (of any level) as a bonus action to send a resonant pulse through the target. The target takes 1d8 thunder damage per level of the slot spent, and must make a Constitution save or lose concentration."
+            },
+            {
+              "level": 2,
+              "name": "Tune the Arcane",
+              "description": "When you copy a spell into your spellbook, the cost is halved. When you cast a spell, you can change its damage type to thunder, lightning, or psychic without expending additional resources."
+            },
+            {
+              "level": 6,
+              "name": "Harmonic Ward",
+              "description": "As a reaction when you take damage, create a harmonic barrier absorbing 2d8 + Intelligence modifier damage. The absorbed energy amplifies your next spell: add the absorbed damage amount as bonus thunder damage on your next damaging spell. Uses: Proficiency bonus per long rest."
+            },
+            {
+              "level": 10,
+              "name": "Resonant Attunement",
+              "description": "You gain proficiency in Performance skill (or expertise if already proficient). You can concentrate on two spells at once, but must make a DC 15 Constitution save at the start of each turn or lose concentration on one of your choice."
+            },
+            {
+              "level": 14,
+              "name": "Symphony of Elements",
+              "description": "Action (1/long rest): Conduct a symphony of elemental forces for 1 minute. Each round, choose one effect: Crescendo (all spells deal +2d8 of any elemental damage), Harmony (allies in 30 ft gain +2 to spell attack rolls), Dissonance (enemies in 30 ft have disadvantage on concentration saves), or Finale (end the symphony with a 30-ft burst of 8d8 thunder damage, Constitution save for half)."
+            }
+          ]
+        }
+      ],
+      "icon": "📚"
+    },
+    {
+      "id": "sevrinn",
+      "name": "Sev'rinn",
+      "hit_die": "d10",
+      "primary_ability": "Constitution & Wisdom",
+      "saves": ["Constitution", "Wisdom"],
+      "armor": ["Light armor", "Medium armor"],
+      "weapons": ["Simple weapons", "Martial weapons"],
+      "skills": "Choose 2 from: Arcana, Athletics, Nature, Perception, Survival",
+      "flavor": "Living conduits of elemental power. Sev'rinn command elemental magic with instinct rather than study, adapting moment by moment. Unlike Wizards or Sorcerers, they align with elemental forces directly. Every spark of power risks triggering a Weirding Surge.",
+      "special_note": "This is a brand-new class unique to Ryndor. The sourcebook notes this class is 'Under Construction' — some techniques and multiclassing rules are still being developed. Collaborate with your GM.",
+      "mechanics": {
+        "elemental_charges": "You regain all Elemental Charges on a short or long rest. Charges power your Combat Techniques.",
+        "weirding_surge": "When you use a Combat Technique, roll d20. On a natural 1, a Weirding Surge occurs (roll d6 on the Weirding Surge Table).",
+        "weirding_surge_table": [
+          "A rift briefly opens, summoning a random creature for 1 minute.",
+          "Gravity reverses in a 10-ft radius around you for 1 round.",
+          "A harmless glowing orb follows you for 10 minutes.",
+          "Terrain around you shifts—difficult terrain for 1 round.",
+          "Your voice echoes unnaturally—disadvantage on Charisma checks.",
+          "Time flickers—your next action repeats itself automatically."
+        ],
+        "level_table": [
+          {"level": 1, "charges": 2, "techniques": 3, "surge_dc": 10},
+          {"level": 2, "charges": 3, "techniques": 4, "surge_dc": 11},
+          {"level": 3, "charges": 3, "techniques": 4, "surge_dc": 11},
+          {"level": 5, "charges": 4, "techniques": 6, "surge_dc": 12},
+          {"level": 7, "charges": 4, "techniques": 6, "surge_dc": 12},
+          {"level": 9, "charges": 5, "techniques": 8, "surge_dc": 14},
+          {"level": 10, "charges": 5, "techniques": 8, "surge_dc": 14},
+          {"level": 13, "charges": 6, "techniques": 9, "surge_dc": 15},
+          {"level": 17, "charges": 8, "techniques": 10, "surge_dc": 17}
+        ]
+      },
+      "subclasses": [
+        {
+          "id": "tideborn",
+          "name": "Tideborn (Water Attunement)",
+          "description": "Command the relentless power of water—healing, restraining, and sweeping enemies away like the tide.",
+          "element": "Water",
+          "shift_table": [
+            {"roll": 1, "name": "Tidal Surge", "effect": "+15 ft movement; move through enemy spaces without OA; spaces you exit become difficult terrain for enemies."},
+            {"roll": 2, "name": "Riptide Grasp", "effect": "On melee hit, pull target 10 ft. If they fail Strength save, knocked prone."},
+            {"roll": 3, "name": "Mistform Cloak", "effect": "Resistance to non-magical weapon damage; ranged attacks from 10+ ft with disadvantage."},
+            {"roll": 4, "name": "Icy Flow", "effect": "10-ft radius ice sheet under your feet; difficult terrain for enemies; enemies moving through save or fall prone."},
+            {"roll": 5, "name": "Healing Current", "effect": "At start of each turn, ally within 15 ft regains 1d8 + Wisdom mod HP."},
+            {"roll": 6, "name": "Crashing Blow", "effect": "Melee attacks deal extra 1d10 bludgeoning; push target 10 ft back."}
+          ],
+          "channel_power": "Heal self and allies within 10 ft for 3d8 HP.",
+          "techniques": [
+            {"level": 1, "name": "Misty Veil", "description": "Bonus action: 10-ft radius mist for 1 min; partial cover, ranged attacks with disadvantage; allies move freely."},
+            {"level": 1, "name": "Surging Flow", "description": "Reaction when ally moves: grant ally +10 ft movement, ignore difficult terrain until end of their next turn."},
+            {"level": 3, "name": "Crashing Wave Strike", "description": "On melee hit, Strength save or target pushed 10 ft and knocked prone. (1/short rest)"},
+            {"level": 3, "name": "Icy Embrace", "description": "Frigid water burst at target within 30 ft—Constitution save or restrained by ice for 1 minute. (1/long rest)"},
+            {"level": 7, "name": "Riptide Step", "description": "Teleport up to 30 ft; creatures within 5 ft of origin make Strength save or pulled 10 ft toward that point. (2/short rest)"},
+            {"level": 7, "name": "Healing Waters", "description": "10-ft radius restorative pool; allies regain 1d8 + Wisdom mod HP at start of their turns for 1 minute. (1/long rest)"},
+            {"level": 10, "name": "Torrent Shield", "description": "Reaction to being hit: summon water barrier absorbing 1d12 + Wisdom mod damage. (3/long rest)"},
+            {"level": 10, "name": "Floodgate Surge", "description": "30-ft cone; Dex save or knocked prone and 3d8 bludgeoning (half on success, no prone). (2/long rest)"},
+            {"level": 14, "name": "Tide of Renewal", "description": "20-ft radius; all allies regain 2d10 HP; one condition removed from each. (1/long rest)"},
+            {"level": 18, "name": "Tsunami Strike", "description": "60-ft line; Dex save or 8d10 bludgeoning and swept 20 ft away (half on success). (1/long rest)"}
+          ]
+        },
+        {
+          "id": "skycaller",
+          "name": "Skycaller (Air Attunement)",
+          "description": "Ride the winds of change, striking from the sky with blinding speed and disorienting force.",
+          "element": "Air",
+          "shift_table": [
+            {"roll": 1, "name": "Cyclone's Touch", "effect": "+10 ft movement; opportunity attacks against you with disadvantage."},
+            {"roll": 2, "name": "Whisper of Winds", "effect": "Cast Silent Image or Message at will without spell slot."},
+            {"roll": 3, "name": "Shockwave Burst", "effect": "Reaction when taking damage: push enemies within 10 ft back 5 ft."},
+            {"roll": 4, "name": "Gale Guard", "effect": "+2 AC until your next turn."},
+            {"roll": 5, "name": "Zephyr Step", "effect": "Move through enemy spaces without OA; movement does not provoke reactions."},
+            {"roll": 6, "name": "Tempest Strike", "effect": "On melee hit, knock target prone OR push them 10 ft back."}
+          ],
+          "channel_power": "Powerful gust pushes creatures within 15 ft (Strength save to resist).",
+          "techniques": [
+            {"level": 3, "name": "Wind Dance", "description": "Bonus action: Dash and ignore difficult terrain until end of your turn."},
+            {"level": 5, "name": "Air Slash", "description": "Extend melee strike as ranged attack (30 ft); weapon damage + 1d8 slashing."},
+            {"level": 7, "name": "Storm's Wake", "description": "On successful hit, target's movement halved until start of your next turn."},
+            {"level": 10, "name": "Flight Mastery", "description": "Gain flying speed 30 ft for 1 minute. (1/long rest)"},
+            {"level": 14, "name": "Howling Strike", "description": "Melee attack deals extra 2d6 thunder; creatures within 5 ft of target Strength save or pushed 15 ft."}
+          ]
+        },
+        {
+          "id": "lithomage",
+          "name": "Lithomage (Stone Attunement)",
+          "description": "Become an immovable fortress of elemental stone, protecting allies and crushing all who stand against you.",
+          "element": "Stone",
+          "shift_table": [
+            {"roll": 1, "name": "Granite Skin", "effect": "Temporary HP = level + Constitution modifier."},
+            {"roll": 2, "name": "Earthen Anchor", "effect": "Movement cannot be reduced; cannot be knocked prone."},
+            {"roll": 3, "name": "Stonegrasp", "effect": "Bonus action: ground grasps a creature (Strength save or restrained until end of next turn)."},
+            {"roll": 4, "name": "Seismic Aura", "effect": "Enemy starting turn within 5 ft makes Dex save or pushed 5 ft."},
+            {"roll": 5, "name": "Fortress Stance", "effect": "+2 AC; allies within 5 ft gain half cover."},
+            {"roll": 6, "name": "Boulder Step", "effect": "Creatures you move past make Dex save or fall prone; move through enemy spaces without OA."}
+          ],
+          "channel_power": "Resistance to all damage until start of your next turn.",
+          "techniques": [
+            {"level": 3, "name": "Stoneguard", "description": "Reaction to being hit: reduce damage by 1d8 + Constitution modifier. (Proficiency bonus uses per long rest)"},
+            {"level": 5, "name": "Pulverizing Strike", "description": "Melee attack deals extra 2d6 bludgeoning; Strength save or knocked prone."},
+            {"level": 7, "name": "Rock Wall", "description": "Bonus action: 5-ft high, 10-ft long wall of earth within 30 ft; half cover until start of your next turn."},
+            {"level": 10, "name": "Tectonic Shift", "description": "Action: creatures within 20 ft make Dex save or knocked prone; structures take 2d8 bludgeoning damage."},
+            {"level": 14, "name": "Pillar Strike", "description": "On melee hit: 10-ft stone pillar launches target upward (4d6 bludgeoning, knocked prone). (1/short rest)"}
+          ]
+        },
+        {
+          "id": "greenheart",
+          "name": "Greenheart (Nature Attunement)",
+          "description": "Channel the living force of nature—poisoning, healing, entangling, and growing to overwhelm your enemies with life itself.",
+          "element": "Nature",
+          "shift_table": [
+            {"roll": 1, "name": "Thornskin", "effect": "Thorned vines on skin; creatures hitting you with melee take 1d6 piercing."},
+            {"roll": 2, "name": "Verdant Cloak", "effect": "Advantage on Stealth; partial cover in foliage-heavy areas."},
+            {"roll": 3, "name": "Rooted Resilience", "effect": "Bonus action: root yourself; cannot be knocked prone or moved."},
+            {"roll": 4, "name": "Bloom of Renewal", "effect": "When healed, regain extra HP = proficiency bonus; allies within 10 ft gain half this bonus."},
+            {"roll": 5, "name": "Venomous Bloom", "effect": "Action: poison spore cloud; Constitution save or poisoned for 1 minute."},
+            {"roll": 6, "name": "Symbiotic Regrowth", "effect": "When an ally within 10 ft is healed, you recover Constitution mod HP."}
+          ],
+          "channel_power": "Vines erupt in 15-ft radius, restraining enemies (Strength save).",
+          "techniques": [
+            {"level": 3, "name": "Bramble Snare", "description": "On melee hit, vines restrain target (Strength save to resist). (Proficiency bonus uses per long rest)"},
+            {"level": 5, "name": "Pollinating Strike", "description": "On melee hit, target makes Constitution save or blinded until end of its next turn."},
+            {"level": 7, "name": "Nature's Sanctuary", "description": "Bonus action: 15-ft radius of flourishing plants; allies have advantage on death saves and recover 1d4 HP at start of their turns."},
+            {"level": 10, "name": "Adaptive Bloom", "description": "Reaction to taking damage: reduce damage by 1d10 + Constitution mod; grant temp HP to ally within 10 ft (half negated damage)."},
+            {"level": 14, "name": "Thornwood Avatar", "description": "For 1 minute, AC +2; creatures hitting you with melee take 3d6 piercing damage. (1/long rest)"}
+          ]
+        },
+        {
+          "id": "chronomancer",
+          "name": "Chronomancer (Time Attunement)",
+          "description": "Manipulate the flow of time itself—reversing moments, freezing enemies in temporal stasis, and giving your allies actions they never had.",
+          "element": "Time",
+          "shift_table": [
+            {"roll": 1, "name": "Temporal Blur", "effect": "+2 AC (form flickers between moments)."},
+            {"roll": 2, "name": "Speed Surge", "effect": "Bonus action: Dash or Disengage; movement does not provoke OA this turn."},
+            {"roll": 3, "name": "Frozen Time", "effect": "Freeze a small object in time for 1 minute (immune to damage/decay)."},
+            {"roll": 4, "name": "Rewind Strike", "effect": "On a miss with attack, reroll it; must use second roll."},
+            {"roll": 5, "name": "Echo of Action", "effect": "Reaction: duplicate ally's movement from their last turn."},
+            {"roll": 6, "name": "Lingering Moment", "effect": "At start of your turn, regain a spell slot of 3rd level or lower expended last round."}
+          ],
+          "channel_power": "You and one ally within 30 ft take an additional action next turn.",
+          "techniques": [
+            {"level": 3, "name": "Time Spike", "description": "Reaction to enemy entering melee range; Wisdom save or target restrained for 1 round (temporal distortion)."},
+            {"level": 5, "name": "Temporal Reversal", "description": "Bonus action: rewind 6 seconds; one creature within 30 ft rerolls the last attack/save made against them."},
+            {"level": 7, "name": "Haste Burst", "description": "Target creature gains an extra action and +10 ft movement for 1 round."},
+            {"level": 10, "name": "Temporal Loop", "description": "When a creature fails a save against one of your effects, they must make the save again next turn."},
+            {"level": 14, "name": "Stop Time", "description": "Action: All creatures except you stop for 1 round (as Time Stop). (1/long rest)"}
+          ]
+        },
+        {
+          "id": "voidstrider",
+          "name": "Voidstrider (Space Attunement)",
+          "description": "Bend space itself—teleporting across the battlefield, repositioning allies and enemies, and striking from anywhere.",
+          "element": "Space",
+          "shift_table": [
+            {"roll": 1, "name": "Phase Slip", "effect": "+20 ft movement; can move through one creature's space without OA."},
+            {"roll": 2, "name": "Void Step", "effect": "Bonus action: teleport 10 ft to an unoccupied space you can see."},
+            {"roll": 3, "name": "Spatial Distortion", "effect": "One creature within 30 ft is teleported 10 ft in a random direction (Wisdom save negates)."},
+            {"roll": 4, "name": "Anchor Point", "effect": "Mark your current location; once this turn as a free action, return to marked location (as misty step)."},
+            {"roll": 5, "name": "Dimensional Armor", "effect": "+2 AC; once per round, negate one opportunity attack."},
+            {"roll": 6, "name": "Rift Slash", "effect": "Melee attacks deal extra 1d8 force damage as you strike through space."}
+          ],
+          "channel_power": "Instantly teleport 30 ft to a point you can see.",
+          "techniques": [
+            {"level": 3, "name": "Fold Space", "description": "Bonus action: swap positions with a willing ally within 60 ft. Neither provokes OA."},
+            {"level": 5, "name": "Gravity Well", "description": "Create a gravitational point within 30 ft; creatures within 10 ft pulled 5 ft toward it (Strength save negates)."},
+            {"level": 7, "name": "Rift Toss", "description": "Bonus action: teleport an unwilling creature within 30 ft up to 20 ft in any direction (Wisdom save negates)."},
+            {"level": 10, "name": "Void Walk", "description": "Move through walls and solid objects until end of turn (pass through up to 5 ft of solid material)."},
+            {"level": 14, "name": "Spatial Collapse", "description": "Action: Compress 30-ft radius—all creatures in area teleported to center point, taking 4d8 force damage (Dex save for half). (1/long rest)"}
+          ]
+        },
+        {
+          "id": "emberclad",
+          "name": "Emberclad (Fire Attunement)",
+          "description": "Burn with the fury of elemental fire—incinerating enemies, igniting the battlefield, and forging yourself in the heat of combat.",
+          "element": "Fire",
+          "shift_table": [
+            {"roll": 1, "name": "Flame Step", "effect": "+10 ft movement; trail of fire left behind (1d4 fire damage to creatures entering spaces you left)."},
+            {"roll": 2, "name": "Heat Aura", "effect": "Creatures within 5 ft take 1d4 fire damage at start of their turn."},
+            {"roll": 3, "name": "Ember Shield", "effect": "Resistance to fire damage; next creature to hit you with melee takes 1d6 fire damage."},
+            {"roll": 4, "name": "Blazing Speed", "effect": "+15 ft movement this turn; disengage as free action."},
+            {"roll": 5, "name": "Ignite", "effect": "One creature within 30 ft catches fire (1d6 ongoing fire damage, Dex save to end on their turn)."},
+            {"roll": 6, "name": "Inferno Strike", "effect": "Melee attacks deal extra 1d10 fire damage and targets are ignited (1d4 ongoing fire damage)."}
+          ],
+          "channel_power": "20-ft cone of flame. Dexterity save or 6d8 fire damage (half on success).",
+          "techniques": [
+            {"level": 1, "name": "Flame Dash", "description": "Bonus action: move up to 15 ft in a straight line through enemy spaces, dealing 1d6 fire damage to each creature you pass through (Dex save for none)."},
+            {"level": 3, "name": "Scorching Strike", "description": "Melee attack deals extra 2d8 fire damage and ignites target (1d6 ongoing fire, Dex save ends). (1/short rest)"},
+            {"level": 7, "name": "Wildfire", "description": "Action: Create a 15-ft radius ring of fire; lasts 1 minute; creatures entering or starting turn inside take 2d6 fire damage."},
+            {"level": 10, "name": "Phoenix Surge", "description": "When reduced to 0 HP, erupt in flames—automatically stabilize; deal 3d6 fire damage to all creatures within 10 ft. (1/long rest)"},
+            {"level": 14, "name": "Meteor Strike", "description": "Ranged attack (60 ft): 6d8 fire damage in 10-ft radius (Dex save for half). Terrain in area ignites for 1 minute. (1/long rest)"}
+          ]
+        },
+        {
+          "id": "eidolon",
+          "name": "Eidolon (Soul Attunement)",
+          "description": "Command the essence of souls themselves—draining vitality, communing with the dead, and becoming a vessel for pure spiritual power.",
+          "element": "Soul",
+          "shift_table": [
+            {"roll": 1, "name": "Soul Drain", "effect": "On melee hit, drain 1d6 HP from target and regain that HP."},
+            {"roll": 2, "name": "Spectral Form", "effect": "Resistance to non-magical weapon damage; immune to grapple and restrain."},
+            {"roll": 3, "name": "Necrotic Aura", "effect": "Creatures within 10 ft have disadvantage on death saving throws."},
+            {"roll": 4, "name": "Spirit Shield", "effect": "Reaction: reduce damage taken by 1d8 + Wisdom modifier."},
+            {"roll": 5, "name": "Soul Link", "effect": "Link with ally within 30 ft; when either takes damage, split it between both."},
+            {"roll": 6, "name": "Death's Touch", "effect": "On melee hit, target makes Constitution save or gain one level of exhaustion."}
+          ],
+          "channel_power": "Reduce movement speed of creatures within 20 ft by half for 1 minute (Wisdom save ends).",
+          "techniques": [
+            {"level": 3, "name": "Soul Tap", "description": "On hit, steal 1d8 HP from target; you regain those HP. (Proficiency bonus uses per long rest)"},
+            {"level": 5, "name": "Wraith Walk", "description": "Bonus action: become incorporeal until start of next turn; resistance to all damage; can move through solid objects."},
+            {"level": 7, "name": "Spectral Chain", "description": "Action: target within 30 ft is tethered by spectral chain; if they move more than 30 ft from you, take 2d8 necrotic damage. Lasts 1 minute."},
+            {"level": 10, "name": "Soul Harvest", "description": "When a creature dies within 30 ft, regain 2d8 HP and gain temp HP equal to the creature's CR × 2."},
+            {"level": 14, "name": "Possession", "description": "Action: attempt to possess a creature (Wisdom save to resist). While possessing, you control their actions; your body is incapacitated. Lasts 1 minute or until target succeeds on save at end of their turn. (1/long rest)"}
+          ]
+        },
+        {
+          "id": "luminor",
+          "name": "Luminor (Light Attunement)",
+          "description": "Wield the power of pure radiance—blinding foes, healing allies with golden light, and becoming a beacon of hope in the darkest places.",
+          "element": "Light",
+          "shift_table": [
+            {"roll": 1, "name": "Radiant Aura", "effect": "Bright light 10 ft, dim 10 ft more; allies in bright light gain +1d4 to attack rolls."},
+            {"roll": 2, "name": "Flash Step", "effect": "Teleport 15 ft; creatures within 5 ft of destination are blinded until start of your next turn."},
+            {"roll": 3, "name": "Light Ward", "effect": "+2 AC; undead and fiends within 10 ft have disadvantage on attack rolls against you."},
+            {"roll": 4, "name": "Solar Flare", "effect": "Reaction when attacked: emit burst of light; attacker makes Con save or blinded until end of their turn."},
+            {"roll": 5, "name": "Healing Light", "effect": "Bonus action: ally within 30 ft regains 1d8 + Wisdom mod HP."},
+            {"roll": 6, "name": "Searing Strike", "effect": "Melee attacks deal extra 1d8 radiant damage; undead and fiends take 2d8 instead."}
+          ],
+          "channel_power": "Burst of radiant energy: Constitution save or blinded for 1 minute (repeat save at end of each turn).",
+          "techniques": [
+            {"level": 1, "name": "Blinding Flash", "description": "Action: 15-ft radius flash of light; Dex save or blinded until end of your next turn."},
+            {"level": 3, "name": "Healing Radiance", "description": "Bonus action: emit healing light; allies within 15 ft regain 1d6 + Wisdom mod HP. (Proficiency bonus uses per long rest)"},
+            {"level": 7, "name": "Solar Beam", "description": "Action: 60-ft line of radiant energy; Dex save or 4d8 radiant damage (half on success). Undead take maximum damage (no save)."},
+            {"level": 10, "name": "Light Barrier", "description": "Reaction to an ally taking damage: create a shield of light absorbing 2d10 + Wisdom mod damage. (3/long rest)"},
+            {"level": 14, "name": "Nova Burst", "description": "Action: Become a star for 1 minute—60-ft radius of brilliant light. All allies regain 3d10 HP. Undead/fiends in radius take 6d10 radiant damage at start of each turn. (1/long rest)"}
+          ]
+        }
+      ],
+      "icon": "⚗️"
+    }
+  ]
+}

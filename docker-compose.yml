@@ -1,0 +1,9 @@
+services:
+  ryndor-character-maker:
+    build: .
+    container_name: ryndor-character-maker
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./app:/app/app
+    restart: unless-stopped

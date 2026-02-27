@@ -1,0 +1,353 @@
+{
+  "barbarian": {
+    "features": [
+      {"level": 1, "name": "Rage", "description": "Bonus action to enter rage. While raging: advantage on STR checks/saves, +2 melee damage with STR weapons, resistance to bludgeoning/piercing/slashing. Lasts 1 minute. Uses per long rest increase with level (2 at L1, 3 at L3, 4 at L6, 5 at L12, 6 at L17, unlimited at L20)."},
+      {"level": 1, "name": "Unarmored Defense", "description": "While not wearing armor, your AC = 10 + DEX modifier + CON modifier. You can still use a shield."},
+      {"level": 2, "name": "Reckless Attack", "description": "Attack with advantage on all STR-based melee attacks this turn, but attack rolls against you have advantage until your next turn."},
+      {"level": 2, "name": "Danger Sense", "description": "Advantage on DEX saving throws against visible effects (traps, spells) while not blind, deafened, or incapacitated."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each (max 20)."},
+      {"level": 5, "name": "Extra Attack", "description": "You can attack twice instead of once when you take the Attack action."},
+      {"level": 5, "name": "Fast Movement", "description": "Your speed increases by 10 feet while you aren't wearing heavy armor."},
+      {"level": 7, "name": "Feral Instinct", "description": "Advantage on Initiative rolls. If surprised at combat start, act normally on your first turn if you enter rage before doing anything else."},
+      {"level": 9, "name": "Brutal Critical", "description": "Roll one additional weapon damage die on a critical hit with a melee attack. (Two dice at L13, three dice at L17.)"},
+      {"level": 10, "name": "Mindless Rage", "description": "You can't be charmed or frightened while raging. If you are when you rage, that effect is suspended for the rage's duration."},
+      {"level": 11, "name": "Relentless Rage", "description": "If reduced to 0 HP while raging and not killed outright, make DC 10 CON save to drop to 1 HP instead. DC increases by 5 each time used; resets on long rest."},
+      {"level": 15, "name": "Persistent Rage", "description": "Your rage ends early only if you fall unconscious or choose to end it."},
+      {"level": 18, "name": "Indomitable Might", "description": "If your STR check total is lower than your STR score, use your STR score instead."},
+      {"level": 20, "name": "Primal Champion", "description": "STR and CON each increase by 4, and their maximums increase to 24."}
+    ],
+    "choices": []
+  },
+  "bard": {
+    "features": [
+      {"level": 1, "name": "Spellcasting", "description": "Know 2 cantrips and 4 spells from the Bard list. Spellcasting ability: Charisma."},
+      {"level": 1, "name": "Bardic Inspiration", "description": "Bonus action: grant one creature within 60 ft a Bardic Inspiration die (d6, scaling with level). They can add it to one ability check, attack, or save within 10 min. Uses = CHA modifier (min 1) per long rest."},
+      {"level": 2, "name": "Jack of All Trades", "description": "Add half your proficiency bonus (rounded down) to any ability check you aren't proficient in."},
+      {"level": 2, "name": "Song of Rest", "description": "During a short rest, allies who can hear your performance regain extra HP when spending Hit Dice (d6, scaling with level)."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Bardic Inspiration (d8)", "description": "Your Bardic Inspiration die becomes a d8."},
+      {"level": 5, "name": "Font of Inspiration", "description": "You regain Bardic Inspiration uses on a short or long rest."},
+      {"level": 6, "name": "Countercharm", "description": "As an action, begin a performance. Allies within 30 ft who can hear you have advantage on saves vs. being frightened or charmed, until end of your next turn."},
+      {"level": 10, "name": "Magical Secrets", "description": "Choose 2 spells from any class spell list. They count as bard spells for you and are always prepared."},
+      {"level": 20, "name": "Superior Inspiration", "description": "If you have no Bardic Inspiration dice when rolling Initiative, you regain 1 use."}
+    ],
+    "choices": []
+  },
+  "cleric": {
+    "features": [
+      {"level": 1, "name": "Spellcasting", "description": "Prepare cleric spells equal to WIS modifier + your level. Spellcasting ability: Wisdom."},
+      {"level": 2, "name": "Channel Divinity (1/rest)", "description": "Invoke divine energy for Turn Undead or your domain's special effect. Recover on a short or long rest."},
+      {"level": 2, "name": "Turn Undead", "description": "As an action, present holy symbol. Each undead within 30 ft makes a WIS save or is turned for 1 minute."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Destroy Undead (CR 1/2)", "description": "Undead with CR ≤ 1/2 that fail Turn Undead are destroyed instantly."},
+      {"level": 6, "name": "Channel Divinity (2/rest)", "description": "You can use Channel Divinity twice per rest."},
+      {"level": 8, "name": "Destroy Undead (CR 1)", "description": "You can now destroy undead of CR 1 or lower."},
+      {"level": 10, "name": "Divine Intervention", "description": "Implore your deity's aid (action). Roll d%; if result ≤ your cleric level, your deity intervenes. Once used successfully, wait 7 days. At L20, always succeeds."},
+      {"level": 18, "name": "Channel Divinity (3/rest)", "description": "You can use Channel Divinity three times between rests."}
+    ],
+    "choices": []
+  },
+  "druid": {
+    "features": [
+      {"level": 1, "name": "Druidic", "description": "You know Druidic, the secret language of druids. You can leave and notice hidden Druidic messages."},
+      {"level": 1, "name": "Spellcasting", "description": "Prepare druid spells equal to WIS modifier + your level. Spellcasting ability: Wisdom."},
+      {"level": 2, "name": "Wild Shape", "description": "Magically transform into a beast you've seen (action). CR limit scales with level. Max 2 uses per short or long rest."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 18, "name": "Timeless Body", "description": "Primal magic slows your aging: 1 year ages as 10."},
+      {"level": 18, "name": "Beast Spells", "description": "Cast druid spells while in Wild Shape form (as long as no material components are required)."},
+      {"level": 20, "name": "Archdruid", "description": "You can use Wild Shape an unlimited number of times."}
+    ],
+    "choices": []
+  },
+  "fighter": {
+    "features": [
+      {"level": 1, "name": "Second Wind", "description": "Bonus action: regain 1d10 + fighter level HP. Recharges on a short or long rest."},
+      {"level": 2, "name": "Action Surge", "description": "Once per short or long rest, take one additional action on your turn. (Two uses at L17.)"},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Extra Attack", "description": "Attack twice when you take the Attack action. (Three times at L11, four times at L20.)"},
+      {"level": 9, "name": "Indomitable (1/LR)", "description": "Reroll a failed saving throw. Must use new result. (2 uses at L13, 3 at L17.)"},
+      {"level": 11, "name": "Extra Attack (3)", "description": "Attack three times when you take the Attack action."},
+      {"level": 20, "name": "Extra Attack (4)", "description": "Attack four times when you take the Attack action."}
+    ],
+    "choices": [
+      {
+        "level": 1,
+        "name": "Fighting Style",
+        "key": "fighting_style",
+        "description": "Adopt a particular style of fighting as your specialty.",
+        "pick": 1,
+        "type": "single_choice",
+        "options": [
+          {"id": "archery", "name": "Archery", "description": "+2 bonus to attack rolls you make with ranged weapons."},
+          {"id": "defense", "name": "Defense", "description": "+1 bonus to AC while wearing armor."},
+          {"id": "dueling", "name": "Dueling", "description": "+2 damage when wielding a melee weapon in one hand and no other weapons."},
+          {"id": "great_weapon", "name": "Great Weapon Fighting", "description": "Reroll 1s and 2s on damage dice for two-handed melee weapons (must keep new roll)."},
+          {"id": "protection", "name": "Protection", "description": "When an adjacent ally is attacked, impose disadvantage on the attack (requires a shield)."},
+          {"id": "two_weapon", "name": "Two-Weapon Fighting", "description": "Add your ability modifier to the damage of your off-hand attack."}
+        ]
+      }
+    ]
+  },
+  "monk": {
+    "features": [
+      {"level": 1, "name": "Unarmored Defense", "description": "While wearing no armor and not using a shield, AC = 10 + DEX modifier + WIS modifier."},
+      {"level": 1, "name": "Martial Arts", "description": "Use DEX for unarmed/monk weapon attacks. Unarmed strikes deal 1d4 (scaling with level). After attacking with monk weapon, make one bonus unarmed strike."},
+      {"level": 2, "name": "Ki", "description": "Ki points = level. Spend to use Flurry of Blows (2 bonus unarmed strikes), Patient Defense (Dodge as bonus action), or Step of the Wind (Dash/Disengage as bonus action). Ki save DC = 8 + prof + WIS. Recover on short rest."},
+      {"level": 2, "name": "Unarmored Movement", "description": "Speed increases by 10 ft (not in armor/shield). Increases further at higher levels."},
+      {"level": 3, "name": "Deflect Missiles", "description": "Reduce ranged weapon damage by 1d10 + DEX + level when hit. If reduced to 0, catch and throw back (ranged attack, 1d6 + DEX, range 20/60)."},
+      {"level": 4, "name": "Slow Fall", "description": "Use reaction: reduce falling damage by 5 × your monk level."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Extra Attack", "description": "Attack twice when you take the Attack action."},
+      {"level": 5, "name": "Stunning Strike", "description": "Spend 1 ki after hitting: target makes CON save or is stunned until end of your next turn."},
+      {"level": 6, "name": "Ki-Empowered Strikes", "description": "Your unarmed strikes count as magical for overcoming resistance and immunity."},
+      {"level": 7, "name": "Evasion", "description": "DEX save against area effects: no damage on success, half on failure."},
+      {"level": 7, "name": "Stillness of Mind", "description": "Action: end one charmed or frightened condition on yourself."},
+      {"level": 10, "name": "Purity of Body", "description": "Immune to disease and poison."},
+      {"level": 14, "name": "Diamond Soul", "description": "Proficiency in all saving throws. Spend 1 ki to reroll any failed save."},
+      {"level": 15, "name": "Timeless Body", "description": "No longer need food or water. Not affected by aging magic."},
+      {"level": 20, "name": "Perfect Self", "description": "If you have no ki when you roll initiative, you regain 4 ki points."}
+    ],
+    "choices": []
+  },
+  "paladin": {
+    "features": [
+      {"level": 1, "name": "Divine Sense", "description": "Action: know the location of celestials, fiends, and undead within 60 ft (not behind total cover). Lasts until end of next turn. Uses = 1 + CHA modifier per long rest."},
+      {"level": 1, "name": "Lay on Hands", "description": "Pool of 5 × level HP. Action: restore HP to a touched creature, or spend 5 HP to cure one disease or neutralize one poison."},
+      {"level": 2, "name": "Spellcasting", "description": "Prepare paladin spells equal to CHA modifier + half your level. Spellcasting ability: Charisma."},
+      {"level": 2, "name": "Divine Smite", "description": "When you hit with a melee weapon, expend a spell slot to deal extra radiant damage: 2d8 for 1st-level, +1d8 per slot level above 1st (+1d8 vs. undead and fiends)."},
+      {"level": 3, "name": "Divine Health", "description": "Immune to disease, granted by the divine magic flowing through you."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Extra Attack", "description": "Attack twice when you take the Attack action."},
+      {"level": 6, "name": "Aura of Protection", "description": "You and allies within 10 ft add your CHA modifier (min +1) to saving throws while you're conscious. (30 ft at L18.)"},
+      {"level": 10, "name": "Aura of Courage", "description": "You and allies within 10 ft can't be frightened while you're conscious. (30 ft at L18.)"},
+      {"level": 11, "name": "Improved Divine Smite", "description": "Your melee weapon hits deal an extra 1d8 radiant damage (in addition to any Divine Smite)."},
+      {"level": 14, "name": "Cleansing Touch", "description": "Action: end one spell effect on yourself or a willing creature you touch. Uses = CHA modifier per long rest."}
+    ],
+    "choices": [
+      {
+        "level": 2,
+        "name": "Fighting Style",
+        "key": "fighting_style",
+        "description": "Adopt a particular style of fighting.",
+        "pick": 1,
+        "type": "single_choice",
+        "options": [
+          {"id": "defense", "name": "Defense", "description": "+1 to AC while wearing armor."},
+          {"id": "dueling", "name": "Dueling", "description": "+2 damage wielding a melee weapon one-handed with no other weapons."},
+          {"id": "great_weapon", "name": "Great Weapon Fighting", "description": "Reroll 1s and 2s on damage dice for two-handed melee weapons."},
+          {"id": "protection", "name": "Protection", "description": "Impose disadvantage on attacks against adjacent allies (requires shield)."}
+        ]
+      }
+    ]
+  },
+  "ranger": {
+    "features": [
+      {"level": 2, "name": "Spellcasting", "description": "Learn ranger spells (Wisdom-based). Spell count scales with level."},
+      {"level": 3, "name": "Primeval Awareness", "description": "Expend a ranger spell slot to sense aberrations, celestials, dragons, elementals, fey, fiends, or undead within 1 mile (6 miles in favored terrain) for 1 min."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Extra Attack", "description": "Attack twice when you take the Attack action."},
+      {"level": 8, "name": "Land's Stride", "description": "Move through non-magical difficult terrain without penalty. Advantage on saves against plants that impede movement."},
+      {"level": 10, "name": "Hide in Plain Sight", "description": "Spend 1 minute camouflaging yourself. Gain +10 bonus to Stealth checks while stationary."},
+      {"level": 14, "name": "Vanish", "description": "Use the Hide action as a bonus action on your turn. You can't be tracked by non-magical means."},
+      {"level": 18, "name": "Feral Senses", "description": "Awareness of invisible creatures within 30 ft. No penalty to attack invisible creatures you can detect."},
+      {"level": 20, "name": "Foe Slayer", "description": "Once per turn, add WIS modifier to an attack or damage roll against your favored enemy."}
+    ],
+    "choices": [
+      {
+        "level": 1,
+        "name": "Favored Enemy",
+        "key": "favored_enemy",
+        "description": "Choose a type of favored enemy. Advantage on Survival checks to track them and INT checks to recall info about them. Learn one language they speak.",
+        "pick": 1,
+        "type": "single_choice",
+        "options": [
+          {"id": "aberrations", "name": "Aberrations", "description": "Mind flayers, beholders, and other alien horrors from beyond the planes."},
+          {"id": "beasts", "name": "Beasts", "description": "Natural animals, from wolves to giant crabs."},
+          {"id": "celestials", "name": "Celestials", "description": "Angels and other beings of the Upper Planes."},
+          {"id": "constructs", "name": "Constructs", "description": "Golems, animated armor, and similar magical creations."},
+          {"id": "dragons", "name": "Dragons", "description": "True dragons and dragon-kin such as wyverns."},
+          {"id": "elementals", "name": "Elementals", "description": "Creatures of elemental earth, fire, water, and air."},
+          {"id": "fey", "name": "Fey", "description": "Faerie folk, nymphs, dryads, and their kin."},
+          {"id": "fiends", "name": "Fiends", "description": "Demons, devils, and other creatures of the Lower Planes."},
+          {"id": "giants", "name": "Giants", "description": "Hill giants, storm giants, and all giant-kin."},
+          {"id": "monstrosities", "name": "Monstrosities", "description": "Griffins, displacer beasts, and other unnatural monsters."},
+          {"id": "oozes", "name": "Oozes", "description": "Gelatinous cubes, black puddings, and slimes."},
+          {"id": "plants", "name": "Plants", "description": "Shambling mounds, treants, and other plant creatures."},
+          {"id": "undead", "name": "Undead", "description": "Zombies, skeletons, vampires, liches, and more."},
+          {"id": "humanoids", "name": "Humanoids (two races)", "description": "Choose two humanoid races (e.g., orcs and gnolls)."}
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Natural Explorer",
+        "key": "natural_explorer",
+        "description": "Choose a favored terrain. While traveling there for 1+ hour: proficient skills doubled, no difficult terrain penalty, can't be lost non-magically, twice as much food foraging, track creature details.",
+        "pick": 1,
+        "type": "single_choice",
+        "options": [
+          {"id": "arctic", "name": "Arctic", "description": "Tundra, frozen wastes, and icy mountains."},
+          {"id": "coast", "name": "Coast", "description": "Beaches, sea cliffs, and tidal zones."},
+          {"id": "desert", "name": "Desert", "description": "Arid wastes, sandstone canyons, and dunes."},
+          {"id": "forest", "name": "Forest", "description": "Dense woodlands, jungles, and ancient groves."},
+          {"id": "grassland", "name": "Grassland", "description": "Open plains, savannas, and rolling prairies."},
+          {"id": "mountain", "name": "Mountain", "description": "Rocky peaks, high passes, and cliff faces."},
+          {"id": "swamp", "name": "Swamp", "description": "Bogs, marshes, and murky wetlands."},
+          {"id": "underdark", "name": "Underdark", "description": "Caverns, tunnels, and subterranean wilderness."}
+        ]
+      },
+      {
+        "level": 2,
+        "name": "Fighting Style",
+        "key": "fighting_style",
+        "description": "Choose a particular style of fighting.",
+        "pick": 1,
+        "type": "single_choice",
+        "options": [
+          {"id": "archery", "name": "Archery", "description": "+2 bonus to attack rolls with ranged weapons."},
+          {"id": "defense", "name": "Defense", "description": "+1 to AC while wearing armor."},
+          {"id": "dueling", "name": "Dueling", "description": "+2 damage wielding a one-handed melee weapon with no other weapons."},
+          {"id": "two_weapon", "name": "Two-Weapon Fighting", "description": "Add your ability modifier to off-hand attack damage rolls."}
+        ]
+      }
+    ]
+  },
+  "rogue": {
+    "features": [
+      {"level": 1, "name": "Expertise", "description": "Choose 2 skill proficiencies. Your proficiency bonus is doubled for those skills. (See Skills step to select.)"},
+      {"level": 1, "name": "Sneak Attack", "description": "Once per turn, deal extra damage when you have advantage or an ally is adjacent to the target: 1d6 at L1, scaling to 10d6 at L19."},
+      {"level": 1, "name": "Thieves' Cant", "description": "Secret rogue language. Takes 2× as long to convey hidden messages, but can embed them in normal speech."},
+      {"level": 2, "name": "Cunning Action", "description": "Bonus action each turn: Dash, Disengage, or Hide."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Uncanny Dodge", "description": "When an attacker you can see hits you, use your reaction to halve the damage."},
+      {"level": 6, "name": "Expertise (2nd)", "description": "Choose 2 more proficient skills to double your proficiency bonus for."},
+      {"level": 7, "name": "Evasion", "description": "DEX saves vs. area effects: no damage on success, half damage on failure."},
+      {"level": 11, "name": "Reliable Talent", "description": "Treat d20 rolls ≤ 9 as 10 for any proficient ability check."},
+      {"level": 14, "name": "Blindsense", "description": "If you can hear, you're aware of hidden/invisible creatures within 10 ft."},
+      {"level": 15, "name": "Slippery Mind", "description": "Gain proficiency in WIS saving throws."},
+      {"level": 18, "name": "Elusive", "description": "No attack roll has advantage against you while you aren't incapacitated."},
+      {"level": 20, "name": "Stroke of Luck", "description": "On a failed ability check, treat d20 as 20. On a missed attack, treat it as a hit. Recharges on short or long rest."}
+    ],
+    "choices": []
+  },
+  "sorcerer": {
+    "features": [
+      {"level": 1, "name": "Spellcasting", "description": "Know 4 spells from the Sorcerer list. Spellcasting ability: Charisma."},
+      {"level": 2, "name": "Font of Magic", "description": "Gain sorcery points (= level). Spend to create extra spell slots or convert slots to sorcery points. Recover on long rest."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 20, "name": "Sorcerous Restoration", "description": "Regain 4 expended sorcery points on a short rest."}
+    ],
+    "choices": [
+      {
+        "level": 3,
+        "name": "Metamagic",
+        "key": "metamagic",
+        "description": "Choose 2 Metamagic options at level 3. Gain additional options at levels 10 and 17.",
+        "pick": 2,
+        "type": "multi_choice",
+        "options": [
+          {"id": "careful", "name": "Careful Spell", "description": "Spend 1 SP: choose up to CHA modifier creatures — they auto-succeed on saves against your spell."},
+          {"id": "distant", "name": "Distant Spell", "description": "Spend 1 SP: double the range of a spell (touch spells become 30 ft range)."},
+          {"id": "empowered", "name": "Empowered Spell", "description": "Spend 1 SP: reroll up to CHA modifier damage dice; must keep new rolls."},
+          {"id": "extended", "name": "Extended Spell", "description": "Spend 1 SP: double the duration of a concentration spell (max 24 hours)."},
+          {"id": "heightened", "name": "Heightened Spell", "description": "Spend 3 SP: one target has disadvantage on its first saving throw against your spell."},
+          {"id": "quickened", "name": "Quickened Spell", "description": "Spend 2 SP: cast a 1-action spell as a bonus action instead."},
+          {"id": "subtle", "name": "Subtle Spell", "description": "Spend 1 SP: cast a spell without verbal or somatic components."},
+          {"id": "twinned", "name": "Twinned Spell", "description": "Spend SP equal to spell level (min 1): target a second creature with a single-target spell."}
+        ]
+      }
+    ]
+  },
+  "warlock": {
+    "features": [
+      {"level": 1, "name": "Pact Magic", "description": "Spellcasting ability: Charisma. Pact Magic slots recover on a short rest. Slot level and count scale with class level."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Eldritch Invocations (3rd)", "description": "Learn a third Eldritch Invocation."},
+      {"level": 7, "name": "Eldritch Invocations (4th)", "description": "Learn a fourth invocation."},
+      {"level": 9, "name": "Mystic Arcanum (6th level)", "description": "Cast one 6th-level spell without using a spell slot once per long rest."},
+      {"level": 11, "name": "Mystic Arcanum (7th level)", "description": "Cast one 7th-level spell without a slot once per long rest."},
+      {"level": 13, "name": "Mystic Arcanum (8th level)", "description": "Cast one 8th-level spell without a slot once per long rest."},
+      {"level": 15, "name": "Mystic Arcanum (9th level)", "description": "Cast one 9th-level spell without a slot once per long rest."},
+      {"level": 20, "name": "Eldritch Master", "description": "Spend 1 minute entreating your patron: recover all Pact Magic slots. Once per long rest."}
+    ],
+    "choices": [
+      {
+        "level": 2,
+        "name": "Eldritch Invocations",
+        "key": "eldritch_invocations",
+        "description": "Choose 2 Eldritch Invocations. You can replace one when you gain a warlock level.",
+        "pick": 2,
+        "type": "multi_choice",
+        "options": [
+          {"id": "agonizing", "name": "Agonizing Blast", "description": "Requires: eldritch blast cantrip. Add CHA modifier to eldritch blast damage rolls."},
+          {"id": "armor_shadows", "name": "Armor of Shadows", "description": "Cast mage armor on yourself at will, without a slot or components."},
+          {"id": "beguiling", "name": "Beguiling Influence", "description": "Gain proficiency in Deception and Persuasion."},
+          {"id": "devils_sight", "name": "Devil's Sight", "description": "See normally in magical and non-magical darkness up to 120 ft."},
+          {"id": "eldritch_sight", "name": "Eldritch Sight", "description": "Cast detect magic at will, without a slot or components."},
+          {"id": "eldritch_spear", "name": "Eldritch Spear", "description": "Requires: eldritch blast. Eldritch blast range becomes 300 ft."},
+          {"id": "eyes_rune", "name": "Eyes of the Rune Keeper", "description": "Read all writing regardless of language."},
+          {"id": "fiendish_vigor", "name": "Fiendish Vigor", "description": "Cast false life at will as a 1st-level spell, without a slot or components."},
+          {"id": "gaze", "name": "Gaze of Two Minds", "description": "Action: touch a willing creature; perceive through its senses until end of your next turn."},
+          {"id": "misty_visions", "name": "Misty Visions", "description": "Cast silent image at will, without a slot or components."},
+          {"id": "repelling", "name": "Repelling Blast", "description": "Requires: eldritch blast. Push the target 10 ft away on a hit."},
+          {"id": "thief_five", "name": "Thief of Five Fates", "description": "Cast bane once per long rest using a Pact Magic slot."},
+          {"id": "thirsting", "name": "Thirsting Blade", "description": "Requires: L5, Pact of the Blade. Attack twice with your pact weapon when you take the Attack action."}
+        ]
+      },
+      {
+        "level": 3,
+        "name": "Pact Boon",
+        "key": "pact_boon",
+        "description": "Your patron rewards you with a gift for your loyal service.",
+        "pick": 1,
+        "type": "single_choice",
+        "options": [
+          {"id": "blade", "name": "Pact of the Blade", "description": "Action: conjure a melee pact weapon of any type. It's magical, vanishes when released, and you can use CHA for its attack/damage rolls."},
+          {"id": "chain", "name": "Pact of the Chain", "description": "Learn find familiar as a warlock spell. Your familiar can be an imp, pseudodragon, quasit, or sprite."},
+          {"id": "tome", "name": "Pact of the Tome", "description": "Receive the Book of Shadows containing 3 cantrips from any spell list — always prepared, use INT/WIS/CHA for them."}
+        ]
+      }
+    ]
+  },
+  "wizard": {
+    "features": [
+      {"level": 1, "name": "Spellcasting", "description": "Maintain a spellbook. Prepare INT modifier + wizard level spells each long rest. Spellcasting ability: Intelligence."},
+      {"level": 1, "name": "Arcane Recovery", "description": "Once per day on a short rest, recover spell slots totaling up to half your wizard level (rounded up, max slot level 5)."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 18, "name": "Spell Mastery", "description": "Choose one 1st-level and one 2nd-level spell from your spellbook. Cast each at their lowest level without a spell slot (one use each per long rest)."},
+      {"level": 20, "name": "Signature Spells", "description": "Choose two 3rd-level spells from your book. Always prepared; cast each once per short rest at 3rd level without using a slot."}
+    ],
+    "choices": []
+  },
+  "artificer": {
+    "features": [
+      {"level": 1, "name": "Magical Tinkering", "description": "Touch a Tiny nonmagical object and imbue it with a minor property (light, recorded message, odor, or visual/auditory static)."},
+      {"level": 1, "name": "Spellcasting", "description": "Prepare artificer spells equal to INT modifier + half your level. Spellcasting ability: Intelligence. Tools serve as your spellcasting focus."},
+      {"level": 2, "name": "Infuse Item", "description": "Learn artificer infusions; infuse magic into mundane items during long rests. Number of infusions known and items infused scales with level."},
+      {"level": 3, "name": "The Right Tool for the Job", "description": "Over 1 hour, produce any artisan's tools you need (vanish if you produce another set)."},
+      {"level": 4, "name": "Ability Score Improvement", "description": "Increase one ability score by 2, or two by 1 each."},
+      {"level": 5, "name": "Arcane Armament", "description": "Attack twice when you take the Attack action using a magical weapon."},
+      {"level": 7, "name": "Flash of Genius", "description": "Reaction: add INT modifier to an ability check or saving throw of a creature within 30 ft. Uses = INT modifier per long rest."},
+      {"level": 10, "name": "Magic Item Adept", "description": "Attune to up to 4 magic items. Craft common/uncommon items in 1/4 the time at half the cost."},
+      {"level": 11, "name": "Spell-Storing Item", "description": "Store a 1st- or 2nd-level artificer spell in an object. Any creature can cast it; uses = INT modifier × 2. Refill on long rest."},
+      {"level": 14, "name": "Magic Item Savant", "description": "Attune to up to 5 items. Ignore class, race, spell, and level requirements on attunement."},
+      {"level": 18, "name": "Magic Item Master", "description": "Attune to up to 6 magic items."},
+      {"level": 20, "name": "Soul of Artifice", "description": "+1 to all saving throws per attuned magic item. Reaction on 0 HP: drop to 1 HP and end one artificer infusion."}
+    ],
+    "choices": []
+  },
+  "sevrinn": {
+    "features": [
+      {"level": 1, "name": "Elemental Attunement", "description": "Your elemental subclass determines your techniques and Weirding Surge effects. Choose carefully — it defines your entire path."},
+      {"level": 1, "name": "Elemental Charges", "description": "You have Charges equal to your class table entry. Spend them to use Elemental Techniques. Recover all on a short or long rest."},
+      {"level": 1, "name": "Weirding Surge", "description": "Each time you spend a Charge, roll a d20. On 1–10, an unpredictable Weirding Surge triggers. Consult your elemental Surge table."},
+      {"level": 3, "name": "Elemental Shift", "description": "Bonus action (1 Charge): assume a partial elemental form, gaining benefits determined by your attunement."},
+      {"level": 5, "name": "Extra Attack", "description": "Attack twice when you take the Attack action."},
+      {"level": 7, "name": "Weirding Resilience", "description": "When you trigger a Weirding Surge, you may choose to reroll once. You must accept the second result."},
+      {"level": 9, "name": "Elemental Mastery", "description": "Your elemental techniques deal one additional die of damage."},
+      {"level": 11, "name": "Surge Stabilization", "description": "Weirding Surges now only trigger on a Charge roll of 1–5 (instead of 1–10)."},
+      {"level": 15, "name": "Elemental Form", "description": "Spend 3 Charges: assume full elemental form for 1 minute. Resistance to your element's damage type plus additional attunement-specific benefits."},
+      {"level": 20, "name": "Avatar of the Weird", "description": "Once per day, unleash a devastating area effect determined by your elemental attunement."}
+    ],
+    "choices": []
+  }
+}

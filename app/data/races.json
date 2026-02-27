@@ -1,0 +1,182 @@
+{
+  "races": [
+    {
+      "id": "aviari",
+      "name": "Aviari",
+      "description": "Bird-like humanoids with wings, talons, and beaks. Known for aerial prowess and deep connection to the sky. Scouts and messengers who live in mountainous cliff communities.",
+      "flavor": "\"In the high peaks of Ryndor, where the wind never rests, the Aviari were born—neither bound to earth nor fully of the sky.\"",
+      "ability_scores": {"Dexterity": 2, "Wisdom": 1},
+      "age": "Reach adulthood around age 3; live up to 70 years.",
+      "alignment": "Tend toward chaotic, varies by individual experience.",
+      "size": "Medium (5–6 feet tall, 100–150 lbs, wingspan 8–10 ft).",
+      "speed": {"walk": 30, "fly": 30, "note": "Cannot fly in medium or heavy armor, or while encumbered."},
+      "languages": ["Common", "Auran"],
+      "bonus_skills": ["Perception"],
+      "traits": [
+        {
+          "name": "Flightless",
+          "description": "Cannot use wings to fly until 5th level. At 5th level, gain the ability to fly for short periods. Must land at end of turn if flying (unless hovering)."
+        },
+        {
+          "name": "Keen Sight",
+          "description": "You have proficiency in the Perception skill."
+        },
+        {
+          "name": "Mimicry",
+          "description": "You can mimic sounds you have heard, including voices, animal calls, and environmental sounds, after at least 1 minute of listening."
+        }
+      ],
+      "suggested_classes": ["Ranger", "Rogue", "Sorcerer", "Bard", "Monk"],
+      "icon": "🦅"
+    },
+    {
+      "id": "cervar",
+      "name": "Cervar",
+      "description": "Tall, slender, graceful humanoids with deer-like features: cloven hooves, large expressive eyes, pointed ears, and antlers (females). Natural healers and protectors of ancient forests.",
+      "flavor": "\"Cervar do not speak of the forest as something outside themselves. They are the forest—breathing, healing, remembering.\"",
+      "ability_scores": {"Wisdom": 2, "Constitution": 1},
+      "age": "Mature at similar rate to humans; live up to 250 years.",
+      "alignment": "Tend toward neutral or good; value balance and harmony.",
+      "size": "Medium (5–6 feet tall, 150–200 lbs).",
+      "speed": {"walk": 35},
+      "languages": ["Common", "Sylvan"],
+      "bonus_skills": ["Nature"],
+      "traits": [
+        {
+          "name": "Healing Touch",
+          "description": "As an action, you can touch a creature and restore HP equal to your level + your Wisdom modifier. You can use this trait a number of times equal to your Wisdom modifier (minimum 1). All uses are restored on a long rest."
+        },
+        {
+          "name": "Fey Ancestry",
+          "description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        },
+        {
+          "name": "Nature's Blessing",
+          "description": "You have proficiency in the Nature skill."
+        }
+      ],
+      "suggested_classes": ["Druid", "Ranger", "Cleric", "Bard", "Monk"],
+      "icon": "🦌"
+    },
+    {
+      "id": "drakarim",
+      "name": "Drakarim",
+      "description": "Rare, enigmatic humanoids with reptilian features: scales, tails, and sharp teeth. Skin ranges from deep red to metallic gold, with slit-pupiled glowing eyes. Strong connection to dragonkind.",
+      "flavor": "\"The Drakarim do not merely carry dragon blood—they carry dragon memory. Every scale is a scar from the Age of Fire.\"",
+      "ability_scores": {"Strength": 2, "Charisma": 1},
+      "age": "Mature at the same rate as humans; live up to 120 years.",
+      "alignment": "Strong-willed and individualistic; varies widely by upbringing.",
+      "size": "Medium (6–7 feet tall, 200–300 lbs).",
+      "speed": {"walk": 30},
+      "languages": ["Common", "Drakarim"],
+      "bonus_skills": [],
+      "traits": [
+        {
+          "name": "Draconic Ancestry",
+          "description": "Choose one dragon type from the Draconic Ancestry table (PHB). You gain a breath weapon and damage resistance associated with that ancestry."
+        },
+        {
+          "name": "Draconic Resistance",
+          "description": "You have resistance to the damage type associated with your draconic ancestry."
+        },
+        {
+          "name": "Breath Weapon",
+          "description": "You can use your action to exhale destructive energy. The size, shape, and damage type are determined by your draconic ancestry. Recharges on a short or long rest."
+        },
+        {
+          "name": "Tail Swipe",
+          "description": "You can make a melee attack with your tail (5 ft. reach), dealing 1d6 + Strength modifier bludgeoning damage."
+        }
+      ],
+      "suggested_classes": ["Fighter", "Barbarian", "Paladin", "Sorcerer", "Wizard"],
+      "icon": "🐉"
+    },
+    {
+      "id": "khuzud",
+      "name": "Khuzud",
+      "description": "Ancient reclusive dwarves who refused to surface. Completely blind with no eyes, translucent skin, and no vocal cords. Communicate via Inglishmek—an echolocative sign language using tongue clicks and gestures.",
+      "flavor": "\"The Khuzud have lived in darkness so long they no longer see it as darkness. To them, the world resonates. Every footstep, every heartbeat—a map of everything.\"",
+      "ability_scores": {"note": "No standard ASI listed—work with your GM for Constitution or Intelligence bonus."},
+      "age": "Live up to 400 years. Considered young until age 60.",
+      "alignment": "Tend toward neutrality; focus on invention, discovery, and advancement.",
+      "size": "Medium (4–5 feet tall, 200–300 lbs).",
+      "speed": {"walk": 25, "note": "Not reduced by heavy armor."},
+      "languages": ["Inglishmek (echolocative sign language only — cannot speak any language)"],
+      "bonus_skills": [],
+      "traits": [
+        {
+          "name": "Blind (Echolocation)",
+          "description": "You have no eyes but rely on echolocation. You can perceive your surroundings within 60 feet without sight. You have superior hearing and are effective in combat through echolocation."
+        },
+        {
+          "name": "Sunlight Sensitivity",
+          "description": "You prefer dark underground places. You suffer harm when exposed to sunlight for extended periods. In direct sunlight, you have disadvantage on attack rolls and Perception checks relying on sight."
+        },
+        {
+          "name": "Ancient Ancestry (Underground Favored Terrain)",
+          "description": "Underground is always your favored terrain. You gain double proficiency bonus on proficient skill checks related to underground environments. While traveling for 1+ hour underground: difficult terrain doesn't slow your group, you can't become lost, you can move stealthily at normal pace when alone, you find twice as much food when foraging, and you learn exact details about creatures you track."
+        },
+        {
+          "name": "Inglishmek",
+          "description": "You cannot speak any language—you have no vocal cords. You communicate exclusively through Inglishmek, a complex sign and echolocative language. You can read and write Common but cannot vocalize."
+        }
+      ],
+      "suggested_classes": ["Artificer", "Cleric", "Fighter", "Ranger"],
+      "icon": "🦇"
+    },
+    {
+      "id": "leoporin",
+      "name": "Leoporin",
+      "description": "Rabbit-like humanoids; small, lean, and incredibly fast. Covered in soft velvety fur in earthy tones, with large expressive eyes and powerful hind legs. Skilled hunters, gatherers, and burrowers who live in tight-knit forest communities.",
+      "flavor": "\"A Leoporin at rest is a Leoporin planning their next sprint. Still waters, they say—but the current beneath never stops.\"",
+      "ability_scores": {"Dexterity": 2, "Wisdom": 1},
+      "age": "Reach maturity at age 15; live up to 60 years.",
+      "alignment": "Tend toward neutrality; can be of any alignment.",
+      "size": "Small (4–5 feet tall, slender build).",
+      "speed": {"walk": 35},
+      "languages": ["Common", "Leoporin"],
+      "bonus_skills": ["Perception"],
+      "traits": [
+        {
+          "name": "Swift Feet",
+          "description": "When you take the Dash action, your speed is tripled instead of doubled."
+        },
+        {
+          "name": "Keen Senses",
+          "description": "You have proficiency in the Perception skill."
+        },
+        {
+          "name": "Burst of Speed",
+          "description": "As a bonus action, you can move an additional 10 feet. You can use this trait a number of times equal to your Wisdom modifier (minimum 1). All uses are restored on a long rest."
+        }
+      ],
+      "suggested_classes": ["Rogue", "Ranger", "Druid", "Monk"],
+      "icon": "🐇"
+    },
+    {
+      "id": "nebernorian",
+      "name": "Nebernorian",
+      "description": "Mysterious beings from beyond the Rift, hailing from the plane of Nebernoria. Humanoid in appearance with elongated limbs and large kaleidoscope eyes that shift through impossible colors.",
+      "flavor": "\"When a Nebernorian looks at you, you get the sense that they're seeing not just you—but every version of you that ever could have been.\"",
+      "ability_scores": {"note": "Work with your GM — this race is still being developed for the Ryndor sourcebook."},
+      "age": "Unknown — their relationship to time may differ fundamentally from other races.",
+      "alignment": "Unknown.",
+      "size": "Medium (elongated limbs, unusual proportions).",
+      "speed": {"walk": 30, "note": "Exact mechanics pending GM approval."},
+      "languages": ["Common", "work with GM for additional languages"],
+      "bonus_skills": [],
+      "traits": [
+        {
+          "name": "Rift-Born Senses",
+          "description": "Your eyes, kaleidoscope in nature, perceive more than the material plane. Work with your GM to define the specific traits of your Nebernorian character."
+        },
+        {
+          "name": "Under Development",
+          "description": "The Nebernorian race is introduced in the sourcebook but lacks full mechanical details. All traits should be established in collaboration with your Game Master."
+        }
+      ],
+      "suggested_classes": ["Sorcerer", "Warlock", "Wizard", "Rogue"],
+      "icon": "🌌"
+    }
+  ]
+}

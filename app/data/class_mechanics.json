@@ -1,0 +1,517 @@
+{
+  "_note": "Supplementary mechanics data for each class. Slot types: full=full caster, half=half caster, pact=warlock pact magic. AC types: fixed=heavy armor, light=light armor, medium=medium armor, unarmored=no armor.",
+
+  "barbarian": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]
+    },
+    "equipment_choices": [
+      {
+        "id": "weapon_a",
+        "prompt": "Primary weapon",
+        "options": [
+          {"label": "Greataxe", "items": ["Greataxe"], "ac_base": null, "ac_type": null},
+          {"label": "Any martial melee weapon", "items": ["Martial melee weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "weapon_b",
+        "prompt": "Secondary weapon",
+        "options": [
+          {"label": "Two handaxes", "items": ["Handaxe (×2)"], "ac_base": null, "ac_type": null},
+          {"label": "Any simple weapon", "items": ["Simple weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Dungeoneer's pack", "items": ["Dungeoneer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["4 Javelins"],
+    "special_ac": "barbarian",
+    "spellcasting": null
+  },
+
+  "bard": {
+    "skill_choices": {
+      "count": 3,
+      "options": ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]
+    },
+    "equipment_choices": [
+      {
+        "id": "weapon",
+        "prompt": "Weapon",
+        "options": [
+          {"label": "Rapier", "items": ["Rapier"], "ac_base": null, "ac_type": null},
+          {"label": "Longsword", "items": ["Longsword"], "ac_base": null, "ac_type": null},
+          {"label": "Any simple weapon", "items": ["Simple weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Diplomat's pack", "items": ["Diplomat's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Entertainer's pack", "items": ["Entertainer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "instrument",
+        "prompt": "Musical instrument",
+        "options": [
+          {"label": "Lute", "items": ["Lute"], "ac_base": null, "ac_type": null},
+          {"label": "Any other musical instrument", "items": ["Musical instrument (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Leather armor", "Dagger"],
+    "default_ac": {"ac_base": 11, "ac_type": "light"},
+    "spellcasting": {
+      "ability": "Charisma",
+      "slot_type": "full",
+      "cantrips_known": [2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4],
+      "spells_known": [4,5,6,7,8,9,10,11,12,13,14,15,15,16,16,17,17,18,18,18],
+      "prepare_formula": null
+    }
+  },
+
+  "cleric": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["History", "Insight", "Medicine", "Persuasion", "Religion"]
+    },
+    "equipment_choices": [
+      {
+        "id": "weapon",
+        "prompt": "Primary weapon",
+        "options": [
+          {"label": "Mace", "items": ["Mace"], "ac_base": null, "ac_type": null},
+          {"label": "Warhammer (if proficient)", "items": ["Warhammer"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "armor",
+        "prompt": "Armor",
+        "options": [
+          {"label": "Scale mail (AC 14 + max +2 DEX)", "items": ["Scale mail"], "ac_base": 14, "ac_type": "medium"},
+          {"label": "Leather armor (AC 11 + DEX)", "items": ["Leather armor"], "ac_base": 11, "ac_type": "light"},
+          {"label": "Chain mail (AC 16, if proficient)", "items": ["Chain mail"], "ac_base": 16, "ac_type": "fixed"}
+        ]
+      },
+      {
+        "id": "secondary",
+        "prompt": "Secondary equipment",
+        "options": [
+          {"label": "Light crossbow + 20 bolts", "items": ["Light crossbow", "20 crossbow bolts"], "ac_base": null, "ac_type": null},
+          {"label": "Any simple weapon", "items": ["Simple weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Priest's pack", "items": ["Priest's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Shield (+2 AC)", "Holy symbol"],
+    "shield_ac_bonus": 2,
+    "spellcasting": {
+      "ability": "Wisdom",
+      "slot_type": "full",
+      "cantrips_known": [3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5],
+      "spells_known": null,
+      "prepare_formula": "ability_mod + level"
+    }
+  },
+
+  "druid": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+    },
+    "equipment_choices": [
+      {
+        "id": "shield_or_weapon",
+        "prompt": "Shield or weapon",
+        "options": [
+          {"label": "Wooden shield (+2 AC)", "items": ["Wooden shield"], "ac_base": null, "ac_type": null, "shield": true},
+          {"label": "Any simple weapon", "items": ["Simple weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "melee",
+        "prompt": "Melee weapon",
+        "options": [
+          {"label": "Scimitar", "items": ["Scimitar"], "ac_base": null, "ac_type": null},
+          {"label": "Any simple melee weapon", "items": ["Simple melee weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Leather armor", "Explorer's pack", "Druidic focus"],
+    "default_ac": {"ac_base": 11, "ac_type": "light"},
+    "spellcasting": {
+      "ability": "Wisdom",
+      "slot_type": "full",
+      "cantrips_known": [2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4],
+      "spells_known": null,
+      "prepare_formula": "ability_mod + level"
+    }
+  },
+
+  "fighter": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"]
+    },
+    "equipment_choices": [
+      {
+        "id": "armor",
+        "prompt": "Armor",
+        "options": [
+          {"label": "Chain mail (AC 16, heavy)", "items": ["Chain mail"], "ac_base": 16, "ac_type": "fixed"},
+          {"label": "Leather armor + Longbow + 20 arrows (AC 11+DEX)", "items": ["Leather armor", "Longbow", "20 arrows"], "ac_base": 11, "ac_type": "light"}
+        ]
+      },
+      {
+        "id": "melee_setup",
+        "prompt": "Melee loadout",
+        "options": [
+          {"label": "Martial weapon + Shield (+2 AC)", "items": ["Martial weapon (your choice)", "Shield"], "ac_base": null, "ac_type": null, "shield": true},
+          {"label": "Two martial weapons", "items": ["Martial weapon (×2, your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "ranged",
+        "prompt": "Ranged option",
+        "options": [
+          {"label": "Light crossbow + 20 bolts", "items": ["Light crossbow", "20 crossbow bolts"], "ac_base": null, "ac_type": null},
+          {"label": "Two handaxes", "items": ["Handaxe (×2)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Dungeoneer's pack", "items": ["Dungeoneer's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": [],
+    "spellcasting": null
+  },
+
+  "monk": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"]
+    },
+    "equipment_choices": [
+      {
+        "id": "weapon",
+        "prompt": "Weapon",
+        "options": [
+          {"label": "Shortsword", "items": ["Shortsword"], "ac_base": null, "ac_type": null},
+          {"label": "Any simple weapon", "items": ["Simple weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Dungeoneer's pack", "items": ["Dungeoneer's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["10 Darts"],
+    "special_ac": "monk",
+    "spellcasting": null
+  },
+
+  "paladin": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"]
+    },
+    "equipment_choices": [
+      {
+        "id": "melee_setup",
+        "prompt": "Melee loadout",
+        "options": [
+          {"label": "Martial weapon + Shield (+2 AC)", "items": ["Martial weapon (your choice)", "Shield"], "ac_base": null, "ac_type": null, "shield": true},
+          {"label": "Two martial weapons", "items": ["Martial weapon (×2, your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "secondary",
+        "prompt": "Secondary weapon",
+        "options": [
+          {"label": "Five javelins", "items": ["Javelin (×5)"], "ac_base": null, "ac_type": null},
+          {"label": "Any simple melee weapon", "items": ["Simple melee weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Priest's pack", "items": ["Priest's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Chain mail (AC 16)", "Holy symbol"],
+    "default_ac": {"ac_base": 16, "ac_type": "fixed"},
+    "spellcasting": {
+      "ability": "Charisma",
+      "slot_type": "half",
+      "cantrips_known": null,
+      "spells_known": null,
+      "prepare_formula": "ability_mod + half_level"
+    }
+  },
+
+  "ranger": {
+    "skill_choices": {
+      "count": 3,
+      "options": ["Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"]
+    },
+    "equipment_choices": [
+      {
+        "id": "armor",
+        "prompt": "Armor",
+        "options": [
+          {"label": "Scale mail (AC 14 + max +2 DEX)", "items": ["Scale mail"], "ac_base": 14, "ac_type": "medium"},
+          {"label": "Leather armor (AC 11 + DEX)", "items": ["Leather armor"], "ac_base": 11, "ac_type": "light"}
+        ]
+      },
+      {
+        "id": "melee",
+        "prompt": "Melee weapons",
+        "options": [
+          {"label": "Two shortswords", "items": ["Shortsword (×2)"], "ac_base": null, "ac_type": null},
+          {"label": "Two simple melee weapons", "items": ["Simple melee weapon (×2, your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Dungeoneer's pack", "items": ["Dungeoneer's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Longbow", "Quiver of 20 arrows"],
+    "spellcasting": {
+      "ability": "Wisdom",
+      "slot_type": "half",
+      "cantrips_known": null,
+      "spells_known": [0,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11],
+      "prepare_formula": null
+    }
+  },
+
+  "rogue": {
+    "skill_choices": {
+      "count": 4,
+      "options": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]
+    },
+    "equipment_choices": [
+      {
+        "id": "weapon_a",
+        "prompt": "Primary weapon",
+        "options": [
+          {"label": "Rapier", "items": ["Rapier"], "ac_base": null, "ac_type": null},
+          {"label": "Shortsword", "items": ["Shortsword"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "weapon_b",
+        "prompt": "Ranged weapon",
+        "options": [
+          {"label": "Shortbow + quiver of 20 arrows", "items": ["Shortbow", "Quiver of 20 arrows"], "ac_base": null, "ac_type": null},
+          {"label": "Shortsword", "items": ["Shortsword"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Burglar's pack", "items": ["Burglar's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Dungeoneer's pack", "items": ["Dungeoneer's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Leather armor", "Two daggers", "Thieves' tools"],
+    "default_ac": {"ac_base": 11, "ac_type": "light"},
+    "spellcasting": null
+  },
+
+  "sorcerer": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"]
+    },
+    "equipment_choices": [
+      {
+        "id": "weapon",
+        "prompt": "Weapon",
+        "options": [
+          {"label": "Light crossbow + 20 bolts", "items": ["Light crossbow", "20 crossbow bolts"], "ac_base": null, "ac_type": null},
+          {"label": "Any simple weapon", "items": ["Simple weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "focus",
+        "prompt": "Spellcasting focus",
+        "options": [
+          {"label": "Component pouch", "items": ["Component pouch"], "ac_base": null, "ac_type": null},
+          {"label": "Arcane focus", "items": ["Arcane focus"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Dungeoneer's pack", "items": ["Dungeoneer's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Two daggers"],
+    "spellcasting": {
+      "ability": "Charisma",
+      "slot_type": "full",
+      "cantrips_known": [4,4,4,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6],
+      "spells_known": [2,3,4,5,6,7,8,9,10,11,12,12,13,13,14,14,15,15,15,15],
+      "prepare_formula": null
+    }
+  },
+
+  "warlock": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"]
+    },
+    "equipment_choices": [
+      {
+        "id": "weapon",
+        "prompt": "Weapon",
+        "options": [
+          {"label": "Light crossbow + 20 bolts", "items": ["Light crossbow", "20 crossbow bolts"], "ac_base": null, "ac_type": null},
+          {"label": "Any simple weapon", "items": ["Simple weapon (your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "focus",
+        "prompt": "Spellcasting focus",
+        "options": [
+          {"label": "Component pouch", "items": ["Component pouch"], "ac_base": null, "ac_type": null},
+          {"label": "Arcane focus", "items": ["Arcane focus"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Scholar's pack", "items": ["Scholar's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Dungeoneer's pack", "items": ["Dungeoneer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Leather armor", "Simple weapon (your choice)", "Two daggers"],
+    "default_ac": {"ac_base": 11, "ac_type": "light"},
+    "spellcasting": {
+      "ability": "Charisma",
+      "slot_type": "pact",
+      "cantrips_known": [2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4],
+      "spells_known": [2,3,4,5,6,7,8,9,10,10,11,11,12,12,13,13,14,14,15,15],
+      "prepare_formula": null
+    }
+  },
+
+  "wizard": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"]
+    },
+    "equipment_choices": [
+      {
+        "id": "weapon",
+        "prompt": "Weapon",
+        "options": [
+          {"label": "Quarterstaff", "items": ["Quarterstaff"], "ac_base": null, "ac_type": null},
+          {"label": "Dagger", "items": ["Dagger"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "focus",
+        "prompt": "Spellcasting focus",
+        "options": [
+          {"label": "Component pouch", "items": ["Component pouch"], "ac_base": null, "ac_type": null},
+          {"label": "Arcane focus", "items": ["Arcane focus"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Scholar's pack", "items": ["Scholar's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["Spellbook"],
+    "spellcasting": {
+      "ability": "Intelligence",
+      "slot_type": "full",
+      "cantrips_known": [3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5],
+      "spells_known": null,
+      "prepare_formula": "ability_mod + level"
+    }
+  },
+
+  "sevrinn": {
+    "skill_choices": {
+      "count": 2,
+      "options": ["Arcana", "Athletics", "Nature", "Perception", "Survival"]
+    },
+    "equipment_choices": [
+      {
+        "id": "armor",
+        "prompt": "Armor",
+        "options": [
+          {"label": "Chain shirt (AC 13 + max +2 DEX)", "items": ["Chain shirt"], "ac_base": 13, "ac_type": "medium"},
+          {"label": "Leather armor (AC 11 + DEX)", "items": ["Leather armor"], "ac_base": 11, "ac_type": "light"}
+        ]
+      },
+      {
+        "id": "weapon",
+        "prompt": "Weapon",
+        "options": [
+          {"label": "Martial weapon of your choice", "items": ["Martial weapon (your choice)"], "ac_base": null, "ac_type": null},
+          {"label": "Two simple weapons", "items": ["Simple weapon (×2, your choice)"], "ac_base": null, "ac_type": null}
+        ]
+      },
+      {
+        "id": "pack",
+        "prompt": "Adventuring pack",
+        "options": [
+          {"label": "Dungeoneer's pack", "items": ["Dungeoneer's pack"], "ac_base": null, "ac_type": null},
+          {"label": "Explorer's pack", "items": ["Explorer's pack"], "ac_base": null, "ac_type": null}
+        ]
+      }
+    ],
+    "equipment_fixed": ["3 Elemental Focus Crystals"],
+    "spellcasting": null
+  }
+}

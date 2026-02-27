@@ -1,0 +1,130 @@
+{
+  "backgrounds": [
+    {
+      "id": "sevrinn_initiate",
+      "name": "Sev'rinn Initiate",
+      "description": "Chosen for elemental attunement training under the Sev'rinn order. Whether you completed training or not, elemental essence still lingers within you.",
+      "skill_proficiencies": ["Arcana", "Insight"],
+      "tool_proficiencies": ["Herbalism kit"],
+      "languages": ["One of your choice"],
+      "equipment": "Small crystal vial (remnants of a failed elemental ritual), simple robes, scroll with elemental theory notes, 10 gp",
+      "feature": {
+        "name": "Elemental Echoes",
+        "description": "Once per long rest, you can subtly influence the environment with elemental essence—stir a gentle breeze, flare a small spark, or ripple nearby water. This minor effect can influence NPCs or hint at your elemental connection."
+      },
+      "icon": "🔮"
+    },
+    {
+      "id": "ban_mynydd_miner",
+      "name": "Ban Mynydd Miner",
+      "description": "Raised in the deep tunnels of Ban Mynydd, you are accustomed to dark, cramped, and dangerous underground work.",
+      "skill_proficiencies": ["Athletics", "Perception"],
+      "tool_proficiencies": ["Smith's tools"],
+      "languages": [],
+      "equipment": "Small piece of raw ore, miner's tools, sturdy boots, 5 gp",
+      "feature": {
+        "name": "Tunnel Instincts",
+        "description": "You have advantage on Survival checks to navigate underground or labyrinthine environments. You have a knack for locating weak points in stone structures."
+      },
+      "icon": "⛏️"
+    },
+    {
+      "id": "skywatcher_holmea",
+      "name": "Skywatcher of Holmea",
+      "description": "Trained among the high spires and floating sanctuaries of Holmea, you are familiar with astral magic and the movements of celestial bodies.",
+      "skill_proficiencies": ["Arcana", "Religion"],
+      "tool_proficiencies": ["Cartographer's tools"],
+      "languages": ["Celestial or Deep Speech (your choice)"],
+      "equipment": "Star chart (Holmea-only constellations), small telescope, common clothes, 8 gp",
+      "feature": {
+        "name": "Starborn Wisdom",
+        "description": "Once per long rest, you can ask the GM a yes-or-no question about events or locations connected to the astral plane. The answer may come as a cryptic hint or vision during your next long rest."
+      },
+      "icon": "⭐"
+    },
+    {
+      "id": "ghost_whisperer",
+      "name": "Ghost Whisperer of Dollow Canyon",
+      "description": "You learned to interact with the unnatural spirits teeming in the twisted growth of Dollow Canyon. Ghosts know your name.",
+      "skill_proficiencies": ["Deception", "Religion"],
+      "tool_proficiencies": [],
+      "languages": ["One of your choice (often tied to ancient rituals or necromancy)"],
+      "equipment": "Simple lantern, ritual dagger, journal of ghost stories, 10 gp",
+      "feature": {
+        "name": "Whispered Guidance",
+        "description": "Once per long rest, you can call upon a minor ghost for assistance. It provides brief, vague information about a place, person, or event you inquire about."
+      },
+      "icon": "👻"
+    },
+    {
+      "id": "kigan_uldar_champion",
+      "name": "Kigan Uldar Champion",
+      "description": "You trained for years in Kigan Uldar—a brutal competition where skill, endurance, and quick thinking determine victory.",
+      "skill_proficiencies": ["Athletics", "Intimidation"],
+      "tool_proficiencies": ["Kigan Uldar gaming set"],
+      "languages": ["One of your choice"],
+      "equipment": "Token of victory (medal, whistle, or cloth strip), athletic clothes, waterskin, 12 gp",
+      "feature": {
+        "name": "Fame of the Field",
+        "description": "Your recognition from sport fans may grant you shelter, food, or basic supplies. You can also gain access to competitive events and secure audiences with high-status individuals who enjoy the sport."
+      },
+      "icon": "🏆"
+    },
+    {
+      "id": "utfordring_diver",
+      "name": "Utfordring Diver",
+      "description": "Your life was spent training in the depths—an agile and strategic underwater competitor, whether in the official league or unsanctioned matches.",
+      "skill_proficiencies": ["Acrobatics", "Sleight of Hand"],
+      "tool_proficiencies": ["Navigator's tools or water vehicles"],
+      "languages": [],
+      "equipment": "Diving mask or Utfordring trinket, waterproof pouch (10 gp), game token from a match, lightweight clothing",
+      "feature": {
+        "name": "Aquatic Agility",
+        "description": "You have advantage on Dexterity (Acrobatics) checks made underwater to avoid hazards or escape grapples. Utfordring athletes and fans may recognize you and grant favors or information."
+      },
+      "icon": "🌊"
+    },
+    {
+      "id": "weirding_refugee",
+      "name": "Weirding Refugee",
+      "description": "Displaced by a Weird Zone disaster, you are a survivor carrying mental or physical scars from the experience. The Weirding left its mark on you.",
+      "skill_proficiencies": ["Insight", "Stealth"],
+      "tool_proficiencies": ["Alchemist's supplies or herbalism kit"],
+      "languages": ["One of your choice"],
+      "equipment": "Shard of strange glass from your home, plain clothes, small journal with scribbled memories, 5 gp",
+      "feature": {
+        "name": "Touched by the Weirding",
+        "description": "Once per long rest, you can make a Wisdom (Insight) check to predict how an unfamiliar creature or person might react. You also have advantage on checks to understand or resist environmental anomalies caused by Weird Zones."
+      },
+      "icon": "🌀"
+    },
+    {
+      "id": "hurstwold_warden",
+      "name": "Hurstwold Warden",
+      "description": "You walked the paths of the ancient Hurstwold forest, learning to navigate its treacherous terrain and coexist with its mystical inhabitants.",
+      "skill_proficiencies": ["Nature", "Stealth"],
+      "tool_proficiencies": ["Herbalism kit"],
+      "languages": ["Sylvan"],
+      "equipment": "Wooden charm from the forest, hunting knife, cloak of enchanted leaves, 10 gp",
+      "feature": {
+        "name": "Friend of the Forest",
+        "description": "You can move through difficult terrain in Hurstwold without penalty. Creatures native to the forest are less likely to view you as a threat, and may offer aid or information."
+      },
+      "icon": "🌿"
+    },
+    {
+      "id": "surreymouth_trader",
+      "name": "Surreymouth Trader",
+      "description": "You grew up navigating Surreymouth's bustling markets and docks, mastering the art of haggling, bargaining, and moving goods—legally or otherwise.",
+      "skill_proficiencies": ["Deception", "Insight"],
+      "tool_proficiencies": ["Vehicles (water) or one type of gaming set"],
+      "languages": ["One of your choice"],
+      "equipment": "Ledger of trade contacts, fine clothes, satchel with exotic goods samples, 15 gp",
+      "feature": {
+        "name": "Marketplace Connections",
+        "description": "Once per long rest, you can secure a discount or locate a rare item (subject to GM approval). You can also use your contacts to gather rumors and information from the merchant networks of Ryndor."
+      },
+      "icon": "⚖️"
+    }
+  ]
+}
