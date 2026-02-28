@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryndor: Character Maker</title>
+  <meta name="description" content="An aesthetic D&D 5e character sheet builder for Ryndor: The Weirded Lands. Build characters, roll randomly with AI, and export to PDF." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🐉</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --void:       #040010;
+      --deep:       #080118;
+      --rift:       #120630;
+      --weird:      #7c3aed;
+      --weird-glow: #a78bfa;
+      --weird-dim:  rgba(124,58,237,0.15);
+      --elem:       #22d3ee;
+      --elem-glow:  #67e8f9;
+      --ember:      #f59e0b;
+      --ember-glow: #fcd34d;
+      --text:       #e2d9f3;
+      --text-dim:   #a99cbf;
+      --text-mute:  #4e3d6e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Crimson Text', Georgia, serif;
+      background-color: var(--void);
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 70% 50% at 10% 5%,  rgba(124,58,237,0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 90% 85%, rgba(34,211,238,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 80% 80% at 50% 50%, #04000f 0%, #020008 100%);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4, .cinzel { font-family: 'Cinzel', serif; }
+
+    a { color: var(--weird-glow); text-decoration: none; }
+    a:hover { color: var(--elem-glow); }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(4,0,16,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(124,58,237,0.2);
+    }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--weird-glow);
+      letter-spacing: 0.05em;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--weird-glow); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+    .hero-dragon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 32px rgba(124,58,237,0.8));
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, var(--weird-glow) 0%, var(--elem-glow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.4rem;
+    }
+    .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.85rem, 2vw, 1.1rem);
+      color: var(--ember-glow);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-desc {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--text-dim);
+      font-style: italic;
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all .25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #6d28d9, #7c3aed);
+      color: #fff;
+      box-shadow: 0 0 24px rgba(124,58,237,0.5);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      box-shadow: 0 0 36px rgba(124,58,237,0.8);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--elem-glow);
+      border: 1px solid var(--elem);
+    }
+    .btn-secondary:hover {
+      background: rgba(34,211,238,0.1);
+      box-shadow: 0 0 20px rgba(34,211,238,0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ── Divider ── */
+    .rune-divider {
+      text-align: center;
+      color: var(--text-mute);
+      font-size: 1.2rem;
+      letter-spacing: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    /* ── Sections ── */
+    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--weird-glow);
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
+    }
+    .section-body {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    /* ── Features grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .feature-card {
+      background: rgba(18,6,48,0.6);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .feature-card:hover {
+      border-color: rgba(124,58,237,0.5);
+      box-shadow: 0 0 24px rgba(124,58,237,0.15);
+    }
+    .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .feature-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--elem-glow);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+    .feature-card p { font-size: 1.05rem; color: var(--text-dim); line-height: 1.65; }
+
+    /* ── Races & Classes ── */
+    .lore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .lore-card {
+      background: rgba(8,1,24,0.7);
+      border: 1px solid rgba(124,58,237,0.15);
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: all .25s;
+    }
+    .lore-card:hover {
+      border-color: rgba(167,139,250,0.4);
+      background: rgba(124,58,237,0.08);
+      transform: translateY(-3px);
+    }
+    .lore-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .lore-card .name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--weird-glow);
+      letter-spacing: 0.05em;
+    }
+
+    .class-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .class-pill {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34,211,238,0.3);
+      color: var(--elem-glow);
+      background: rgba(34,211,238,0.05);
+    }
+    .class-pill.special {
+      border-color: rgba(245,158,11,0.5);
+      color: var(--ember-glow);
+      background: rgba(245,158,11,0.07);
+    }
+
+    /* ── AI section ── */
+    .ai-card {
+      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(34,211,238,0.06));
+      border: 1px solid rgba(124,58,237,0.35);
+      border-radius: 16px;
+      padding: 3rem;
+      margin-top: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(124,58,237,0.12), transparent);
+      pointer-events: none;
+    }
+    .ai-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .ai-step { display: flex; gap: 1rem; align-items: flex-start; }
+    .ai-step-num {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--weird-glow);
+      opacity: 0.4;
+      min-width: 2rem;
+      line-height: 1;
+    }
+    .ai-step-text h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--elem-glow);
+      margin-bottom: 0.3rem;
+    }
+    .ai-step-text p { font-size: 0.95rem; color: var(--text-dim); line-height: 1.5; }
+
+    /* ── Stack ── */
+    .stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .stack-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      background: rgba(8,1,24,0.8);
+      border: 1px solid rgba(124,58,237,0.25);
+      color: var(--text-dim);
+    }
+
+    /* ── CTA ── */
+    .cta {
+      text-align: center;
+      padding: 5rem 2rem;
+      border-top: 1px solid rgba(124,58,237,0.15);
+    }
+    .cta h2 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--weird-glow);
+      margin-bottom: 1rem;
+    }
+    .cta p { font-size: 1.2rem; color: var(--text-dim); font-style: italic; margin-bottom: 2rem; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-mute);
+      border-top: 1px solid rgba(124,58,237,0.1);
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+      .ai-card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <span class="nav-logo">🐉 Ryndor</span>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#races">Races</a>
+      <a href="#ai">AI Roll</a>
+      <a href="https://github.com/YOUR_GITHUB_USERNAME/ryndor-character-maker">GitHub</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-dragon">🐉</div>
+    <h1>Ryndor: Character Maker</h1>
+    <p class="hero-subtitle">The Weirded Lands · D&amp;D 5e</p>
+    <p class="hero-desc">
+      An aesthetic character sheet builder for the Ryndor homebrew sourcebook.
+      Build your hero step by step — or let fate decide.
+    </p>
+    <div class="btn-group">
+      <a class="btn btn-primary" href="https://YOUR_CLOUD_RUN_URL">🎲 Launch the App</a>
+      <a class="btn btn-secondary" href="https://github.com/YOUR_GITHUB_USERNAME/ryndor-character-maker">View on GitHub</a>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section id="features">
+    <p class="section-label">What it does</p>
+    <h2 class="section-title">Everything you need, nothing you don't</h2>
+    <p class="section-body">A guided six-step builder that handles all the maths — so you can focus on the story.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📜</div>
+        <h3>Guided 6-Step Builder</h3>
+        <p>Walk through race, class, background, ability scores, and equipment with a clean, opinionated UI.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚔️</div>
+        <h3>Full Combat Sheet</h3>
+        <p>AC, initiative, hit points, attacks, spell slots, saving throws, and skill modifiers — all computed automatically.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🖨️</div>
+        <h3>PDF Export</h3>
+        <p>Print your finished sheet directly from the browser. No third-party tools, no uploads.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Ryndor-Exclusive Content</h3>
+        <p>Custom races, classes, subclasses, and backgrounds drawn straight from the Weirded Lands sourcebook.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎲</div>
+        <h3>AI Random Roll</h3>
+        <p>One click generates a complete character — stats, equipment, skills — and uses Claude AI to write a name and personality.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Save &amp; Resume</h3>
+        <p>Export your character as JSON and pick up exactly where you left off in any future session.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rune-divider">✦ ✦ ✦</div>
+
+  <!-- Races -->
+  <section id="races">
+    <p class="section-label">Who will you be?</p>
+    <h2 class="section-title">Races of Ryndor</h2>
+    <p class="section-body">Six Ryndor-original peoples alongside four familiar faces — each with unique traits, languages, and lore.</p>
+
+    <div class="lore-grid">
+      <div class="lore-card"><div class="icon">🦅</div><div class="name">Aviari</div></div>
+      <div class="lore-card"><div class="icon">🦌</div><div class="name">Cervar</div></div>
+      <div class="lore-card"><div class="icon">🐉</div><div class="name">Drakarim</div></div>
+      <div class="lore-card"><div class="icon">🦇</div><div class="name">Khuzud</div></div>
+      <div class="lore-card"><div class="icon">🐇</div><div class="name">Leoporin</div></div>
+      <div class="lore-card"><div class="icon">🌌</div><div class="name">Nebernorian</div></div>
+      <div class="lore-card"><div class="icon">🧑</div><div class="name">Human</div></div>
+      <div class="lore-card"><div class="icon">🧝</div><div class="name">Elf</div></div>
+      <div class="lore-card"><div class="icon">😈</div><div class="name">Tiefling</div></div>
+      <div class="lore-card"><div class="icon">⛏️</div><div class="name">Dwarf</div></div>
+    </div>
+
+    <br><br>
+    <p class="section-label">What will you become?</p>
+    <h2 class="section-title">13 Classes</h2>
+    <p class="section-body">All twelve PHB classes plus the Ryndor-original Sev'rinn — an elemental attunement class with nine unique subclasses.</p>
+    <div class="class-list">
+      <span class="class-pill">Barbarian</span>
+      <span class="class-pill">Bard</span>
+      <span class="class-pill">Cleric</span>
+      <span class="class-pill">Druid</span>
+      <span class="class-pill">Fighter</span>
+      <span class="class-pill">Monk</span>
+      <span class="class-pill">Paladin</span>
+      <span class="class-pill">Ranger</span>
+      <span class="class-pill">Rogue</span>
+      <span class="class-pill">Sorcerer</span>
+      <span class="class-pill">Warlock</span>
+      <span class="class-pill">Wizard</span>
+      <span class="class-pill special">✦ Sev'rinn</span>
+    </div>
+  </section>
+
+  <div class="rune-divider">✦ ✦ ✦</div>
+
+  <!-- AI -->
+  <section id="ai">
+    <p class="section-label">Powered by Claude</p>
+    <h2 class="section-title">🎲 Roll Random Character</h2>
+    <p class="section-body">Can't decide? One button generates a complete, playable character in seconds.</p>
+
+    <div class="ai-card">
+      <div class="ai-steps">
+        <div class="ai-step">
+          <div class="ai-step-num">1</div>
+          <div class="ai-step-text">
+            <h4>Randomise Everything</h4>
+            <p>Race, class, subclass, background, alignment, and a shuffled Standard Array across all six stats.</p>
+          </div>
+        </div>
+        <div class="ai-step">
+          <div class="ai-step-num">2</div>
+          <div class="ai-step-text">
+            <h4>Pick Skills &amp; Gear</h4>
+            <p>Class skill options and equipment choices are sampled automatically, avoiding conflicts with racial and background grants.</p>
+          </div>
+        </div>
+        <div class="ai-step">
+          <div class="ai-step-num">3</div>
+          <div class="ai-step-text">
+            <h4>Claude Writes the Story</h4>
+            <p>The Anthropic API generates a fitting name, personality, ideals, bonds, and flaws based on the rolled combination.</p>
+          </div>
+        </div>
+        <div class="ai-step">
+          <div class="ai-step-num">4</div>
+          <div class="ai-step-text">
+            <h4>Jump to the Sheet</h4>
+            <p>The fully computed character sheet is ready instantly — print it, save it, or keep rolling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rune-divider">✦ ✦ ✦</div>
+
+  <!-- Stack -->
+  <section id="stack">
+    <p class="section-label">Under the hood</p>
+    <h2 class="section-title">Built with</h2>
+    <div class="stack-row">
+      <span class="stack-badge">Python</span>
+      <span class="stack-badge">Streamlit</span>
+      <span class="stack-badge">Claude (Anthropic API)</span>
+      <span class="stack-badge">fpdf2</span>
+      <span class="stack-badge">Docker</span>
+      <span class="stack-badge">Google Cloud Run</span>
+      <span class="stack-badge">Cinzel &amp; Crimson Text</span>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Your fate awaits.</h2>
+    <p>Step into the Weirded Lands and forge your legend.</p>
+    <a class="btn btn-primary" href="https://YOUR_CLOUD_RUN_URL">🐉 Launch the App</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Ryndor: The Weirded Lands &nbsp;·&nbsp;
+    <a href="https://github.com/YOUR_GITHUB_USERNAME/ryndor-character-maker">GitHub</a>
+  </footer>
+
+</body>
+</html>
