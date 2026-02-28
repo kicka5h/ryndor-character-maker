@@ -26,7 +26,17 @@ def load_races():
 @st.cache_data
 def load_classes():
     with open(DATA_DIR / "classes.json") as f:
-        return json.load(f)["classes"]
+        classes = json.load(f)["classes"]
+    try:
+        with open(DATA_DIR / "srd_subclasses.json") as f:
+            srd = json.load(f)
+        for cls in classes:
+            srd_subs = srd.get(cls["id"], [])
+            if srd_subs:
+                cls["subclasses"] = cls["subclasses"] + srd_subs
+    except FileNotFoundError:
+        pass
+    return classes
 
 @st.cache_data
 def load_backgrounds():
@@ -86,6 +96,26 @@ SRD_LANGUAGES = [
     "Abyssal", "Celestial", "Deep Speech", "Draconic", "Infernal", "Primordial", "Undercommon",
 ]
 ALL_LANGUAGES = sorted(set(RYNDOR_LANGUAGES + SRD_LANGUAGES))
+
+# ── Optimal stat priority per class ───────────────────────────────────────────
+# Order: highest priority stat first. Standard Array [15,14,13,12,10,8] assigned in this order.
+CLASS_STAT_PRIORITY = {
+    "barbarian": ["STR", "CON", "DEX", "WIS", "CHA", "INT"],
+    "bard":      ["CHA", "DEX", "CON", "WIS", "INT", "STR"],
+    "cleric":    ["WIS", "CON", "STR", "CHA", "INT", "DEX"],
+    "druid":     ["WIS", "CON", "INT", "DEX", "CHA", "STR"],
+    "fighter":   ["STR", "CON", "DEX", "WIS", "INT", "CHA"],
+    "monk":      ["DEX", "WIS", "CON", "STR", "INT", "CHA"],
+    "paladin":   ["STR", "CHA", "CON", "WIS", "DEX", "INT"],
+    "ranger":    ["DEX", "WIS", "CON", "STR", "INT", "CHA"],
+    "rogue":     ["DEX", "CON", "INT", "WIS", "CHA", "STR"],
+    "sorcerer":  ["CHA", "CON", "DEX", "WIS", "INT", "STR"],
+    "warlock":   ["CHA", "CON", "DEX", "WIS", "INT", "STR"],
+    "wizard":    ["INT", "CON", "DEX", "WIS", "CHA", "STR"],
+    "artificer": ["INT", "CON", "DEX", "WIS", "CHA", "STR"],
+    "sevrinn":   ["CON", "DEX", "WIS", "STR", "INT", "CHA"],
+}
+STANDARD_ARRAY = [15, 14, 13, 12, 10, 8]
 
 # ─────────────────────────────────────────────────────────────────────────────
 # STYLING
@@ -1251,6 +1281,36 @@ elif st.session_state.step == 5:
 elif st.session_state.step == 6:
     race = get_race(st.session_state.race_id)
 
+    cls_stats = get_class(st.session_state.class_id)
+    priority = CLASS_STAT_PRIORITY.get(st.session_state.class_id or "", [])
+    STAT_KEYS = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+    STAT_FULL = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+    STAT_LONG = {"STR":"Strength","DEX":"Dexterity","CON":"Constitution",
+                 "INT":"Intelligence","WIS":"Wisdom","CHA":"Charisma"}
+
+    # ── Optimize button: assign Standard Array in class priority order ──
+    if priority and cls_stats:
+        # Show priority order as badge strip
+        priority_html = " → ".join(
+            f'<span class="badge" style="font-size:0.8rem;padding:3px 8px">'
+            f'{"★ " if i == 0 else ""}{k}</span>'
+            for i, k in enumerate(priority)
+        )
+        opt_col1, opt_col2 = st.columns([3, 1])
+        with opt_col1:
+            st.markdown(
+                f'<div style="margin-bottom:0.6rem">'
+                f'<span style="font-family:Cinzel,serif;color:#c9a84c;font-size:0.78rem;'
+                f'letter-spacing:0.08em">OPTIMAL FOR {cls_stats["name"].upper()}: </span>'
+                f'{priority_html}</div>',
+                unsafe_allow_html=True
+            )
+        with opt_col2:
+            if st.button(f"⚡ Auto-Arrange", use_container_width=True, help=f"Assign Standard Array values in optimal order for {cls_stats['name']}"):
+                for stat_key, value in zip(priority, STANDARD_ARRAY):
+                    st.session_state.stats[stat_key] = value
+                st.rerun()
+
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.markdown('<div class="section-header">🎲 Ability Scores</div>', unsafe_allow_html=True)
 
@@ -1262,21 +1322,25 @@ elif st.session_state.step == 6:
     )
     st.session_state.stat_method = method
 
-    STANDARD = [15, 14, 13, 12, 10, 8]
-    STAT_KEYS = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
-    STAT_FULL = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-
     if method == "Standard Array":
-        st.markdown(f'<p style="font-family:Crimson Text,serif; color:#c8aa70; margin-bottom:0.8rem">Assign these values to your abilities: <b>{" · ".join(str(x) for x in STANDARD)}</b></p>', unsafe_allow_html=True)
+        st.markdown(
+            f'<p style="font-family:Crimson Text,serif; color:#c8aa70; margin-bottom:0.8rem">'
+            f'Assign these values to your abilities: <b>{" · ".join(str(x) for x in STANDARD_ARRAY)}</b>'
+            f'{"  —  click ⚡ Auto-Arrange to apply the optimal order for your class." if priority else ""}</p>',
+            unsafe_allow_html=True
+        )
         cols = st.columns(6)
-        used = list(st.session_state.stats.values())
         for i, (col, key, full) in enumerate(zip(cols, STAT_KEYS, STAT_FULL)):
             with col:
-                options = sorted(set(STANDARD), reverse=True)
+                options = sorted(set(STANDARD_ARRAY), reverse=True)
                 current = st.session_state.stats[key]
                 if current not in options:
                     current = options[i % len(options)]
-                choice = st.selectbox(full[:3], options, index=options.index(current), key=f"sa_{key}")
+                # Highlight if this stat is the top priority
+                label = full[:3]
+                if priority and priority.index(key) == 0:
+                    label = f"★ {full[:3]}"
+                choice = st.selectbox(label, options, index=options.index(current), key=f"sa_{key}")
                 st.session_state.stats[key] = choice
 
     elif method == "Point Buy":
@@ -1285,19 +1349,35 @@ elif st.session_state.step == 6:
         spent = sum(COSTS.get(v, 0) for v in st.session_state.stats.values())
         remaining = total_points - spent
         color = "#50c050" if remaining >= 0 else "#e04040"
-        st.markdown(f'<p style="font-family:Cinzel,serif; color:{color}; margin-bottom:0.8rem">Points Remaining: <b>{remaining}</b> / {total_points}</p>', unsafe_allow_html=True)
+        st.markdown(
+            f'<p style="font-family:Cinzel,serif; color:{color}; margin-bottom:0.8rem">'
+            f'Points Remaining: <b>{remaining}</b> / {total_points}'
+            f'{"  —  click ⚡ Auto-Arrange for the optimal distribution for your class." if priority else ""}</p>',
+            unsafe_allow_html=True
+        )
         cols = st.columns(6)
         for col, key, full in zip(cols, STAT_KEYS, STAT_FULL):
             with col:
-                val = st.number_input(full[:3], min_value=8, max_value=15, value=st.session_state.stats[key], key=f"pb_{key}")
+                label = full[:3]
+                if priority and priority.index(key) == 0:
+                    label = f"★ {full[:3]}"
+                val = st.number_input(label, min_value=8, max_value=15, value=st.session_state.stats[key], key=f"pb_{key}")
                 st.session_state.stats[key] = val
 
     else:  # Manual
-        st.markdown('<p style="font-family:Crimson Text,serif; color:#c8aa70; margin-bottom:0.8rem">Enter your scores directly (rolled or custom).</p>', unsafe_allow_html=True)
+        st.markdown(
+            f'<p style="font-family:Crimson Text,serif; color:#c8aa70; margin-bottom:0.8rem">'
+            f'Enter your scores directly (rolled or custom).'
+            f'{"  The ⚡ Auto-Arrange button can suggest an optimal distribution." if priority else ""}</p>',
+            unsafe_allow_html=True
+        )
         cols = st.columns(6)
         for col, key, full in zip(cols, STAT_KEYS, STAT_FULL):
             with col:
-                val = st.number_input(full[:3], min_value=1, max_value=30, value=st.session_state.stats[key], key=f"man_{key}")
+                label = full[:3]
+                if priority and priority.index(key) == 0:
+                    label = f"★ {full[:3]}"
+                val = st.number_input(label, min_value=1, max_value=30, value=st.session_state.stats[key], key=f"man_{key}")
                 st.session_state.stats[key] = val
 
     st.markdown('</div>', unsafe_allow_html=True)
