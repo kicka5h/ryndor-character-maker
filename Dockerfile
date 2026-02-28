@@ -9,11 +9,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy app
 COPY app/ ./app/
 
-# Streamlit config
+# Streamlit config — no port here; port is set at runtime via $PORT
 RUN mkdir -p /root/.streamlit
 RUN echo '\
 [server]\n\
-port = 8501\n\
 address = "0.0.0.0"\n\
 headless = true\n\
 enableCORS = false\n\
@@ -27,6 +26,7 @@ textColor = "#e2d9f3"\n\
 primaryColor = "#7c3aed"\n\
 ' > /root/.streamlit/config.toml
 
-EXPOSE 8501
+# PORT defaults to 8501 locally; Cloud Run overrides it with 8080
+EXPOSE 8080
 
-CMD ["streamlit", "run", "app/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["sh", "-c", "streamlit run app/app.py --server.port=${PORT:-8501} --server.address=0.0.0.0"]
