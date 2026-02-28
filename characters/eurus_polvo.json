@@ -1,0 +1,124 @@
+{
+  "char_name": "Eurus Polvo",
+  "player_name": "",
+  "char_level": 3,
+  "race_id": "elf",
+  "race_note": "Wood Elf (non-Ryndor race, GM-approved). +2 DEX, +1 WIS. Darkvision 60 ft. Keen Senses (Perception prof). Fey Ancestry (adv. vs. charm, immune to magical sleep). Trance (4 hr rest). Fleet of Foot (speed 35 ft). Mask of the Wild (hide in light natural obscurement). Weapon training: longsword, shortsword, shortbow, longbow. Languages: Common, Elvish.",
+  "class_id": "sevrinn",
+  "subclass_id": "skycaller",
+  "background_id": "sevrinn_initiate",
+  "alignment": "Chaotic Good",
+  "stats": {
+    "STR": 12,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 10,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "stat_method": "Standard Array",
+  "stat_notes": "Pre-racial: STR 12, DEX 13, CON 15, INT 10, WIS 14, CHA 8. Wood Elf: +2 DEX, +1 WIS.",
+  "chosen_skills": ["Athletics", "Nature", "Perception", "Arcana", "Insight"],
+  "skill_sources": {
+    "Athletics": "Sev'rinn",
+    "Nature": "Sev'rinn",
+    "Perception": "Wood Elf (Keen Senses)",
+    "Arcana": "Sev'rinn Initiate (background)",
+    "Insight": "Sev'rinn Initiate (background)"
+  },
+  "inv_weapons": ["mace"],
+  "weapon_flavor": "Sturdy hardwood flute, carved from Holmea ironwood — declared equivalent to a mace (simple melee, 1d6 bludgeoning). Attack: +3 (STR +1 + prof +2). The flute is played and swung as a single instrument; techniques that produce sound or wind emit from the bore of the flute itself.",
+  "equipped_main": "mace",
+  "equipped_offhand": null,
+  "has_dual_wielder": false,
+  "inv_gear": ["leather armor", "herbalism kit", "crystal vial (small permanent storm inside — failed initiate ritual, never dispelled)", "simple robes", "scroll of elemental theory notes", "common clothes", "explorer's pack"],
+  "class_options": {},
+  "expertise_skills": [],
+  "chosen_languages": ["Common", "Elvish"],
+  "chosen_techniques": [
+    {
+      "id": "gust_push",
+      "name": "Gust Push",
+      "level": 1,
+      "usage": "Costs 1 Elemental Charge",
+      "note": "Bonus action, 20 ft range, STR save or pushed 5 ft. Opens fights and sets up positioning."
+    },
+    {
+      "id": "sonic_clap",
+      "name": "Sonic Clap",
+      "level": 1,
+      "usage": "Costs 1 Elemental Charge",
+      "note": "Bonus action, 5 ft radius, CON save or 1d6 thunder + deafened until start of your next turn. Thematic: Eurus plays a resonant shock chord on the flute. Use when surrounded."
+    },
+    {
+      "id": "wind_dance",
+      "name": "Wind Dance",
+      "level": 3,
+      "usage": "2/Short Rest",
+      "note": "Bonus action: Dash + ignore difficult terrain + no OA all turn. Core mobility technique. Pair with a melee attack."
+    },
+    {
+      "id": "lightning_lash",
+      "name": "Lightning Lash",
+      "level": 3,
+      "usage": "2/Short Rest",
+      "note": "Bonus action, 15 ft, ranged spell attack (WIS +2 + prof +2 = +4). Hit: 2d6 lightning + target loses reactions until start of its next turn. Shuts down counterspell and shield."
+    }
+  ],
+  "elemental_charges": {
+    "max": 3,
+    "notes": "3 charges at level 3 (3rd–4th row). All restored on short or long rest. Weirding Surge: roll d6 on every charge spend; the result on the Surge Table always occurs."
+  },
+  "shift_preference": "Lock — Tempest Strike (6) in melee for prone/push on every hit. Cyclone's Touch (1) when mobility is more valuable than damage.",
+  "asi_choices": {},
+  "notes": "Eurus Polvo attended a Sev'rinn initiate house in Holmea for three years, during which she was written up eleven times for 'unsanctioned elemental discharge in communal areas,' graduated anyway because her air attunement was the strongest her instructor had seen in a decade, and was politely asked not to come back for the reunion. The flute was technically in the initiate house music room when she left; she considers this a detail of diminishing relevance. The crystal vial from her kit has had a small permanent storm inside it since her second year — a failed dispel ritual she gave up on and now considers a personality trait.",
+  "personality": "I name gusts of wind. Not every gust — just the ones with character. 'That's Miravel,' I'll say, 'she comes in from the northeast like she's annoyed about something.' I also commentate weather out loud in real time. People find this unsettling. I find it useful.",
+  "ideals": "Passage. Everything that moves — wind, sound, water, people — has a right to keep moving. I will always open a closed window. I have never once met a door I thought should stay shut.",
+  "bonds": "The flute and I have an understanding: it screams at the worst possible moments and I carry it anyway. It has embarrassed me at two diplomatic meetings, one funeral, and what I was told was a very quiet monastery. I think it likes me.",
+  "flaws": "I have no indoor voice. This is not a figure of speech — I have genuinely never located one. The attunement makes it worse: when I get excited the air pressure in the room changes noticeably. At least three tavern owners in Holmea have put something on their door with my face on it. I choose to take this as recognition.",
+  "combat_tactics": {
+    "role": "Mobile skirmisher and battlefield disruptor. Eurus uses terrain and positioning to stay dangerous at both melee and short range, peeling apart enemy formations with wind and lightning while the flute keeps swinging.",
+    "key_stats": {
+      "hp": 28,
+      "ac": 13,
+      "ac_note": "Leather armor (11) + DEX mod (+2)",
+      "initiative": "+2",
+      "speed": "35 ft (Wood Elf)",
+      "proficiency_bonus": "+2",
+      "spell_save_dc": 12,
+      "spell_attack": "+4",
+      "flute_attack": "+3 to hit, 1d6+1 bludgeoning"
+    },
+    "charge_economy": "3 charges at L3. Entering Shift costs 1 → 2 remaining. L1 and L3 techniques cost 1 each (minimum 1 even while Shifted). Typical combat budget: Shift + 2 technique uses = 0 charges. Or 3 techniques without Shifting. Refill on short rest.",
+    "tactics": [
+      {
+        "phase": "Opening",
+        "text": "Bonus action: Activate Windform (1C → 2 remaining). Lock on Tempest Strike (6) — on every melee hit, knock the target prone OR push them 10 ft back. Prone targets take attacks with advantage and stand up spending half their movement; pushed targets may fall off ledges or break formation. Move 35 ft to the highest-value melee target. Main action: Attack with flute (+3, 1d6+1 bludgeoning). On a hit, apply Tempest Strike."
+      },
+      {
+        "phase": "Positioning",
+        "text": "Gust Push (1C, bonus action): Push a target 5 ft in any direction. Use to push into difficult terrain, into another enemy's space to cause squeeze, off a ledge for fall damage, or simply away from an ally. Can be used before activating Shift if you want to set up the field before engaging. Range is 20 ft — no need to be adjacent."
+      },
+      {
+        "phase": "Mobility",
+        "text": "Wind Dance (1C, bonus action, 2/short rest): Dash with zero OA risk and ignore difficult terrain for the entire turn. Use to close on a target behind a battle line, escape being surrounded, or reposition across a broken battlefield. Combine with the main-action attack: Wind Dance in, swing, and you've moved up to 70 ft this turn (35 + 35 Dash) without provoking a single opportunity attack."
+      },
+      {
+        "phase": "Disruption",
+        "text": "Lightning Lash (1C, bonus action, 2/short rest, 15 ft): Ranged spell attack at +4. On a hit: 2d6 lightning and the target loses its reaction until the start of its next turn. Use this against any enemy who relies on reactions — counterspell, shield, hellish rebuke, attacks of opportunity. A spellcaster who can't counterspell is suddenly much less threatening. Also good when Eurus can't safely reach melee range."
+      },
+      {
+        "phase": "Surrounded",
+        "text": "Sonic Clap (1C, bonus action): 5 ft radius AoE, CON save (DC 12) or 1d6 thunder + deafened. When two or more enemies are adjacent, lead with this before your main attack. Deafened creatures automatically fail STR and DEX checks that require hearing and have disadvantage on Perception checks — not a showstopper, but the thunder damage softens everyone. Then Wind Dance out if needed."
+      },
+      {
+        "phase": "Weirding Surge Awareness",
+        "text": "Every charge you spend requires a d6 roll, and the result on the Surge Table always occurs — no avoiding it. At 3 charges per encounter, you'll roll 3 times. The table is not random noise to survive; it's part of Eurus's combat texture. Learn what the results do and build around them. At level 3 with limited charges, playing scared is worse than leaning into a bad roll."
+      },
+      {
+        "phase": "Short Rest Priority",
+        "text": "All charges restore on a short rest. If you have 0 charges and the party takes even a short rest, you're back to 3. Wind Dance and Lightning Lash restore 2 uses each on a short rest. Plan around this — push hard in each encounter, then rest. Don't hoard charges across multiple fights expecting them to stack."
+      }
+    ]
+  }
+}

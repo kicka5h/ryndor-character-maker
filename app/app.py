@@ -1428,7 +1428,7 @@ def generate_character_pdf():
         pdf.set_fill_color(*C_HDR_FILL)
         pdf.set_text_color(*C_HDR_TEXT)
         pdf.set_font("Helvetica", "B", 9)
-        pdf.cell(0, 7, title, ln=True, fill=True)
+        pdf.cell(0, 7, _pdf_safe(title), ln=True, fill=True)
         pdf.ln(1)
 
     pdf = FPDF()
@@ -1693,9 +1693,14 @@ def generate_character_pdf():
         pdf.set_font("Helvetica", "I", 8)
         pdf.cell(0, 5, _pdf_safe(cls_name), ln=True)
         for feat_item in cls_feats:
+            fi_name = feat_item["name"]
+            if feat_item.get("level") == 3 and fi_name == "Elemental Shift" and sub:
+                sub_form = next((f for f in sub.get("features", []) if f["level"] == 3), None)
+                if sub_form:
+                    fi_name = sub_form["name"]
             pdf.set_text_color(*C_HDR_TEXT)
             pdf.set_font("Helvetica", "B", 8)
-            pdf.cell(0, 4.5, _pdf_safe(f"[Lv.{feat_item['level']}] {feat_item['name']}"), ln=True)
+            pdf.cell(0, 4.5, _pdf_safe(f"[Lv.{feat_item['level']}] {fi_name}"), ln=True)
             pdf.set_text_color(*C_BODY)
             pdf.set_font("Helvetica", "", 7.5)
             pdf.multi_cell(0, 3.5, _pdf_safe(feat_item.get("description", "")))
@@ -1727,6 +1732,147 @@ def generate_character_pdf():
         pdf.set_font("Helvetica", "", 7.5)
         pdf.multi_cell(0, 3.5, _pdf_safe(bg_feat_data.get("description", "")))
         pdf.ln(3)
+
+    # ── Sev'rinn Elemental Sections ──
+    if cls and cls["id"] == "sevrinn" and sub:
+        sv_mech = cls.get("mechanics", {})
+
+        # Find level row
+        lvl_data = None
+        for row in sv_mech.get("level_table", []):
+            if row["min_level"] <= level <= row["max_level"]:
+                lvl_data = row
+                break
+
+        # ─ Elemental Resources ─
+        _sec("ELEMENTAL RESOURCES")
+        if lvl_data:
+            pdf.set_text_color(*C_STAT)
+            pdf.set_font("Helvetica", "B", 9)
+            pdf.cell(0, 5, _pdf_safe(
+                f"Charges: {lvl_data['charges']}  |  Techniques Known: {lvl_data['techniques']}"
+            ), ln=True)
+            pdf.ln(1)
+
+        pdf.set_text_color(*C_HDR_TEXT)
+        pdf.set_font("Helvetica", "B", 8)
+        pdf.cell(0, 4.5, "Weirding Surge:", ln=True)
+        pdf.set_text_color(*C_BODY)
+        pdf.set_font("Helvetica", "", 7.5)
+        pdf.multi_cell(0, 3.5, _pdf_safe(sv_mech.get("weirding_surge", "")))
+        pdf.ln(1)
+
+        es = sv_mech.get("elemental_shift", {})
+        if es:
+            pdf.set_text_color(*C_HDR_TEXT)
+            pdf.set_font("Helvetica", "B", 8)
+            pdf.cell(0, 4.5, "Elemental Shift (Bonus Action, 1 Charge):", ln=True)
+            pdf.set_text_color(*C_BODY)
+            pdf.set_font("Helvetica", "", 7.5)
+            pdf.multi_cell(0, 3.5, _pdf_safe(
+                f"Activation: {es.get('activation', '')}\n"
+                f"Lock Mode: {es.get('lock_mode', '')}\n"
+                f"Roll Mode: {es.get('roll_mode', '')}\n"
+                f"Shifted Discount: {es.get('shift_discount', '')}\n"
+                f"Re-entry: {es.get('reentry', '')}"
+            ))
+            pdf.ln(1)
+
+        for cf in sv_mech.get("class_features", []):
+            if cf["level"] <= level:
+                pdf.set_text_color(*C_HDR_TEXT)
+                pdf.set_font("Helvetica", "B", 8)
+                pdf.cell(0, 4.5, _pdf_safe(f"{cf['name']} (Level {cf['level']}):"), ln=True)
+                pdf.set_text_color(*C_BODY)
+                pdf.set_font("Helvetica", "", 7.5)
+                pdf.multi_cell(0, 3.5, _pdf_safe(cf["description"]))
+                pdf.ln(0.5)
+        pdf.ln(2)
+
+        # ─ Elemental Form / Shift Table ─
+        shift_table = sub.get("shift_table", [])
+        if shift_table:
+            form_name = sub["features"][0]["name"] if sub.get("features") else "Elemental Form"
+            _sec(f"{form_name.upper()} — SHIFT TABLE (Bonus Action, 1 Charge)")
+            form_feat = sub["features"][0] if sub.get("features") else None
+            if form_feat:
+                pdf.set_text_color(*C_BODY)
+                pdf.set_font("Helvetica", "", 7.5)
+                pdf.multi_cell(0, 3.5, _pdf_safe(form_feat["description"]))
+                pdf.ln(2)
+            _x0_sh = pdf.l_margin
+            _aw_sh = pdf.w - 30
+            _rw, _nw, _ew = _aw_sh * 0.08, _aw_sh * 0.28, _aw_sh * 0.64
+            for shift in shift_table:
+                _y0 = pdf.get_y()
+                _max_y = _y0 + 4.5
+                pdf.set_xy(_x0_sh, _y0)
+                pdf.set_text_color(*C_STAT)
+                pdf.set_font("Helvetica", "B", 8)
+                pdf.multi_cell(_rw, 4.5, _pdf_safe(f"({shift['roll']})"))
+                _max_y = max(_max_y, pdf.get_y())
+                pdf.set_xy(_x0_sh + _rw, _y0)
+                pdf.set_text_color(*C_HDR_TEXT)
+                pdf.set_font("Helvetica", "B", 8)
+                pdf.multi_cell(_nw, 4.5, _pdf_safe(shift["name"]))
+                _max_y = max(_max_y, pdf.get_y())
+                pdf.set_xy(_x0_sh + _rw + _nw, _y0)
+                pdf.set_text_color(*C_BODY)
+                pdf.set_font("Helvetica", "", 7.5)
+                pdf.multi_cell(_ew, 4.5, _pdf_safe(shift["effect"]))
+                _max_y = max(_max_y, pdf.get_y())
+                pdf.set_xy(_x0_sh, _max_y)
+            pdf.ln(2)
+
+        # ─ Weirding Surge Table ─
+        surge_table = sv_mech.get("weirding_surge_table", [])
+        if surge_table:
+            _sec("WEIRDING SURGE TABLE (roll d6 on every Charge spend)")
+            _x0_sg = pdf.l_margin
+            _aw_sg = pdf.w - 30
+            _nw_sg = _aw_sg * 0.08
+            for i, effect in enumerate(surge_table, 1):
+                _y0 = pdf.get_y()
+                _max_y = _y0 + 4.5
+                pdf.set_xy(_x0_sg, _y0)
+                pdf.set_text_color(*C_STAT)
+                pdf.set_font("Helvetica", "B", 9)
+                pdf.multi_cell(_nw_sg, 4.5, str(i))
+                _max_y = max(_max_y, pdf.get_y())
+                pdf.set_xy(_x0_sg + _nw_sg, _y0)
+                pdf.set_text_color(*C_BODY)
+                pdf.set_font("Helvetica", "", 7.5)
+                pdf.multi_cell(0, 4.5, _pdf_safe(effect))
+                _max_y = max(_max_y, pdf.get_y())
+                pdf.set_xy(_x0_sg, _max_y)
+            pdf.ln(2)
+
+        # ─ Combat Techniques (new page) ─
+        techs = [t for t in sub.get("techniques", []) if t["level"] <= level]
+        if techs:
+            pdf.add_page()
+            _sec("COMBAT TECHNIQUES")
+            for tech in techs:
+                usage = tech.get("usage", "")
+                tech_level = tech["level"]
+                if usage == "Elemental Shift use":
+                    cost_str = "[Shift use]"
+                elif any(x in usage for x in ["/Short Rest", "/Long Rest", "/7 days", "proficiency bonus"]):
+                    cost_str = f"[{usage}]"
+                elif tech_level <= 3:
+                    cost_str = "[1C]"
+                elif tech_level <= 10:
+                    cost_str = "[2C / 1C Shifted]"
+                else:
+                    cost_str = "[3C / 2C Shifted]"
+                pdf.set_text_color(*C_HDR_TEXT)
+                pdf.set_font("Helvetica", "B", 8)
+                pdf.cell(0, 4.5, _pdf_safe(f"[Lv.{tech_level}] {tech['name']}  {cost_str}"), ln=True)
+                pdf.set_text_color(*C_BODY)
+                pdf.set_font("Helvetica", "", 7.5)
+                pdf.multi_cell(0, 3.5, _pdf_safe(tech.get("description", "")))
+                pdf.ln(0.5)
+            pdf.ln(2)
 
     # ── Racial Traits ──
     pdf_race_traits = race.get("traits", []) if race else []
@@ -2278,6 +2424,49 @@ elif st.session_state.step == 3:
             # Special note for Sev'rinn
             if cls["id"] == "sevrinn":
                 st.markdown(f'<div class="ryndor-alert">⚠️ {cls["special_note"]}</div>', unsafe_allow_html=True)
+                # Elemental Charges info block
+                level = st.session_state.char_level
+                sv_mech = cls.get("mechanics", {})
+                lvl_data = None
+                for row in sv_mech.get("level_table", []):
+                    if row["min_level"] <= level <= row["max_level"]:
+                        lvl_data = row
+                        break
+                if not lvl_data:
+                    # fallback: use the highest row at or below level
+                    for row in sv_mech.get("level_table", []):
+                        if row["min_level"] <= level:
+                            lvl_data = row
+                if lvl_data:
+                    st.markdown(
+                        f'<div style="background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.25);'
+                        f'border-radius:6px;padding:0.75rem 1rem;margin:0.6rem 0;font-family:Crimson Text,serif">'
+                        f'<div style="font-family:Cinzel,serif;color:#a78bfa;font-size:0.8rem;letter-spacing:0.1em;margin-bottom:0.4rem">⚡ ELEMENTAL CHARGES</div>'
+                        f'<p style="margin:0.15rem 0;color:#c4b5fd;font-size:0.95rem">At level {level} you have <b>{lvl_data["charges"]}</b> charges (restored on short or long rest).</p>'
+                        f'<p style="margin:0.15rem 0;color:#a99cbf;font-size:0.9rem"><b style="color:#c4b5fd">Weirding Surge:</b> Roll d6 when spending charges; the result on the Surge Table always occurs.</p>'
+                        f'</div>',
+                        unsafe_allow_html=True
+                    )
+                # Resonant Flow (level 9+)
+                if level >= 9:
+                    rf = next((f for f in sv_mech.get("class_features", []) if f["level"] == 9), None)
+                    if rf:
+                        st.markdown(
+                            f'<div style="background:rgba(34,211,238,0.07);border-left:3px solid #22d3ee;border-radius:0 4px 4px 0;padding:0.5rem 0.8rem;margin:0.3rem 0;font-family:Crimson Text,serif">'
+                            f'<span style="font-family:Cinzel,serif;color:#67e8f9;font-size:0.8rem">{rf["name"]} (Level 9):</span> '
+                            f'<span style="color:#a99cbf;font-size:0.9rem">{rf["description"]}</span></div>',
+                            unsafe_allow_html=True
+                        )
+                # Elemental Avatar (level 17+)
+                if level >= 17:
+                    ea = next((f for f in sv_mech.get("class_features", []) if f["level"] == 17), None)
+                    if ea:
+                        st.markdown(
+                            f'<div style="background:rgba(251,191,36,0.07);border-left:3px solid #fbbf24;border-radius:0 4px 4px 0;padding:0.5rem 0.8rem;margin:0.3rem 0;font-family:Crimson Text,serif">'
+                            f'<span style="font-family:Cinzel,serif;color:#fcd34d;font-size:0.8rem">{ea["name"]} (Level 17):</span> '
+                            f'<span style="color:#a99cbf;font-size:0.9rem">{ea["description"]}</span></div>',
+                            unsafe_allow_html=True
+                        )
 
             # Subclass selection
             st.markdown('<div class="section-header">Choose Your Path</div>', unsafe_allow_html=True)
@@ -2338,7 +2527,20 @@ elif st.session_state.step == 3:
 
                 # Sev'rinn special: show shift table and techniques
                 if cls["id"] == "sevrinn" and "shift_table" in sub:
-                    with st.expander("🌀 Elemental Shift Table"):
+                    form_name = sub["features"][0]["name"] if sub.get("features") else "Elemental Form"
+                    with st.expander(f"🌀 {form_name} — Shift Table"):
+                        # Lock vs Roll explanation
+                        st.markdown(
+                            '<div style="font-family:Crimson Text,serif;color:#a99cbf;font-size:0.88rem;'
+                            'background:rgba(167,139,250,0.07);border-radius:4px;padding:0.5rem 0.8rem;margin-bottom:0.6rem">'
+                            '<b style="font-family:Cinzel,serif;color:#a78bfa;font-size:0.82rem">Activate (bonus action, 1 Charge):</b><br>'
+                            '• <b style="color:#c4b5fd">Lock</b> — Choose one effect; it lasts the full duration.<br>'
+                            '• <b style="color:#c4b5fd">Roll</b> — Roll d6; freely re-roll at start of each turn.<br>'
+                            '<b style="color:#67e8f9">While Shifted:</b> all techniques cost 1 fewer Charge (min 1).<br>'
+                            'End freely on your turn; re-activate anytime for 1 Charge.'
+                            '</div>',
+                            unsafe_allow_html=True
+                        )
                         st.markdown('<table class="surge-table"><tr><th>d6</th><th>Effect</th><th>Description</th></tr>', unsafe_allow_html=True)
                         for entry in sub["shift_table"]:
                             st.markdown(f'<tr><td>{entry["roll"]}</td><td style="font-family:Cinzel,serif; color:#a78bfa; font-size:0.85rem">{entry["name"]}</td><td>{entry["effect"]}</td></tr>', unsafe_allow_html=True)
@@ -2349,9 +2551,31 @@ elif st.session_state.step == 3:
                     if avail_techs:
                         with st.expander(f"⚗️ Combat Techniques ({len(avail_techs)} available)"):
                             for tech in avail_techs:
+                                # Determine charge cost badge
+                                usage = tech.get("usage", "")
+                                tech_level = tech["level"]
+                                if usage in ("Elemental Shift use",):
+                                    cost_badge = '[Shift use]'
+                                    badge_color = '#a78bfa'
+                                elif usage.startswith("Costs 1 Elemental Charge") or tech_level <= 3:
+                                    cost_badge = '[1 Charge]'
+                                    badge_color = '#4ade80'
+                                elif tech_level <= 10:
+                                    cost_badge = '[2C / 1C Shifted]'
+                                    badge_color = '#fbbf24'
+                                else:
+                                    cost_badge = '[3C / 2C Shifted]'
+                                    badge_color = '#f87171'
+                                # If usage is a rest-based resource, show that instead
+                                if any(x in usage for x in ['/Short Rest', '/Long Rest', '/7 days', 'proficiency bonus']):
+                                    cost_badge = f'[{usage}]'
+                                    badge_color = '#94a3b8'
                                 st.markdown(
                                     f'<div class="trait-block">'
-                                    f'<div class="name">{tech["name"]} <span style="color:#4e3d6e; font-size:0.78rem">(Lv {tech["level"]})</span></div>'
+                                    f'<div class="name">{tech["name"]} '
+                                    f'<span style="color:#4e3d6e; font-size:0.78rem">(Lv {tech["level"]})</span> '
+                                    f'<span style="color:{badge_color}; font-size:0.75rem; font-family:Cinzel,serif">{cost_badge}</span>'
+                                    f'</div>'
                                     f'<div class="desc">{tech["description"]}</div></div>',
                                     unsafe_allow_html=True
                                 )
@@ -2359,10 +2583,10 @@ elif st.session_state.step == 3:
                     # Level table
                     if "mechanics" in cls:
                         with st.expander("📊 Sev'rinn Level Table"):
-                            st.markdown('<table class="surge-table"><tr><th>Level</th><th>Charges</th><th>Techniques</th><th>Surge DC</th></tr>', unsafe_allow_html=True)
+                            st.markdown('<table class="surge-table"><tr><th>Level</th><th>Charges</th><th>Techniques</th></tr>', unsafe_allow_html=True)
                             for row in cls["mechanics"]["level_table"]:
-                                hl = "color:#a78bfa; font-weight:bold" if row["level"] == level else ""
-                                st.markdown(f'<tr><td style="{hl}">{row["level"]}</td><td>{row["charges"]}</td><td>{row["techniques"]}</td><td>{row["surge_dc"]}</td></tr>', unsafe_allow_html=True)
+                                hl = "color:#a78bfa; font-weight:bold" if row["min_level"] <= level <= row["max_level"] else ""
+                                st.markdown(f'<tr><td style="{hl}">{row["range"]}</td><td>{row["charges"]}</td><td>{row["techniques"]}</td></tr>', unsafe_allow_html=True)
                             st.markdown('</table>', unsafe_allow_html=True)
 
             st.markdown('</div>', unsafe_allow_html=True)
@@ -4158,10 +4382,16 @@ elif st.session_state.step == 10:
             if avail_sv_feats:
                 st.markdown(f'<p style="font-family:Cinzel,serif; color:#a78bfa; font-size:0.72rem; letter-spacing:0.1em; margin:0 0 0.4rem">{cls["name"]}</p>', unsafe_allow_html=True)
                 for feat in avail_sv_feats:
+                    feat_name = feat["name"]
+                    feat_desc = feat["description"]
+                    if feat["level"] == 3 and feat_name == "Elemental Shift" and sub:
+                        sub_form = next((f for f in sub.get("features", []) if f["level"] == 3), None)
+                        if sub_form:
+                            feat_name = sub_form["name"]
                     st.markdown(
                         f'<div class="feat-row">'
-                        f'<div class="fname">{feat["name"]} <span style="color:#4e3d6e; font-size:0.75rem">(L{feat["level"]})</span></div>'
-                        f'<div class="fdesc">{feat["description"]}</div>'
+                        f'<div class="fname">{feat_name} <span style="color:#4e3d6e; font-size:0.75rem">(L{feat["level"]})</span></div>'
+                        f'<div class="fdesc">{feat_desc}</div>'
                         f'</div>',
                         unsafe_allow_html=True
                     )
@@ -4170,14 +4400,18 @@ elif st.session_state.step == 10:
             sv_mech = cls.get("mechanics", {})
             lvl_data = None
             for row in sv_mech.get("level_table", []):
-                if row["level"] <= level:
+                if row["min_level"] <= level <= row["max_level"]:
                     lvl_data = row
+                    break
+            if not lvl_data:
+                for row in sv_mech.get("level_table", []):
+                    if row["min_level"] <= level:
+                        lvl_data = row
             if lvl_data:
                 st.markdown(
                     f'<div style="display:flex; gap:1rem; margin:0.8rem 0">'
                     f'<span class="badge">⚡ Charges: {lvl_data["charges"]}</span>'
                     f'<span class="badge">📚 Techniques Known: {lvl_data["techniques"]}</span>'
-                    f'<span class="badge crimson">🌀 Surge DC: {lvl_data["surge_dc"]}</span>'
                     f'</div>',
                     unsafe_allow_html=True
                 )
@@ -4187,9 +4421,29 @@ elif st.session_state.step == 10:
             if techs:
                 st.markdown('<p style="font-family:Cinzel,serif; color:#a78bfa; font-size:0.72rem; letter-spacing:0.1em; margin:0.8rem 0 0.4rem">COMBAT TECHNIQUES</p>', unsafe_allow_html=True)
                 for tech in techs:
+                    usage = tech.get("usage", "")
+                    tech_level = tech["level"]
+                    if usage == "Elemental Shift use":
+                        cost_badge = '[Shift use]'
+                        badge_color = '#a78bfa'
+                    elif usage.startswith("Costs 1 Elemental Charge") or tech_level <= 3:
+                        cost_badge = '[1C]'
+                        badge_color = '#4ade80'
+                    elif tech_level <= 10:
+                        cost_badge = '[2C / 1C Shifted]'
+                        badge_color = '#fbbf24'
+                    else:
+                        cost_badge = '[3C / 2C Shifted]'
+                        badge_color = '#f87171'
+                    if any(x in usage for x in ['/Short Rest', '/Long Rest', '/7 days', 'proficiency bonus']):
+                        cost_badge = f'[{usage}]'
+                        badge_color = '#94a3b8'
                     st.markdown(
                         f'<div class="feat-row">'
-                        f'<div class="fname">{tech["name"]} <span style="color:#4e3d6e; font-size:0.75rem">(L{tech["level"]})</span></div>'
+                        f'<div class="fname">{tech["name"]} '
+                        f'<span style="color:#4e3d6e; font-size:0.75rem">(L{tech["level"]})</span> '
+                        f'<span style="color:{badge_color}; font-size:0.72rem; font-family:Cinzel,serif">{cost_badge}</span>'
+                        f'</div>'
                         f'<div class="fdesc">{tech["description"]}</div>'
                         f'</div>',
                         unsafe_allow_html=True
@@ -4198,16 +4452,9 @@ elif st.session_state.step == 10:
             # ── Elemental Shift (available at level 3+) ──
             if level >= 3:
                 shift_table = sub.get("shift_table", [])
-                channel = sub.get("channel_power", "")
-                if shift_table or channel:
-                    st.markdown('<p style="font-family:Cinzel,serif; color:#a78bfa; font-size:0.72rem; letter-spacing:0.1em; margin:0.8rem 0 0.4rem">ELEMENTAL SHIFT (Bonus Action, 1 Charge)</p>', unsafe_allow_html=True)
-                    if channel:
-                        st.markdown(
-                            f'<div style="background:rgba(34,211,238,0.07);border-left:2px solid #22d3ee;border-radius:0 4px 4px 0;'
-                            f'padding:0.4rem 0.8rem;margin:0.3rem 0 0.5rem;font-family:Crimson Text,serif;color:#a99cbf;font-size:0.9rem">'
-                            f'<span style="font-family:Cinzel,serif;color:#67e8f9;font-size:0.78rem">Channel Power:</span> {channel}</div>',
-                            unsafe_allow_html=True
-                        )
+                if shift_table:
+                    sheet_form_name = sub["features"][0]["name"] if sub.get("features") else "Elemental Form"
+                    st.markdown(f'<p style="font-family:Cinzel,serif; color:#a78bfa; font-size:0.72rem; letter-spacing:0.1em; margin:0.8rem 0 0.4rem">{sheet_form_name.upper()} (Bonus Action, 1 Charge)</p>', unsafe_allow_html=True)
                     for shift in shift_table:
                         st.markdown(
                             f'<div class="feat-row">'

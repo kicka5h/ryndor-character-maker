@@ -5,9 +5,19 @@
       "name": "Barbarian",
       "hit_die": "d12",
       "primary_ability": "Strength",
-      "saves": ["Strength", "Constitution"],
-      "armor": ["Light armor", "Medium armor", "Shields"],
-      "weapons": ["Simple weapons", "Martial weapons"],
+      "saves": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor": [
+        "Light armor",
+        "Medium armor",
+        "Shields"
+      ],
+      "weapons": [
+        "Simple weapons",
+        "Martial weapons"
+      ],
       "skills": "Choose 2 from: Animal Handling, Athletics, Intimidation, Nature, Perception, Survival",
       "flavor": "Primal forces of the land. Barbarians draw rage from the Weirding's chaos, ancient storms, natural fury, or the spirit of Hurstwold and Dollow Canyon.",
       "subclasses": [
@@ -39,18 +49,29 @@
           ]
         }
       ],
-      "icon": "⚡"
+      "icon": "\u26a1"
     },
     {
       "id": "bard",
       "name": "Bard",
       "hit_die": "d8",
       "primary_ability": "Charisma",
-      "saves": ["Dexterity", "Charisma"],
-      "armor": ["Light armor"],
-      "weapons": ["Simple weapons", "Hand crossbow", "Longsword", "Rapier", "Shortsword"],
+      "saves": [
+        "Dexterity",
+        "Charisma"
+      ],
+      "armor": [
+        "Light armor"
+      ],
+      "weapons": [
+        "Simple weapons",
+        "Hand crossbow",
+        "Longsword",
+        "Rapier",
+        "Shortsword"
+      ],
       "skills": "Choose 3 from any skills",
-      "flavor": "Storytellers, historians, diplomats, and conduits of ancient truths. Some channel the Weirding's echoes—'Weirding-Touched Bards' are seen as both geniuses and outcasts.",
+      "flavor": "Storytellers, historians, diplomats, and conduits of ancient truths. Some channel the Weirding's echoes\u2014'Weirding-Touched Bards' are seen as both geniuses and outcasts.",
       "subclasses": [
         {
           "id": "college_lanterns",
@@ -75,16 +96,26 @@
           ]
         }
       ],
-      "icon": "🏮"
+      "icon": "\ud83c\udfee"
     },
     {
       "id": "cleric",
       "name": "Cleric",
       "hit_die": "d8",
       "primary_ability": "Wisdom",
-      "saves": ["Wisdom", "Charisma"],
-      "armor": ["Light armor", "Medium armor", "Heavy armor", "Shields"],
-      "weapons": ["Simple weapons"],
+      "saves": [
+        "Wisdom",
+        "Charisma"
+      ],
+      "armor": [
+        "Light armor",
+        "Medium armor",
+        "Heavy armor",
+        "Shields"
+      ],
+      "weapons": [
+        "Simple weapons"
+      ],
       "skills": "Choose 2 from: History, Insight, Medicine, Persuasion, Religion",
       "flavor": "Divine magic behaves unpredictably in Weird Zones. Clerics serve as stabilizers, spiritual guides, or explorers of the Weirding's distortions.",
       "subclasses": [
@@ -93,11 +124,26 @@
           "name": "Domain of Resonance",
           "description": "Attuned to the magical frequencies between the material and astral planes. You maintain balance between order and chaos through sound, vibration, and perception.",
           "domain_spells": {
-            "1st": ["Dissonant Whispers", "Thunderwave"],
-            "3rd": ["Shatter", "Calm Emotions"],
-            "5th": ["Dispel Magic", "Hypnotic Pattern"],
-            "7th": ["Greater Invisibility", "Freedom of Movement"],
-            "9th": ["Modify Memory", "Wall of Force"]
+            "1st": [
+              "Dissonant Whispers",
+              "Thunderwave"
+            ],
+            "3rd": [
+              "Shatter",
+              "Calm Emotions"
+            ],
+            "5th": [
+              "Dispel Magic",
+              "Hypnotic Pattern"
+            ],
+            "7th": [
+              "Greater Invisibility",
+              "Freedom of Movement"
+            ],
+            "9th": [
+              "Modify Memory",
+              "Wall of Force"
+            ]
           },
           "features": [
             {
@@ -113,7 +159,7 @@
             {
               "level": 6,
               "name": "Harmonic Surge",
-              "description": "Reaction when you or an ally within 30 ft casts a spell: grant one of—Harmonic Boost (+1d8 thunder damage to spell's effect), or Resonant Echo (if target moves next turn, it takes 1d8 psychic damage). Uses: Wisdom modifier (min 1) per long rest."
+              "description": "Reaction when you or an ally within 30 ft casts a spell: grant one of\u2014Harmonic Boost (+1d8 thunder damage to spell's effect), or Resonant Echo (if target moves next turn, it takes 1d8 psychic damage). Uses: Wisdom modifier (min 1) per long rest."
             },
             {
               "level": 8,
@@ -128,28 +174,57 @@
           ]
         }
       ],
-      "icon": "🔔"
+      "icon": "\ud83d\udd14"
     },
     {
       "id": "druid",
       "name": "Druid",
       "hit_die": "d8",
       "primary_ability": "Wisdom",
-      "saves": ["Intelligence", "Wisdom"],
-      "armor": ["Light armor (non-metal)", "Medium armor (non-metal)", "Shields (non-metal)"],
-      "weapons": ["Clubs", "Daggers", "Javelins", "Maces", "Quarterstaffs", "Scimitars", "Sickles", "Slings", "Spears"],
+      "saves": [
+        "Intelligence",
+        "Wisdom"
+      ],
+      "armor": [
+        "Light armor (non-metal)",
+        "Medium armor (non-metal)",
+        "Shields (non-metal)"
+      ],
+      "weapons": [
+        "Clubs",
+        "Daggers",
+        "Javelins",
+        "Maces",
+        "Quarterstaffs",
+        "Scimitars",
+        "Sickles",
+        "Slings",
+        "Spears"
+      ],
       "skills": "Choose 2 from: Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival",
-      "flavor": "More than protectors of nature—intermediaries between natural and unnatural. The Weirding has unsettled druids, splitting them into Ancient Guardians, Wayfarers, and Weird-Touched Mystics.",
+      "flavor": "More than protectors of nature\u2014intermediaries between natural and unnatural. The Weirding has unsettled druids, splitting them into Ancient Guardians, Wayfarers, and Weird-Touched Mystics.",
       "subclasses": [
         {
           "id": "circle_weird",
           "name": "Circle of the Weird",
           "description": "Embrace the chaotic, unstable energies between the material and astral planes. Use the Weirding's influence to reshape the battlefield, adapt to bizarre forms, and reveal hidden truths.",
           "circle_spells": {
-            "3rd": ["Mirror Image", "Misty Step"],
-            "5th": ["Blink", "Hypnotic Pattern"],
-            "7th": ["Greater Invisibility", "Confusion"],
-            "9th": ["Mislead", "Passwall"]
+            "3rd": [
+              "Mirror Image",
+              "Misty Step"
+            ],
+            "5th": [
+              "Blink",
+              "Hypnotic Pattern"
+            ],
+            "7th": [
+              "Greater Invisibility",
+              "Confusion"
+            ],
+            "9th": [
+              "Mislead",
+              "Passwall"
+            ]
           },
           "features": [
             {
@@ -175,16 +250,25 @@
           ]
         }
       ],
-      "icon": "🌿"
+      "icon": "\ud83c\udf3f"
     },
     {
       "id": "fighter",
       "name": "Fighter",
       "hit_die": "d10",
       "primary_ability": "Strength or Dexterity",
-      "saves": ["Strength", "Constitution"],
-      "armor": ["All armor", "Shields"],
-      "weapons": ["Simple weapons", "Martial weapons"],
+      "saves": [
+        "Strength",
+        "Constitution"
+      ],
+      "armor": [
+        "All armor",
+        "Shields"
+      ],
+      "weapons": [
+        "Simple weapons",
+        "Martial weapons"
+      ],
       "skills": "Choose 2 from: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival",
       "flavor": "Disciplined warriors, gladiators, knights, airship crew, and Kigan Uldar champions. The Weirding has forced adaptation of combat techniques.",
       "subclasses": [
@@ -196,7 +280,7 @@
             {
               "level": 3,
               "name": "Airship Command",
-              "description": "Gain proficiency with Navigator's tools and vehicles (air). Sky Orders (bonus action): Give a tactical order to an ally within 30 ft—they gain advantage on their next attack roll, ability check, or saving throw. Uses: Proficiency bonus per long rest. Acrobatic Proficiency: Gain Acrobatics proficiency (or expertise if already proficient)."
+              "description": "Gain proficiency with Navigator's tools and vehicles (air). Sky Orders (bonus action): Give a tactical order to an ally within 30 ft\u2014they gain advantage on their next attack roll, ability check, or saving throw. Uses: Proficiency bonus per long rest. Acrobatic Proficiency: Gain Acrobatics proficiency (or expertise if already proficient)."
             },
             {
               "level": 7,
@@ -221,16 +305,22 @@
           ]
         }
       ],
-      "icon": "⚔️"
+      "icon": "\u2694\ufe0f"
     },
     {
       "id": "monk",
       "name": "Monk",
       "hit_die": "d8",
       "primary_ability": "Dexterity & Wisdom",
-      "saves": ["Strength", "Dexterity"],
+      "saves": [
+        "Strength",
+        "Dexterity"
+      ],
       "armor": [],
-      "weapons": ["Simple weapons", "Shortswords"],
+      "weapons": [
+        "Simple weapons",
+        "Shortswords"
+      ],
       "skills": "Choose 2 from: Acrobatics, Athletics, History, Insight, Religion, Stealth",
       "flavor": "Channel the physical and metaphysical into harmony. Elemental balance and ancient philosophy guide their practice. Some orders are infused by the Weirding.",
       "subclasses": [
@@ -262,36 +352,65 @@
           ]
         }
       ],
-      "icon": "☯️"
+      "icon": "\u262f\ufe0f"
     },
     {
       "id": "paladin",
       "name": "Paladin",
       "hit_die": "d10",
       "primary_ability": "Strength & Charisma",
-      "saves": ["Wisdom", "Charisma"],
-      "armor": ["All armor", "Shields"],
-      "weapons": ["Simple weapons", "Martial weapons"],
+      "saves": [
+        "Wisdom",
+        "Charisma"
+      ],
+      "armor": [
+        "All armor",
+        "Shields"
+      ],
+      "weapons": [
+        "Simple weapons",
+        "Martial weapons"
+      ],
       "skills": "Choose 2 from: Athletics, Insight, Intimidation, Medicine, Persuasion, Religion",
       "flavor": "Champions of conviction. The Weirding can corrupt broken oaths, twisting powers in unforeseen ways. Some patrol Weirded zones as reality anchors.",
       "subclasses": [
         {
           "id": "oath_resonance",
           "name": "Oath of Resonance",
-          "description": "Maintain harmony between the forces of Ryndor. You are a guardian of equilibrium—neither imposing rigid order nor chaos, but preserving the balance.",
-          "tenets": ["Balance in All Things", "Resonance with Others (empathy over judgment)", "Ward Against the Unnatural", "Flow Like Water, Stand Like Stone"],
+          "description": "Maintain harmony between the forces of Ryndor. You are a guardian of equilibrium\u2014neither imposing rigid order nor chaos, but preserving the balance.",
+          "tenets": [
+            "Balance in All Things",
+            "Resonance with Others (empathy over judgment)",
+            "Ward Against the Unnatural",
+            "Flow Like Water, Stand Like Stone"
+          ],
           "oath_spells": {
-            "3rd": ["Detect Magic", "Sanctuary"],
-            "5th": ["Calm Emotions", "Warding Bond"],
-            "9th": ["Dispel Magic", "Protection from Energy"],
-            "13th": ["Aura of Purity", "Guardian of Nature"],
-            "17th": ["Wall of Force", "Greater Restoration"]
+            "3rd": [
+              "Detect Magic",
+              "Sanctuary"
+            ],
+            "5th": [
+              "Calm Emotions",
+              "Warding Bond"
+            ],
+            "9th": [
+              "Dispel Magic",
+              "Protection from Energy"
+            ],
+            "13th": [
+              "Aura of Purity",
+              "Guardian of Nature"
+            ],
+            "17th": [
+              "Wall of Force",
+              "Greater Restoration"
+            ]
           },
           "features": [
             {
               "level": 3,
               "name": "Channel Divinity",
-              "description": "Resonant Strike (bonus action): Infuse weapon with elemental energy—next hit deals +2d10 damage (choose fire/cold/lightning/radiant) and pushes target 10 ft. OR Field of Alignment (action): Create aura within 10 ft for 1 minute; creatures inside can reroll saves against conditions."
+              "description": "Resonant Strike (bonus action): Infuse weapon with elemental energy\u2014next hit deals +2d10 damage (choose fire/cold/lightning/radiant) and pushes target 10 ft. OR Field of Alignment (action): Create aura within 10 ft for 1 minute; creatures inside can reroll saves against conditions."
             },
             {
               "level": 7,
@@ -314,19 +433,39 @@
           "id": "oath_discord",
           "name": "Oath of Discord",
           "description": "Revel in chaos, destruction, and entropy. These Paladins reject balance, serving malevolent forces or entropy itself. They are agents of glorious ruin.",
-          "tenets": ["Spread Chaos (instability is power)", "Foster Betrayal (trust is weakness)", "Revel in Ruin (destruction fuels growth)", "Embrace Power (seize it by any means)"],
+          "tenets": [
+            "Spread Chaos (instability is power)",
+            "Foster Betrayal (trust is weakness)",
+            "Revel in Ruin (destruction fuels growth)",
+            "Embrace Power (seize it by any means)"
+          ],
           "oath_spells": {
-            "3rd": ["Cause Fear", "Bane"],
-            "5th": ["Crown of Madness", "Shatter"],
-            "9th": ["Bestow Curse", "Fear"],
-            "13th": ["Greater Invisibility", "Confusion"],
-            "17th": ["Cloudkill", "Dominate Person"]
+            "3rd": [
+              "Cause Fear",
+              "Bane"
+            ],
+            "5th": [
+              "Crown of Madness",
+              "Shatter"
+            ],
+            "9th": [
+              "Bestow Curse",
+              "Fear"
+            ],
+            "13th": [
+              "Greater Invisibility",
+              "Confusion"
+            ],
+            "17th": [
+              "Cloudkill",
+              "Dominate Person"
+            ]
           },
           "features": [
             {
               "level": 3,
               "name": "Channel Divinity",
-              "description": "Agony's Touch (bonus action): Curse a creature within 30 ft—for 1 minute, they take +1d8 necrotic damage whenever they take damage. OR Seed of Discord (action): Two creatures within 30 ft must succeed on a Wisdom save or be compelled to attack one another for 1 minute."
+              "description": "Agony's Touch (bonus action): Curse a creature within 30 ft\u2014for 1 minute, they take +1d8 necrotic damage whenever they take damage. OR Seed of Discord (action): Two creatures within 30 ft must succeed on a Wisdom save or be compelled to attack one another for 1 minute."
             },
             {
               "level": 7,
@@ -346,16 +485,26 @@
           ]
         }
       ],
-      "icon": "🛡️"
+      "icon": "\ud83d\udee1\ufe0f"
     },
     {
       "id": "ranger",
       "name": "Ranger",
       "hit_die": "d10",
       "primary_ability": "Dexterity & Wisdom",
-      "saves": ["Strength", "Dexterity"],
-      "armor": ["Light armor", "Medium armor", "Shields"],
-      "weapons": ["Simple weapons", "Martial weapons"],
+      "saves": [
+        "Strength",
+        "Dexterity"
+      ],
+      "armor": [
+        "Light armor",
+        "Medium armor",
+        "Shields"
+      ],
+      "weapons": [
+        "Simple weapons",
+        "Martial weapons"
+      ],
       "skills": "Choose 3 from: Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival",
       "flavor": "Masters of survival and navigation. They blend ancient traditions with elemental resonance and primal intuition. Archetypes include Skyward Stalkers, Echo Wardens, and Lantern Guides.",
       "subclasses": [
@@ -392,16 +541,27 @@
           ]
         }
       ],
-      "icon": "🏹"
+      "icon": "\ud83c\udff9"
     },
     {
       "id": "rogue",
       "name": "Rogue",
       "hit_die": "d8",
       "primary_ability": "Dexterity",
-      "saves": ["Dexterity", "Intelligence"],
-      "armor": ["Light armor"],
-      "weapons": ["Simple weapons", "Hand crossbow", "Longsword", "Rapier", "Shortsword"],
+      "saves": [
+        "Dexterity",
+        "Intelligence"
+      ],
+      "armor": [
+        "Light armor"
+      ],
+      "weapons": [
+        "Simple weapons",
+        "Hand crossbow",
+        "Longsword",
+        "Rapier",
+        "Shortsword"
+      ],
       "skills": "Choose 4 from: Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, Stealth",
       "flavor": "Thieves, assassins, spies, and opportunists. In Ryndor, rogues navigate the complex politics of cities like Eveltoft and Surreymouth.",
       "subclasses": [
@@ -433,23 +593,32 @@
           ]
         }
       ],
-      "icon": "🗡️"
+      "icon": "\ud83d\udde1\ufe0f"
     },
     {
       "id": "sorcerer",
       "name": "Sorcerer",
       "hit_die": "d6",
       "primary_ability": "Charisma",
-      "saves": ["Constitution", "Charisma"],
+      "saves": [
+        "Constitution",
+        "Charisma"
+      ],
       "armor": [],
-      "weapons": ["Daggers", "Darts", "Slings", "Quarterstaffs", "Light crossbows"],
+      "weapons": [
+        "Daggers",
+        "Darts",
+        "Slings",
+        "Quarterstaffs",
+        "Light crossbows"
+      ],
       "skills": "Choose 2 from: Arcana, Deception, Insight, Intimidation, Persuasion, Religion",
       "flavor": "Magic flows through them unbidden and untamed. In Ryndor, the Rift's influence can twist sorcerous power in strange and terrible ways.",
       "subclasses": [
         {
           "id": "riftborn_origin",
           "name": "Riftborn Origin",
-          "description": "Your magic is born from exposure to—or origin within—the Rift between planes. Your power is volatile, unpredictable, and carries echoes of Nebernoria itself.",
+          "description": "Your magic is born from exposure to\u2014or origin within\u2014the Rift between planes. Your power is volatile, unpredictable, and carries echoes of Nebernoria itself.",
           "features": [
             {
               "level": 1,
@@ -479,23 +648,30 @@
           ]
         }
       ],
-      "icon": "✨"
+      "icon": "\u2728"
     },
     {
       "id": "warlock",
       "name": "Warlock",
       "hit_die": "d8",
       "primary_ability": "Charisma",
-      "saves": ["Wisdom", "Charisma"],
-      "armor": ["Light armor"],
-      "weapons": ["Simple weapons"],
+      "saves": [
+        "Wisdom",
+        "Charisma"
+      ],
+      "armor": [
+        "Light armor"
+      ],
+      "weapons": [
+        "Simple weapons"
+      ],
       "skills": "Choose 2 from: Arcana, Deception, History, Intimidation, Investigation, Nature, Religion",
-      "flavor": "Power comes with a price—always. In Ryndor, Warlocks often make pacts with entities from beyond the Rift, beings of impossible hunger and alien design.",
+      "flavor": "Power comes with a price\u2014always. In Ryndor, Warlocks often make pacts with entities from beyond the Rift, beings of impossible hunger and alien design.",
       "subclasses": [
         {
           "id": "planebinder",
           "name": "Pact of the Planebinder",
-          "description": "You have made a pact with one of five Rift Patrons—entities of immense power from beyond the Rift. Your patron shapes your powers and what it demands in return.",
+          "description": "You have made a pact with one of five Rift Patrons\u2014entities of immense power from beyond the Rift. Your patron shapes your powers and what it demands in return.",
           "patrons": [
             {
               "name": "The Blighted Conductor",
@@ -542,23 +718,32 @@
           ]
         }
       ],
-      "icon": "👁️"
+      "icon": "\ud83d\udc41\ufe0f"
     },
     {
       "id": "wizard",
       "name": "Wizard",
       "hit_die": "d6",
       "primary_ability": "Intelligence",
-      "saves": ["Intelligence", "Wisdom"],
+      "saves": [
+        "Intelligence",
+        "Wisdom"
+      ],
       "armor": [],
-      "weapons": ["Daggers", "Darts", "Slings", "Quarterstaffs", "Light crossbows"],
+      "weapons": [
+        "Daggers",
+        "Darts",
+        "Slings",
+        "Quarterstaffs",
+        "Light crossbows"
+      ],
       "skills": "Choose 2 from: Arcana, History, Insight, Investigation, Medicine, Religion",
       "flavor": "Students of arcane truth, Crystal Scholars, and masters of magical theory. In Ryndor, the Weirding has created new fields of arcane research.",
       "subclasses": [
         {
           "id": "school_harmonics",
           "name": "School of Harmonics",
-          "description": "Study the resonant frequencies underlying all magic. Harmonics wizards understand that all spells are vibrations—and by tuning those vibrations, they can amplify, redirect, or disrupt them.",
+          "description": "Study the resonant frequencies underlying all magic. Harmonics wizards understand that all spells are vibrations\u2014and by tuning those vibrations, they can amplify, redirect, or disrupt them.",
           "features": [
             {
               "level": 2,
@@ -588,68 +773,393 @@
           ]
         }
       ],
-      "icon": "📚"
+      "icon": "\ud83d\udcda"
     },
     {
       "id": "sevrinn",
       "name": "Sev'rinn",
       "hit_die": "d10",
       "primary_ability": "Constitution & Wisdom",
-      "saves": ["Constitution", "Wisdom"],
-      "armor": ["Light armor", "Medium armor"],
-      "weapons": ["Simple weapons", "Martial weapons"],
+      "saves": [
+        "Constitution",
+        "Wisdom"
+      ],
+      "armor": [
+        "Light armor",
+        "Medium armor"
+      ],
+      "weapons": [
+        "Simple weapons",
+        "Martial weapons"
+      ],
       "skills": "Choose 2 from: Arcana, Athletics, Nature, Perception, Survival",
       "flavor": "Living conduits of elemental power. Sev'rinn command elemental magic with instinct rather than study, adapting moment by moment. Unlike Wizards or Sorcerers, they align with elemental forces directly. Every spark of power risks triggering a Weirding Surge.",
-      "special_note": "This is a brand-new class unique to Ryndor. The sourcebook notes this class is 'Under Construction' — some techniques and multiclassing rules are still being developed. Collaborate with your GM.",
+      "special_note": "This is a brand-new class unique to Ryndor. The sourcebook notes this class is 'Under Construction' \u2014 some techniques and multiclassing rules are still being developed. Collaborate with your GM.",
       "mechanics": {
-        "elemental_charges": "You regain all Elemental Charges on a short or long rest. Charges power your Combat Techniques.",
-        "weirding_surge": "When you use a Combat Technique, roll d20. On a natural 1, a Weirding Surge occurs (roll d6 on the Weirding Surge Table).",
+        "elemental_charges": "You regain all Elemental Charges on a short or long rest. Charges power your Combat Techniques and Elemental Shift.",
+        "weirding_surge": "Whenever you spend Charges, roll a d6. The result on the Weirding Surge Table occurs immediately. Multiple Charges spent in one action still require only one roll.",
         "weirding_surge_table": [
           "A rift briefly opens, summoning a random creature for 1 minute.",
           "Gravity reverses in a 10-ft radius around you for 1 round.",
           "A harmless glowing orb follows you for 10 minutes.",
-          "Terrain around you shifts—difficult terrain for 1 round.",
-          "Your voice echoes unnaturally—disadvantage on Charisma checks.",
-          "Time flickers—your next action repeats itself automatically."
+          "Terrain around you shifts\u2014difficult terrain for 1 round.",
+          "Your voice echoes unnaturally\u2014disadvantage on Charisma checks.",
+          "Time flickers\u2014your next action repeats itself automatically."
+        ],
+        "elemental_shift": {
+          "activation": "Bonus action, spend 1 Charge. Lasts 1 minute or until you end it as a free action on your turn.",
+          "lock_mode": "Choose one effect from your attunement's Shift Table. It lasts for the full duration.",
+          "roll_mode": "Roll 1d6 and apply the result. At the start of each of your turns, you may keep the current effect or re-roll freely (no Charge cost).",
+          "shift_discount": "While your Shift is active, all Combat Techniques cost 1 fewer Charge (minimum 1).",
+          "reentry": "End freely on your turn; re-activate anytime for 1 Charge. No limit per encounter."
+        },
+        "technique_cost_tiers": {
+          "tier1": {
+            "levels": "1st\u20133rd",
+            "normal": "1 Charge",
+            "shifted": "1 Charge"
+          },
+          "tier2": {
+            "levels": "5th\u201310th",
+            "normal": "2 Charges",
+            "shifted": "1 Charge"
+          },
+          "tier3": {
+            "levels": "14th\u201318th",
+            "normal": "3 Charges",
+            "shifted": "2 Charges"
+          }
+        },
+        "class_features": [
+          {
+            "level": 9,
+            "name": "Resonant Flow",
+            "description": "Once per turn, if you roll a natural 18, 19, or 20 on an attack roll or ability check after spending a Charge, you immediately regain 1 Charge. This cannot push you above your maximum."
+          },
+          {
+            "level": 17,
+            "name": "Elemental Avatar",
+            "description": "While this feature is active, you can change which attunement's Shift Table you are using at the start of each turn for free. This does not waive the 1-Charge cost to activate the Shift itself."
+          }
         ],
         "level_table": [
-          {"level": 1, "charges": 2, "techniques": 3, "surge_dc": 10},
-          {"level": 2, "charges": 3, "techniques": 4, "surge_dc": 11},
-          {"level": 3, "charges": 3, "techniques": 4, "surge_dc": 11},
-          {"level": 5, "charges": 4, "techniques": 6, "surge_dc": 12},
-          {"level": 7, "charges": 4, "techniques": 6, "surge_dc": 12},
-          {"level": 9, "charges": 5, "techniques": 8, "surge_dc": 14},
-          {"level": 10, "charges": 5, "techniques": 8, "surge_dc": 14},
-          {"level": 13, "charges": 6, "techniques": 9, "surge_dc": 15},
-          {"level": 17, "charges": 8, "techniques": 10, "surge_dc": 17}
+          {
+            "range": "1st\u20132nd",
+            "min_level": 1,
+            "max_level": 2,
+            "charges": "2\u20133",
+            "techniques": "3\u20134"
+          },
+          {
+            "range": "3rd\u20134th",
+            "min_level": 3,
+            "max_level": 4,
+            "charges": 3,
+            "techniques": 4
+          },
+          {
+            "range": "5th\u20136th",
+            "min_level": 5,
+            "max_level": 6,
+            "charges": 4,
+            "techniques": 6
+          },
+          {
+            "range": "7th\u20138th",
+            "min_level": 7,
+            "max_level": 8,
+            "charges": 4,
+            "techniques": 6
+          },
+          {
+            "range": "9th\u201312th",
+            "min_level": 9,
+            "max_level": 12,
+            "charges": 5,
+            "techniques": 8
+          },
+          {
+            "range": "13th\u201316th",
+            "min_level": 13,
+            "max_level": 16,
+            "charges": 6,
+            "techniques": 9
+          },
+          {
+            "range": "17th\u201320th",
+            "min_level": 17,
+            "max_level": 20,
+            "charges": 8,
+            "techniques": 10
+          }
         ]
       },
       "subclasses": [
         {
           "id": "tideborn",
           "name": "Tideborn (Water Attunement)",
-          "description": "Command the relentless power of water—healing, restraining, and sweeping enemies away like the tide.",
+          "description": "Command the relentless power of water\u2014healing, restraining, and sweeping enemies away like the tide.",
           "element": "Water",
           "shift_table": [
-            {"roll": 1, "name": "Tidal Surge", "effect": "+15 ft movement; move through enemy spaces without OA; spaces you exit become difficult terrain for enemies."},
-            {"roll": 2, "name": "Riptide Grasp", "effect": "On melee hit, pull target 10 ft. If they fail Strength save, knocked prone."},
-            {"roll": 3, "name": "Mistform Cloak", "effect": "Resistance to non-magical weapon damage; ranged attacks from 10+ ft with disadvantage."},
-            {"roll": 4, "name": "Icy Flow", "effect": "10-ft radius ice sheet under your feet; difficult terrain for enemies; enemies moving through save or fall prone."},
-            {"roll": 5, "name": "Healing Current", "effect": "At start of each turn, ally within 15 ft regains 1d8 + Wisdom mod HP."},
-            {"roll": 6, "name": "Crashing Blow", "effect": "Melee attacks deal extra 1d10 bludgeoning; push target 10 ft back."}
+            {
+              "roll": 1,
+              "name": "Tidal Surge",
+              "effect": "+15 ft movement; move through enemy spaces without OA; spaces you exit become difficult terrain for enemies."
+            },
+            {
+              "roll": 2,
+              "name": "Riptide Grasp",
+              "effect": "On melee hit, pull target 10 ft. If they fail Strength save, knocked prone."
+            },
+            {
+              "roll": 3,
+              "name": "Mistform Cloak",
+              "effect": "Resistance to non-magical weapon damage; ranged attacks from 10+ ft with disadvantage."
+            },
+            {
+              "roll": 4,
+              "name": "Icy Flow",
+              "effect": "10-ft radius ice sheet under your feet; difficult terrain for enemies; enemies moving through save or fall prone."
+            },
+            {
+              "roll": 5,
+              "name": "Healing Current",
+              "effect": "At start of each turn, ally within 15 ft regains 1d8 + Wisdom mod HP."
+            },
+            {
+              "roll": 6,
+              "name": "Crashing Blow",
+              "effect": "Melee attacks deal extra 1d10 bludgeoning; push target 10 ft back."
+            }
           ],
-          "channel_power": "Heal self and allies within 10 ft for 3d8 HP.",
           "techniques": [
-            {"level": 1, "name": "Misty Veil", "description": "Bonus action: 10-ft radius mist for 1 min; partial cover, ranged attacks with disadvantage; allies move freely."},
-            {"level": 1, "name": "Surging Flow", "description": "Reaction when ally moves: grant ally +10 ft movement, ignore difficult terrain until end of their next turn."},
-            {"level": 3, "name": "Crashing Wave Strike", "description": "On melee hit, Strength save or target pushed 10 ft and knocked prone. (1/short rest)"},
-            {"level": 3, "name": "Icy Embrace", "description": "Frigid water burst at target within 30 ft—Constitution save or restrained by ice for 1 minute. (1/long rest)"},
-            {"level": 7, "name": "Riptide Step", "description": "Teleport up to 30 ft; creatures within 5 ft of origin make Strength save or pulled 10 ft toward that point. (2/short rest)"},
-            {"level": 7, "name": "Healing Waters", "description": "10-ft radius restorative pool; allies regain 1d8 + Wisdom mod HP at start of their turns for 1 minute. (1/long rest)"},
-            {"level": 10, "name": "Torrent Shield", "description": "Reaction to being hit: summon water barrier absorbing 1d12 + Wisdom mod damage. (3/long rest)"},
-            {"level": 10, "name": "Floodgate Surge", "description": "30-ft cone; Dex save or knocked prone and 3d8 bludgeoning (half on success, no prone). (2/long rest)"},
-            {"level": 14, "name": "Tide of Renewal", "description": "20-ft radius; all allies regain 2d10 HP; one condition removed from each. (1/long rest)"},
-            {"level": 18, "name": "Tsunami Strike", "description": "60-ft line; Dex save or 8d10 bludgeoning and swept 20 ft away (half on success). (1/long rest)"}
+            {
+              "level": 1,
+              "name": "Tidal Nudge",
+              "description": "As a bonus action, you send a pulse of water at a creature within 30 feet. It must succeed on a Strength saving throw (DC 8 + proficiency bonus + Wisdom modifier) or be pushed 5 feet in any direction you choose.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Misting Veil",
+              "description": "As a bonus action, you shroud yourself in a fine spray of water vapor. Until the start of your next turn, ranged attacks made against you are made with disadvantage.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Frostbite Touch",
+              "description": "As a bonus action, you reach out and channel biting cold into a creature within 5 feet. The target takes 1d6 cold damage and its speed is reduced by 10 feet until the start of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Aqua Pulse",
+              "description": "As a reaction when you take damage from a melee attack, you release a burst of water. The attacker takes 1d4 bludgeoning damage and must succeed on a Strength saving throw or be pushed 5 feet back.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Slick Step",
+              "description": "As a bonus action, you coat the ground in a 10-foot-radius area within 15 feet of you with a thin sheet of water. The area becomes difficult terrain until the start of your next turn. Creatures that move through it must succeed on a Dexterity saving throw or fall prone.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Chill Grasp",
+              "description": "When you hit a creature with a melee weapon attack, you can channel icy water into the strike, dealing an extra 1d8 cold damage. The target's speed is reduced by 10 feet until the start of its next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Undertow Strike",
+              "description": "As a bonus action immediately after hitting a creature with a melee attack, you drag a current of water beneath them. The target must succeed on a Strength saving throw or be knocked prone.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Tide Wall",
+              "description": "As a bonus action, you summon a 5-foot-wide, 10-foot-tall wall of surging water at a point within 15 feet of you. The wall provides half cover to anyone behind it and lasts until the start of your next turn. Creatures that attempt to move through it must succeed on a Strength saving throw or have their movement stopped.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Mending Current",
+              "description": "As a bonus action, you channel a restorative current of water into a creature within 15 feet, restoring 1d6 + Wisdom modifier hit points.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Maelstrom Hold",
+              "description": "When you initiate or maintain a grapple on a creature, churning water batters it. The grappled target takes 1d8 bludgeoning damage at the start of each of its turns.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Crashing Wave",
+              "description": "As a bonus action, you launch a crashing wave at a target within 30 feet. The target must succeed on a Strength saving throw or take 3d6 bludgeoning damage, be pushed 10 feet away, and be knocked prone. On a success, they take half damage and are not moved.",
+              "usage": "1/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 5,
+              "name": "Icy Embrace",
+              "description": "As a bonus action, you summon a burst of frigid water around a target within 30 feet. The target must succeed on a Constitution saving throw or be restrained by ice for 1 minute. They may repeat the saving throw at the end of each of their turns.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 5,
+              "name": "Saltwater Shield",
+              "description": "As a reaction when you are hit by an attack, you surround yourself in a dense barrier of water that absorbs 2d6 + Constitution modifier damage from the triggering hit.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Whirlpool Step",
+              "description": "As a bonus action, you dissolve into a swirl of water and reappear in an unoccupied space you can see within 20 feet. Creatures within 5 feet of the space you left must succeed on a Strength saving throw or be pulled 5 feet toward that space.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Numbing Tide",
+              "description": "As a bonus action before you make a weapon attack, you coat your weapon in icy water. On a hit, the attack deals cold damage instead of its normal type, and the target must succeed on a Constitution saving throw or have disadvantage on attack rolls until the end of its next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Riptide Step",
+              "description": "You teleport up to 30 feet to an unoccupied space you can see, leaving behind a whirlpool of water. Creatures within 5 feet of your starting point must succeed on a Strength saving throw or be pulled 10 feet toward that space.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 7,
+              "name": "Healing Waters",
+              "description": "You create a restorative pool in a 10-foot radius centered on a point within 30 feet. Allies in the pool regain hit points equal to 1d8 + your Wisdom modifier at the start of their turns for up to 1 minute.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 7,
+              "name": "Blizzard Barrage",
+              "description": "As an action, you launch three shards of ice at up to three creatures within 60 feet (one per creature). Make a ranged spell attack for each (using Wisdom modifier + proficiency bonus). Each shard deals 2d6 cold damage on a hit.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Stormtide Surge",
+              "description": "As a bonus action, a wave of water rushes out in a 15-foot cone from you. Creatures in the area must succeed on a Strength saving throw or take 2d6 bludgeoning damage and be pushed 10 feet back.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Aqua Form",
+              "description": "As a bonus action, your body becomes partially liquid for 1 minute. You can move through spaces as narrow as 1 inch without squeezing, you are immune to the grappled and restrained conditions from nonmagical sources, and melee attacks against you are made with disadvantage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Torrent Shield",
+              "description": "As a reaction to being hit by an attack, you summon a barrier of water around yourself or an ally within 10 feet. The barrier absorbs damage equal to 1d12 + your Wisdom modifier before dissipating.",
+              "usage": "3/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Floodgate Surge",
+              "description": "As an action, you unleash a massive wave in a 30-foot cone. All creatures in the area must succeed on a Dexterity saving throw or be knocked prone and take 3d8 bludgeoning damage. On a success, they take half damage and are not knocked prone.",
+              "usage": "2/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Tidal Imprisonment",
+              "description": "As an action, you surround a creature within 30 feet in a sphere of churning water 10 feet in diameter. The creature is restrained and begins suffocating. At the end of each of its turns, it may make a Strength saving throw to break free. The sphere lasts 1 minute or until the creature escapes.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Glacial Eruption",
+              "description": "As an action, you slam the ground and cause a burst of ice to erupt in a 15-foot radius centered on a point within 60 feet. Creatures in the area must succeed on a Dexterity saving throw or take 4d8 cold damage and be restrained by ice until the end of their next turn. On a success, they take half damage and are not restrained.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Tidewalker",
+              "description": "For 10 minutes, you gain a swim speed equal to your walking speed + 30 feet and can breathe underwater. Allies within 10 feet of you also gain a swim speed equal to their walking speed.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 14,
+              "name": "Tide of Renewal",
+              "description": "You create a healing surge that spreads in a 20-foot radius. All allies within the radius regain 2d10 hit points, and one condition of their choice (such as poisoned or frightened) is removed.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 14,
+              "name": "Whirlpool Prison",
+              "description": "You summon a massive whirlpool centered on a point within 60 feet \u2014 a 10-foot radius, 20-foot-tall cylinder. Any creature that starts its turn inside must succeed on a Strength saving throw or be restrained and pulled to the center. A restrained creature may attempt the saving throw at the end of its turn. The whirlpool lasts for 1 minute or until you dismiss it.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 14,
+              "name": "Deep Current",
+              "description": "As a bonus action, you call a powerful underwater current beneath the battlefield. For 1 minute, all creatures on the ground must succeed on a Strength saving throw at the start of their turn or be moved 20 feet in a direction of your choice.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Permafrost",
+              "description": "You touch the ground, and ice spreads in a 30-foot radius from you. For 1 minute, the area is frozen: difficult terrain for all creatures except you and your allies. Any creature that starts its turn in the area must succeed on a Dexterity saving throw or fall prone.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Drowning Pull",
+              "description": "As an action, you project a column of rushing water at a creature within 60 feet. The target must succeed on a Strength saving throw or be dragged 30 feet toward you, take 4d10 bludgeoning damage, and become incapacitated until the end of its next turn. On a success, it takes half damage and is not moved.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Ocean's Dominion",
+              "description": "You summon the power of an oceanic storm, creating heavy rain and strong winds in a 60-foot radius for 1 minute. While active, creatures of your choice have advantage on Dexterity and Strength saving throws. Enemies treat the area as difficult terrain, and ranged attacks within the storm are made with disadvantage.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 18,
+              "name": "Tsunami Strike",
+              "description": "You unleash a massive wave that sweeps across a 60-foot line. Creatures caught in the wave must succeed on a Dexterity saving throw or take 8d10 bludgeoning damage and be swept 20 feet away. On a success, they take half damage and remain standing.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 18,
+              "name": "Abyssal Vortex",
+              "description": "As an action, you tear open a vortex of water in a 20-foot radius centered on a point within 120 feet. For 1 minute, all creatures in the radius take 4d10 bludgeoning damage at the start of their turns (Strength saving throw halves) and must succeed on a Strength saving throw or be pulled 10 feet toward the center.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Flash Freeze",
+              "description": "As an action, you flash-freeze everything in a 30-foot cone. Each creature in the area must succeed on a Constitution saving throw or take 10d8 cold damage and be frozen solid (paralyzed) for 1 minute (they may repeat the save at the end of each of their turns). On a success, they take half damage and are not paralyzed.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Living Sea",
+              "description": "As an action, you merge with water for 1 hour, becoming a semi-liquid being. You are immune to nonmagical bludgeoning, piercing, and slashing damage; can pass through any space large enough for water to flow; and gain a swim speed of 120 feet. Once per turn as a bonus action, you can erupt in a burst of force, dealing 4d8 bludgeoning damage to all creatures within 10 feet of you (Strength saving throw halves).",
+              "usage": "1/Long Rest"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Tideform",
+              "description": "When you activate your Elemental Shift, you partially meld with the essence of water. While your Shift is active: you gain a swim speed equal to your walking speed and can breathe underwater; ranged attacks made against you from more than 10 feet away are made with disadvantage, as currents deflect incoming projectiles; once per turn, you can move through a space occupied by another creature without provoking opportunity attacks."
+            }
           ]
         },
         {
@@ -658,20 +1168,260 @@
           "description": "Ride the winds of change, striking from the sky with blinding speed and disorienting force.",
           "element": "Air",
           "shift_table": [
-            {"roll": 1, "name": "Cyclone's Touch", "effect": "+10 ft movement; opportunity attacks against you with disadvantage."},
-            {"roll": 2, "name": "Whisper of Winds", "effect": "Cast Silent Image or Message at will without spell slot."},
-            {"roll": 3, "name": "Shockwave Burst", "effect": "Reaction when taking damage: push enemies within 10 ft back 5 ft."},
-            {"roll": 4, "name": "Gale Guard", "effect": "+2 AC until your next turn."},
-            {"roll": 5, "name": "Zephyr Step", "effect": "Move through enemy spaces without OA; movement does not provoke reactions."},
-            {"roll": 6, "name": "Tempest Strike", "effect": "On melee hit, knock target prone OR push them 10 ft back."}
+            {
+              "roll": 1,
+              "name": "Cyclone's Touch",
+              "effect": "+10 ft movement; opportunity attacks against you with disadvantage."
+            },
+            {
+              "roll": 2,
+              "name": "Whisper of Winds",
+              "effect": "Cast Silent Image or Message at will without spell slot."
+            },
+            {
+              "roll": 3,
+              "name": "Shockwave Burst",
+              "effect": "Reaction when taking damage: push enemies within 10 ft back 5 ft."
+            },
+            {
+              "roll": 4,
+              "name": "Gale Guard",
+              "effect": "+2 AC until your next turn."
+            },
+            {
+              "roll": 5,
+              "name": "Zephyr Step",
+              "effect": "Move through enemy spaces without OA; movement does not provoke reactions."
+            },
+            {
+              "roll": 6,
+              "name": "Tempest Strike",
+              "effect": "On melee hit, knock target prone OR push them 10 ft back."
+            }
           ],
-          "channel_power": "Powerful gust pushes creatures within 15 ft (Strength save to resist).",
           "techniques": [
-            {"level": 3, "name": "Wind Dance", "description": "Bonus action: Dash and ignore difficult terrain until end of your turn."},
-            {"level": 5, "name": "Air Slash", "description": "Extend melee strike as ranged attack (30 ft); weapon damage + 1d8 slashing."},
-            {"level": 7, "name": "Storm's Wake", "description": "On successful hit, target's movement halved until start of your next turn."},
-            {"level": 10, "name": "Flight Mastery", "description": "Gain flying speed 30 ft for 1 minute. (1/long rest)"},
-            {"level": 14, "name": "Howling Strike", "description": "Melee attack deals extra 2d6 thunder; creatures within 5 ft of target Strength save or pushed 15 ft."}
+            {
+              "level": 1,
+              "name": "Gust Push",
+              "description": "As a bonus action, a targeted creature within 20 feet must succeed on a Strength saving throw or be pushed 5 feet in a direction of your choice.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Wind Buffer",
+              "description": "As a reaction when you are targeted by a ranged attack, you deflect the attack with a sudden gust. The attack is made with disadvantage.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Tailwind",
+              "description": "As a bonus action, you surround yourself with rushing air. Your movement speed increases by 10 feet until the end of your turn, and you can move through difficult terrain without penalty this turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Sonic Clap",
+              "description": "As a bonus action, you slam your hands together with explosive force. Each creature within 5 feet must succeed on a Constitution saving throw or take 1d6 thunder damage and be deafened until the start of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Aerobatics",
+              "description": "As a reaction to falling, you catch yourself on the air. You slow your descent to 60 feet per round and take no damage when you land, no matter the height. This effect lasts for 1 minute.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Wind Dance",
+              "description": "As a bonus action, you can Dash, and until the end of your turn, you ignore difficult terrain and opportunity attacks.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 3,
+              "name": "Lightning Lash",
+              "description": "As a bonus action, you snap a whip of lightning at a creature within 15 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 2d6 lightning damage and cannot take reactions until the start of its next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Cyclone Guard",
+              "description": "As a reaction to being hit by a melee attack, you conjure a blast of wind. Reduce the damage of the triggering hit by 1d8 + Wisdom modifier and push the attacker 5 feet back.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Updraft",
+              "description": "As a bonus action, you or a willing creature within 5 feet is launched up to 20 feet into the air on a burst of wind. Until the end of that creature's next turn, it ignores opportunity attacks and can move through the air as though on solid ground.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Wailing Wind",
+              "description": "As a bonus action, you emit a shrieking gust. All creatures within 10 feet must succeed on a Wisdom saving throw or be frightened of you until the end of their next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Air Slash",
+              "description": "When you make a weapon attack, you can extend your strike with a sharp gust of wind. Make a ranged weapon attack (30 ft.). On a hit, it deals your weapon's damage type plus 1d8 slashing damage.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 5,
+              "name": "Thunderbolt Strike",
+              "description": "As a bonus action, you charge your next weapon attack with crackling electricity. On a hit, the attack deals an extra 2d8 lightning damage, and the target must succeed on a Constitution saving throw or be stunned until the end of its next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Pressure Wave",
+              "description": "As an action, you release a concentrated burst of compressed air in a 30-foot line, 5 feet wide. Creatures in the area take 3d6 thunder damage and must succeed on a Strength saving throw or be knocked prone.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Ride the Storm",
+              "description": "As a bonus action, for 1 minute your movement no longer provokes opportunity attacks, and you can move through the spaces of hostile creatures without penalty.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 5,
+              "name": "Lightning Step",
+              "description": "As a bonus action, you move up to 30 feet in a straight line in a streak of electricity. Each creature whose space you move through takes 1d6 lightning damage (Dexterity saving throw halves).",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Storm's Wake",
+              "description": "When you successfully land an attack, your target is surrounded by a gust of wind. Until the start of your next turn, the target's movement is halved and it has disadvantage on ranged attack rolls.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 7,
+              "name": "Thunderhead",
+              "description": "As a bonus action, you summon a crackling stormcloud in a 20-foot radius, 30 feet above a point within 60 feet. For 1 minute, at the start of each of your turns, lightning strikes a creature of your choice beneath it, dealing 2d8 lightning damage (Dexterity saving throw halves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Gale Eruption",
+              "description": "As an action, you emit a massive burst of wind in a 20-foot radius centered on you. All creatures in the area must succeed on a Strength saving throw or be pushed 15 feet away from you and knocked prone.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Zephyr Cloak",
+              "description": "As a bonus action, you wrap yourself in a constant gale for 1 minute. All ranged weapon attacks against you are made with disadvantage, and you gain a +2 bonus to AC against melee attacks.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Wind Tunnel",
+              "description": "As a bonus action, you create a 60-foot-long, 10-foot-wide tunnel of howling wind in a direction you choose. Creatures in the tunnel must succeed on Strength saving throws or be pushed 20 feet in the direction the wind blows. Allies you designate are unaffected. The tunnel lasts until the start of your next turn.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Flight Mastery",
+              "description": "You learn to ride the winds effortlessly. As a bonus action, you gain a flying speed of 30 feet for 1 minute.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Eye of the Storm",
+              "description": "As an action, you become the calm center of a raging vortex for 1 minute. You are immune to all forced movement. All creatures within 20 feet of you treat the area as difficult terrain and have disadvantage on ranged attacks while within the storm.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Chain Lightning",
+              "description": "As an action, you release a bolt of lightning at a creature within 60 feet (ranged spell attack). On a hit, it arcs to up to three additional creatures within 30 feet of the first target, dealing 3d8 lightning damage to the original target and 2d8 to each subsequent one.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Skyward Slam",
+              "description": "As a bonus action immediately after hitting a creature with a melee attack, you channel a vertical burst of air beneath the target. It is launched 20 feet upward. If it hits a ceiling or falls, it takes 2d6 bludgeoning damage from the impact and lands prone.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Resonant Thunder",
+              "description": "As an action, you unleash a deafening boom in a 30-foot radius. All creatures in the area take 4d8 thunder damage and must succeed on a Constitution saving throw or be deafened for 1 minute.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Howling Strike",
+              "description": "When you make a melee weapon attack, you can choose to summon a thunderous boom. The attack deals an extra 2d6 thunder damage, and creatures within 5 feet of the target must succeed on a Strength saving throw or be pushed 15 feet away.",
+              "usage": "1/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 14,
+              "name": "Storm Avatar",
+              "description": "As an action, for 1 minute your body crackles with uncontained lightning. You gain immunity to lightning and thunder damage. Any creature that hits you with a melee attack takes 2d6 lightning damage. Your weapon attacks deal an extra 1d8 lightning damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Hurricane Force",
+              "description": "As an action, you create a field of hurricane-force winds in a 40-foot radius centered on you for 1 minute. Ranged attacks within the area automatically miss. Large or smaller creatures must succeed on Strength saving throws at the start of their turns or be knocked prone. All movement through the area costs double.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Static Field",
+              "description": "As a bonus action, you charge the air around you for 1 minute. Whenever a creature hits you with a melee attack, it takes 2d8 lightning damage and must succeed on a Constitution saving throw or lose its reaction until the start of its next turn.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Whirlwind Ascent",
+              "description": "As an action, you spin into a roaring cyclone for 1 minute. You gain a fly speed of 60 feet. When you move through a creature's space, that creature must succeed on a Dexterity saving throw or take 3d8 slashing damage (half on success).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Supercell",
+              "description": "As an action, you call down a catastrophic storm in a 120-foot radius centered on you for 1 minute. At the start of each of your turns, all enemies within the radius take 2d10 lightning damage and 2d10 thunder damage (Dexterity saving throw halves). Allies are unaffected.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Tornado",
+              "description": "As an action, you summon a massive tornado in a 30-foot-radius, 100-foot-tall column centered on a point within 60 feet. For 1 minute, all creatures entering or starting their turn in the area take 6d10 bludgeoning damage and must succeed on a Strength saving throw or be hurled 40 feet in a random direction.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Skyshatter",
+              "description": "As an action, you call down five bolts of lightning within a 60-foot radius centered on a point you can see. You assign each bolt to a target of your choice within the area. Each bolt deals 4d12 lightning damage (Dexterity saving throw halves). On a failed save, the target is also stunned until the start of your next turn.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Galeform",
+              "description": "As an action, for 1 hour you become a being of pure wind. You gain immunity to nonmagical bludgeoning, piercing, and slashing damage; a fly speed of 90 feet; and the ability to pass through any space large enough for air. Melee attacks against you automatically miss. Once per turn as a bonus action, deal 4d8 bludgeoning damage to all enemies within 20 feet (Dexterity saving throw halves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Thunderous Reckoning",
+              "description": "As an action, you unleash every storm within your soul. All creatures within 60 feet of you take 8d10 thunder damage and 4d12 lightning damage (Dexterity saving throw halves). On a failed save, they are also deafened, blinded, and knocked prone for 1 minute (repeated saves at the end of each turn).",
+              "usage": "1/Long Rest"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Windform",
+              "description": "When you activate your Elemental Shift, winds gather around you and you become something between flesh and air. While your Shift is active: you gain a flying speed of 10 feet (hover); you cannot be knocked prone \u2014 effects that would knock you prone fail; you have resistance to lightning and thunder damage."
+            }
           ]
         },
         {
@@ -680,156 +1430,1772 @@
           "description": "Become an immovable fortress of elemental stone, protecting allies and crushing all who stand against you.",
           "element": "Stone",
           "shift_table": [
-            {"roll": 1, "name": "Granite Skin", "effect": "Temporary HP = level + Constitution modifier."},
-            {"roll": 2, "name": "Earthen Anchor", "effect": "Movement cannot be reduced; cannot be knocked prone."},
-            {"roll": 3, "name": "Stonegrasp", "effect": "Bonus action: ground grasps a creature (Strength save or restrained until end of next turn)."},
-            {"roll": 4, "name": "Seismic Aura", "effect": "Enemy starting turn within 5 ft makes Dex save or pushed 5 ft."},
-            {"roll": 5, "name": "Fortress Stance", "effect": "+2 AC; allies within 5 ft gain half cover."},
-            {"roll": 6, "name": "Boulder Step", "effect": "Creatures you move past make Dex save or fall prone; move through enemy spaces without OA."}
+            {
+              "roll": 1,
+              "name": "Granite Skin",
+              "effect": "Temporary HP = level + Constitution modifier."
+            },
+            {
+              "roll": 2,
+              "name": "Earthen Anchor",
+              "effect": "Movement cannot be reduced; cannot be knocked prone."
+            },
+            {
+              "roll": 3,
+              "name": "Stonegrasp",
+              "effect": "Bonus action: ground grasps a creature (Strength save or restrained until end of next turn)."
+            },
+            {
+              "roll": 4,
+              "name": "Seismic Aura",
+              "effect": "Enemy starting turn within 5 ft makes Dex save or pushed 5 ft."
+            },
+            {
+              "roll": 5,
+              "name": "Fortress Stance",
+              "effect": "+2 AC; allies within 5 ft gain half cover."
+            },
+            {
+              "roll": 6,
+              "name": "Boulder Step",
+              "effect": "Creatures you move past make Dex save or fall prone; move through enemy spaces without OA."
+            }
           ],
-          "channel_power": "Resistance to all damage until start of your next turn.",
           "techniques": [
-            {"level": 3, "name": "Stoneguard", "description": "Reaction to being hit: reduce damage by 1d8 + Constitution modifier. (Proficiency bonus uses per long rest)"},
-            {"level": 5, "name": "Pulverizing Strike", "description": "Melee attack deals extra 2d6 bludgeoning; Strength save or knocked prone."},
-            {"level": 7, "name": "Rock Wall", "description": "Bonus action: 5-ft high, 10-ft long wall of earth within 30 ft; half cover until start of your next turn."},
-            {"level": 10, "name": "Tectonic Shift", "description": "Action: creatures within 20 ft make Dex save or knocked prone; structures take 2d8 bludgeoning damage."},
-            {"level": 14, "name": "Pillar Strike", "description": "On melee hit: 10-ft stone pillar launches target upward (4d6 bludgeoning, knocked prone). (1/short rest)"}
+            {
+              "level": 1,
+              "name": "Stone Fist",
+              "description": "When you make an unarmed strike or a melee weapon attack, you can channel stone into the blow. The attack deals an extra 1d4 bludgeoning damage, and the target must succeed on a Strength saving throw or have its speed reduced by 5 feet until the start of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Earthen Brace",
+              "description": "As a bonus action, you plant your feet and draw stability from the stone beneath you. Until the start of your next turn, you cannot be knocked prone or forcibly moved, and you gain a +1 bonus to AC.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Pebble Burst",
+              "description": "As a bonus action, you hurl a spray of sharp stones in a 15-foot cone. Each creature in the area must succeed on a Dexterity saving throw or take 1d6 piercing damage.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Stone Skin",
+              "description": "As a reaction to taking damage, you harden your skin into a brief stone carapace. Reduce the triggering damage by 1d6 + Constitution modifier.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Tremor",
+              "description": "As a bonus action, you strike the ground with enough force to shake it in a 10foot radius. Creatures in the area must succeed on a Dexterity saving throw or lose 5 feet of movement until the start of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Stoneguard",
+              "description": "As a reaction to being hit by an attack, you can reduce the damage by 1d8 + your Constitution modifier.",
+              "usage": "Uses equal to proficiency bonus / Long Rest",
+              "existing": true
+            },
+            {
+              "level": 3,
+              "name": "Boulder Toss",
+              "description": "As a bonus action, you tear a chunk of rock from the earth or a nearby surface and hurl it at a creature within 60 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 2d6 bludgeoning damage and must succeed on a Strength saving throw or be knocked prone.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Stonegrasp",
+              "description": "As a bonus action, you cause the ground beneath a creature within 30 feet to clutch it. The target must succeed on a Strength saving throw or be restrained until the start of your next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Iron Step",
+              "description": "Your movement is halved until the end of your turn, but you gain +2 AC and resistance to bludgeoning damage until the start of your next turn, as stone rises to meet each blow.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Crushing Weight",
+              "description": "When you grapple a creature, you pin it with the force of the earth. The grappled creature takes 1d6 bludgeoning damage at the start of each of its turns and must succeed on a Strength saving throw or be unable to stand up from prone while grappled.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Pulverizing Strike",
+              "description": "When you land a melee weapon attack, you can channel stone energy to deal an additional 2d6 bludgeoning damage. The target must succeed on a Strength saving throw or be knocked prone.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 5,
+              "name": "Erupting Ground",
+              "description": "As an action, you cause the ground to erupt beneath a creature within 30 feet. The target must succeed on a Dexterity saving throw or take 3d6 bludgeoning damage and be launched 10 feet into the air, landing prone. On a success, it takes half damage and is not moved.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Stone Shield Wall",
+              "description": "As a bonus action, you raise a curved wall of stone 5 feet thick, 10 feet wide, and 10 feet tall within 15 feet. It provides three-quarters cover and is a barrier (AC 17, 50 HP). The wall lasts until destroyed or until you dismiss it as a bonus action.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Seismic Stomp",
+              "description": "As an action, you stomp the ground with tremendous force. All creatures within 15 feet must succeed on a Dexterity saving throw or take 2d8 bludgeoning damage and fall prone.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Petrifying Touch",
+              "description": "When you hit a creature with a melee weapon attack, you can attempt to turn it to stone. The target must succeed on a Constitution saving throw or have its speed reduced by 20 feet and lose its reaction until the end of its next turn as stone begins to creep across its body.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Rock Wall",
+              "description": "As a bonus action, you summon a wall of earth 5 feet high and 10 feet long within 30 feet of you. The wall provides half cover to creatures behind it and lasts until the start of your next turn.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 7,
+              "name": "Granite Shell",
+              "description": "As a bonus action, you encase yourself in a shell of stone for 1 minute. You gain +3 AC and resistance to nonmagical bludgeoning, piercing, and slashing damage. While encased, your speed is reduced by 10 feet.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Landslide",
+              "description": "As an action, you unleash a torrent of stone in a 30-foot line, 10 feet wide. Creatures in the area must succeed on a Dexterity saving throw or take 4d8 bludgeoning damage and be knocked prone. On a success, they take half damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Stalactite Rain",
+              "description": "As an action, you launch a barrage of stone spikes into the air that rain down on a 20-foot-radius area within 60 feet. Creatures in the area must succeed on a Dexterity saving throw or take 3d8 piercing damage and be knocked prone. On a success, half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Stone Step",
+              "description": "As a bonus action, you sink into the earth. Until the start of your next turn, you are invisible if you end your turn underground or behind a stone surface. You may reemerge from any stone surface or floor within 60 feet of where you submerged.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Tectonic Shift",
+              "description": "As an action, every creature within 20 feet of you must succeed on a Dexterity saving throw or be knocked prone. Structures or objects within range take 2d8 bludgeoning damage.",
+              "usage": "1/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Pillar of Stone",
+              "description": "As a bonus action, you cause a 5-foot-diameter pillar of stone to erupt beneath a creature within 30 feet. The target must succeed on a Dexterity saving throw or be launched 20 feet into the air, taking 4d6 bludgeoning damage when it lands and falling prone. On a success, it is pushed 5 feet to the side.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Living Fortress",
+              "description": "As an action, you surround yourself in a 10-foot-radius dome of stone for 1 minute. The dome provides three-quarters cover to all creatures inside (including you). Creatures outside cannot pass through the walls without destroying them (AC 18, 100 HP). The dome can be dismissed as a bonus action.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Gravestone Mark",
+              "description": "As a bonus action, you mark a creature within 60 feet. Stone rises around its feet, reducing its speed to 0 and causing it to be restrained until the end of your next turn. The creature may attempt a Strength saving throw to end the effect early as an action.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Stone Golem Shell",
+              "description": "As a bonus action, you call chunks of stone and earth to orbit you for 1 minute. Whenever you are hit by an attack, one stone shard deflects to the attacker, dealing 2d6 bludgeoning damage. The shell has 3 shards before the effect ends.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Pillar Strike",
+              "description": "When you hit with a melee weapon, you can create a 10-foot stone pillar beneath your target. The target is launched upward, taking 4d6 bludgeoning damage and falling prone.",
+              "usage": "1/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 14,
+              "name": "Tectonic Rupture",
+              "description": "As an action, you tear open a fissure 60 feet long and 5 feet wide within 30 feet of you. Creatures in the fissure's path must succeed on a Dexterity saving throw or fall in, taking 6d10 bludgeoning damage from the fall and being restrained (unable to climb out without a successful DC 18 Athletics check as an action).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Mountain's Fury",
+              "description": "For 1 minute, every melee attack you land deals an extra 2d10 bludgeoning damage, and each strike sends a shockwave to all creatures within 5 feet of the target, dealing 1d10 bludgeoning damage (Dexterity saving throw negates).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Stone Prison",
+              "description": "As an action, you encase a creature within 30 feet in a cocoon of stone. The target must succeed on a Dexterity saving throw or be encased \u2014 restrained and incapacitated for 1 minute. The stone prison has AC 18 and 60 HP; destroying it frees the creature. Huge or larger creatures are immune.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Earthquake Aura",
+              "description": "As a bonus action, for 1 minute you constantly shake the earth in a 20-foot radius around you. All creatures in the area treat it as difficult terrain, and any creature that attempts to cast a spell must succeed on a Concentration check (DC 15) or lose the spell.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Cataclysm",
+              "description": "As an action, you trigger a massive seismic event in a 120-foot radius centered on you. All creatures in the area take 8d10 bludgeoning damage (Dexterity saving throw halves). On a failed save, they are also knocked prone and stunned until the start of your next turn. Structures in the area take 4d10 bludgeoning damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Bedrock Form",
+              "description": "For 1 hour, your body becomes living stone. You gain immunity to bludgeoning, piercing, and slashing damage from nonmagical attacks; a +5 bonus to AC; and immunity to being knocked prone or forcibly moved. Your speed is reduced by 10 feet. Melee attacks against you cause the attacker to take 1d10 bludgeoning damage from the impact.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Petrifying Gaze",
+              "description": "As an action, you focus your elemental will on a creature within 60 feet. The target must succeed on a Constitution saving throw or be petrified for 1 hour. While petrified, it cannot take actions, bonus actions, reactions, or movement. The effect ends if the creature is attacked or takes damage. Huge or larger creatures have advantage on this saving throw.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Living Mountain",
+              "description": "As an action, for 1 minute you grow to Large size (or one size larger if already Large or bigger). Your reach increases by 5 feet, your melee attacks deal an extra 3d10 bludgeoning damage, and whenever you move, each creature within 10 feet must succeed on a Dexterity saving throw or be knocked prone.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Continental Divide",
+              "description": "As an action, you cause the earth to split apart in a 100-foot line, 10 feet wide, within 120 feet of you. Every creature in the line must succeed on a Dexterity saving throw or fall into the fissure (taking 10d10 bludgeoning damage) and be trapped at the bottom until freed. On a success, they leap to one side and take no damage. The fissure persists for 1 hour.",
+              "usage": "1/Long Rest"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Stoneform",
+              "description": "When you activate your Elemental Shift, your skin hardens and the earth rises to meet your weight. While your Shift is active: your AC increases by 2 as stone plating forms over your skin; you cannot be knocked prone or forcibly moved against your will; you have resistance to nonmagical bludgeoning, piercing, and slashing damage."
+            }
           ]
         },
         {
           "id": "greenheart",
           "name": "Greenheart (Nature Attunement)",
-          "description": "Channel the living force of nature—poisoning, healing, entangling, and growing to overwhelm your enemies with life itself.",
+          "description": "Channel the living force of nature\u2014poisoning, healing, entangling, and growing to overwhelm your enemies with life itself.",
           "element": "Nature",
           "shift_table": [
-            {"roll": 1, "name": "Thornskin", "effect": "Thorned vines on skin; creatures hitting you with melee take 1d6 piercing."},
-            {"roll": 2, "name": "Verdant Cloak", "effect": "Advantage on Stealth; partial cover in foliage-heavy areas."},
-            {"roll": 3, "name": "Rooted Resilience", "effect": "Bonus action: root yourself; cannot be knocked prone or moved."},
-            {"roll": 4, "name": "Bloom of Renewal", "effect": "When healed, regain extra HP = proficiency bonus; allies within 10 ft gain half this bonus."},
-            {"roll": 5, "name": "Venomous Bloom", "effect": "Action: poison spore cloud; Constitution save or poisoned for 1 minute."},
-            {"roll": 6, "name": "Symbiotic Regrowth", "effect": "When an ally within 10 ft is healed, you recover Constitution mod HP."}
+            {
+              "roll": 1,
+              "name": "Thornskin",
+              "effect": "Thorned vines on skin; creatures hitting you with melee take 1d6 piercing."
+            },
+            {
+              "roll": 2,
+              "name": "Verdant Cloak",
+              "effect": "Advantage on Stealth; partial cover in foliage-heavy areas."
+            },
+            {
+              "roll": 3,
+              "name": "Rooted Resilience",
+              "effect": "Bonus action: root yourself; cannot be knocked prone or moved."
+            },
+            {
+              "roll": 4,
+              "name": "Bloom of Renewal",
+              "effect": "When healed, regain extra HP = proficiency bonus; allies within 10 ft gain half this bonus."
+            },
+            {
+              "roll": 5,
+              "name": "Venomous Bloom",
+              "effect": "Action: poison spore cloud; Constitution save or poisoned for 1 minute."
+            },
+            {
+              "roll": 6,
+              "name": "Symbiotic Regrowth",
+              "effect": "When an ally within 10 ft is healed, you recover Constitution mod HP."
+            }
           ],
-          "channel_power": "Vines erupt in 15-ft radius, restraining enemies (Strength save).",
           "techniques": [
-            {"level": 3, "name": "Bramble Snare", "description": "On melee hit, vines restrain target (Strength save to resist). (Proficiency bonus uses per long rest)"},
-            {"level": 5, "name": "Pollinating Strike", "description": "On melee hit, target makes Constitution save or blinded until end of its next turn."},
-            {"level": 7, "name": "Nature's Sanctuary", "description": "Bonus action: 15-ft radius of flourishing plants; allies have advantage on death saves and recover 1d4 HP at start of their turns."},
-            {"level": 10, "name": "Adaptive Bloom", "description": "Reaction to taking damage: reduce damage by 1d10 + Constitution mod; grant temp HP to ally within 10 ft (half negated damage)."},
-            {"level": 14, "name": "Thornwood Avatar", "description": "For 1 minute, AC +2; creatures hitting you with melee take 3d6 piercing damage. (1/long rest)"}
+            {
+              "level": 1,
+              "name": "Thorn Whip",
+              "description": "As a bonus action, you lash out with a vine covered in thorns at a creature within 20 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 1d6 piercing damage and is pulled 5 feet toward you.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Nature's Embrace",
+              "description": "As a bonus action, you call a cluster of vines to wrap around you. Until the start of your next turn, if a creature attempts to grapple or move you, it must succeed on a Strength saving throw against your spell save DC or fail.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Spore Cloud",
+              "description": "As a bonus action, you release a burst of disorienting spores in a 10-foot radius centered on you. Creatures in the area must succeed on a Constitution saving throw or have disadvantage on their next attack roll.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Barkskin",
+              "description": "As a reaction to being hit by an attack, you harden your skin with wood-like bark. Reduce the triggering damage by 1d6 + Constitution modifier.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Wild Growth",
+              "description": "As a bonus action, you cause plants to rapidly grow in a 10-foot-radius area within 30 feet. The area becomes difficult terrain until the start of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Bramble Snare",
+              "description": "When you hit a creature with a melee weapon attack, vines lash from the earth, restraining the target. The target must succeed on a Strength saving throw or be restrained until the start of your next turn.",
+              "usage": "Uses equal to proficiency bonus / Long Rest",
+              "existing": true
+            },
+            {
+              "level": 3,
+              "name": "Verdant Surge",
+              "description": "As a bonus action, you channel healing energy from the living world. You or an ally within 20 feet regains 1d8 + Wisdom modifier hit points.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Poison Sap",
+              "description": "When you hit a creature with a melee weapon attack, you can infuse the wound with toxic plant sap. The target must succeed on a Constitution saving throw or be poisoned until the end of your next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Root Trap",
+              "description": "As a bonus action, you cause roots to erupt in a 10-foot-radius area within 30 feet. Each creature in the area must succeed on a Strength saving throw or be restrained until the start of your next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Beast Sense",
+              "description": "As a bonus action, you tap into the awareness of nearby animals. Until the start of your next turn, you cannot be surprised, and you have advantage on Perception checks.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Pollinating Strike",
+              "description": "When you land a melee hit, you cause a burst of pollen to coat the target. The creature must succeed on a Constitution saving throw or be blinded until the end of its next turn.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 5,
+              "name": "Thorned Armor",
+              "description": "As a bonus action, you grow a coat of sharp thorns for 1 minute. Any creature that hits you with a melee attack takes 1d8 piercing damage. The thorns disappear if you are incapacitated.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Creeping Vine",
+              "description": "As an action, you direct a fast-growing vine at a creature within 60 feet. The vine grabs the creature, and it must succeed on a Strength saving throw or be restrained and unable to move more than 10 feet from its current position for 1 minute (repeated Strength saves at the end of each of its turns).",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Fungal Infection",
+              "description": "When you hit a creature with a melee weapon attack, you can infuse it with a magical fungus. The target takes 1d6 poison damage at the start of each of its turns for 1 minute. At the end of each of its turns, it may make a Constitution saving throw to end the effect.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Natural Armor",
+              "description": "As a bonus action, bark and moss form armor over your skin for 1 minute. Your AC increases by 2, and you have resistance to bludgeoning damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Nature's Sanctuary",
+              "description": "As a bonus action, you create a 15-foot radius of flourishing plants around you. Allies inside the radius have advantage on death saving throws and recover 1d4 hit points at the start of their turn.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 7,
+              "name": "Grasping Forest",
+              "description": "As an action, writhing plants erupt in a 20-foot radius centered on a point within 60 feet. Each creature in the area must succeed on a Strength saving throw or be restrained for 1 minute (repeated saves at the end of each of their turns). Difficult terrain fills the entire area for the duration.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Vine Bridge",
+              "description": "As a bonus action, you instantly grow a vine walkway up to 60 feet long and 5 feet wide through any terrain, including over gaps, pits, or across walls. The vine bridge lasts for 10 minutes and can support up to 500 pounds.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Wild Call",
+              "description": "As an action, you call on nearby wildlife. 1d4 beasts of CR 1 or lower that are appropriate to the environment answer your call and act as allies for 1 minute. They use their own turns and obey your verbal commands.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Verdant Explosion",
+              "description": "As an action, you cause a massive burst of plant growth to erupt from a point within 60 feet. Each creature in a 20-foot radius must succeed on a Dexterity saving throw or take 3d8 piercing damage from thorns and be restrained for 1 round. On a success, half damage only.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 10,
+              "name": "Regenerative Sap",
+              "description": "As a bonus action, you coat an ally within 30 feet in a restorative golden sap. For the next minute, that ally regains 1d10 hit points at the start of each of their turns.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Overgrowth",
+              "description": "As an action, you cause massive plants to spring up across a 60-foot radius centered on you. The area is heavily overgrown: all movement through it costs triple, and creatures of your choice are unaffected. The overgrowth lasts for 10 minutes.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Plague of Thorns",
+              "description": "As an action, you fling a barrage of razor thorns in a 30-foot cone. All creatures in the area must succeed on a Dexterity saving throw or take 4d8 piercing damage and be poisoned for 1 minute. On a success, half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Nature's Wrath",
+              "description": "As a bonus action, you attune to the savage hunger of nature. For 1 minute, whenever you hit a creature with a weapon attack, writhing vines attempt to grab it \u2014 the target must succeed on a Strength saving throw or be restrained until the start of your next turn.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Tree Stride",
+              "description": "As a bonus action, you meld into a tree or large plant within 5 feet and teleport to any other tree or large plant within 500 feet, emerging from it as a free action. You may do this up to three times before the effect ends.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Ironwood Form",
+              "description": "As an action, for 1 minute your body is reinforced with ancient ironwood. You gain immunity to poison damage and the poisoned condition, resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks, and your unarmed strikes deal 2d8 bludgeoning damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Strangling Grove",
+              "description": "As an action, a massive growth of strangling vines erupts in a 30-foot radius within 60 feet. Each creature must succeed on a Strength saving throw or be restrained and take 3d10 bludgeoning damage at the start of each of its turns for 1 minute (repeated saves to escape).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Verdant Avatar",
+              "description": "As an action, you take on the form of a nature spirit for 1 minute. You grow 1 size larger, your weapon attacks deal an extra 2d10 poison damage, and whenever a creature hits you with a melee attack, thorns rip at it for 2d6 piercing damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Primal Surge",
+              "description": "As an action, you release the raw force of nature at a single creature within 60 feet. The target must succeed on a Constitution saving throw or take 6d10 poison damage and be incapacitated until the end of its next turn, as plant life tears through its body. On a success, it takes half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Mass Healing Bloom",
+              "description": "As an action, you cause blossoms of healing energy to bloom in a 30-foot radius centered on you. All allies in the area regain 4d8 + Wisdom modifier hit points and are cured of the poisoned condition.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "World Tree",
+              "description": "As an action, you summon a colossal ancient tree that takes root in a 60-foot radius centered on you. For 1 hour: the entire area is heavily overgrown difficult terrain for enemies; allies within the area regain 1d10 hit points at the start of their turns; and you can see through any plant within the area as if it were your own body.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Nature's Judgment",
+              "description": "As an action, you direct the wrath of the living world at all enemies within 120 feet. Each enemy takes 8d10 poison damage and 4d10 piercing damage (Constitution saving throw halves). On a failed save, they are also restrained by vines for 1 minute.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Apex Predator",
+              "description": "For 1 minute, you become the apex of natural force. You gain immunity to poison and disease; your attacks deal an extra 3d10 poison damage; you can take the Attack action twice as a bonus action once per turn; and all beasts within 120 feet are charmed by you for the duration.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Living Plague",
+              "description": "As an action, you release a storm of magical spores in a 60-foot radius. All creatures of your choice in the area must succeed on a Constitution saving throw or be poisoned and incapacitated for 1 minute, taking 4d10 poison damage at the start of each of their turns (repeated saves to end the effect).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Rebirth",
+              "description": "When you are reduced to 0 hit points, you can use your reaction to release a burst of healing nature energy. You are restored to half your hit point maximum. All allies within 30 feet regain 3d10 hit points. Thorns erupt in a 15foot radius around you, dealing 4d10 piercing damage to all enemies (Dexterity saving throw halves).",
+              "usage": "1/Long Rest"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Verdant Form",
+              "description": "When you activate your Elemental Shift, your body becomes suffused with the restless energy of living things. While your Shift is active: you have resistance to poison damage and advantage on saving throws against the poisoned condition; your movement ignores difficult terrain created by plants, roots, mud, or natural growth; tiny plants sprout in your wake \u2014 creatures that end their turn in a space you moved through this turn must succeed on a Strength saving throw (DC 8 + proficiency bonus + Wisdom modifier) or have their speed reduced by 10 feet until the start of your next turn."
+            }
           ]
         },
         {
           "id": "chronomancer",
           "name": "Chronomancer (Time Attunement)",
-          "description": "Manipulate the flow of time itself—reversing moments, freezing enemies in temporal stasis, and giving your allies actions they never had.",
+          "description": "Manipulate the flow of time itself\u2014reversing moments, freezing enemies in temporal stasis, and giving your allies actions they never had.",
           "element": "Time",
           "shift_table": [
-            {"roll": 1, "name": "Temporal Blur", "effect": "+2 AC (form flickers between moments)."},
-            {"roll": 2, "name": "Speed Surge", "effect": "Bonus action: Dash or Disengage; movement does not provoke OA this turn."},
-            {"roll": 3, "name": "Frozen Time", "effect": "Freeze a small object in time for 1 minute (immune to damage/decay)."},
-            {"roll": 4, "name": "Rewind Strike", "effect": "On a miss with attack, reroll it; must use second roll."},
-            {"roll": 5, "name": "Echo of Action", "effect": "Reaction: duplicate ally's movement from their last turn."},
-            {"roll": 6, "name": "Lingering Moment", "effect": "At start of your turn, regain a spell slot of 3rd level or lower expended last round."}
+            {
+              "roll": 1,
+              "name": "Temporal Blur",
+              "effect": "+2 AC (form flickers between moments)."
+            },
+            {
+              "roll": 2,
+              "name": "Speed Surge",
+              "effect": "Bonus action: Dash or Disengage; movement does not provoke OA this turn."
+            },
+            {
+              "roll": 3,
+              "name": "Frozen Time",
+              "effect": "Freeze a small object in time for 1 minute (immune to damage/decay)."
+            },
+            {
+              "roll": 4,
+              "name": "Rewind Strike",
+              "effect": "On a miss with attack, reroll it; must use second roll."
+            },
+            {
+              "roll": 5,
+              "name": "Echo of Action",
+              "effect": "Reaction: duplicate ally's movement from their last turn."
+            },
+            {
+              "roll": 6,
+              "name": "Lingering Moment",
+              "effect": "At start of your turn, regain a spell slot of 3rd level or lower expended last round."
+            }
           ],
-          "channel_power": "You and one ally within 30 ft take an additional action next turn.",
           "techniques": [
-            {"level": 3, "name": "Time Spike", "description": "Reaction to enemy entering melee range; Wisdom save or target restrained for 1 round (temporal distortion)."},
-            {"level": 5, "name": "Temporal Reversal", "description": "Bonus action: rewind 6 seconds; one creature within 30 ft rerolls the last attack/save made against them."},
-            {"level": 7, "name": "Haste Burst", "description": "Target creature gains an extra action and +10 ft movement for 1 round."},
-            {"level": 10, "name": "Temporal Loop", "description": "When a creature fails a save against one of your effects, they must make the save again next turn."},
-            {"level": 14, "name": "Stop Time", "description": "Action: All creatures except you stop for 1 round (as Time Stop). (1/long rest)"}
+            {
+              "level": 1,
+              "name": "Slow Step",
+              "description": "As a bonus action, you slow time around a creature within 30 feet. Until the start of your next turn, that creature's speed is halved and it cannot take reactions.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Quick Step",
+              "description": "As a bonus action, you accelerate your own movements through time. You may immediately move up to half your speed. This movement does not provoke opportunity attacks.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Temporal Blind",
+              "description": "As a reaction when you are targeted by an attack, you briefly phase out of the attacker's timeline. The attack is made with disadvantage.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Echo Strike",
+              "description": "When you hit a creature with a melee weapon attack, you can cause a temporal echo of the strike to hit immediately after. The echo deals 1d6 force damage (no attack roll required).",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Moment's Pause",
+              "description": "As a bonus action, you briefly freeze a creature within 30 feet in time. The target must succeed on a Wisdom saving throw or lose its movement this turn only (it can still act otherwise).",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Time Spike",
+              "description": "As a reaction to an enemy entering your melee range, you can trap them in a temporal distortion. The target must succeed on a Wisdom saving throw or be restrained for 1 round as time locks their movements.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 3,
+              "name": "Accelerate",
+              "description": "As a bonus action, you or an ally within 30 feet gains an additional bonus action on their next turn. Their speed also increases by 20 feet until the end of that turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Temporal Disruption",
+              "description": "As an action, you create a 15-foot-radius field of distorted time centered on a point within 60 feet until the start of your next turn. Creatures entering the field must succeed on a Wisdom saving throw or be slowed (as the slow spell) while in the field.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Rewind Step",
+              "description": "As a reaction to being hit by an attack, you rewind yourself 1 second back in time, moving up to 10 feet to any unoccupied space you occupied since the start of your last turn. The attack misses if you are no longer in its range.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Future Sight",
+              "description": "As a bonus action, you briefly scan the immediate future. Until the start of your next turn, you cannot be surprised, and you have advantage on the next attack roll or saving throw you make.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Temporal Reversal",
+              "description": "As a bonus action, you rewind the last 6 seconds. Choose one creature within 30 feet to restore hit points equal to half the damage they took since the end of your last turn.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 5,
+              "name": "Time Stop Burst",
+              "description": "As an action, time stops for all creatures except you for 1 round. For that round, you can move and take actions normally. At the start of your next turn, time resumes. Any effect you set in motion (objects thrown, etc.) takes effect when time resumes.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 5,
+              "name": "Aging Touch",
+              "description": "When you hit a creature with a melee attack, you can cause rapid aging. The target must succeed on a Constitution saving throw or have its Strength and Dexterity scores reduced by 1d4 each until it finishes a long rest.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Temporal Copy",
+              "description": "As a bonus action, you create a temporal copy of yourself from 6 seconds ago. The copy appears in the space you occupied 6 seconds (1 round) ago and acts as an ally. It has your stats but 1 HP, cannot use techniques, and vanishes at the start of your next turn.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Phase Lag",
+              "description": "As an action, you impose a 6-second lag on a creature within 60 feet. For 1 minute, all of that creature's actions take effect 1 round after it attempts them (it declares an action, but the effect happens at the end of its next turn). Wisdom saving throw negates.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Time Sink",
+              "description": "You create a 10-foot radius time dilation field for 1 minute. Enemies inside the field have their speed halved, and attacks they make are rolled at disadvantage.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 7,
+              "name": "Temporal Storm",
+              "description": "As an action, you create a storm of fractured time in a 20-foot radius centered on a point within 60 feet for 1 minute. Creatures in the storm are affected unpredictably: roll a d4 for each at the start of their turns. On a 1, they are stunned; on a 2-3, they are slowed; on a 4, they are hasted (as the haste spell).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Aged Armor",
+              "description": "As a reaction to being hit, you rapidly age the attack in time, turning the weapon or projectile brittle. Reduce the damage by 2d10 + Wisdom modifier as the force of the impact dissipates in shifted time.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "D\u00e9j\u00e0 Vu",
+              "description": "As a bonus action, you force a creature within 60 feet to relive its last turn exactly. It must take the same movement, action, and bonus action it took on its previous turn (Wisdom saving throw negates). Effectively, the creature has no choice in its turn this round.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Rewind Zone",
+              "description": "As an action, you rewind the state of the battlefield in a 20-foot radius: all creatures in the area are teleported to wherever they stood at the start of the previous round, and all conditions affecting them from this round are removed. Wisdom saving throw allows a creature to resist being moved.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Parallel Future",
+              "description": "You glimpse a possible outcome of an action. After rolling a d20 for an attack or ability check, you can roll again and choose either result.",
+              "usage": "1/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Temporal Immunity",
+              "description": "As a bonus action, you shield yourself in a bubble of frozen time for 1 minute. You have resistance to all damage and cannot be moved against your will. However, your speed is reduced by 20 feet while the bubble is active.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Chronicle Strike",
+              "description": "As a bonus action, you mark a creature within 60 feet. For 1 minute, once per round when that creature takes damage, you can add an additional 3d10 force damage to the blow by pulling the accumulated time-energy of its own past strikes back against it.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Yesterday's Shield",
+              "description": "As a reaction to a creature within 30 feet dropping to 0 HP, you rewind time for that creature, restoring it to the HP it had at the start of its previous turn. Once per creature per combat.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Age of Ruin",
+              "description": "As an action, you age everything in a 30-foot radius around you 100 years in an instant. Constructs and objects are destroyed or heavily corroded. Creatures must succeed on a Constitution saving throw or take 4d10 necrotic damage from accelerated aging. On a success, half damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Time Avatar",
+              "description": "You take on the form of a time-warped being for 1 minute. You take two turns in each round of combat. If you are reduced to 0 hit points, you rewind to 1 hit point instead (this occurs once).",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 14,
+              "name": "Absolute Temporal Freeze",
+              "description": "As an action, you freeze a single creature within 60 feet in time. The target must succeed on a Wisdom saving throw or be paralyzed for 1 minute (repeated saves at the end of each of its turns). While frozen, it is immune to all damage \u2014 but it also cannot act, move, or be affected by anything.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Causal Erasure",
+              "description": "As an action, you erase a round of time for a creature within 30 feet. The target must succeed on a Wisdom saving throw or have its last turn retroactively erased: all effects it caused on its previous turn are undone (damage dealt is restored, spells are returned unexpended, movement is reversed).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Mass Rewind",
+              "description": "As an action, you rewind all creatures within 60 feet of you to their states 1 round ago. All creatures return to their previous HP (if lower, it is restored; if higher, it stays), their positions at that time, and all conditions acquired during that round are erased. Wisdom saving throw allows creatures to resist returning to their positions.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Temporal Reckoning",
+              "description": "As an action, you collapse past, present, and future onto a single creature within 60 feet. Every attack it has made since the start of combat is reflected back at it simultaneously. The target takes 2d6 force damage for each attack roll it has made during this combat (Wisdom saving throw halves). Maximum 20d6.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Temporal Dominion",
+              "description": "For 1 minute, you become the master of time itself. You take three turns each round; all creatures and effects not of your choosing are slowed (speed halved, disadvantage on attacks and Dexterity saves); and you can instantly end any effect on yourself as a free action once per turn.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Chrono Collapse",
+              "description": "As an action, you collapse time in a 60-foot radius, forcing all creatures to simultaneously experience every moment of their life at once. All creatures must succeed on a Wisdom saving throw or take 8d12 psychic damage and be stunned for 1 minute (repeated saves). On a success, half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Time's End",
+              "description": "As an action, you stop time for all creatures except yourself for 1 minute (as a true time stop, not just a 1-round version). During this minute, you can take up to 10 turns uninterrupted. You cannot deal damage directly during this time, but you can set up conditions, move creatures, position objects, and activate any other techniques or non-damaging features.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "The Timekeeper",
+              "description": "As an action, you declare a fixed point in time. For the next hour, you can, as a bonus action on any subsequent turn, reset the battlefield to this fixed point: all creatures return to their HP, positions, and conditions they had at the time of declaration. You retain all actions and charges spent since then. This can be used once per declared fixed point.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Undying Timeline",
+              "description": "When you die, you do not. Instead, you rewind to the moment 1 minute before you died, fully restored to the HP you had at that time, with full knowledge of what happened. The timeline re-runs, but you retain your memories and may act differently. Once used, this feature cannot be used again for 7 days.",
+              "usage": "1/7 days"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Temporal Form",
+              "description": "When you activate your Elemental Shift, the moment around you stutters as your body phase-shifts slightly out of sync. While your Shift is active: your movement speed increases by 10 feet; the first attack roll made against you each round is made with disadvantage, as attackers briefly perceive two versions of you at slightly different points in time; once per turn, when you roll a 1 on an attack roll, you may reroll and use the new result."
+            }
           ]
         },
         {
           "id": "voidstrider",
           "name": "Voidstrider (Space Attunement)",
-          "description": "Bend space itself—teleporting across the battlefield, repositioning allies and enemies, and striking from anywhere.",
+          "description": "Bend space itself\u2014teleporting across the battlefield, repositioning allies and enemies, and striking from anywhere.",
           "element": "Space",
           "shift_table": [
-            {"roll": 1, "name": "Phase Slip", "effect": "+20 ft movement; can move through one creature's space without OA."},
-            {"roll": 2, "name": "Void Step", "effect": "Bonus action: teleport 10 ft to an unoccupied space you can see."},
-            {"roll": 3, "name": "Spatial Distortion", "effect": "One creature within 30 ft is teleported 10 ft in a random direction (Wisdom save negates)."},
-            {"roll": 4, "name": "Anchor Point", "effect": "Mark your current location; once this turn as a free action, return to marked location (as misty step)."},
-            {"roll": 5, "name": "Dimensional Armor", "effect": "+2 AC; once per round, negate one opportunity attack."},
-            {"roll": 6, "name": "Rift Slash", "effect": "Melee attacks deal extra 1d8 force damage as you strike through space."}
+            {
+              "roll": 1,
+              "name": "Phase Slip",
+              "effect": "+20 ft movement; can move through one creature's space without OA."
+            },
+            {
+              "roll": 2,
+              "name": "Void Step",
+              "effect": "Bonus action: teleport 10 ft to an unoccupied space you can see."
+            },
+            {
+              "roll": 3,
+              "name": "Spatial Distortion",
+              "effect": "One creature within 30 ft is teleported 10 ft in a random direction (Wisdom save negates)."
+            },
+            {
+              "roll": 4,
+              "name": "Anchor Point",
+              "effect": "Mark your current location; once this turn as a free action, return to marked location (as misty step)."
+            },
+            {
+              "roll": 5,
+              "name": "Dimensional Armor",
+              "effect": "+2 AC; once per round, negate one opportunity attack."
+            },
+            {
+              "roll": 6,
+              "name": "Rift Slash",
+              "effect": "Melee attacks deal extra 1d8 force damage as you strike through space."
+            }
           ],
-          "channel_power": "Instantly teleport 30 ft to a point you can see.",
           "techniques": [
-            {"level": 3, "name": "Fold Space", "description": "Bonus action: swap positions with a willing ally within 60 ft. Neither provokes OA."},
-            {"level": 5, "name": "Gravity Well", "description": "Create a gravitational point within 30 ft; creatures within 10 ft pulled 5 ft toward it (Strength save negates)."},
-            {"level": 7, "name": "Rift Toss", "description": "Bonus action: teleport an unwilling creature within 30 ft up to 20 ft in any direction (Wisdom save negates)."},
-            {"level": 10, "name": "Void Walk", "description": "Move through walls and solid objects until end of turn (pass through up to 5 ft of solid material)."},
-            {"level": 14, "name": "Spatial Collapse", "description": "Action: Compress 30-ft radius—all creatures in area teleported to center point, taking 4d8 force damage (Dex save for half). (1/long rest)"}
+            {
+              "level": 1,
+              "name": "Blink Step",
+              "description": "As a bonus action, you teleport up to 10 feet to an unoccupied space you can see.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Gravity Nudge",
+              "description": "As a bonus action, you manipulate gravity beneath a creature within 30 feet. It must succeed on a Strength saving throw or be pushed 5 feet in any direction you choose.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Spatial Distortion",
+              "description": "As a reaction when you are targeted by a ranged attack, you briefly warp space around yourself. The attack has a 50% chance to miss entirely \u2014 roll a d6; on a 4-6, the attack misses.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Phase Blur",
+              "description": "As a bonus action, you blur your position through space. Until the start of your next turn, the first attack made against you is made with disadvantage as you exist in two places briefly.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Void Pull",
+              "description": "As a bonus action, you create a momentary pocket of gravitational pull in a 10foot radius centered on a point within 30 feet. Each creature in the area must succeed on a Strength saving throw or be pulled 5 feet toward the point.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Spatial Displacement",
+              "description": "As a bonus action, you swap places with a willing ally within 30 feet. Both you and the ally gain +2 AC until the start of your next turn.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 3,
+              "name": "Dimensional Anchor",
+              "description": "As a bonus action, you anchor a creature within 30 feet to its current position. The target must succeed on a Charisma saving throw or be unable to teleport, blink, or voluntarily leave its current 10-foot area until the start of your next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Void Crash",
+              "description": "When you teleport, you can choose to detonate the space you left behind. Creatures within 5 feet of your origin point must succeed on a Strength saving throw or take 2d6 force damage and be pushed 5 feet back.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Gravity Slam",
+              "description": "As a bonus action, you spike gravity in a column above a creature within 30 feet. It must succeed on a Strength saving throw or be knocked prone and take 1d8 bludgeoning damage.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Space Fold",
+              "description": "As a reaction when an ally within 60 feet is attacked, you fold space to pull them 10 feet in any direction, imposing disadvantage on the triggering attack.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Warping Step",
+              "description": "Once per turn, when you move at least 15 feet, your next melee attack deals an extra 1d8 force damage as spatial energy tears through your target.",
+              "usage": "Passive while you move",
+              "existing": true
+            },
+            {
+              "level": 5,
+              "name": "Event Horizon",
+              "description": "As an action, you create a point of intense gravitational pull at a location within 60 feet. For 1 minute, all creatures within 20 feet of that point must succeed on a Strength saving throw at the start of their turns or be pulled 10 feet toward it.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Null Step",
+              "description": "As a bonus action, you negate the spatial relationship between you and a creature within 30 feet. Until the start of your next turn, that creature cannot move away from you \u2014 any movement it attempts that would increase the distance between you fails.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Rend Space",
+              "description": "As an action, you tear a rift in space in a 30-foot line, 5 feet wide, within 60 feet of you. Creatures in the line take 3d8 force damage and must succeed on a Strength saving throw or be launched 10 feet in a random direction.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Twin Blink",
+              "description": "As a bonus action, you teleport up to 20 feet. You can immediately use a second bonus action to teleport again up to 20 more feet.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Zone of Entropy",
+              "description": "You create a 10-foot radius zone within 60 feet that lasts for 1 minute. Inside this zone, creatures have disadvantage on attack rolls, and all ranged projectiles are absorbed into the void.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 7,
+              "name": "Crushing Gravity",
+              "description": "As an action, you double gravity in a 20-foot-radius area within 60 feet for 1 minute. Creatures in the area have their speed halved; all jump distances are halved; and at the start of each turn in the area, they take 1d8 bludgeoning damage as gravity crushes them.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Void Swap",
+              "description": "As an action, you swap the positions of two creatures within 60 feet of you. Each creature must succeed on a Charisma saving throw or be involuntarily teleported. Unwilling creatures that fail take 2d10 force damage from the spatial trauma.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Compressed Space",
+              "description": "As a bonus action, you compress the space around an enemy within 30 feet, making the physical world smaller around it. The target must succeed on a Strength saving throw or be restrained for 1 minute (repeated saves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Void Step",
+              "description": "As a bonus action, you teleport up to 60 feet to an unoccupied space you can see. You can bring along any willing creature within 5 feet, teleporting them with you.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Gravity Well",
+              "description": "As an action, you generate a field that pulls creatures toward a point of your choosing. Creatures within 30 feet of the point must succeed on a Strength saving throw or be dragged 20 feet toward it.",
+              "usage": "1/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Spatial Lock",
+              "description": "As an action, you lock all spatial movement in a 30-foot radius centered on you for 1 minute. No creature other than you can teleport, become ethereal, or use any effect that moves it without walking within the zone.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Folding Space",
+              "description": "As an action, you collapse the distance between you and a creature within 60 feet. You are instantly teleported to melee range of the target (adjacent, unoccupied space), and the target takes 3d10 force damage from the spatial rupture (Strength saving throw halves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Anti-Gravity Field",
+              "description": "As an action, you reverse gravity in a 20-foot-radius, 40-foot-tall area within 60 feet for 1 minute. Creatures in the area float upward to the ceiling of the reversed field. Creatures that cannot grab onto surfaces take 4d6 bludgeoning damage per turn falling upward, then down again when the effect ends.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Afterimage",
+              "description": "As a bonus action, you split your spatial presence for 1 minute, creating 2 illusory copies of yourself that mimic your movements and exist at slightly different spatial positions. Attackers must guess which is real \u2014 they have a 1in-3 chance of targeting a copy (which vanishes when hit).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Void Mastery",
+              "description": "For 1 minute, you gain the following abilities: you can teleport up to 30 feet as a bonus action; attacks against you automatically miss if you teleport after being targeted; and if you teleport through a creature, that creature takes 2d8 force damage.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 14,
+              "name": "Spatial Collapse",
+              "description": "As an action, you collapse space itself in a 30-foot radius centered on a point within 60 feet. All creatures in the area are instantly compressed toward the center, taking 6d10 force damage and being restrained for 1 minute as space compresses around them (Strength saving throw halves damage and negates restraint).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Reality Tear",
+              "description": "As an action, you tear a rift in reality 10 feet wide and 30 feet tall within 30 feet. For 1 minute, any creature that passes through the rift is teleported 1d4 \u00d7 10 feet in a random direction and takes 4d10 force damage. Allies can pass through safely if you designate them.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Pocket Universe",
+              "description": "As an action, you pull a creature within 30 feet into a pocket dimension for up to 1 minute. The target must succeed on a Charisma saving throw or be removed from the battlefield entirely. At the end of each of its turns, it may repeat the save. When it returns, it appears in the nearest unoccupied space.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Dimensional Cascade",
+              "description": "As an action, you teleport up to five times in rapid succession, each time up to 30 feet, attacking a different creature with each teleport. Make a melee attack against each creature. All attacks deal extra 2d10 force damage on a hit.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Void Singularity",
+              "description": "As an action, you create a singularity of collapsed space at a point within 60 feet. For 1 minute, all creatures within 60 feet must succeed on a Strength saving throw at the start of their turns or be pulled 20 feet toward the singularity and take 4d12 force damage. At the singularity's center, creatures take 8d12 force damage on a failed save.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Space Eater",
+              "description": "As an action, you instantly teleport every creature within 60 feet of you to a random unoccupied space within 60 feet of you (Charisma saving throw negates for each creature). Affected creatures also take 4d10 force damage from the spatial rupture.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Infinite Recursion",
+              "description": "For 1 minute, whenever you are hit by an attack, you can use your reaction to retroactively un-exist at that point in space \u2014 the attack misses instead. You can use this effect a number of times equal to your Wisdom modifier before the technique ends.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Dimension Shatter",
+              "description": "As an action, you shatter the fabric of space in a 120-foot radius. All creatures take 6d12 force damage (Charisma saving throw halves). On a failed save, a creature is also pulled into a random pocket dimension for 1 round, reappearing in a random unoccupied space within 60 feet at the start of your next turn.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "God Step",
+              "description": "For 1 hour, you can teleport instantaneously to any location you have been to within the last 30 days, as though you cast Teleport. In combat, you can teleport up to 300 feet as a bonus action, without limit. Nothing can restrain your movement \u2014 spatial anchors, barriers, and locks simply do not apply to you.",
+              "usage": "1/Long Rest"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Voidform",
+              "description": "When you activate your Elemental Shift, the space around you warps \u2014 you are here and not here at the same time. While your Shift is active: opportunity attacks against you are made with disadvantage, as you flicker between spatial positions as you move; you can move through creatures and objects as if they were difficult terrain (you cannot end your movement inside a solid object \u2014 if you do, you are shunted to the nearest unoccupied space and take 1d10 force damage); once per turn, when you teleport by any means, the first attack you make before end of turn deals an extra 1d6 force damage."
+            }
           ]
         },
         {
           "id": "emberclad",
           "name": "Emberclad (Fire Attunement)",
-          "description": "Burn with the fury of elemental fire—incinerating enemies, igniting the battlefield, and forging yourself in the heat of combat.",
+          "description": "Burn with the fury of elemental fire\u2014incinerating enemies, igniting the battlefield, and forging yourself in the heat of combat.",
           "element": "Fire",
           "shift_table": [
-            {"roll": 1, "name": "Flame Step", "effect": "+10 ft movement; trail of fire left behind (1d4 fire damage to creatures entering spaces you left)."},
-            {"roll": 2, "name": "Heat Aura", "effect": "Creatures within 5 ft take 1d4 fire damage at start of their turn."},
-            {"roll": 3, "name": "Ember Shield", "effect": "Resistance to fire damage; next creature to hit you with melee takes 1d6 fire damage."},
-            {"roll": 4, "name": "Blazing Speed", "effect": "+15 ft movement this turn; disengage as free action."},
-            {"roll": 5, "name": "Ignite", "effect": "One creature within 30 ft catches fire (1d6 ongoing fire damage, Dex save to end on their turn)."},
-            {"roll": 6, "name": "Inferno Strike", "effect": "Melee attacks deal extra 1d10 fire damage and targets are ignited (1d4 ongoing fire damage)."}
+            {
+              "roll": 1,
+              "name": "Flame Step",
+              "effect": "+10 ft movement; trail of fire left behind (1d4 fire damage to creatures entering spaces you left)."
+            },
+            {
+              "roll": 2,
+              "name": "Heat Aura",
+              "effect": "Creatures within 5 ft take 1d4 fire damage at start of their turn."
+            },
+            {
+              "roll": 3,
+              "name": "Ember Shield",
+              "effect": "Resistance to fire damage; next creature to hit you with melee takes 1d6 fire damage."
+            },
+            {
+              "roll": 4,
+              "name": "Blazing Speed",
+              "effect": "+15 ft movement this turn; disengage as free action."
+            },
+            {
+              "roll": 5,
+              "name": "Ignite",
+              "effect": "One creature within 30 ft catches fire (1d6 ongoing fire damage, Dex save to end on their turn)."
+            },
+            {
+              "roll": 6,
+              "name": "Inferno Strike",
+              "effect": "Melee attacks deal extra 1d10 fire damage and targets are ignited (1d4 ongoing fire damage)."
+            }
           ],
-          "channel_power": "20-ft cone of flame. Dexterity save or 6d8 fire damage (half on success).",
           "techniques": [
-            {"level": 1, "name": "Flame Dash", "description": "Bonus action: move up to 15 ft in a straight line through enemy spaces, dealing 1d6 fire damage to each creature you pass through (Dex save for none)."},
-            {"level": 3, "name": "Scorching Strike", "description": "Melee attack deals extra 2d8 fire damage and ignites target (1d6 ongoing fire, Dex save ends). (1/short rest)"},
-            {"level": 7, "name": "Wildfire", "description": "Action: Create a 15-ft radius ring of fire; lasts 1 minute; creatures entering or starting turn inside take 2d6 fire damage."},
-            {"level": 10, "name": "Phoenix Surge", "description": "When reduced to 0 HP, erupt in flames—automatically stabilize; deal 3d6 fire damage to all creatures within 10 ft. (1/long rest)"},
-            {"level": 14, "name": "Meteor Strike", "description": "Ranged attack (60 ft): 6d8 fire damage in 10-ft radius (Dex save for half). Terrain in area ignites for 1 minute. (1/long rest)"}
+            {
+              "level": 1,
+              "name": "Ember Strike",
+              "description": "When you hit a creature with a melee weapon attack, you can channel fire into the blow, dealing an extra 1d6 fire damage.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Flame Shield",
+              "description": "As a reaction to taking damage from a melee attack, you release a burst of fire. The attacker takes 1d6 fire damage and must succeed on a Dexterity saving throw or have disadvantage on its next attack roll.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Heat Wave",
+              "description": "As a bonus action, you release a wave of intense heat in a 10-foot radius around you. Creatures in the area must succeed on a Constitution saving throw or have disadvantage on their next attack roll until the start of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Fire Bolt",
+              "description": "As a bonus action, you hurl a bolt of fire at a creature within 60 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 1d10 fire damage and, if flammable, it catches fire for 1 round (1d4 damage at the start of its next turn).",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Smoke Screen",
+              "description": "As a bonus action, you release a thick cloud of smoke in a 10-foot radius centered on a point within 30 feet. The area is heavily obscured until the start of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Scorching Dash",
+              "description": "When you Dash, fire trails in your wake. Creatures you pass within 5 feet of must succeed on a Dexterity saving throw or take 1d6 fire damage and catch fire, taking 1d6 fire damage at the start of their turn for 1 minute (they can end this by using an action to extinguish the flames).",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 3,
+              "name": "Ignite Weapon",
+              "description": "As a bonus action, you set your weapon ablaze for 1 minute. Your attacks deal an extra 1d6 fire damage. On a critical hit, the target is also set on fire, taking 1d8 fire damage at the start of its turn until it uses an action to extinguish the flames.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Flame Burst",
+              "description": "As an action, you release a burst of fire in a 15-foot-radius sphere centered on yourself. Each creature in the area must succeed on a Dexterity saving throw or take 2d6 fire damage.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Cinder Step",
+              "description": "When you move, you leave a trail of burning cinders behind you. Each creature that moves through a space you occupied this turn takes 1d4 fire damage. The cinders last until the start of your next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Flashpoint",
+              "description": "As a reaction when a creature within 30 feet casts a spell, you disrupt their focus with a burst of fire. The caster must succeed on a Constitution saving throw or lose concentration, and take 1d8 fire damage.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Immolating Strike",
+              "description": "As a bonus action, your weapon erupts in flame. Your next attack deals an additional 2d8 fire damage. If the target is flammable, it ignites and continues burning for 1 minute, taking 1d6 fire damage at the start of each of its turns.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 5,
+              "name": "Pillar of Flame",
+              "description": "As an action, you conjure a pillar of fire 10 feet wide and 20 feet tall centered on a point within 60 feet. Creatures in the pillar must succeed on a Dexterity saving throw or take 3d8 fire damage (half on success). The pillar persists until the start of your next turn.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Incendiary Strike",
+              "description": "When you hit a creature with a melee attack, you can choose to cause a small explosion at the point of impact. Creatures within 5 feet of the target each take 1d8 fire damage (Dexterity saving throw halves).",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Combustion Dash",
+              "description": "As a bonus action, you ignite your body and rocket forward in a straight line up to 30 feet, leaving a trail of fire. Each creature whose space you pass through takes 2d6 fire damage (Dexterity saving throw halves).",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 5,
+              "name": "Lava Skin",
+              "description": "As a bonus action, your skin turns molten for 1 minute. You gain resistance to fire damage. Any creature that hits you with a melee attack or starts its turn grappling you takes 1d8 fire damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Blazing Vortex",
+              "description": "You summon a vortex of fire in a 10-foot radius centered on yourself. Creatures in the area must succeed on a Dexterity saving throw or take 3d6 fire damage. This vortex lasts 1 minute or until you dismiss it as a bonus action.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 7,
+              "name": "Magma Barrage",
+              "description": "As an action, you hurl globs of molten rock at up to three creatures within 60 feet. Make a ranged spell attack for each. Each hit deals 2d10 fire damage, and the target is coated in cooling magma \u2014 its speed is reduced by 10 feet and it takes 1d6 fire damage at the start of its next turn.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 7,
+              "name": "Wildfire",
+              "description": "As an action, you set the ground ablaze in a 20-foot-radius area within 60 feet. The fire persists for 1 minute. Any creature that enters or starts its turn in the area takes 2d8 fire damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Infernal Roar",
+              "description": "As a bonus action, you unleash a roar of fire and fury. Each creature within 20 feet must succeed on a Wisdom saving throw or be frightened of you for 1 minute (repeated saves at the end of each of their turns). Creatures that fail also take 2d6 fire damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 7,
+              "name": "Meteor Fist",
+              "description": "When you hit a creature with a melee attack, you can channel the force of a falling meteor. The attack deals an extra 3d8 fire damage, and the target must succeed on a Strength saving throw or be launched 10 feet in a direction of your choice and knocked prone.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 10,
+              "name": "Molten Core",
+              "description": "Your body radiates intense heat for 1 minute. Any creature that hits you with a melee attack takes 2d6 fire damage. If a creature grapples you, it must succeed on a Constitution saving throw or take 3d6 fire damage each round it maintains the grapple.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Phoenix Strike",
+              "description": "As a bonus action, you imbue your next attack with phoenix fire. On a hit, the target takes an extra 4d10 fire damage. If the attack reduces the target to 0 hit points, it explodes \u2014 each creature within 10 feet takes 2d10 fire damage (Dexterity saving throw halves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Volcanic Eruption",
+              "description": "As an action, you create a volcanic eruption at a point within 60 feet. A 20-foot column of lava erupts \u2014 all creatures within 20 feet of the point must succeed on a Dexterity saving throw or take 5d10 fire damage (half on success). The ground in the area is covered in slow-cooling lava (difficult terrain) for 1 minute.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Heatstroke",
+              "description": "As an action, you focus intense heat on a creature within 30 feet. The target must succeed on a Constitution saving throw or take 4d8 fire damage and become incapacitated until the end of its next turn, overwhelmed by the heat. On a success, half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Fire Storm",
+              "description": "As an action, you conjure spinning columns of fire in a 10-foot radius, 20-foottall cylinder within 60 feet. The storm lasts until the start of your next turn. Each creature that enters or starts its turn in the area must succeed on a Dexterity saving throw or take 4d8 fire damage and catch fire.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Inferno Mastery",
+              "description": "As an action, you unleash a devastating inferno. Release fire in a 30-foot cone. Creatures in the area must make a Dexterity saving throw or take 8d8 fire damage (half on success).",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 14,
+              "name": "Cataclysmic Flame",
+              "description": "As an action, you release a supernova of fire in a 60-foot radius centered on you. All creatures in the area take 6d10 fire damage (Dexterity saving throw halves). On a failed save, they are also blinded until the end of their next turn.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Eternal Flame",
+              "description": "As an action, for 1 minute your body burns with an undying fire. You are immune to fire damage, and at the start of each of your turns, you deal 2d8 fire damage to all creatures within 10 feet (no save). Whenever you attack, all creatures within 5 feet of the target take 1d8 fire damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Living Inferno",
+              "description": "As an action, you meld into pure fire for 1 minute. You gain immunity to fire damage, resistance to all other damage, and can move through spaces occupied by other creatures, dealing 2d10 fire damage to each creature you pass through (Dexterity saving throw halves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Sunburst",
+              "description": "As an action, you release a burst of solar fire from your body in all directions. All creatures within 60 feet must succeed on a Constitution saving throw or take 6d8 fire damage and 6d8 radiant damage and be blinded for 1 minute. On a success, they take half damage and are not blinded.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Ardentor's Fury",
+              "description": "As an action, you channel the legacy of the Fire Wyrm himself, releasing a torrent of fire in a 120-foot line, 10 feet wide. All creatures must succeed on a Dexterity saving throw or take 10d12 fire damage and catch fire, taking 4d10 fire damage at the start of each of their turns for 1 minute. On a success, half damage and no burning.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Star Fall",
+              "description": "As an action, you call down a rain of fireballs in a 60-foot radius centered on a point within 300 feet. Five fireballs fall at once: each is a 10-foot-radius sphere. You assign each fireball's position. Each creature in any fireball's area must succeed on a Dexterity saving throw or take 6d6 fire damage (half on success).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Magma Ascension",
+              "description": "For 1 hour, you become a being of living magma. You gain immunity to fire and poison damage; resistance to all other damage; a fly speed of 60 feet (plume of fire); and your unarmed strikes deal 4d10 fire damage. Any creature within 10 feet of you at the start of your turn takes 2d10 fire damage (Constitution saving throw halves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Conflagration",
+              "description": "As an action, you trigger an uncontrolled firestorm in a 120-foot radius centered on you for 1 minute. At the start of each of your turns, all enemies take 3d12 fire damage (Dexterity saving throw halves). The fire spreads to all flammable surfaces and objects. Allies are immune.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Rebirth in Flame",
+              "description": "When you are reduced to 0 hit points, you can use your reaction to trigger a dying explosion of fire. You release a 30-foot-radius burst of fire (4d12 fire damage, Dexterity saving throw halves). You are then immediately restored to half your maximum hit points as the fire replenishes you.",
+              "usage": "1/Long Rest"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Cinderform",
+              "description": "When you activate your Elemental Shift, your skin radiates heat and your body becomes the source of the fire rather than a vessel for it. While your Shift is active: you have resistance to fire damage; any creature that hits you with a melee attack or grapples you takes 1d4 fire damage; you shed dim light in a 10-foot radius."
+            }
           ]
         },
         {
           "id": "eidolon",
           "name": "Eidolon (Soul Attunement)",
-          "description": "Command the essence of souls themselves—draining vitality, communing with the dead, and becoming a vessel for pure spiritual power.",
+          "description": "Command the essence of souls themselves\u2014draining vitality, communing with the dead, and becoming a vessel for pure spiritual power.",
           "element": "Soul",
           "shift_table": [
-            {"roll": 1, "name": "Soul Drain", "effect": "On melee hit, drain 1d6 HP from target and regain that HP."},
-            {"roll": 2, "name": "Spectral Form", "effect": "Resistance to non-magical weapon damage; immune to grapple and restrain."},
-            {"roll": 3, "name": "Necrotic Aura", "effect": "Creatures within 10 ft have disadvantage on death saving throws."},
-            {"roll": 4, "name": "Spirit Shield", "effect": "Reaction: reduce damage taken by 1d8 + Wisdom modifier."},
-            {"roll": 5, "name": "Soul Link", "effect": "Link with ally within 30 ft; when either takes damage, split it between both."},
-            {"roll": 6, "name": "Death's Touch", "effect": "On melee hit, target makes Constitution save or gain one level of exhaustion."}
+            {
+              "roll": 1,
+              "name": "Soul Drain",
+              "effect": "On melee hit, drain 1d6 HP from target and regain that HP."
+            },
+            {
+              "roll": 2,
+              "name": "Spectral Form",
+              "effect": "Resistance to non-magical weapon damage; immune to grapple and restrain."
+            },
+            {
+              "roll": 3,
+              "name": "Necrotic Aura",
+              "effect": "Creatures within 10 ft have disadvantage on death saving throws."
+            },
+            {
+              "roll": 4,
+              "name": "Spirit Shield",
+              "effect": "Reaction: reduce damage taken by 1d8 + Wisdom modifier."
+            },
+            {
+              "roll": 5,
+              "name": "Soul Link",
+              "effect": "Link with ally within 30 ft; when either takes damage, split it between both."
+            },
+            {
+              "roll": 6,
+              "name": "Death's Touch",
+              "effect": "On melee hit, target makes Constitution save or gain one level of exhaustion."
+            }
           ],
-          "channel_power": "Reduce movement speed of creatures within 20 ft by half for 1 minute (Wisdom save ends).",
           "techniques": [
-            {"level": 3, "name": "Soul Tap", "description": "On hit, steal 1d8 HP from target; you regain those HP. (Proficiency bonus uses per long rest)"},
-            {"level": 5, "name": "Wraith Walk", "description": "Bonus action: become incorporeal until start of next turn; resistance to all damage; can move through solid objects."},
-            {"level": 7, "name": "Spectral Chain", "description": "Action: target within 30 ft is tethered by spectral chain; if they move more than 30 ft from you, take 2d8 necrotic damage. Lasts 1 minute."},
-            {"level": 10, "name": "Soul Harvest", "description": "When a creature dies within 30 ft, regain 2d8 HP and gain temp HP equal to the creature's CR × 2."},
-            {"level": 14, "name": "Possession", "description": "Action: attempt to possess a creature (Wisdom save to resist). While possessing, you control their actions; your body is incapacitated. Lasts 1 minute or until target succeeds on save at end of their turn. (1/long rest)"}
+            {
+              "level": 1,
+              "name": "Soul Tap",
+              "description": "As a bonus action, you reach out with spectral energy to a creature within 30 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 1d6 psychic damage and you regain 1d4 hit points.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Spectral Shroud",
+              "description": "As a bonus action, you wrap yourself in ghostly energy until the start of your next turn. You have advantage on saving throws against being charmed or frightened, and the first attack made against you before your next turn is made with disadvantage.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Fear Pulse",
+              "description": "As a bonus action, you release a pulse of dread. Each creature within 10 feet must succeed on a Wisdom saving throw or be frightened of you until the end of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Soul Echo",
+              "description": "As a reaction when you take damage, you redirect a fragment of the pain to the attacker through a spiritual link. The attacker takes psychic damage equal to half the damage you took (Wisdom saving throw negates).",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Ethereal Step",
+              "description": "As a bonus action, you briefly phase into the ethereal plane. Until the start of your next turn, you can move through creatures and objects as if they were difficult terrain (taking 1d10 force damage if you end your turn inside one).",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Soulflame Strike",
+              "description": "When you hit a creature with a weapon attack, you can expend a use of Elemental Shift to ignite your weapon with ethereal fire, dealing an extra 2d8 psychic damage. This damage increases to 3d8 at 11th level and 4d8 at 17th level.",
+              "usage": "Elemental Shift use",
+              "existing": true
+            },
+            {
+              "level": 3,
+              "name": "Life Drain",
+              "description": "When you hit a creature with a melee weapon attack, you can drain life energy from it. The target takes an extra 2d6 necrotic damage, and you regain hit points equal to half the necrotic damage dealt.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Haunt",
+              "description": "As a bonus action, you surround a creature within 60 feet with ghostly presences. Until the start of your next turn, the target has disadvantage on all attack rolls and saving throws as spectral horrors distract it.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Spirit Grasp",
+              "description": "As a bonus action, you project a ghostly hand at a creature within 30 feet. The target must succeed on a Strength saving throw or be grappled by the spectral hand (escape DC = your spell save DC). The grappled target also takes 1d8 psychic damage at the start of each of its turns.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Soul Rend",
+              "description": "As an action, you tear at a creature's soul within 30 feet. The target must succeed on a Wisdom saving throw or take 2d8 psychic damage and be unable to take bonus actions until the end of its next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 6,
+              "name": "Echoing Will",
+              "description": "As a reaction when an ally within 30 feet takes damage, you may absorb part of the pain. Reduce the damage taken by 1d10 + your Charisma modifier and take the same amount yourself.",
+              "usage": "2/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 6,
+              "name": "Soul Sever",
+              "description": "As an action, you attempt to cut the soul connection of a creature within 60 feet. The target must succeed on a Charisma saving throw or lose access to all class features and spellcasting until the end of its next turn, as you temporarily sever it from its inner power.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 6,
+              "name": "Phantasmal Terror",
+              "description": "As a bonus action, you send a terrifying vision directly into a creature's mind within 60 feet. The target must succeed on a Wisdom saving throw or become frightened for 1 minute and take 2d8 psychic damage (repeated saves at the end of each turn).",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 6,
+              "name": "Spectral Duplicate",
+              "description": "As a bonus action, you send a spectral copy of yourself to take your place momentarily. The next attack targeted at you automatically misses, targeting the duplicate instead. The duplicate then vanishes.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 6,
+              "name": "Spirit Ward",
+              "description": "As a bonus action, you wrap an ally within 30 feet in spectral armor for 1 minute. That ally has resistance to psychic and necrotic damage, and attacks against it by undead creatures are made with disadvantage.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 10,
+              "name": "Wraith Dance",
+              "description": "As a bonus action, you vanish and reappear in a flurry of ghostly movement, teleporting to an unoccupied space you can see within 60 feet and making a melee attack.",
+              "usage": "2/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Soul Shatter",
+              "description": "As an action, you target a creature within 60 feet and attempt to shatter its spirit. The target must succeed on a Charisma saving throw or take 6d10 psychic damage and be stunned until the end of its next turn. On a success, half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Ghostwalk",
+              "description": "As a bonus action, for 1 minute you become partially incorporeal. You have resistance to nonmagical bludgeoning, piercing, and slashing damage. You can move through solid objects (but not end your turn inside them) and ignore difficult terrain.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Possession",
+              "description": "As an action, you attempt to impose your will on a creature within 30 feet. The target must succeed on a Charisma saving throw or be under your control until the end of its next turn, acting on your mental commands (Huge or larger creatures are immune).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Ethereal Anchor",
+              "description": "As a bonus action, you anchor a creature within 60 feet to the material plane. For 1 minute, the target cannot teleport, become ethereal, or use planar travel of any kind. It also has disadvantage on Charisma saving throws.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Bound by Spirit",
+              "description": "You can tether your soul to an enemy for 1 minute. While tethered, any damage the enemy deals to others is halved, but you take the other half as unavoidable damage. You may end this effect as a reaction.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 14,
+              "name": "Mass Haunt",
+              "description": "As an action, you unleash a wave of spectral terror. All enemies within 60 feet must succeed on a Wisdom saving throw or take 4d10 psychic damage and be frightened for 1 minute (repeated saves at end of each turn). On a success, half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Soul Feast",
+              "description": "As an action, you feast on the spiritual energy of all living creatures within 30 feet. Each creature must succeed on a Charisma saving throw or take 4d8 necrotic damage. You regain hit points equal to the highest amount of damage dealt to any single target.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Psychic Collapse",
+              "description": "As an action, you target a creature within 60 feet and collapse its mental defenses. The target must succeed on an Intelligence saving throw or take 6d8 psychic damage and have its Intelligence, Wisdom, and Charisma reduced by 1d4 each until it finishes a long rest. On a success, half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Spirit Army",
+              "description": "As an action, you summon 1d4 + 1 spectral warriors that appear in unoccupied spaces within 30 feet. They act on their own turns (go at initiative 20), have AC 13, 30 HP each, and deal 2d8 necrotic damage with their attacks. They last for 1 minute.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Eidolon's Ascendance",
+              "description": "As an action, for 1 minute, you become a spectral entity. Gain resistance to all damage except force and psychic, and advantage on all saving throws against being charmed or frightened. Additionally, enemies within 10 feet have disadvantage on Wisdom saving throws.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 18,
+              "name": "Soul Obliteration",
+              "description": "As an action, you target a creature within 60 feet and attempt to unmake its soul. The target must succeed on a Charisma saving throw or take 10d12 psychic damage and be paralyzed for 1 minute (repeated saves). If this damage reduces the target to 0 hit points, it is destroyed outright \u2014 body, soul, and all \u2014 and cannot be raised by any means short of a wish spell.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Realm of Shadow",
+              "description": "As an action, for 1 minute you pull all creatures within 60 feet of you into a shadow realm. While in this realm, all light becomes dim light; all creatures except you have disadvantage on attack rolls; you are invisible to all enemies; and you can target any creature within the realm with your techniques without range limitations.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Spirit Storm",
+              "description": "As an action, you release a torrent of souls you've touched. All enemies within 120 feet take 6d10 psychic damage and 6d10 necrotic damage (Charisma saving throw halves). On a failed save, they are also frightened, incapacitated, and reduced to 0 speed for 1 minute (repeated saves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Death's Bargain",
+              "description": "As a bonus action, you offer a dying creature (at 0 HP and stabilized or unconscious) within 30 feet a chance to serve you. It rises with half its maximum hit points as a spectral servant under your command. It acts on your turn, follows your commands, and lasts until the end of your next long rest or until reduced to 0 HP again.",
+              "usage": "1/Long Rest"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Spectral Form",
+              "description": "When you activate your Elemental Shift, your body becomes partially translucent \u2014 half here, half somewhere else entirely. While your Shift is active: you have resistance to necrotic and psychic damage; you can move through other creatures as if they were difficult terrain (you cannot end your movement inside them); creatures have disadvantage on opportunity attacks against you, as your precise location is unclear."
+            }
           ]
         },
         {
           "id": "luminor",
           "name": "Luminor (Light Attunement)",
-          "description": "Wield the power of pure radiance—blinding foes, healing allies with golden light, and becoming a beacon of hope in the darkest places.",
+          "description": "Wield the power of pure radiance\u2014blinding foes, healing allies with golden light, and becoming a beacon of hope in the darkest places.",
           "element": "Light",
           "shift_table": [
-            {"roll": 1, "name": "Radiant Aura", "effect": "Bright light 10 ft, dim 10 ft more; allies in bright light gain +1d4 to attack rolls."},
-            {"roll": 2, "name": "Flash Step", "effect": "Teleport 15 ft; creatures within 5 ft of destination are blinded until start of your next turn."},
-            {"roll": 3, "name": "Light Ward", "effect": "+2 AC; undead and fiends within 10 ft have disadvantage on attack rolls against you."},
-            {"roll": 4, "name": "Solar Flare", "effect": "Reaction when attacked: emit burst of light; attacker makes Con save or blinded until end of their turn."},
-            {"roll": 5, "name": "Healing Light", "effect": "Bonus action: ally within 30 ft regains 1d8 + Wisdom mod HP."},
-            {"roll": 6, "name": "Searing Strike", "effect": "Melee attacks deal extra 1d8 radiant damage; undead and fiends take 2d8 instead."}
+            {
+              "roll": 1,
+              "name": "Radiant Aura",
+              "effect": "Bright light 10 ft, dim 10 ft more; allies in bright light gain +1d4 to attack rolls."
+            },
+            {
+              "roll": 2,
+              "name": "Flash Step",
+              "effect": "Teleport 15 ft; creatures within 5 ft of destination are blinded until start of your next turn."
+            },
+            {
+              "roll": 3,
+              "name": "Light Ward",
+              "effect": "+2 AC; undead and fiends within 10 ft have disadvantage on attack rolls against you."
+            },
+            {
+              "roll": 4,
+              "name": "Solar Flare",
+              "effect": "Reaction when attacked: emit burst of light; attacker makes Con save or blinded until end of their turn."
+            },
+            {
+              "roll": 5,
+              "name": "Healing Light",
+              "effect": "Bonus action: ally within 30 ft regains 1d8 + Wisdom mod HP."
+            },
+            {
+              "roll": 6,
+              "name": "Searing Strike",
+              "effect": "Melee attacks deal extra 1d8 radiant damage; undead and fiends take 2d8 instead."
+            }
           ],
-          "channel_power": "Burst of radiant energy: Constitution save or blinded for 1 minute (repeat save at end of each turn).",
           "techniques": [
-            {"level": 1, "name": "Blinding Flash", "description": "Action: 15-ft radius flash of light; Dex save or blinded until end of your next turn."},
-            {"level": 3, "name": "Healing Radiance", "description": "Bonus action: emit healing light; allies within 15 ft regain 1d6 + Wisdom mod HP. (Proficiency bonus uses per long rest)"},
-            {"level": 7, "name": "Solar Beam", "description": "Action: 60-ft line of radiant energy; Dex save or 4d8 radiant damage (half on success). Undead take maximum damage (no save)."},
-            {"level": 10, "name": "Light Barrier", "description": "Reaction to an ally taking damage: create a shield of light absorbing 2d10 + Wisdom mod damage. (3/long rest)"},
-            {"level": 14, "name": "Nova Burst", "description": "Action: Become a star for 1 minute—60-ft radius of brilliant light. All allies regain 3d10 HP. Undead/fiends in radius take 6d10 radiant damage at start of each turn. (1/long rest)"}
+            {
+              "level": 1,
+              "name": "Radiant Bolt",
+              "description": "As a bonus action, you launch a bolt of pure light at a creature within 60 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 1d10 radiant damage.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Flash",
+              "description": "As a bonus action, you release a burst of searing light in a 10-foot radius. Each creature in the area must succeed on a Constitution saving throw or be blinded until the start of your next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Guiding Light",
+              "description": "As a bonus action, you mark a creature within 60 feet with a halo of light. Until the start of your next turn, attacks against that creature are made with advantage.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Light Ward",
+              "description": "As a reaction to being hit, you manifest a barrier of light. Reduce the triggering damage by 1d6 + Wisdom modifier.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 1,
+              "name": "Solar Step",
+              "description": "As a bonus action, you leave a trail of blinding light in each space you move through this turn. Creatures that enter those spaces before the start of your next turn must succeed on a Constitution saving throw or be blinded until the start of their next turn.",
+              "usage": "Costs 1 Elemental Charge"
+            },
+            {
+              "level": 3,
+              "name": "Blazing Strike",
+              "description": "When you hit a creature with a melee weapon attack, you can expend a use of Elemental Shift to engulf your weapon in searing light, dealing an extra 2d10 radiant damage. This damage increases to 3d10 at 11th level and 4d10 at 17th level.",
+              "usage": "Elemental Shift use",
+              "existing": true
+            },
+            {
+              "level": 3,
+              "name": "Searing Ray",
+              "description": "As an action, you fire a concentrated beam of light at a creature within 60 feet. Make a ranged spell attack. On a hit, the target takes 2d10 radiant damage and must succeed on a Constitution saving throw or be blinded until the end of its next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Reveal",
+              "description": "As a bonus action, you bathe an area in magical light in a 30-foot radius centered on you. All invisible creatures in the area are revealed, and all illusions are dispelled. Creatures in the area cannot benefit from the invisible condition for 1 minute.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Solar Flare",
+              "description": "As a bonus action, you release a burst of solar energy from your body. All creatures within 10 feet must succeed on a Constitution saving throw or take 2d8 radiant damage and be blinded until the start of your next turn.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 3,
+              "name": "Healing Radiance",
+              "description": "As a bonus action, you channel light into a wounded ally within 20 feet, restoring 1d8 + Wisdom modifier hit points.",
+              "usage": "2/Short Rest"
+            },
+            {
+              "level": 6,
+              "name": "Illuminate Path",
+              "description": "As a bonus action, you emit a guiding light for 1 minute. Allies within 30 feet of you have advantage on saving throws against being frightened or blinded.",
+              "usage": "1/Short Rest",
+              "existing": true
+            },
+            {
+              "level": 6,
+              "name": "Blinding Cascade",
+              "description": "As an action, you unleash a cascade of light in a 30-foot cone. Creatures in the area must succeed on a Constitution saving throw or take 3d8 radiant damage and be blinded for 1 minute (repeated saves at the end of each turn). On a success, half damage only.",
+              "usage": "1/Short Rest"
+            },
+            {
+              "level": 6,
+              "name": "Light Prison",
+              "description": "As a bonus action, you bind a creature within 60 feet in beams of solidified light. The target must succeed on a Strength saving throw or be restrained for 1 minute (repeated saves to escape). Attacks made by the restrained creature are made with disadvantage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 6,
+              "name": "Mass Mending Light",
+              "description": "As an action, you send out pulses of healing light. All allies within 20 feet of you regain 2d6 + Wisdom modifier hit points.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 6,
+              "name": "Truth's Light",
+              "description": "As a bonus action, you bathe a creature within 30 feet in magical light that compels truth. For 1 minute, the target cannot willingly speak a lie, and all Deception checks it makes are made with disadvantage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Brilliant Form",
+              "description": "As an action, you transform into a glowing avatar of light for 1 minute. Your weapon attacks deal an extra 1d6 radiant damage, and enemies that start their turn within 10 feet of you must succeed on a Constitution saving throw or be blinded until the end of their next turn.",
+              "usage": "1/Long Rest",
+              "existing": true
+            },
+            {
+              "level": 10,
+              "name": "Sunburst Strike",
+              "description": "As an action, you concentrate a beam of solar energy at a creature within 60 feet. Make a ranged spell attack. On a hit, the target takes 5d10 radiant damage and must succeed on a Constitution saving throw or be blinded for 1 minute and have disadvantage on all saving throws against radiant damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Light Step",
+              "description": "As a bonus action, you convert your body to pure light and teleport to an unoccupied space within 60 feet that you can see. Each creature within 5 feet of your destination must succeed on a Constitution saving throw or take 2d8 radiant damage and be blinded until the start of your next turn.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Radiant Shield",
+              "description": "As a reaction to being hit by an attack, you release a burst of radiant energy. The attacker takes radiant damage equal to the damage you took (Constitution saving throw halves). Any other creature within 5 feet of you also takes 1d10 radiant damage.",
+              "usage": "2/Long Rest"
+            },
+            {
+              "level": 10,
+              "name": "Undying Light",
+              "description": "As a bonus action, you infuse an ally within 30 feet with light. For 1 minute, if that ally would be reduced to 0 hit points, they instead drop to 1 hit point and release a burst of light that blinds all enemies within 10 feet (Constitution saving throw negates) until the start of their next turn. This effect can only trigger once.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Solar Nova",
+              "description": "As an action, you detonate a miniature sun centered on a point within 60 feet. All creatures within 30 feet take 6d10 radiant damage and must succeed on a Constitution saving throw or be blinded for 1 minute (repeated saves). On a success, half damage only.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Absolute Light",
+              "description": "As an action, for 1 minute you become a being of pure luminous energy. You are immune to radiant and fire damage; all your melee attacks deal 2d10 extra radiant damage; and any undead creature that starts its turn within 15 feet of you must succeed on a Constitution saving throw or take 4d8 radiant damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Thousand Suns",
+              "description": "As an action, you create a field of blinding light in a 60-foot radius centered on you. All creatures except you must succeed on a Constitution saving throw or be blinded for 1 minute and take 3d10 radiant damage. On a success, they take half damage only and are not blinded.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Dawn Strike",
+              "description": "As an action, a beam of dawn light crashes down from above onto a 20-footradius area within 120 feet. All creatures must succeed on a Dexterity saving throw or take 8d8 radiant damage. On a failed save, undead take double damage. On a success, half damage.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 14,
+              "name": "Purifying Radiance",
+              "description": "As an action, you release a pulse of cleansing light in a 30-foot radius. All allies in the area are cured of all diseases, curses, the blinded condition, the frightened condition, and the poisoned condition. All enemies in the area take 3d8 radiant damage (Constitution saving throw halves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Beacon of the Ages",
+              "description": "As an action, you become a pillar of pure light for 1 minute. You rise up to 120 feet into the air and cast light in a 1-mile radius. All allies within 120 feet of you regain 2d10 hit points at the start of your turns. All enemies within 120 feet take 2d10 radiant damage at the start of your turns.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Apocalyptic Flash",
+              "description": "As an action, you release an explosion of blinding radiance. All creatures within 120 feet take 8d10 radiant damage and 4d10 fire damage (Dexterity saving throw halves). On a failed save, they are also blinded, deafened, and stunned for 1 minute (repeated saves).",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Eye of the Sun",
+              "description": "As an action, you open a blazing eye of solar fire above the battlefield in a 200foot radius. For 1 minute, at the start of each of your turns, you designate up to five creatures. Each must succeed on a Dexterity saving throw or take 5d10 radiant damage and be blinded until the start of your next turn.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "True Revelation",
+              "description": "As an action, you flood the world with absolute light. For 1 minute: all invisibility effects and illusions within 500 feet end; all creatures within 500 feet must succeed on a Constitution saving throw or be blinded; and you can see through any magical or mundane darkness, invisibility, or illusion within 1 mile.",
+              "usage": "1/Long Rest"
+            },
+            {
+              "level": 18,
+              "name": "Lightform Ascension",
+              "description": "For 1 hour, you become a being of pure light. You gain immunity to radiant, fire, and necrotic damage; a fly speed of 120 feet; the ability to pass through any space large enough for light; and immunity to all conditions. Once per turn, you can deal 4d12 radiant damage to any creature you can see within 120 feet (no attack roll required \u2014 it's just light).",
+              "usage": "1/Long Rest"
+            }
+          ],
+          "features": [
+            {
+              "level": 3,
+              "name": "Radiant Form",
+              "description": "When you activate your Elemental Shift, you become a source of light so intense it cannot be fully contained in a physical form. While your Shift is active: you shed bright light in a 10-foot radius and dim light for an additional 10 feet; you have resistance to radiant damage; creatures within 10 feet of you cannot benefit from the invisible condition against you or your allies."
+            }
           ]
         }
       ],
-      "icon": "⚗️"
+      "icon": "\u2697\ufe0f"
     }
   ]
 }
