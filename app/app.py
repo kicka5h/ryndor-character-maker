@@ -1481,24 +1481,144 @@ def generate_character_pdf():
     init_mod = modifier(effective_stat("DEX", race))
 
     _sec("COMBAT")
-    pdf.set_font("Helvetica", "", 10)
-    combat_items = [
-        f"Max HP: {max(hp, 1)}", _pdf_safe(f"AC: {ac_val} ({ac_note})"),
-        f"Initiative: {init_mod}", f"Speed: {speed} ft",
-        f"Proficiency Bonus: +{prof}", f"Passive Perception: {10 + perc_mod}",
-    ]
+    # ── 6-stat grid ──
     third_w = (pdf.w - 30) / 3
-    for i, item in enumerate(combat_items):
-        if i % 3 == 0 and i > 0:
+    combat_items = [
+        ("Max HP",            str(max(hp, 1))),
+        ("Armor Class",       str(ac_val)),
+        ("Initiative",        init_mod),
+        ("Speed",             f"{speed} ft"),
+        ("Proficiency Bonus", f"+{prof}"),
+        ("Passive Perception", str(10 + perc_mod)),
+    ]
+    for i, (label, value) in enumerate(combat_items):
+        if i > 0 and i % 3 == 0:
             pdf.ln(5)
-        label, _, value = item.partition(": ")
         pdf.set_text_color(*C_SUB)
         pdf.set_font("Helvetica", "I", 9)
         pdf.cell(third_w * 0.55, 5, _pdf_safe(label + ":"))
         pdf.set_text_color(*C_HDR_TEXT)
         pdf.set_font("Helvetica", "B", 10)
         pdf.cell(third_w * 0.45, 5, _pdf_safe(value))
-    pdf.ln(9)
+    pdf.ln(7)
+
+    # ── AC formula + Hit Die sub-line ──
+    pdf.set_text_color(*C_SUB)
+    pdf.set_font("Helvetica", "I", 8)
+    hit_die_str = cls["hit_die"] if cls else "d8"
+    pdf.cell(0, 4.5, _pdf_safe(f"AC: {ac_note}  |  Hit Die: {hit_die_str}"), ln=True)
+    pdf.ln(1)
+
+    # ── Damage Resistances ──
+    _dmg_res_pdf = list(st.session_state.get("damage_resistances", []))
+    if race and race["id"] == "drakarim":
+        _anc_res_p = st.session_state.get("draconic_ancestry", "")
+        _anc_r_p = next((x for x in race.get("draconic_ancestry_table", []) if x["dragon"] == _anc_res_p), None)
+        if _anc_r_p and _anc_r_p["damage_type"] not in _dmg_res_pdf:
+            _dmg_res_pdf.append(_anc_r_p["damage_type"])
+    if _dmg_res_pdf:
+        pdf.set_text_color(*C_SUB)
+        pdf.set_font("Helvetica", "I", 8)
+        pdf.cell(0, 4.5, _pdf_safe("Damage Resistances: " + ", ".join(_dmg_res_pdf)), ln=True)
+        pdf.ln(1)
+
+    # ── Attacks & Actions ──
+    _pdf_acts = []
+    _pm = get_weapon(st.session_state.get("equipped_main"))
+    _po = get_weapon(st.session_state.get("equipped_offhand"))
+    if _pm:
+        _ms2 = calc_weapon_attack(_pm, race, cls, level)
+        _vd2 = f" / Versatile: {_ms2['versatile_damage']}" if _ms2.get("versatile_damage") else ""
+        _pdf_acts.append({"name": _pm["name"], "category": "Weapon",
+                          "hit": f"{_ms2['attack']} to hit", "save": None,
+                          "damage": _ms2["damage"] + _vd2,
+                          "note": "Prof" if _ms2["proficient"] else "Not prof"})
+    if _po:
+        _os2 = calc_weapon_attack(_po, race, cls, level, for_offhand=True)
+        _pdf_acts.append({"name": _po["name"] + " (off-hand)", "category": "Weapon",
+                          "hit": f"{_os2['attack']} to hit", "save": None,
+                          "damage": _os2["damage"],
+                          "note": "Prof" if _os2["proficient"] else "Not prof"})
+    _pdf_acts.extend(_race_combat_actions(race, con_mod, prof, level))
+    _mech_p = get_mech(st.session_state.class_id or "")
+    _sc_p   = _mech_p.get("spellcasting")
+    if _sc_p and st.session_state.class_id != "sevrinn":
+        _sck_p  = {"Wisdom": "WIS", "Intelligence": "INT", "Charisma": "CHA"}.get(_sc_p["ability"], "WIS")
+        _scm_p  = modifier_int(effective_stat(_sck_p, race))
+        _ab_p   = prof + _scm_p
+        _dc_p   = 8 + _ab_p
+        _as_p   = f"+{_ab_p}" if _ab_p >= 0 else str(_ab_p)
+        for _cn2 in st.session_state.get("chosen_cantrips", []):
+            _csd3, _ = lookup_spell_detail(_cn2)
+            if _csd3:
+                _cp3 = _parse_spell_combat(_csd3)
+                if _cp3:
+                    _cd3, _ct3, _ca3, _cs3 = _cp3
+                    _ch3 = "half" in _csd3.get("description", "").lower()
+                    if _ca3 == "attack":
+                        _pdf_acts.append({"name": _cn2, "category": "Cantrip", "hit": f"{_as_p} to hit", "save": None, "damage": f"{_cd3} {_ct3.lower()}", "note": "At will"})
+                    elif _ca3 == "save":
+                        _pdf_acts.append({"name": _cn2, "category": "Cantrip", "hit": None, "save": f"DC {_dc_p} {_cs3}", "damage": f"{_cd3} {_ct3.lower()}", "note": "At will" + (" / half on save" if _ch3 else "")})
+                    else:
+                        _pdf_acts.append({"name": _cn2, "category": "Cantrip", "hit": None, "save": None, "damage": f"{_cd3} {_ct3.lower()}", "note": "At will"})
+        for _sn2 in st.session_state.get("chosen_spells", []):
+            _ssd3, _slk3 = lookup_spell_detail(_sn2)
+            if _ssd3:
+                _sp3 = _parse_spell_combat(_ssd3)
+                if _sp3:
+                    _sd3, _st3, _sa3, _ss3 = _sp3
+                    _slv3 = _spell_level_label(_slk3) if _slk3 else "Spell"
+                    _sh3 = "half" in _ssd3.get("description", "").lower()
+                    if _sa3 == "attack":
+                        _pdf_acts.append({"name": _sn2, "category": _slv3, "hit": f"{_as_p} to hit", "save": None, "damage": f"{_sd3} {_st3.lower()}", "note": None})
+                    elif _sa3 == "save":
+                        _pdf_acts.append({"name": _sn2, "category": _slv3, "hit": None, "save": f"DC {_dc_p} {_ss3}", "damage": f"{_sd3} {_st3.lower()}", "note": "Half on save" if _sh3 else None})
+                    elif _sa3 == "weapon_bonus":
+                        _pdf_acts.append({"name": _sn2, "category": _slv3, "hit": None, "save": None, "damage": f"+{_sd3} {_st3.lower()} per hit", "note": "Bonus to weapon attacks / Conc."})
+                    else:
+                        _pdf_acts.append({"name": _sn2, "category": _slv3, "hit": None, "save": None, "damage": f"{_sd3} {_st3.lower()}", "note": "Auto-hit"})
+    _pdf_acts.extend(_class_combat_actions(st.session_state.class_id or "", level, race, prof))
+    if _pdf_acts:
+        pdf.ln(1)
+        pdf.set_text_color(*C_SUB)
+        pdf.set_font("Helvetica", "BI", 8)
+        pdf.cell(0, 5, "ATTACKS & ACTIONS", ln=True)
+        pdf.ln(0.5)
+        _aw = pdf.w - 30
+        _wn, _wc, _wr, _wd, _wo = _aw*0.26, _aw*0.13, _aw*0.20, _aw*0.20, _aw*0.21
+        _x0 = pdf.l_margin
+        for _act in _pdf_acts:
+            _roll_str = _act.get("hit") or ((_act.get("save", "") + " save") if _act.get("save") else "")
+            _y0 = pdf.get_y()
+            _max_y = _y0 + 4.5  # minimum row height
+
+            pdf.set_xy(_x0, _y0)
+            pdf.set_text_color(*C_HDR_TEXT); pdf.set_font("Helvetica", "B", 8)
+            pdf.multi_cell(_wn, 4.5, _pdf_safe(_act["name"]))
+            _max_y = max(_max_y, pdf.get_y())
+
+            pdf.set_xy(_x0 + _wn, _y0)
+            pdf.set_text_color(*C_SUB); pdf.set_font("Helvetica", "I", 7.5)
+            pdf.multi_cell(_wc, 4.5, _pdf_safe(f"[{_act['category']}]"))
+            _max_y = max(_max_y, pdf.get_y())
+
+            pdf.set_xy(_x0 + _wn + _wc, _y0)
+            pdf.set_text_color(*C_STAT); pdf.set_font("Helvetica", "", 8)
+            pdf.multi_cell(_wr, 4.5, _pdf_safe(_roll_str))
+            _max_y = max(_max_y, pdf.get_y())
+
+            pdf.set_xy(_x0 + _wn + _wc + _wr, _y0)
+            pdf.set_text_color(*C_HDR_TEXT); pdf.set_font("Helvetica", "B", 8)
+            pdf.multi_cell(_wd, 4.5, _pdf_safe(_act.get("damage", "")))
+            _max_y = max(_max_y, pdf.get_y())
+
+            pdf.set_xy(_x0 + _wn + _wc + _wr + _wd, _y0)
+            pdf.set_text_color(*C_SUB); pdf.set_font("Helvetica", "I", 7)
+            pdf.multi_cell(_wo, 4.5, _pdf_safe(_act.get("note") or ""))
+            _max_y = max(_max_y, pdf.get_y())
+
+            pdf.set_xy(_x0, _max_y)
+        pdf.ln(2)
 
     # ── Saving Throws ──
     class_saves = cls["saves"] if cls else []
