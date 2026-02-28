@@ -1,0 +1,62 @@
+{
+  "char_name": "Petal Rootdancer",
+  "player_name": "",
+  "char_level": 3,
+  "race_id": "cervar",
+  "class_id": "druid",
+  "subclass_id": "srd_land",
+  "background_id": "hurstwold_warden",
+  "alignment": "Neutral Good",
+  "stats": {
+    "STR": 10,
+    "DEX": 13,
+    "CON": 14,
+    "INT": 12,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "stat_method": "Standard Array",
+  "chosen_skills": ["Medicine", "Perception"],
+  "equip_choices": {
+    "shield_or_weapon": 1,
+    "melee": 1,
+    "pack": 0
+  },
+  "class_options": {},
+  "expertise_skills": [],
+  "chosen_languages": [],
+  "notes": "Springtime druid focused on the recovery of blighted and barren lands. Travels with investigative teams to document and reverse environmental damage left behind by Weirding events.",
+  "personality": "I speak to plants before I touch them. Every barren patch of earth is simply waiting for the right conditions — you have to listen before you can help.",
+  "ideals": "Renewal. Every scorched field and every dead tree is a promise waiting to be kept. Nothing is truly gone until the last seed is gone.",
+  "bonds": "A blight carved a scar through the heart of the Hurstwold years ago. I will not stop until that wound has healed, no matter how long it takes.",
+  "flaws": "I can become so absorbed in a dying plant or blighted soil that I lose track of everything happening around me — including things that actually need my attention.",
+  "inv_weapons": ["quarterstaff"],
+  "equipped_main": "quarterstaff",
+  "equipped_offhand": null,
+  "has_dual_wielder": false,
+  "inv_gear": [],
+  "chosen_cantrips": ["Shillelagh", "Druidcraft"],
+  "chosen_spells": ["Cure Wounds", "Healing Word", "Entangle", "Lesser Restoration", "Barkskin"],
+  "asi_choices": {},
+  "combat_tactics": {
+    "role": "Terrain controller and sustained healer. Petal wins fights by changing the conditions of the battlefield before the first sword is swung.",
+    "tactics": [
+      {
+        "phase": "Opening",
+        "text": "Entangle is the first priority: WIS save or restrained in a 20-foot square. Restrained creatures have 0 speed, disadvantage on attack rolls, and attacks against them have advantage. One well-placed Entangle turns a dangerous encounter into a cleanup operation. Center it on the densest cluster."
+      },
+      {
+        "phase": "Core Loop",
+        "text": "Maintain Entangle concentration. Cast Shillelagh as a bonus action (WIS for attack and damage, d8 instead of d6) to become a credible melee threat. Healing Word (bonus action) keeps injured allies standing without breaking concentration — a druid who heals with a bonus action and still attacks is efficient action economy."
+      },
+      {
+        "phase": "Concentration Tradeoff",
+        "text": "Entangle and Barkskin are both concentration — never run both. Entangle helps the whole party and should run in almost every fight. Barkskin (AC 16) is the right call only when Petal must front-line alone or when terrain prevents clustering enemies. Choose deliberately at the start of each encounter."
+      },
+      {
+        "phase": "Resources",
+        "text": "Circle of the Land: Natural Recovery restores spell slots on a short rest (total levels up to half druid level). Budget 2nd-level slots for fights where Entangle must be upcast or Barkskin is needed. Lesser Restoration clears poisoned, blinded, paralyzed, or diseased conditions — hold at least one slot for it."
+      }
+    ]
+  }
+}

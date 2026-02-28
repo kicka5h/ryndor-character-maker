@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 import math
+import re
 from pathlib import Path
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -828,6 +829,8 @@ defaults = {
     "class_options": {},   # {choice_key: selected_id or [selected_ids]}
     "expertise_skills": [],
     "chosen_languages": [],
+    "draconic_ancestry": "",
+    "damage_resistances": [],
     "notes": "",
     "personality": "",
     "ideals": "",
@@ -841,6 +844,7 @@ defaults = {
     "chosen_cantrips": [],
     "chosen_spells": [],
     "asi_choices": {},
+    "combat_tactics": {},
 }
 for k, v in defaults.items():
     if k not in st.session_state:
@@ -1078,6 +1082,108 @@ def _spell_cast_label(level_key, slot_dict, is_pact):
     rest = "short rest" if is_pact else "long rest"
     slot_word = "slot" if count == 1 else "slots"
     return f"{count} {slot_word} / {rest}"
+
+# ── Combat action helpers ────────────────────────────────────────────────────
+_DMG_RE  = re.compile(r'(\d+d\d+(?:[+\-]\d+)?)\s+(\w+)\s+damage', re.IGNORECASE)
+_SAVE_RE = re.compile(
+    r'(Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma)\s+saving\s+throw',
+    re.IGNORECASE,
+)
+_ATCK_RE = re.compile(r'(ranged|melee)\s+spell\s+attack', re.IGNORECASE)
+_SAVE_ABBR = {
+    "strength": "STR", "dexterity": "DEX", "constitution": "CON",
+    "intelligence": "INT", "wisdom": "WIS", "charisma": "CHA",
+}
+
+def _parse_spell_combat(spell_dict):
+    """Return (dice, dmg_type, atk_type, save_key) if the spell deals damage, else None.
+
+    atk_type values:
+      'attack'       — uses a spell attack roll
+      'save'         — targets make a saving throw
+      'weapon_bonus' — buff that adds damage to weapon attacks (e.g. Divine Favor)
+      'auto'         — deals damage without a roll (e.g. Magic Missile)
+    """
+    desc = spell_dict.get("description", "")
+    m = _DMG_RE.search(desc)
+    if not m:
+        return None
+    dice     = m.group(1).strip()
+    dmg_type = m.group(2).capitalize()
+    if _ATCK_RE.search(desc):
+        return dice, dmg_type, "attack", None
+    sm = _SAVE_RE.search(desc)
+    if sm:
+        return dice, dmg_type, "save", _SAVE_ABBR[sm.group(1).lower()]
+    if "weapon attack" in desc.lower() or "on a hit" in desc.lower():
+        return dice, dmg_type, "weapon_bonus", None
+    return dice, dmg_type, "auto", None
+
+def _race_combat_actions(race, con_mod, prof, level):
+    """Return a list of action dicts for race-granted combat abilities."""
+    actions = []
+    if not race:
+        return actions
+    if race["id"] == "drakarim":
+        anc_name = st.session_state.get("draconic_ancestry", "")
+        anc = next((x for x in race.get("draconic_ancestry_table", []) if x["dragon"] == anc_name), None)
+        if anc:
+            dc = 8 + prof + con_mod
+            actions.append({
+                "name": f"Breath Weapon ({anc['dragon']})",
+                "category": "Racial",
+                "hit": None,
+                "save": f"DC {dc} {anc['save']}",
+                "damage": f"2d6 {anc['damage_type'].lower()}",
+                "note": f"{anc['breath']} · Half on save · Recharges short/long rest",
+            })
+    if race["id"] == "tiefling" and level >= 3:
+        cha_mod = modifier_int(effective_stat("CHA", race))
+        hb_dc   = 8 + prof + cha_mod
+        # Cast at 2nd level → 3d10
+        actions.append({
+            "name": "Hellish Rebuke",
+            "category": "Racial",
+            "hit": None,
+            "save": f"DC {hb_dc} DEX",
+            "damage": "3d10 fire",
+            "note": "Reaction (when damaged) · Half on save · 1× / long rest",
+        })
+    return actions
+
+def _class_combat_actions(class_id, level, race, prof):
+    """Return a list of action dicts for class-level damage features."""
+    actions = []
+    if class_id == "barbarian":
+        rage_bonus = 2 if level < 9 else (3 if level < 16 else 4)
+        actions.append({
+            "name": "Rage",
+            "category": "Feature",
+            "hit": None,
+            "save": None,
+            "damage": f"+{rage_bonus} to STR melee damage",
+            "note": "While raging · Resistance to B/P/S · Recharges long rest",
+        })
+    elif class_id == "paladin":
+        actions.append({
+            "name": "Divine Smite",
+            "category": "Feature",
+            "hit": None,
+            "save": None,
+            "damage": "2d8+ radiant",
+            "note": "On a hit: expend spell slot · +1d8/slot lvl above 1st · Max 5d8 · +1d8 vs undead/fiends",
+        })
+    elif class_id == "rogue":
+        sneak_dice = math.ceil(level / 2)
+        actions.append({
+            "name": "Sneak Attack",
+            "category": "Feature",
+            "hit": None,
+            "save": None,
+            "damage": f"{sneak_dice}d6",
+            "note": "1× per turn · Requires advantage or ally adjacent to target",
+        })
+    return actions
 
 def has_dual_wielder_feat():
     """Return True if the Dual Wielder feat is active (via ASI choices or legacy checkbox)."""
@@ -1502,6 +1608,36 @@ def generate_character_pdf():
         pdf.multi_cell(0, 3.5, _pdf_safe(bg_feat_data.get("description", "")))
         pdf.ln(3)
 
+    # ── Racial Traits ──
+    pdf_race_traits = race.get("traits", []) if race else []
+    if pdf_race_traits:
+        _pdf_anc = None
+        if race and race["id"] == "drakarim":
+            _chosen_anc_pdf = st.session_state.get("draconic_ancestry", "")
+            _pdf_anc = next((x for x in race.get("draconic_ancestry_table", []) if x["dragon"] == _chosen_anc_pdf), None)
+        _sec("RACIAL TRAITS")
+        for trait in pdf_race_traits:
+            t_name = trait["name"]
+            t_desc = trait["description"]
+            if _pdf_anc:
+                if t_name == "Draconic Ancestry":
+                    t_desc = (f"{_pdf_anc['dragon']} Dragon ({_pdf_anc['damage_type']}). "
+                              f"Breath weapon: {_pdf_anc['breath']}, {_pdf_anc['save']} save.")
+                elif t_name == "Draconic Resistance":
+                    t_desc = f"Resistance to {_pdf_anc['damage_type'].lower()} damage."
+                elif t_name == "Breath Weapon":
+                    t_desc = (f"{_pdf_anc['breath']} ({_pdf_anc['save']} save, DC = 8 + proficiency bonus + CON modifier). "
+                              f"2d6 {_pdf_anc['damage_type'].lower()} damage on a failed save, half on success. "
+                              f"Recharges on a short or long rest.")
+            pdf.set_text_color(*C_HDR_TEXT)
+            pdf.set_font("Helvetica", "B", 8)
+            pdf.cell(0, 4.5, _pdf_safe(t_name), ln=True)
+            pdf.set_text_color(*C_BODY)
+            pdf.set_font("Helvetica", "", 7.5)
+            pdf.multi_cell(0, 3.5, _pdf_safe(t_desc))
+            pdf.ln(0.5)
+        pdf.ln(2)
+
     # ── Character Details (after Features) ──
     details = [
         ("Personality Traits", st.session_state.get("personality", "")),
@@ -1522,6 +1658,25 @@ def generate_character_pdf():
             pdf.set_font("Helvetica", "", 9)
             pdf.multi_cell(0, 4.5, _pdf_safe(val))
             pdf.ln(1)
+        pdf.ln(2)
+
+    # ── Combat Tactics ──
+    ct_pdf = st.session_state.get("combat_tactics", {})
+    if ct_pdf:
+        _sec("COMBAT TACTICS")
+        if ct_pdf.get("role"):
+            pdf.set_text_color(*C_SUB)
+            pdf.set_font("Helvetica", "I", 8)
+            pdf.multi_cell(0, 3.8, _pdf_safe(ct_pdf["role"]))
+            pdf.ln(2)
+        for _tac in ct_pdf.get("tactics", []):
+            pdf.set_text_color(*C_HDR_TEXT)
+            pdf.set_font("Helvetica", "B", 8)
+            pdf.cell(0, 4.5, _pdf_safe(_tac.get("phase", "")), ln=True)
+            pdf.set_text_color(*C_BODY)
+            pdf.set_font("Helvetica", "", 7.5)
+            pdf.multi_cell(0, 3.5, _pdf_safe(_tac.get("text", "")))
+            pdf.ln(0.5)
         pdf.ln(2)
 
     # ── Spellcasting ──
@@ -1887,6 +2042,43 @@ elif st.session_state.step == 2:
                     f'<div class="desc">{trait["description"]}</div></div>',
                     unsafe_allow_html=True
                 )
+
+            # Draconic Ancestry picker (Drakarim only)
+            if race["id"] == "drakarim":
+                anc_table = race.get("draconic_ancestry_table", [])
+                if anc_table:
+                    st.markdown('<div class="section-header" style="margin-top:1rem">🐉 Draconic Ancestry</div>', unsafe_allow_html=True)
+                    anc_by_dragon = {a["dragon"]: a for a in anc_table}
+                    anc_names = [a["dragon"] for a in anc_table]
+                    current_anc = st.session_state.get("draconic_ancestry", "")
+                    anc_idx = anc_names.index(current_anc) if current_anc in anc_names else 0
+                    chosen_anc = st.selectbox(
+                        "Choose your dragon type",
+                        options=anc_names,
+                        index=anc_idx,
+                        format_func=lambda d: f"{d} Dragon  —  {anc_by_dragon[d]['damage_type']}",
+                        key="da_select",
+                    )
+                    if chosen_anc != st.session_state.get("draconic_ancestry", ""):
+                        st.session_state.draconic_ancestry = chosen_anc
+                        st.rerun()
+                    a = anc_by_dragon[chosen_anc]
+                    st.markdown(
+                        f'<div class="trait-block">'
+                        f'<div class="name">Breath Weapon — {a["damage_type"]}</div>'
+                        f'<div class="desc">{a["breath"]} ({a["save"]} save, DC = 8 + proficiency bonus + CON modifier). '
+                        f'2d6 {a["damage_type"].lower()} damage on a failed save, half on success. '
+                        f'Recharges on a short or long rest.</div>'
+                        f'</div>',
+                        unsafe_allow_html=True
+                    )
+                    st.markdown(
+                        f'<div class="trait-block">'
+                        f'<div class="name">Damage Resistance</div>'
+                        f'<div class="desc">Resistance to {a["damage_type"].lower()} damage.</div>'
+                        f'</div>',
+                        unsafe_allow_html=True
+                    )
 
             # Age/Size/Alignment
             st.markdown(f'<p style="font-family:Crimson Text,serif; color:#5a4a7a; font-size:0.88rem; margin-top:0.8rem"><b style="color:#a78bfa">Age:</b> {race.get("age","")} &nbsp;|&nbsp; <b style="color:#a78bfa">Size:</b> {race.get("size","")} &nbsp;|&nbsp; <b style="color:#a78bfa">Alignment:</b> {race.get("alignment","")}</p>', unsafe_allow_html=True)
@@ -3419,31 +3611,112 @@ elif st.session_state.step == 10:
             unsafe_allow_html=True
         )
     st.markdown(f'<p style="font-family:Crimson Text,serif; color:#4e3d6e; font-size:0.82rem; margin:0.3rem 0 0; font-style:italic">AC: {ac_note} · Hit Die: {cls["hit_die"] if cls else "d8"} · Proficiency Bonus: +{prof}</p>', unsafe_allow_html=True)
+    dmg_res = list(st.session_state.get("damage_resistances", []))
+    if race and race["id"] == "drakarim":
+        _anc_res = st.session_state.get("draconic_ancestry", "")
+        _anc_r = next((x for x in race.get("draconic_ancestry_table", []) if x["dragon"] == _anc_res), None)
+        if _anc_r and _anc_r["damage_type"] not in dmg_res:
+            dmg_res.append(_anc_r["damage_type"])
+    if dmg_res:
+        res_badges = " ".join(f'<span style="color:#67e8f9">⬡ {r}</span>' for r in dmg_res)
+        st.markdown(f'<p style="font-family:Crimson Text,serif; color:#4e3d6e; font-size:0.82rem; margin:0.2rem 0 0; font-style:italic">Damage Resistances: {res_badges}</p>', unsafe_allow_html=True)
 
-    # ── Equipped Weapons (from Inventory step) ──
+    # ── Attacks & Actions ──
+    _all_actions = []
+
+    # Weapons
     sheet_main_wep = get_weapon(st.session_state.get("equipped_main"))
     sheet_off_wep  = get_weapon(st.session_state.get("equipped_offhand"))
-    if sheet_main_wep or sheet_off_wep:
-        st.markdown('<p style="font-family:Cinzel,serif;color:#a78bfa;font-size:0.72rem;letter-spacing:0.1em;margin:0.8rem 0 0.4rem">EQUIPPED WEAPONS</p>', unsafe_allow_html=True)
-        if sheet_main_wep:
-            ms = calc_weapon_attack(sheet_main_wep, race, cls, level)
-            vd_part = f" (Versatile: {ms['versatile_damage']})" if ms.get("versatile_damage") else ""
-            prof_part = "● Proficient" if ms["proficient"] else "○ Not proficient"
+    if sheet_main_wep:
+        ms = calc_weapon_attack(sheet_main_wep, race, cls, level)
+        vd = f" · Versatile: {ms['versatile_damage']}" if ms.get("versatile_damage") else ""
+        _all_actions.append({
+            "name": sheet_main_wep["name"],
+            "category": "Weapon",
+            "hit": f"{ms['attack']} to hit",
+            "save": None,
+            "damage": ms["damage"] + vd,
+            "note": "● Proficient" if ms["proficient"] else "○ Not proficient",
+        })
+    if sheet_off_wep:
+        os_ = calc_weapon_attack(sheet_off_wep, race, cls, level, for_offhand=True)
+        _all_actions.append({
+            "name": sheet_off_wep["name"] + " (off-hand)",
+            "category": "Weapon",
+            "hit": f"{os_['attack']} to hit",
+            "save": None,
+            "damage": os_["damage"],
+            "note": "● Proficient" if os_["proficient"] else "○ Not proficient",
+        })
+
+    # Racial abilities
+    _all_actions.extend(_race_combat_actions(race, con_mod, prof, level))
+
+    # Spellcasting — damaging cantrips and spells
+    _mech_sh = get_mech(st.session_state.class_id or "")
+    _sc_sh   = _mech_sh.get("spellcasting")
+    if _sc_sh and st.session_state.class_id != "sevrinn":
+        _sc_key2   = {"Wisdom": "WIS", "Intelligence": "INT", "Charisma": "CHA"}.get(_sc_sh["ability"], "WIS")
+        _sc_mod2   = modifier_int(effective_stat(_sc_key2, race))
+        _atk_bonus = prof + _sc_mod2
+        _spell_dc2 = 8 + _atk_bonus
+        _atk_str   = f"+{_atk_bonus}" if _atk_bonus >= 0 else str(_atk_bonus)
+        for _cname in st.session_state.get("chosen_cantrips", []):
+            _csd, _ = lookup_spell_detail(_cname)
+            if _csd:
+                _cp = _parse_spell_combat(_csd)
+                if _cp:
+                    _cdice, _cdtype, _catk, _csave = _cp
+                    _chalf = "half" in _csd.get("description", "").lower()
+                    if _catk == "attack":
+                        _all_actions.append({"name": _cname, "category": "Cantrip", "hit": f"{_atk_str} to hit", "save": None, "damage": f"{_cdice} {_cdtype.lower()}", "note": "At will"})
+                    elif _catk == "save":
+                        _all_actions.append({"name": _cname, "category": "Cantrip", "hit": None, "save": f"DC {_spell_dc2} {_csave}", "damage": f"{_cdice} {_cdtype.lower()}", "note": "At will" + (" · half on save" if _chalf else "")})
+                    else:
+                        _all_actions.append({"name": _cname, "category": "Cantrip", "hit": None, "save": None, "damage": f"{_cdice} {_cdtype.lower()}", "note": "At will"})
+        for _sname in st.session_state.get("chosen_spells", []):
+            _ssd, _slk = lookup_spell_detail(_sname)
+            if _ssd:
+                _sp = _parse_spell_combat(_ssd)
+                if _sp:
+                    _sdice, _sdtype, _satk, _ssave = _sp
+                    _slvl  = _spell_level_label(_slk) if _slk else "Spell"
+                    _shalf = "half" in _ssd.get("description", "").lower()
+                    if _satk == "attack":
+                        _all_actions.append({"name": _sname, "category": _slvl, "hit": f"{_atk_str} to hit", "save": None, "damage": f"{_sdice} {_sdtype.lower()}", "note": None})
+                    elif _satk == "save":
+                        _all_actions.append({"name": _sname, "category": _slvl, "hit": None, "save": f"DC {_spell_dc2} {_ssave}", "damage": f"{_sdice} {_sdtype.lower()}", "note": "Half on save" if _shalf else None})
+                    elif _satk == "weapon_bonus":
+                        _all_actions.append({"name": _sname, "category": _slvl, "hit": None, "save": None, "damage": f"+{_sdice} {_sdtype.lower()} per hit", "note": "Bonus to weapon attacks · Concentration"})
+                    else:
+                        _all_actions.append({"name": _sname, "category": _slvl, "hit": None, "save": None, "damage": f"{_sdice} {_sdtype.lower()}", "note": "Auto-hit"})
+
+    # Class damage features
+    _all_actions.extend(_class_combat_actions(st.session_state.class_id or "", level, race, prof))
+
+    # Render
+    if _all_actions:
+        _cat_colors = {
+            "Weapon": "#a78bfa", "Cantrip": "#67e8f9",
+            "Feature": "#fcd34d", "Racial": "#f59e0b",
+        }
+        st.markdown('<p style="font-family:Cinzel,serif;color:#a78bfa;font-size:0.72rem;letter-spacing:0.1em;margin:0.8rem 0 0.4rem">ATTACKS & ACTIONS</p>', unsafe_allow_html=True)
+        for _act in _all_actions:
+            _cc  = _cat_colors.get(_act["category"], "#c4b5fd")
+            _cat = f'<span style="color:{_cc};font-size:0.7rem;font-family:Cinzel,serif">[{_act["category"]}]</span>'
+            if _act.get("hit"):
+                _roll = f'<span style="color:#fcd34d">{_act["hit"]}</span>'
+            elif _act.get("save"):
+                _roll = f'<span style="color:#fcd34d">{_act["save"]} save</span>'
+            else:
+                _roll = ""
+            _sep  = " · " if _roll else ""
+            _note = f' <span style="color:#67e8f9;font-size:0.75rem">· {_act["note"]}</span>' if _act.get("note") else ""
             st.markdown(
                 f'<div style="font-family:Crimson Text,serif;color:#a99cbf;font-size:0.9rem;margin:0.2rem 0">'
-                f'<b style="font-family:Cinzel,serif;color:#c4b5fd;font-size:0.8rem">Main Hand:</b> {sheet_main_wep["name"]} '
-                f'<span style="color:#fcd34d">{ms["attack"]} to hit</span> · {ms["damage"]}{vd_part}'
-                f' <span style="color:#67e8f9;font-size:0.75rem">{prof_part}</span></div>',
-                unsafe_allow_html=True
-            )
-        if sheet_off_wep:
-            os_ = calc_weapon_attack(sheet_off_wep, race, cls, level, for_offhand=True)
-            prof_part2 = "● Proficient" if os_["proficient"] else "○ Not proficient"
-            st.markdown(
-                f'<div style="font-family:Crimson Text,serif;color:#a99cbf;font-size:0.9rem;margin:0.2rem 0">'
-                f'<b style="font-family:Cinzel,serif;color:#c4b5fd;font-size:0.8rem">Off-Hand:</b> {sheet_off_wep["name"]} '
-                f'<span style="color:#fcd34d">{os_["attack"]} to hit</span> · {os_["damage"]} '
-                f'<span style="color:#67e8f9;font-size:0.75rem">{prof_part2}</span></div>',
+                f'<b style="font-family:Cinzel,serif;color:#c4b5fd;font-size:0.8rem">{_act["name"]}</b> '
+                f'{_cat} {_roll}{_sep}{_act["damage"]}{_note}'
+                f'</div>',
                 unsafe_allow_html=True
             )
 
@@ -3727,11 +4000,27 @@ elif st.session_state.step == 10:
     if race:
         st.markdown('<div class="sheet-section">', unsafe_allow_html=True)
         st.markdown(f'<div class="sheet-section-title">{race["icon"]} Racial Traits — {race["name"]}</div>', unsafe_allow_html=True)
+        _sheet_anc = None
+        if race["id"] == "drakarim":
+            _chosen_anc_s = st.session_state.get("draconic_ancestry", "")
+            _sheet_anc = next((x for x in race.get("draconic_ancestry_table", []) if x["dragon"] == _chosen_anc_s), None)
         for trait in race.get("traits", []):
+            _tname = trait["name"]
+            _tdesc = trait["description"]
+            if _sheet_anc:
+                if _tname == "Draconic Ancestry":
+                    _tdesc = (f"{_sheet_anc['dragon']} Dragon ({_sheet_anc['damage_type']}). "
+                              f"Breath weapon: {_sheet_anc['breath']}, {_sheet_anc['save']} save.")
+                elif _tname == "Draconic Resistance":
+                    _tdesc = f"Resistance to {_sheet_anc['damage_type'].lower()} damage."
+                elif _tname == "Breath Weapon":
+                    _tdesc = (f"{_sheet_anc['breath']} ({_sheet_anc['save']} save, DC = 8 + proficiency bonus + CON modifier). "
+                              f"2d6 {_sheet_anc['damage_type'].lower()} damage on a failed save, half on success. "
+                              f"Recharges on a short or long rest.")
             st.markdown(
                 f'<div class="feat-row">'
-                f'<div class="fname">{trait["name"]}</div>'
-                f'<div class="fdesc">{trait["description"]}</div>'
+                f'<div class="fname">{_tname}</div>'
+                f'<div class="fdesc">{_tdesc}</div>'
                 f'</div>',
                 unsafe_allow_html=True
             )
@@ -3916,6 +4205,26 @@ elif st.session_state.step == 10:
                     f'</div>',
                     unsafe_allow_html=True
                 )
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    # ── Combat Tactics ──
+    _ct = st.session_state.get("combat_tactics", {})
+    if _ct:
+        st.markdown('<div class="sheet-section">', unsafe_allow_html=True)
+        st.markdown('<div class="sheet-section-title">⚔ Combat Tactics</div>', unsafe_allow_html=True)
+        if _ct.get("role"):
+            st.markdown(
+                f'<p style="font-family:Crimson Text,serif;font-style:italic;color:#9d8dbf;margin:0 0 0.8rem">{_ct["role"]}</p>',
+                unsafe_allow_html=True
+            )
+        for _tac in _ct.get("tactics", []):
+            st.markdown(
+                f'<div class="feat-row">'
+                f'<div class="fname">{_tac["phase"]}</div>'
+                f'<div class="fdesc">{_tac["text"]}</div>'
+                f'</div>',
+                unsafe_allow_html=True
+            )
         st.markdown('</div>', unsafe_allow_html=True)
 
     # ── Actions ──

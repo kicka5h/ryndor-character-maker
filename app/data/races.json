@@ -88,6 +88,18 @@
           "description": "You can make a melee attack with your tail (5 ft. reach), dealing 1d6 + Strength modifier bludgeoning damage."
         }
       ],
+      "draconic_ancestry_table": [
+        {"dragon": "Black",  "damage_type": "Acid",      "breath": "5×30 ft. line", "save": "DEX"},
+        {"dragon": "Blue",   "damage_type": "Lightning", "breath": "5×30 ft. line", "save": "DEX"},
+        {"dragon": "Brass",  "damage_type": "Fire",      "breath": "5×30 ft. line", "save": "DEX"},
+        {"dragon": "Bronze", "damage_type": "Lightning", "breath": "5×30 ft. line", "save": "DEX"},
+        {"dragon": "Copper", "damage_type": "Acid",      "breath": "5×30 ft. line", "save": "DEX"},
+        {"dragon": "Gold",   "damage_type": "Fire",      "breath": "15 ft. cone",   "save": "DEX"},
+        {"dragon": "Green",  "damage_type": "Poison",    "breath": "15 ft. cone",   "save": "CON"},
+        {"dragon": "Red",    "damage_type": "Fire",      "breath": "15 ft. cone",   "save": "DEX"},
+        {"dragon": "Silver", "damage_type": "Cold",      "breath": "15 ft. cone",   "save": "CON"},
+        {"dragon": "White",  "damage_type": "Cold",      "breath": "15 ft. cone",   "save": "CON"}
+      ],
       "suggested_classes": ["Fighter", "Barbarian", "Paladin", "Sorcerer", "Wizard"],
       "icon": "🐉"
     },

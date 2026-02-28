@@ -1,0 +1,65 @@
+{
+  "char_name": "Koss Sakar",
+  "player_name": "",
+  "char_level": 3,
+  "race_id": "drakarim",
+  "class_id": "cleric",
+  "subclass_id": "domain_resonance",
+  "background_id": "srd_noble",
+  "alignment": "Lawful Neutral",
+  "stats": {
+    "STR": 12,
+    "DEX": 8,
+    "CON": 13,
+    "INT": 10,
+    "WIS": 15,
+    "CHA": 14
+  },
+  "stat_method": "Standard Array",
+  "chosen_skills": ["Insight", "Religion"],
+  "equip_choices": {
+    "weapon": 0,
+    "armor": 2,
+    "secondary": 1,
+    "pack": 0
+  },
+  "class_options": {},
+  "expertise_skills": [],
+  "chosen_languages": ["Celestial"],
+  "draconic_ancestry": "Bronze",
+  "damage_resistances": ["Lightning"],
+  "notes": "Koss Sakar is a Drakarim of old blood and unambiguous confidence in his own importance. He carries his jewelled cane as both divine focus and social statement. The Domain of Resonance suits him precisely — he has always believed that presence is its own form of power, and that the right word delivered at the right frequency can rearrange the world. He is genuinely effective. This does not make him easier to travel with.",
+  "personality": "I carry myself as though every room I enter was designed with my arrival in mind. I am not rude — I am precise about expectations. The cane is a divine focus, yes, but it is also a statement, and the statement is that I have considered the matter carefully and arrived.",
+  "ideals": "Order. The world has a proper arrangement to it — a frequency beneath the noise, if you listen correctly. My function is to perceive it and, where necessary, enforce it. This is not arrogance. It is a division of responsibility.",
+  "bonds": "The Sakar line has held divine attunement for six generations. I am not the first Sakar to carry this domain, and I intend to ensure I am not the last who does so with dignity.",
+  "flaws": "I have a documented difficulty accepting that some situations cannot be resolved through authority, correct bearing, or the application of focused sound. I am working on this. I am also, I will note, usually correct in the attempt.",
+  "inv_weapons": ["quarterstaff"],
+  "equipped_main": "quarterstaff",
+  "equipped_offhand": null,
+  "has_dual_wielder": false,
+  "inv_gear": [],
+  "chosen_cantrips": ["Sacred Flame", "Guidance", "Thaumaturgy"],
+  "chosen_spells": ["Healing Word", "Bless", "Guiding Bolt", "Sanctuary", "Cure Wounds"],
+  "asi_choices": {},
+  "combat_tactics": {
+    "role": "Arcane support anchor who opens encounters with explosive burst and sustains through superior positioning and concentration management.",
+    "tactics": [
+      {
+        "phase": "Opening",
+        "text": "Before melee is joined, sweep the Breath Weapon (DC 11 DEX, 5×30 ft lightning line, 2d6) through the densest enemy cluster. It recharges on a short rest — use it early. Then cast Bless on 3 allies as your first-round action: a consistent +1d4 to every attack roll and saving throw across the full encounter is the highest sustained value play available."
+      },
+      {
+        "phase": "Core Loop",
+        "text": "With Bless active: use your bonus action for Healing Word to sustain allies, and your action for Sacred Flame (DEX save, ignores cover) on priority targets. When a melee ally needs to break through a high-AC target, Guiding Bolt (4d6 radiant + advantage on the next attack roll against that target) is devastating setup."
+      },
+      {
+        "phase": "Domain Advantage",
+        "text": "Dissonant Whispers and Thunderwave are prepared as domain spells. Thunderwave pushes melee threats 10 feet away in a 15-ft cube — excellent when surrounded. Calm Emotions shuts down raging or frightened enemies. These supplement your slot budget without touching your prepared-spell list."
+      },
+      {
+        "phase": "When Threatened",
+        "text": "Cast Sanctuary (bonus action) on yourself — enemies must succeed on a WIS save to target you. Your role is too valuable to lose to a stray sword. Retreat behind melee and continue healing with Healing Word. If truly cornered, Thunderwave clears melee range and buys positioning."
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "char_name": "Zosia Myrage",
+  "player_name": "",
+  "char_level": 3,
+  "race_id": "human",
+  "class_id": "wizard",
+  "subclass_id": "school_harmonics",
+  "background_id": "srd_noble",
+  "alignment": "Lawful Neutral",
+  "stats": {
+    "STR": 8,
+    "DEX": 13,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 12,
+    "CHA": 10
+  },
+  "stat_method": "Standard Array",
+  "chosen_skills": ["Arcana", "Investigation"],
+  "equip_choices": {
+    "weapon": 1,
+    "focus": 1,
+    "pack": 0
+  },
+  "class_options": {},
+  "expertise_skills": [],
+  "chosen_languages": ["Draconic"],
+  "notes": "An aristocratic city wizard of genuine arcane talent who finds most aspects of fieldwork deeply beneath her. Her complaints about the conditions are frequent and specific. Her usefulness is not in question.",
+  "personality": "I am impeccably dressed at all times, including the field — mud on my boots is a personal insult. I also speak with precision; vague language is its own kind of suffering.",
+  "ideals": "Excellence. Mediocrity is a choice, and it is one I refuse to make. The arcane arts reward only those who approach them with complete seriousness.",
+  "bonds": "The Myrage name carries weight in this city because those who bore it before me earned it. I will not be the one who squanders that.",
+  "flaws": "The moment things become genuinely unpleasant — a wound, something foul underfoot, a close call — my composure fails loudly and I become difficult to work alongside until the situation improves.",
+  "inv_weapons": ["dagger"],
+  "equipped_main": "dagger",
+  "equipped_offhand": null,
+  "has_dual_wielder": false,
+  "inv_gear": [],
+  "chosen_cantrips": ["Prestidigitation", "Minor Illusion", "Fire Bolt"],
+  "chosen_spells": ["Mage Armor", "Shield", "Magic Missile", "Identify", "Misty Step"],
+  "asi_choices": {},
+  "combat_tactics": {
+    "role": "Glass cannon with layered emergency armor. Maximum damage at maximum range — every tactic exists to preserve that range.",
+    "tactics": [
+      {
+        "phase": "Pre-Combat",
+        "text": "Mage Armor is always active before any anticipated fight. Without it, AC is 11. With it, AC is 15 (13 + DEX +2). This is non-negotiable and costs one 1st-level slot for 8 hours. Do not skip it."
+      },
+      {
+        "phase": "Positioning Priority",
+        "text": "Establish and maintain 60+ feet of separation from all melee threats. Fire Bolt is the primary action every round: +5 to hit, 1d10 fire. Stay behind the party's front line. If terrain forces a choice between cover and range, choose cover — a missed attack is worth more than a few feet."
+      },
+      {
+        "phase": "Magic Missile Conditions",
+        "text": "Fire Bolt is better on average, but Magic Missile guarantees 3 hits (1d4+1 force each, no roll required). Use it when: (a) an enemy has very high AC and Fire Bolt is unlikely to connect, (b) an enemy is at low HP and you cannot afford a miss, or (c) you need to split damage across multiple targets to finish them."
+      },
+      {
+        "phase": "Emergency Protocol",
+        "text": "When hit or targeted by melee: Shield reaction (+5 AC until start of next turn, likely negates the attack that triggered it). Next turn: Misty Step bonus action to teleport 30 ft to a safe position, then resume Fire Bolt. This sequence survives exactly one bad positioning mistake. There should not be a second."
+      }
+    ]
+  }
+}

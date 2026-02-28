@@ -1,0 +1,62 @@
+{
+  "char_name": "Gaius Solar",
+  "player_name": "",
+  "char_level": 3,
+  "race_id": "human",
+  "class_id": "paladin",
+  "subclass_id": "srd_ancients",
+  "background_id": "srd_folk_hero",
+  "alignment": "Neutral Good",
+  "stats": {
+    "STR": 15,
+    "DEX": 10,
+    "CON": 13,
+    "INT": 8,
+    "WIS": 12,
+    "CHA": 14
+  },
+  "stat_method": "Standard Array",
+  "chosen_skills": ["Persuasion", "Athletics"],
+  "equip_choices": {
+    "melee_setup": 0,
+    "secondary": 0,
+    "pack": 0
+  },
+  "class_options": {},
+  "expertise_skills": [],
+  "chosen_languages": ["Elvish"],
+  "notes": "Textbook Oath of the Ancients paladin. Loves nature, light, and the goodness in people, possibly in that order. Not especially complicated.",
+  "personality": "I greet everyone like they're already a friend — handshake included, whether they want it or not. I also make a point of finding at least one good thing to say about every place I visit, even when that requires significant effort.",
+  "ideals": "Light. The world is better when people feel safe. If standing in front of something dangerous makes even one person less afraid, that is enough.",
+  "bonds": "I promised my village I would make them proud. I tell everyone this. It is unclear whether the village is aware of how far I have traveled.",
+  "flaws": "I will attempt to resolve almost any problem — including clearly complicated ones — with either a firm handshake or a more significant application of the warhammer. I genuinely do not understand why this does not always work.",
+  "inv_weapons": ["warhammer"],
+  "equipped_main": "warhammer",
+  "equipped_offhand": null,
+  "has_dual_wielder": false,
+  "inv_gear": [],
+  "chosen_cantrips": [],
+  "chosen_spells": ["Bless", "Divine Favor", "Heroism"],
+  "asi_choices": {},
+  "combat_tactics": {
+    "role": "Durable frontline force multiplier. Gaius wins fights by making everyone else more effective before delivering burst damage on the key target.",
+    "tactics": [
+      {
+        "phase": "Round 1",
+        "text": "Cast Bless on yourself and two key allies (concentration, up to 1 minute). Consistent +1d4 to attack rolls and saving throws across the whole fight is the highest sustained-value action available. Most encounters are decided by this one spell."
+      },
+      {
+        "phase": "Battlefield Control",
+        "text": "Channel Divinity: Nature's Wrath restrains the most dangerous enemy as an action — the target is grabbed by spectral vines and must succeed on a STR or DEX save each turn to escape. Restrained: 0 speed, disadvantage on attacks, advantage for all attackers against it. The whole party benefits immediately."
+      },
+      {
+        "phase": "Burst Combo",
+        "text": "When a high-value target is restrained in reach: drop Bless concentration, cast Divine Favor (+1d4 radiant per weapon hit, concentration), then attack with advantage (target is restrained) and Divine Smite from your highest slot on any hit (2d8+ radiant, +1d8 per slot level above 1st). Restrained + advantage + Divine Favor + Smite is a devastating burst window."
+      },
+      {
+        "phase": "Sustain & Support",
+        "text": "Lay on Hands (15 HP pool) is free emergency healing that costs no spell slots — use it when an ally would otherwise drop. Heroism is strong on whoever needs to stay standing most: they gain +2 temp HP per turn and immunity to the frightened condition. Cure Wounds exists for the moments between fights."
+      }
+    ]
+  }
+}

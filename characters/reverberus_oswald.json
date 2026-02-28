@@ -1,0 +1,84 @@
+{
+  "char_name": "Reverberus Oswald",
+  "player_name": "",
+  "char_level": 3,
+  "race_id": "leoporin",
+  "class_id": "bard",
+  "subclass_id": "college_lanterns",
+  "background_id": "ghost_whisperer",
+  "alignment": "Chaotic Good",
+  "stats": {
+    "STR": 15,
+    "DEX": 14,
+    "CON": 13,
+    "INT": 12,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "stat_method": "Standard Array",
+  "chosen_skills": [
+    "History",
+    "Persuasion",
+    "Performance"
+  ],
+  "equip_choices": {
+    "weapon": 0,
+    "pack": 0,
+    "instrument": 0
+  },
+  "class_options": {},
+  "expertise_skills": [
+    "Performance",
+    "Persuasion"
+  ],
+  "chosen_languages": [
+    "Undercommon"
+  ],
+  "notes": "Reverberus doesn't play an instrument, but instead recites poetry from a book to do bardic performances.\u00a0 He's a scholar tasked with cataloguing the events of the party's investigations (and the oddities encountered along the way).",
+  "personality": "  - Reverberus narrates events aloud as they happen \u2014 not to be annoying, but because he genuinely cannot tell where living ends and documenting begins. His companions have learned to tune it out. Mostly.\n  - He carries at least three different inks at all times and becomes visibly distressed if asked to summarize something. Summaries, he insists, are where truth goes to die.",
+  "ideals": "The College of the Lantern does not hoard knowledge \u2014 it casts it outward. Every oddity Reverberus catalogues is a candle held against the dark. The weirdness of this world deserves witnesses, not silence.",
+  "bonds": "  The tome strapped to Reverberus's side is two books in one: a meticulous catalogue of every anomaly, creature, and uncanny event the party has encountered \u2014 and, crowding its margins in a cramped, looping script, his own poetry. The verses started as mnemonic aids, a way to fix observations in memory. They became something more. Every page tells two stories: the facts in the center, the feeling in the margins.\n\n  He would sooner lose a limb than the book. He has, on at least one occasion, gone back for it.",
+  "flaws": "  Reverberus is brave on paper and considerably less so in person. His instinct under threat is to freeze, observe, and compose a stanza about it \u2014 which is almost never what the situation calls for. He also has a habit of correcting people mid-sentence when their account of a past event differs from his notes, which has caused more than one diplomatic incident.",
+  "inv_weapons": [
+    "shortsword"
+  ],
+  "equipped_main": "shortsword",
+  "equipped_offhand": null,
+  "has_dual_wielder": false,
+  "inv_gear": [],
+  "chosen_cantrips": [
+    "Minor Illusion",
+    "Mage Hand"
+  ],
+  "chosen_spells": [
+    "Healing Word",
+    "Faerie Fire",
+    "Charm Person",
+    "Sleep",
+    "Dissonant Whispers",
+    "Hold Person",
+    "Detect Magic"
+  ],
+  "asi_choices": {},
+  "combat_tactics": {
+    "role": "Pure enabler. Low spell DC makes save-based spells unreliable — Reverberus wins fights by making everyone else more dangerous, not by being dangerous himself.",
+    "tactics": [
+      {
+        "phase": "Opening",
+        "text": "Sleep is the opener: it targets HP totals, not saving throws, so it bypasses the low spell DC entirely. Up to 5d8 HP worth of creatures fall unconscious, starting from the lowest HP. Aim at the pack of weaker enemies, not the boss. Alternatively, Faerie Fire on the highest-AC target gives all attackers advantage on rolls against it — useful regardless of whether the target saves."
+      },
+      {
+        "phase": "Core Loop",
+        "text": "Bardic Inspiration (d6) goes to whoever is making the round's most important roll — the fighter swinging at the boss, the rogue lining up Sneak Attack, or an ally rolling a critical saving throw. It is a bonus action, so it pairs with a spell or Healing Word on the same turn. Healing Word (bonus action) revives downed allies without Reverberus moving into range."
+      },
+      {
+        "phase": "Dissonant Whispers",
+        "text": "Even when targets save against Dissonant Whispers, they must use their reaction to move away from Reverberus — denying their own Opportunity Attack and potentially triggering Opportunity Attacks from allies. Position party members near the target before casting: a saved-against Whispers can still pull an enemy out of position and waste their reaction."
+      },
+      {
+        "phase": "Self-Preservation",
+        "text": "Reverberus should never be hit. His job is Bardic Inspiration, Healing Word, and surviving long enough to do both. Minor Illusion creates distractions for repositioning. Leoporin speed is high — use it to stay far from melee. If engaged: disengage and retreat rather than fight back. Faerie Fire's concentration is more valuable than anything a shortsword can do."
+      }
+    ]
+  }
+}

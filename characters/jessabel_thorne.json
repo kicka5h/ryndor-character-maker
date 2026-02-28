@@ -1,0 +1,63 @@
+{
+  "char_name": "Jessabel Thorne",
+  "player_name": "",
+  "char_level": 3,
+  "race_id": "tiefling",
+  "class_id": "barbarian",
+  "subclass_id": "howling_tempest",
+  "background_id": "srd_criminal",
+  "alignment": "Chaotic Neutral",
+  "stats": {
+    "STR": 15,
+    "DEX": 13,
+    "CON": 14,
+    "INT": 10,
+    "WIS": 12,
+    "CHA": 8
+  },
+  "stat_method": "Standard Array",
+  "chosen_skills": ["Athletics", "Intimidation"],
+  "equip_choices": {
+    "weapon_a": 1,
+    "weapon_b": 1,
+    "pack": 0
+  },
+  "class_options": {},
+  "expertise_skills": [],
+  "chosen_languages": [],
+  "damage_resistances": ["Fire"],
+  "notes": "Serving parole as bodyguard for the investigative teams. Dual-wields hand sickles.",
+  "personality": "I'm always watching — scanning every room for exits, every face for intentions. Old habits from a life on the wrong side of the law.",
+  "ideals": "Freedom. I'll do whatever it takes to earn mine back — but I won't compromise the people depending on me to do it.",
+  "bonds": "The investigative team talked the magistrate into parole instead of a cell. I won't let them regret that.",
+  "flaws": "I make decisions alone. Communicating a plan feels like showing weakness — which is how people get hurt, usually me.",
+  "inv_weapons": ["sickle", "sickle"],
+  "equipped_main": "sickle",
+  "equipped_offhand": "sickle",
+  "has_dual_wielder": false,
+  "inv_gear": [],
+  "chosen_cantrips": [],
+  "chosen_spells": [],
+  "asi_choices": {},
+  "combat_tactics": {
+    "role": "High-aggression melee striker who is most dangerous when surrounded and raging. Takes hits deliberately to fund her Hellish Rebuke retaliation.",
+    "tactics": [
+      {
+        "phase": "Opening",
+        "text": "Rage as a bonus action on the first turn — or before combat if the situation allows. Enter melee immediately. B/P/S resistance while raging halves damage from most physical attackers. The faster she's in the middle of enemies, the better."
+      },
+      {
+        "phase": "Core Loop",
+        "text": "Reckless Attack (advantage on STR attacks, enemies get advantage back) + main hand sickle, then bonus action off-hand sickle. With Rage active: main hand deals 1d4+4, off-hand 1d4+2. Yes, enemies will hit her with advantage. That funds the next point."
+      },
+      {
+        "phase": "Hellish Rebuke Timing",
+        "text": "When hit (which Reckless Attack guarantees), fire Hellish Rebuke as a reaction: DC 10 DEX save, 3d10 fire damage, half on save. The damage she takes is the price of admission. Save this reaction for hits from priority enemies — not chip damage from minions. One good trigger per round can outpace the incoming damage."
+      },
+      {
+        "phase": "Sustain",
+        "text": "If Rage drops (no attack or damage taken in a turn), re-engage only if the situation demands it — re-raging costs a bonus action and a use. With only 3 Rage uses per long rest, manage them across the session. When she reaches 0 HP: she was doing her job. The goal is to absorb as much as possible before going down."
+      }
+    ]
+  }
+}

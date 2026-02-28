@@ -1,0 +1,65 @@
+{
+  "char_name": "Sagittarius Serpentarius",
+  "player_name": "",
+  "char_level": 3,
+  "race_id": "aviari",
+  "class_id": "fighter",
+  "subclass_id": "skybound_captain",
+  "background_id": "skywatcher_holmea",
+  "alignment": "Chaotic Neutral",
+  "stats": {
+    "STR": 15,
+    "DEX": 14,
+    "CON": 13,
+    "INT": 8,
+    "WIS": 12,
+    "CHA": 10
+  },
+  "stat_method": "Standard Array",
+  "chosen_skills": ["Acrobatics", "Athletics"],
+  "equip_choices": {
+    "armor": 1,
+    "melee_setup": 1,
+    "ranged": 1,
+    "pack": 1
+  },
+  "class_options": {
+    "fighting_style": "great_weapon"
+  },
+  "expertise_skills": [],
+  "chosen_languages": ["Celestial"],
+  "notes": "Aviari fighter building toward a dive-attack style that his flight ability won't unlock until level 5. The halberd is chosen for reach and dramatic visual impact. The plan is fully formed. The timeline is aspirational.",
+  "personality": "I occasionally refer to myself in the third person, usually when announcing a maneuver. The maneuvers have names. I am aware this is a lot and I stand by it.",
+  "ideals": "The sky belongs to those willing to use it. Staying on the ground is a choice, and it is the wrong one.",
+  "bonds": "Someone once told me that a ground-bound fighter relying on a polearm was a contradiction in terms. I have been thinking about it ever since. They will understand eventually.",
+  "flaws": "The concept is significantly further along than the execution. I have committed to a fighting style my body will not fully support for some time yet, and I fill the gap with a confidence that occasionally outpaces the evidence.",
+  "inv_weapons": ["halberd"],
+  "equipped_main": "halberd",
+  "equipped_offhand": null,
+  "has_dual_wielder": false,
+  "inv_gear": [],
+  "chosen_cantrips": [],
+  "chosen_spells": [],
+  "asi_choices": {},
+  "combat_tactics": {
+    "role": "Reach-based zone controller. A halberd at 10 feet makes Sagittarius a threat to everything around him — including things trying to get past him to reach the rest of the party.",
+    "tactics": [
+      {
+        "phase": "Zone Control",
+        "text": "A halberd threatens at 10 feet — one full square beyond most weapons. Position at chokepoints: doorways, corridor openings, the edge of the formation. Anything that enters, exits, or passes through that 10-foot zone without Disengaging triggers a free Opportunity Attack. Sag does not need to chase enemies. He makes space expensive to cross."
+      },
+      {
+        "phase": "Core Loop",
+        "text": "Halberd attacks at +4 to hit, 1d10+2 damage. Great Weapon Fighting lets you reroll 1s and 2s on damage dice — over a fight, this meaningfully improves average output. Attack whichever enemy is nearest to the front of the chokepoint. Deny movement, not health: a restrained or cornered enemy is more dangerous than a dead one that let three others through."
+      },
+      {
+        "phase": "Action Surge",
+        "text": "Save Action Surge for a high-value target in reach that has not yet acted. Two halberd attacks in one turn with Great Weapon Fighting rerolls can drop most single targets outright at level 3. Use it on the enemy with the highest threat level, not the lowest HP. Recharges on a short rest."
+      },
+      {
+        "phase": "The Long Game",
+        "text": "This build reaches its intended form at level 5, when flight unlocks and the dive-bombing begins. At level 3, the halberd holds the ground that the wings will eventually claim from the air. The tactics above are the ground version of the concept: control space, punish movement, and wait. The maneuvers have names. The timeline is aspirational. The build is sound."
+      }
+    ]
+  }
+}
