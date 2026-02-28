@@ -2,7 +2,7 @@
 
 > An aesthetic D&D 5e character sheet builder for **Ryndor: The Weirded Lands** — a homebrew sourcebook set in a dark, elemental fantasy world.
 
-[**→ Launch the App**](https://ryndor-character-maker-git-164613525255.us-west1.run.app/) &nbsp;·&nbsp; [**→ Project Site**](https://kicak5h.github.io/ryndor-character-maker)
+[**→ Launch the App**](https://ryndor-character-maker-git-164613525255.us-west1.run.app/) &nbsp;·&nbsp; [**→ Project Site**](https://kicka5h.github.io/ryndor-character-maker)
 
 ---
 
@@ -43,7 +43,7 @@ All 12 PHB classes plus the Ryndor-original **Sev'rinn** — an elemental attune
 **Requirements:** Docker + Docker Compose
 
 ```bash
-git clone https://github.com/kicak5h/ryndor-character-maker.git
+git clone https://github.com/kicka5h/ryndor-character-maker.git
 cd ryndor-character-maker
 
 # Add your Anthropic API key (optional — enables AI name/trait generation)
