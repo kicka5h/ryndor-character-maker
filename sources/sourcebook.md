@@ -1708,6 +1708,46 @@ lake. Bioluminescent flora, glowing in shifting hues of violet and green, drift 
 surface at night, and strange birdlike creatures circle the water’s edge, croaking
 ominous songs in alien tones.
 
+### DM Tools — Abbernusker Lake
+
+#### Weirdings (d20)
+
+| d20 | Effect |
+|-----|--------|
+| 1–2 | Strange lights rise and arrange into a constellation map of an unknown sky. DC 13 Arcana: advantage on next Arcana/History roll; failure: disadvantage on Perception for 24 hours. |
+| 3–4 | A fish surfaces, speaks one sentence in an unrecognised language, then dies and dissolves. DC 13 Arcana: understood as a warning, a name, or a location — DM's choice. |
+| 5–6 | A temporal eddy opens at the water's edge. The party loses 1d4 hours with no memory. Equipment is subtly displaced. One random character has inexplicably wet feet. |
+| 7–8 | A shimmering city rises beneath the surface. Touching the water dissolves it instantly. Passive Perception 14+: the figures inside were looking up at the party. |
+| 9–10 | A nix surfaces wearing the face of someone one party member has lost. It whispers something only that character could know, then submerges. DC 13 WIS or stunned until end of next turn. |
+| 11–12 | The party's reflections move independently, mimicking future actions, then point in the same direction and fade. The direction leads to a landmark, a threat, or a lie — DM's choice. |
+| 13–14 | A translucent, half-formed creature surfaces and follows for 2d4 hours. If spoken to, it whispers one word in Common. If attacked, it shatters into mist. |
+| 15–16 | The shore water crystallises. DC 10 STR (action) to pull out one Weirded Object before it returns to liquid. |
+| 17–18 | One character is suddenly elsewhere on the shore. At their original position: a perfect ice sculpture of themselves, melting. It dissolves in 10 minutes. |
+| 19–20 | The obsidian serpent surfaces and studies the party for 1d4 rounds. Holding eye contact for the full duration grants a vision: the lake's past, the character's future, or a glimpse into Nebernoria. |
+
+#### Encounter Ideas
+
+- **The Fisherman's Wife.** A nix has assumed the identity of a fisherman's missing spouse. He hires the party to find his wife's body — but the nix has begun to genuinely believe it is who it pretends to be.
+- **The Scholar by the Shore.** A cartographer from Eveltoft has camped here for three weeks mapping the lights. She repeats sentences from hours ago without noticing; her left hand has aged faster than her right. She is very close to finding the pattern.
+- **The Voluntary Drowning.** For nine days running, a different person has walked calmly into the lake and not returned. No bodies surface. Whatever is calling them is growing bolder.
+- **The Returned Ship.** A vessel that departed three months ago has drifted back. The crew insists they left this morning. Their cargo is addressed to a merchant who died eight weeks ago. One crew member has a journal entry dated in the future.
+
+#### Travel Options
+
+- 🚣 **By Boat (shore only).** Local boatmen charge double and refuse to cross the center. Temporal eddies make open water unpredictable.
+- 🥾 **By Foot.** Shore road from Wenport — 2 days. Reliable but exposed to weather off Mt. Bannockwyrm.
+- 🏔️ **From Mt. Bannockwyrm.** Steep descent from the southern face — 4 hours. DC 13 Athletics to navigate the scree fields.
+- 🦅 **By Air.** Aviari and griffins from Eveltoft — 1 full day. Landing on the shore is safe; on the water is not.
+- ⚠️ **Crossing by Water.** No reliable method. Two vessels lost to temporal eddies in the past year.
+
+#### Landmarks
+
+- **Nenusk Water Gardens** — *1 day · 200 XP.* A swampy field of shallow pools, dense with insects that feed on the rare nenusk flower. The blossoms open only at dusk. Located southwest between Abbernusker and the Ardal Plains.
+- **The Drowned Dock** — *30 min · 50 XP.* The collapsed remains of the original fishing pier. Planks glow at night. Strange objects surface regularly — personal effects belonging to people no one in the village recognises.
+- **The Black Shore** — *2 hours · 100 XP.* A crescent of obsidian sand on the lake's eastern edge, cold regardless of season. The serpent surfaces here most frequently. Compasses behave erratically within 60 feet.
+- **Fafnir's Cradle** — *4 hours · 150 XP.* A low cave accessible at low water, where legend holds Fafnir was hatched. The air smells of ozone and old scales. The claw marks on the walls are too large for anything currently living.
+- **The Reflection Pool** — *1 hour · 75 XP.* A still inlet separated from the main lake by an obsidian shelf. Reflections show the viewer as they were, or as they might be. Objects retrieved after submersion here are subtly changed.
+
 ## Ardal Plains
 
 Ardal Plains
@@ -1763,6 +1803,46 @@ The Ardal Plains serve as both a reminder of Ryndor’s turbulent past and a
 celebration of its resilient spirit. From the mystical waters of Abernnusker Lake to the
 fierce competitions of Kigan Uldar, the land weaves together stories of hope, sorrow,
 and strength—a place where the echoes of the past shape the possibilities of the future.
+
+### DM Tools — Ardal Plains
+
+#### Weirdings (d20)
+
+| d20 | Effect |
+|-----|--------|
+| 1–2 | A standing stone is draped with fresh offerings though no one is visible for miles. DC 13 Perception: footprints lead to the stone, none lead away. |
+| 3–4 | A voice on the wind speaks one party member's name clearly and close. It does not repeat. DC 12 WIS save or disadvantage on their next Charisma check. |
+| 5–6 | The central lake pulses. DC 12 CON save when drinking from it — success: regain 2d6 HP; failure: lose 1d6 HP as the healing reverses. |
+| 7–8 | Spectral warriors rise from the earth and march. Each walks 100 feet before sinking back into the grass. Several more appear in the distance, all moving toward the same point. |
+| 9–10 | Pristine Kigan Uldar equipment materialises on the grass. If kept, the carrier gains +1 to Athletics checks but dreams each night of a tournament they never entered. |
+| 11–12 | The wind dies for 30 seconds. Every party member hears the same whispered phrase in the silence — each in a different language, each slightly different. It is incomplete. |
+| 13–14 | Grass in a 10-foot radius around one character grows to waist height in seconds, then stills. DC 14 Nature: a Fen elf blessing-reflex — the land has recognised something about that character. |
+| 15–16 | A Torgarian War relic surfaces from the soil. DC 15 Arcana: the object carries a fragment of its owner's last memory, flooding into the examiner's mind as a brief vision. |
+| 17–18 | A fragment of the Torgarian War plays out in translucent overlay around the party for 1 minute. They are invisible to the apparitions. When it ends, one character stands on the exact spot a soldier died. |
+| 19–20 | The healing lake pulses hard. Every creature within 30 feet regains HP equal to their proficiency bonus, then immediately loses the same amount as the reversal follows. Net: zero. Wounds look healed for 10 minutes before reopening. |
+
+#### Encounter Ideas
+
+- **The Ghost's Unfinished Business.** A Torgarian War soldier's ghost has been approaching travelers for weeks, repeating the same phrase. The party learns the ghost was a courier whose message was never delivered. The recipient's family lives in Wyrmbost — and the message will reopen wounds the town spent decades sealing.
+- **Sabotage at the Crown.** The Annual Kigan Uldar Crown is three days away. A team hires the party to investigate equipment tampering — opponents' mallets produce erratic Weirding effects mid-game. Finding the smuggled artifact before the opening match is preferable. Finding it during play is not.
+- **The Volatile Lake.** A shore village has relied on the healing lake for generations. Since the Weirding, results are unpredictable. A healer believes they've found a reliable window and needs the party to hold off desperate travelers who keep arriving at the wrong hours.
+- **The Stone Has Moved.** A lone Fen elf has returned to reclaim a sealed offering jar left at a specific standing stone during the early Weirding. The problem: the stone was here. It is not anymore.
+
+#### Travel Options
+
+- 🥾 **By Foot.** Main road between Wyrmbost and Leighmore — 3 days on open, flat terrain.
+- 🐎 **By Horse.** Wyrmbost to Leighmore — 1 day steady, half a day pushed hard.
+- 🚣 **By River.** A seasonal river along the western edge. Viable in spring and early summer; dry by late autumn.
+- 🦅 **By Air.** Open skies. Eveltoft to the plains — half a day.
+- ⚠️ **Lake Crossing.** Crossable by small boat, but two vessels have arrived at the wrong shore.
+
+#### Landmarks
+
+- **The Princess's Tear** — *30 min · 50 XP.* The central lake, formed from the grief of a Fen princess. 1 hour at the water in quiet reflection allows a DC 14 WIS check — success grants proficiency in one DM-chosen skill until the next long rest.
+- **The Whispering Stones** — *1 hour · 75 XP.* A circle of standing stones at the plains' northern edge. The stones hum at dawn. DC 15 History at the tallest: a fragment of Fen elf memory — the plains before the Torgarian War.
+- **Leighmore** — *1 day · 100 XP.* The market town at the plains' eastern end. Fen elf families who fled during the Torgarian War have begun quietly returning, creating fragile coexistence with human settlers.
+- **Ardal Tournament Ground** — *2 hours · 125 XP.* The dedicated Kigan Uldar pitch. Outside tournament season it stands eerily maintained — grass trimmed, lines marked, equipment appearing in the locked shed. No explanation has been found.
+- **The Torgarian Hollow** — *3 hours · 150 XP.* A depression where a major battle was fought. Grass will not grow at its center. Spectral warriors converge here at dusk. Relics surface regularly, including once an intact sealed letter in Old Ryndorian.
 
 ## Arvanthwaite Woods
 
@@ -1838,6 +1918,46 @@ In the era of the Weirding, Arvanthwaite Woods stand as a testament to both
 nature’s resilience and unpredictability—a place where history, magic, and the
 unknown intertwine. Those who enter the woods must be prepared for anything, for
 what they find within may change them forever.
+
+### DM Tools — Arvanthwaite Woods
+
+#### Weirdings (d20)
+
+| d20 | Effect |
+|-----|--------|
+| 1–2 | A path ends at a tree that was not there ten minutes ago — enormous, ancient, too deeply rooted to have grown here. No way around it. It steps aside after 1d4 minutes. Or it doesn't. |
+| 3–4 | A guide spirit appears — luminous, roughly humanoid, beckoning. DC 13 Insight: genuinely helpful. On a failure, it leads the party in a wide circle back to their starting point, 1d4 hours later. |
+| 5–6 | The forest repeats. The party has passed the same blasted oak three times, from a different direction each time. DC 14 Survival to break the loop; failure means 1d4 hours lost. |
+| 7–8 | A wolf steps between dimensions mid-pursuit, vanishing and reappearing 30 feet ahead twice. Then it stops, stares at the party for ten seconds, and walks away. |
+| 9–10 | A sentient tree lowers one branch toward one party member. Touching it: a flash of vision — the forest before the Weirding, quiet and whole. The branch withdraws after 1 minute if not touched. |
+| 11–12 | A fey creature materialises beside the party — small, iridescent, changed. It speaks nonsense in a beautiful voice. DC 12 Arcana: it is trying to warn them about something ahead. It follows for 1d6 hours. |
+| 13–14 | One character steps through a curtain of light no one else can see and emerges from behind a nearby tree. For the rest of the party, 3d10 minutes passed. The character is completely unaware of the gap. |
+| 15–16 | A stag with glowing antlers looks directly at one character. DC 13 WIS save or feel a compulsion to follow. DC 15 WIS each turn (or be restrained by the party) to resist. The stag walks for 10 minutes, then vanishes. |
+| 17–18 | The root network pulses underfoot. Every party member simultaneously feels something vast and old become aware of them — just aware. Using a spell or magic item within 10 minutes triggers this Weirding again. |
+| 19–20 | Total silence. Every natural sound stops. From the roots comes one deep sound, like something enormous shifting position. It lasts 4 seconds. The birds do not return for 1 hour. |
+
+#### Encounter Ideas
+
+- **The Guide They Hired.** The party's elven guide stops at a fork, stares in silence for a full minute, then makes eye contact with each party member and says: "we are not alone" — and walks off the path. Whether this is a Weirding symptom, a threat response, or something else is left to the party.
+- **The Children Who Left Yesterday.** Three children wandered into Arvanthwaite "just yesterday." Temporal loops mean "yesterday" for the village may mean years inside. The children may be fine, aged, or dead — or they may walk back through the gate tomorrow, not knowing they were ever gone.
+- **The Ancient That Woke.** A logging crew returned from the forest changed — quiet, purposeful, building something in their village without discussion. DC 16 History identifies the shape as a ward designed to put something back to sleep. Whatever they encountered is still working through them.
+- **The Druid's Dilemma.** A druid has lived at the forest's heart for decades. She found something awakening beneath the oldest tree and has been holding it in place for eleven days. She won't leave her post. The party must go to her.
+
+#### Travel Options
+
+- 🥾 **By Foot (interior).** The only option inside — no clear routes, all paths suspect. Plan for twice the expected travel time.
+- 🚣 **By Boat (coastal approach).** Several inlets along the northwestern coast allow landing by small boat. Temporal effects are weaker near the shore.
+- 🦅 **By Air (above the canopy).** Feasible for scouting. Landing within the forest is extremely difficult.
+- 🧭 **Guided Entry.** The only reliable way in. DC 14 Persuasion to find a willing elf guide. Two are currently operating; whereabouts unknown.
+- ⚠️ **Unguided Entry.** Possible. Emerging where and when intended is not.
+
+#### Landmarks
+
+- **The Oldest Tree** — *3 hours · 150 XP.* At the heart of Arvanthwaite — trunk wider than three houses, roots extending 200 feet. DC 17 Arcana detects something living beneath it, old enough that its resonance doesn't register as any known creature type.
+- **The Shimmer Gate** — *1 hour · 75 XP.* Two ancient trees grown together overhead forming a natural arch. What is visible through it from outside doesn't match what is encountered inside. Elf guides always begin here.
+- **The Fey Hollow** — *2 hours · 100 XP.* A clearing with highest fey activity. The fey here are territorial and changed. They still trade — but since the Weirding they no longer accept objects. They ask for memories.
+- **The Temporal Clearing** — *4 hours · 200 XP.* A wide break in the canopy with concentrated temporal loops. Investigators have identified three coexisting layers: the present, the forest ~80 years ago, and an unclear future. Items left and retrieved are sometimes found in a different condition.
+- **The Elf Watch Post** — *2 hours · 125 XP.* A canopy platform, now abandoned. The tree began to move (~20 feet per hour, no mapped pattern). It still contains journals and a final entry: *"The roots are speaking again. I don't think they're asking anymore."*
 
 ## Ban Mynydd
 

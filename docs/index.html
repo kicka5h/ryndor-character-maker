@@ -682,6 +682,139 @@
       outline-offset: 1px;
     }
 
+    /* ── DM Tools ───────────────────────────────────────────────── */
+    .dm-section {
+      margin-top: 0.75rem;
+      border: 1px solid rgba(245, 158, 11, 0.18);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem 0.75rem;
+      background: rgba(245, 158, 11, 0.025);
+      margin-bottom: 1.25rem;
+    }
+
+    .dm-header {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 1.25rem;
+      opacity: 0.65;
+    }
+
+    .dm-block { margin-bottom: 1.5rem; }
+    .dm-block:last-child { margin-bottom: 0.5rem; }
+
+    .dm-block-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ember-glow);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.12);
+    }
+
+    .weirding-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+    }
+
+    .weirding-table th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      padding: 0.35rem 0.75rem;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+      text-align: left;
+    }
+
+    .weirding-table th:first-child { width: 3.5rem; text-align: center; }
+
+    .weirding-table td {
+      padding: 0.5rem 0.75rem;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.07);
+      line-height: 1.65;
+    }
+
+    .weirding-table td:first-child {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      color: var(--weird-glow);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .weirding-table tr:last-child td { border-bottom: none; }
+    .weirding-table tr:hover td { background: rgba(124, 58, 237, 0.04); }
+
+    .encounter-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.07);
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    .encounter-item:last-child { border-bottom: none; }
+    .encounter-item strong { color: var(--text); }
+
+    .travel-list { display: flex; flex-direction: column; gap: 0.55rem; }
+
+    .travel-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .travel-icon { flex-shrink: 0; margin-top: 0.05rem; }
+
+    .landmark-item {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.07);
+    }
+
+    .landmark-item:last-child { border-bottom: none; }
+
+    .landmark-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.2rem;
+      flex-wrap: wrap;
+    }
+
+    .landmark-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ember-glow);
+    }
+
+    .landmark-meta {
+      font-size: 0.7rem;
+      color: var(--text-mute);
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.04em;
+    }
+
+    .landmark-desc {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
     /* ── Dim non-matching content during search ─────────────────── */
     body.is-searching .card:not(.has-match),
     body.is-searching .faction-card:not(.has-match),
@@ -689,7 +822,8 @@
     body.is-searching .highlight-box:not(.has-match),
     body.is-searching .trait-block:not(.has-match),
     body.is-searching .seat-item:not(.has-match),
-    body.is-searching .timeline-entry:not(.has-match) {
+    body.is-searching .timeline-entry:not(.has-match),
+    body.is-searching .dm-section:not(.has-match) {
       opacity: 0.15;
       transition: opacity 0.25s;
     }
@@ -1645,6 +1779,68 @@
         </div>
       </div>
 
+      <div class="dm-section">
+        <div class="dm-header">⚙ Dungeon Master's Tools — Abbernusker Lake</div>
+        <div class="dm-block">
+          <div class="dm-block-label">⚡ Weirdings — d20 Table</div>
+          <table class="weirding-table">
+            <thead><tr><th>d20</th><th>Effect</th></tr></thead>
+            <tbody>
+              <tr><td>1–2</td><td>Strange lights rise from the depths and arrange into a constellation map of an unknown sky. DC 13 Arcana: advantage on the next Arcana or History roll; failure leaves disadvantage on Perception checks for 24 hours.</td></tr>
+              <tr><td>3–4</td><td>A fish breaks the surface, speaks one sentence in an unrecognised language, then dies and dissolves into ink-black water. DC 13 Arcana: the character understands it as a warning, a name, or a location — DM's choice.</td></tr>
+              <tr><td>5–6</td><td>A temporal eddy opens at the water's edge. The party loses 1d4 hours with no memory of what occurred. Equipment is subtly displaced. One random character has inexplicably wet feet.</td></tr>
+              <tr><td>7–8</td><td>A shimmering city rises beneath the surface — towers, bridges, distant figures in slow procession. Touching the water causes it to dissolve instantly. Characters with passive Perception 14+ notice the figures were looking up at them.</td></tr>
+              <tr><td>9–10</td><td>A nix surfaces wearing the face of someone one party member has lost. It whispers something only that character could know, then submerges. DC 13 WIS save or the character is stunned until the end of their next turn.</td></tr>
+              <tr><td>11–12</td><td>The party's reflections move independently, mimicking actions they haven't taken. After 30 seconds they all point in the same direction and fade. The direction leads toward a landmark, a threat, or a lie — DM's choice.</td></tr>
+              <tr><td>13–14</td><td>A translucent, half-formed creature surfaces. It doesn't attack and follows the party for 2d4 hours. If spoken to, it whispers one word in Common before sinking. If attacked, it shatters into mist.</td></tr>
+              <tr><td>15–16</td><td>The water near shore crystallises momentarily. DC 10 STR (action) to reach in and pull out one Weirded Object before it returns to liquid — roll on the Weirded Objects table or select from the Reliquary.</td></tr>
+              <tr><td>17–18</td><td>One character is suddenly at a different point on the shore. At their original position: a perfect ice sculpture of themselves, melting in real time. It fully dissolves in 10 minutes.</td></tr>
+              <tr><td>19–20</td><td>The obsidian serpent surfaces — or one of its split-forms. It does not attack and studies the party for 1d4 rounds. Holding eye contact for the full duration grants a vision: a fragment of the lake's past, a moment of the character's future, or a glimpse into Nebernoria.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">⚔️ Encounter Ideas</div>
+          <div class="encounter-item"><strong>The Fisherman's Wife.</strong> A nix has assumed the identity of a fisherman's missing spouse and moved into the village. He hires the party to find his wife's body at the bottom of the lake — the truth is stranger: the real person is gone, and the nix has begun to genuinely believe it is who it pretends to be.</div>
+          <div class="encounter-item"><strong>The Scholar by the Shore.</strong> A cartographer from Eveltoft has camped here for three weeks mapping the lights. She repeats sentences from hours ago without noticing; her left hand has aged faster than her right. She won't leave until she finds the pattern. She is very close.</div>
+          <div class="encounter-item"><strong>The Voluntary Drowning.</strong> For nine days running, a different person has walked calmly into the lake and not returned. No bodies surface. Those who were compelled remember only calm, then water. Whatever is calling them is growing bolder.</div>
+          <div class="encounter-item"><strong>The Returned Ship.</strong> A trading vessel that departed three months ago has drifted back to the dock. The crew insists they left this morning. Their cargo is addressed to a merchant who died eight weeks ago. One crew member has a journal entry dated in the future.</div>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">🧭 Travel Options</div>
+          <div class="travel-list">
+            <div class="travel-item"><span class="travel-icon">🚣</span><span><strong>By Boat (shore only).</strong> Navigable along the edges, but temporal eddies make open water unpredictable. Local boatmen charge double and refuse to cross the center.</span></div>
+            <div class="travel-item"><span class="travel-icon">🥾</span><span><strong>By Foot.</strong> The shore road from Wenport takes 2 days. Reliable but exposed to weather rolling off Mt. Bannockwyrm.</span></div>
+            <div class="travel-item"><span class="travel-icon">🏔️</span><span><strong>From Mt. Bannockwyrm.</strong> Steep descent from the southern face reaches the northern shore in 4 hours. DC 13 Athletics to navigate the scree fields safely.</span></div>
+            <div class="travel-item"><span class="travel-icon">🦅</span><span><strong>By Air.</strong> Aviari guides and hired griffins reach the lake from Eveltoft in one full day. Landing on the shore is safe; landing on the water is not.</span></div>
+            <div class="travel-item"><span class="travel-icon">⚠️</span><span><strong>Crossing by Water.</strong> No reliable method. Temporal eddies have consumed two vessels in the past year. The far shore can be seen; reaching it cannot be guaranteed.</span></div>
+          </div>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">📍 Landmarks</div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">Nenusk Water Gardens</span><span class="landmark-meta">1 day · 200 XP</span></div>
+            <div class="landmark-desc">A swampy field surrounding shallow pools, dense with insects that feed on the rare nenusk flower. The blossoms float in violet clusters and open only at dusk. Alchemists prize the petals. Located southwest, between Abbernusker and the Ardal Plains.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Drowned Dock</span><span class="landmark-meta">30 min · 50 XP</span></div>
+            <div class="landmark-desc">The collapsed remains of the original fishing pier, half-submerged in the shallows. Planks glow faintly at night. Strange objects surface here regularly — personal effects belonging to people no one in the village recognises.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Black Shore</span><span class="landmark-meta">2 hours · 100 XP</span></div>
+            <div class="landmark-desc">A crescent of fine obsidian sand on the lake's eastern edge, cold regardless of season. The serpent surfaces here most frequently. Compasses behave erratically within 60 feet. Small objects left overnight are sometimes found arranged into deliberate patterns.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">Fafnir's Cradle</span><span class="landmark-meta">4 hours · 150 XP</span></div>
+            <div class="landmark-desc">A low cave at the lake's northern reach, accessible at low water. Legend holds this is where the dragon Fafnir was hatched. The air smells of ozone and old scales. Claw marks on the walls are too large for anything currently living.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Reflection Pool</span><span class="landmark-meta">1 hour · 75 XP</span></div>
+            <div class="landmark-desc">A still inlet separated from the main lake by a natural obsidian shelf. Always perfectly calm. Reflections show the viewer as they were, or as they might be — never as they are. Objects retrieved from submersion here are subtly changed.</div>
+          </div>
+        </div>
+      </div>
+
       <!-- ── Ardal Plains ─────────────────────────────────────────── -->
       <div class="subsection-title" id="wl-ardal">Ardal Plains</div>
       <div class="card">
@@ -1656,6 +1852,68 @@
         </div>
       </div>
 
+      <div class="dm-section">
+        <div class="dm-header">⚙ Dungeon Master's Tools — Ardal Plains</div>
+        <div class="dm-block">
+          <div class="dm-block-label">⚡ Weirdings — d20 Table</div>
+          <table class="weirding-table">
+            <thead><tr><th>d20</th><th>Effect</th></tr></thead>
+            <tbody>
+              <tr><td>1–2</td><td>A standing stone is draped with fresh offerings — flowers, carved tokens, bread — though no one is visible for miles. DC 13 Perception: footprints lead to the stone, none lead away.</td></tr>
+              <tr><td>3–4</td><td>A voice on the wind speaks one party member's name clearly and close. It does not repeat. DC 12 WIS save or that character has disadvantage on their next Charisma check, unsettled by what knew to call them.</td></tr>
+              <tr><td>5–6</td><td>The central lake pulses. A creature that drinks from it makes a DC 12 CON save — success: regain 2d6 HP; failure: lose 1d6 HP as the healing reverses. The water looks identical either way.</td></tr>
+              <tr><td>7–8</td><td>Spectral warriors rise from the earth — not hostile, but marching. Each walks a straight route for 100 feet before sinking back into the grass. Several more appear in the distance, all moving toward the same point.</td></tr>
+              <tr><td>9–10</td><td>Pristine Kigan Uldar equipment materialises on the grass. It belongs to no one identifiable. If kept, the carrier gains +1 to Athletics checks but dreams each night of a tournament they never entered.</td></tr>
+              <tr><td>11–12</td><td>The wind dies completely for 30 seconds. Every party member hears the same whispered phrase in the silence — each in a different language they understand, each slightly different. It is incomplete: a plea, a warning, or a battlefield order.</td></tr>
+              <tr><td>13–14</td><td>Grass in a 10-foot radius around one party member grows to waist height in seconds, then stills. DC 14 Nature: a Fen elf blessing-reflex — the land has recognised something about that character.</td></tr>
+              <tr><td>15–16</td><td>A Torgarian War relic surfaces from the soil. DC 15 Arcana: the object carries a fragment of its original owner's last memory, which floods into the examiner's mind as a brief vision.</td></tr>
+              <tr><td>17–18</td><td>For 1 minute, a fragment of the Torgarian War plays out in translucent overlay around the party. They are invisible to the apparitions. When it ends, one character is standing on the exact spot a soldier died.</td></tr>
+              <tr><td>19–20</td><td>The healing lake pulses hard. Every creature within 30 feet regains HP equal to their proficiency bonus — then immediately loses the same amount as the reversal follows. Net: zero. Wounds look healed for 10 minutes before visibly reopening.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">⚔️ Encounter Ideas</div>
+          <div class="encounter-item"><strong>The Ghost's Unfinished Business.</strong> A Torgarian War soldier's ghost has been approaching travelers for weeks, repeating the same phrase. The party learns the ghost was a courier whose message was never delivered. The recipient's family lives in Wyrmbost — and the message will reopen wounds the town spent decades sealing.</div>
+          <div class="encounter-item"><strong>Sabotage at the Crown.</strong> The Annual Kigan Uldar Crown is three days away. A team hires the party to investigate equipment tampering — opponents' mallets produce erratic Weirding effects mid-game. A Weirded artifact was smuggled into the equipment. Finding it before the opening match is preferable. Finding it during play is not.</div>
+          <div class="encounter-item"><strong>The Volatile Lake.</strong> A shore village has relied on the healing lake for generations. Since the Weirding, results are unpredictable — some cured instantly, others harmed. A healer believes they've found a reliable window of time and needs the party to hold off desperate travelers who arrive at the wrong hours.</div>
+          <div class="encounter-item"><strong>The Stone Has Moved.</strong> A lone Fen elf has returned to reclaim a sealed offering jar left at a specific standing stone during the early Weirding. The problem: the stone was here. It is not anymore. The plains are large and the stones are many.</div>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">🧭 Travel Options</div>
+          <div class="travel-list">
+            <div class="travel-item"><span class="travel-icon">🥾</span><span><strong>By Foot.</strong> The main road between Wyrmbost and Leighmore cuts directly through the plains — a 3-day journey on open, largely flat terrain.</span></div>
+            <div class="travel-item"><span class="travel-icon">🐎</span><span><strong>By Horse.</strong> The flat grassland is ideal riding ground. Wyrmbost to Leighmore takes 1 day at a steady pace, half a day pushed hard.</span></div>
+            <div class="travel-item"><span class="travel-icon">🚣</span><span><strong>By River.</strong> A seasonal river runs along the plains' western edge toward the coast. Canoe travel is viable in spring and early summer; the river runs dry by late autumn.</span></div>
+            <div class="travel-item"><span class="travel-icon">🦅</span><span><strong>By Air.</strong> Open skies with no terrain obstacles. Air travel from Eveltoft reaches the plains in half a day.</span></div>
+            <div class="travel-item"><span class="travel-icon">⚠️</span><span><strong>Lake Crossing.</strong> Crossable by small boat, but Weirding volatility makes results unpredictable. No vessel has been lost — but two have arrived at the wrong shore.</span></div>
+          </div>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">📍 Landmarks</div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Princess's Tear</span><span class="landmark-meta">30 min · 50 XP</span></div>
+            <div class="landmark-desc">The central lake, formed according to legend from the grief of a Fen princess. A full hour at the water's edge in quiet reflection allows a DC 14 WIS check — success grants proficiency in one skill of the DM's choice until the next long rest.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Whispering Stones</span><span class="landmark-meta">1 hour · 75 XP</span></div>
+            <div class="landmark-desc">A circle of standing stones at the plains' northern edge, the tallest reaching 15 feet. Fresh offerings accumulate between visits. The stones hum at dawn. DC 15 History at the tallest stone: a fragment of Fen elf memory — the plains before the Torgarian War.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">Leighmore</span><span class="landmark-meta">1 day · 100 XP</span></div>
+            <div class="landmark-desc">The market town at the plains' eastern end, known for supplying Kigan Uldar teams. Fen elf families who fled during the Torgarian War have begun quietly returning, creating fragile coexistence with human settlers. The tension is polite. It will not stay polite indefinitely.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">Ardal Tournament Ground</span><span class="landmark-meta">2 hours · 125 XP</span></div>
+            <div class="landmark-desc">The dedicated pitch where the Annual Kigan Uldar Crown is contested. Outside tournament season it stands empty and eerily maintained — grass trimmed, lines marked, equipment appearing in the locked storage shed. No one has found an explanation they're willing to repeat.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Torgarian Hollow</span><span class="landmark-meta">3 hours · 150 XP</span></div>
+            <div class="landmark-desc">A depression where a major Torgarian War battle was fought. Grass will not grow at its center. Ghost activity is highest here; spectral warriors converge at dusk. Relics surface from the soil regularly, including on one occasion an intact sealed letter in Old Ryndorian.</div>
+          </div>
+        </div>
+      </div>
+
       <!-- ── Arvanthwaite Woods ────────────────────────────────────── -->
       <div class="subsection-title" id="wl-arvanthwaite">Arvanthwaite Woods</div>
       <div class="card">
@@ -1664,6 +1922,68 @@
           <p>The Arvanthwaite Woods, nestled along the northwestern coast of Ryndor, were long regarded as a gift from the elven gods — towering trees, some of the oldest in the land, their roots entwined with ancient magic and forgotten secrets. Since The Weirding, strange energies ripple through the roots and canopies, reshaping the very essence of the forest. Sentient trees, once wise guardians, now stir with unpredictable intent, sometimes attacking intruders with frenzied force even when none is meant. Twisting paths seem to change direction with each step, and travelers risk getting lost in temporal loops, emerging days or years after they entered.</p>
           <p>The elves who have vowed to protect this forest find themselves in conflict with its shifting nature. Spirits that once guided travelers have grown hostile. Druids and fey beings still dwell deep within, but even they seem changed — <strong>stranger, wilder, and more dangerous</strong>. Some whisper the Weirding has awakened ancient beings slumbering beneath the forest floor, beings that predate the elven gods themselves.</p>
           <p>Fey creatures, once playful tricksters, have become unpredictable and deadly. Animals exhibit strange mutations — stag-like creatures with glowing antlers, wolves that step between dimensions mid-pursuit. Elves walk a fine line between reverence and wariness, knowing the forest they love is no longer entirely what it once was. Travelers are strongly discouraged from entering Arvanthwaite without a knowledgeable guide, for every step is a journey through mystery and peril where ancient magic and new anomalies blend in equal measure.</p>
+        </div>
+      </div>
+
+      <div class="dm-section">
+        <div class="dm-header">⚙ Dungeon Master's Tools — Arvanthwaite Woods</div>
+        <div class="dm-block">
+          <div class="dm-block-label">⚡ Weirdings — d20 Table</div>
+          <table class="weirding-table">
+            <thead><tr><th>d20</th><th>Effect</th></tr></thead>
+            <tbody>
+              <tr><td>1–2</td><td>A path the party has been walking ends at a tree that was not there ten minutes ago — enormous, ancient, and rooted too deeply to have grown here. There is no way around it through the dense growth. It steps aside after 1d4 minutes. Or it doesn't.</td></tr>
+              <tr><td>3–4</td><td>A guide spirit appears — luminous, roughly humanoid, beckoning. DC 13 Insight: genuinely trying to help, leading toward safer ground. On a failure, it leads the party in a wide circle and leaves them exactly where they started, 1d4 hours later.</td></tr>
+              <tr><td>5–6</td><td>The forest repeats. The party has passed the same blasted oak three times, from a different direction each time. DC 14 Survival to break the loop; failure means 1d4 hours lost before the forest releases them on its own.</td></tr>
+              <tr><td>7–8</td><td>A wolf steps between dimensions mid-pursuit of something the party cannot see — vanishing and reappearing 30 feet ahead twice. Then it stops, stares at the party for ten seconds, and walks away.</td></tr>
+              <tr><td>9–10</td><td>A sentient tree lowers one branch deliberately toward one party member, stopping just above their head. If they touch it: a flash of vision — the forest before the Weirding, green and quiet and whole. The branch withdraws after 1 minute if not touched.</td></tr>
+              <tr><td>11–12</td><td>A fey creature materialises beside the party — small, iridescent, visibly changed. It speaks nonsense in a beautiful voice. DC 12 Arcana: it is trying to warn them about something ahead. It follows for 1d6 hours whether the party wants it to or not.</td></tr>
+              <tr><td>13–14</td><td>One character steps through a curtain of light no one else can see and emerges from behind a nearby tree. For the rest of the party, 3d10 minutes passed. For the character, nothing happened. They are completely unaware of the gap.</td></tr>
+              <tr><td>15–16</td><td>A stag with glowing antlers crosses the path and looks directly at one character. DC 13 WIS save or that character feels a compulsion to follow. Each turn they must succeed on DC 15 WIS (or be restrained) to resist. The stag walks for 10 minutes, then vanishes.</td></tr>
+              <tr><td>17–18</td><td>The root network pulses underfoot. Every party member simultaneously feels something vast and old become aware of them — just aware. Casting a spell or using a magic item within the next 10 minutes triggers this Weirding again (additional, not a replacement).</td></tr>
+              <tr><td>19–20</td><td>Total silence. Every natural sound stops. From below — from the roots — comes one deep sound, like something enormous shifting position. It lasts 4 seconds. The birds do not return for 1 hour. The party's guide, if present, has gone pale.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">⚔️ Encounter Ideas</div>
+          <div class="encounter-item"><strong>The Guide They Hired.</strong> The party's elven guide stops at a fork, stares in silence for a full minute, then makes eye contact with each party member in turn and says: "we are not alone" — then walks off the path into the forest. Whether this is a Weirding symptom, a threat response, or something else is left to the party.</div>
+          <div class="encounter-item"><strong>The Children Who Left Yesterday.</strong> A village at the forest's edge has lost three children who wandered in "just yesterday." Temporal loops mean "yesterday" for the village may mean years inside. The children may be fine, aged, or dead — or they may walk back through the gate tomorrow, not knowing they were ever gone.</div>
+          <div class="encounter-item"><strong>The Ancient That Woke.</strong> A small logging crew returned from the forest changed — quiet, purposeful, building something in their village without discussing it. DC 16 History identifies the shape as a ward designed to put something back to sleep. Whatever they encountered is still working through them.</div>
+          <div class="encounter-item"><strong>The Druid's Dilemma.</strong> A druid who has lived at the forest's heart for decades has sent word: she found something awakening beneath the oldest tree and has been holding it in place for eleven days. She won't leave her post. The party must go to her.</div>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">🧭 Travel Options</div>
+          <div class="travel-list">
+            <div class="travel-item"><span class="travel-icon">🥾</span><span><strong>By Foot (interior).</strong> The only option once inside — no clear routes exist and all paths are suspect. Plan for at least twice the expected travel time. Do not plan for a return on schedule.</span></div>
+            <div class="travel-item"><span class="travel-icon">🚣</span><span><strong>By Boat (coastal approach).</strong> Several inlets along the northwestern coast allow landing by small boat. Entering from the sea-facing edge is slightly less disorienting — temporal effects are weaker near the shore.</span></div>
+            <div class="travel-item"><span class="travel-icon">🦅</span><span><strong>By Air (above the canopy).</strong> Feasible for scouting — the canopy is dense but navigable above. Landing within the forest is extremely difficult. Aviari can map from above but cannot operate reliably inside.</span></div>
+            <div class="travel-item"><span class="travel-icon">🧭</span><span><strong>Guided Entry.</strong> The only way in with any reliability. Finding an elf guide willing to enter requires DC 14 Persuasion and appropriate compensation. Two guides are currently operating; whereabouts unknown.</span></div>
+            <div class="travel-item"><span class="travel-icon">⚠️</span><span><strong>Unguided Entry.</strong> Possible. Emerging where and when intended is not.</span></div>
+          </div>
+        </div>
+        <div class="dm-block">
+          <div class="dm-block-label">📍 Landmarks</div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Oldest Tree</span><span class="landmark-meta">3 hours · 150 XP</span></div>
+            <div class="landmark-desc">At the heart of Arvanthwaite stands a tree of impossible age, its trunk wider than three houses. Roots break through the ground for 200 feet in every direction. It hums at irregular intervals. DC 17 Arcana at its base detects something living beneath it — old enough that its resonance doesn't register as any known creature type.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Shimmer Gate</span><span class="landmark-meta">1 hour · 75 XP</span></div>
+            <div class="landmark-desc">Two ancient trees grown together overhead form a natural arch along the oldest path into the forest. What is visible through the gate from outside does not match what is encountered inside. Elf guides always begin here. Travelers who skip it tend to emerge on the wrong side of wherever they were trying to reach.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Fey Hollow</span><span class="landmark-meta">2 hours · 100 XP</span></div>
+            <div class="landmark-desc">A clearing where fey activity is highest. Impossibly detailed structures cling to the roots and low branches — still inhabited. The fey here are territorial and changed. They still trade. Since the Weirding they no longer accept objects. They ask for memories.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Temporal Clearing</span><span class="landmark-meta">4 hours · 200 XP</span></div>
+            <div class="landmark-desc">A wide break in the canopy where temporal loops are most concentrated. Investigators have counted at least three coexisting layers: the present, a version of the forest from roughly 80 years ago, and one that appears to be a future — what kind is not clear. Items left here and retrieved are sometimes found in a different condition.</div>
+          </div>
+          <div class="landmark-item">
+            <div class="landmark-header"><span class="landmark-name">The Elf Watch Post</span><span class="landmark-meta">2 hours · 125 XP</span></div>
+            <div class="landmark-desc">A canopy platform built by the elves who protect Arvanthwaite — now abandoned. Elves stopped using it when the tree began to move (roughly 20 feet per hour, in a pattern no one has mapped). It still contains journals, equipment, and a final entry: <em>"The roots are speaking again. I don't think they're asking anymore."</em></div>
+          </div>
         </div>
       </div>
 
@@ -3088,7 +3408,7 @@
   // Containers to dim when they have no matches
   const DIMMED_SELECTORS = [
     '.card', '.faction-card', '.pull-quote',
-    '.highlight-box', '.trait-block', '.seat-item', '.timeline-entry'
+    '.highlight-box', '.trait-block', '.seat-item', '.timeline-entry', '.dm-section'
   ].join(', ');
 
   function escRe(s) {
