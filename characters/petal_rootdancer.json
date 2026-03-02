@@ -60,6 +60,27 @@
       "stat1": "WIS"
     }
   },
+  "time_to_shine": {
+    "summary": "Petal is irreplaceable anywhere the natural world needs to be read, healed, or reasoned with. WIS 17 and a background built around environmental investigation mean she notices what others walk past and understands what others can't name. She does not rush these moments. The land has been waiting longer than anyone in the party.",
+    "moments": [
+      {
+        "context": "The party enters a blighted or damaged area and needs to understand what happened",
+        "text": "Petal crouches, presses a hand to the soil, and begins. She speaks to what's left before she asks anyone else a question. WIS 17 Perception plus Hurstwold Warden training means she can date the damage, identify the cause, and estimate what it will take to reverse it — all before the party has finished looking around. She will not be rushed through this. They learn to wait."
+      },
+      {
+        "context": "A party member is poisoned, diseased, or suffering a condition that combat can't fix",
+        "text": "Lesser Restoration. She identifies the condition, selects the right application, and clears it. She notes the symptoms in her mental catalogue of blight-adjacent effects. If she's seen this before, she says so. If she hasn't, she files it and says that too. Either way, the party member is back on their feet."
+      },
+      {
+        "context": "The party needs to find a trail, a passage, or something hidden in natural terrain",
+        "text": "Druidcraft tells her which way the wind has been disturbed. WIS 17 Perception finds the bent stems, the disturbed soil, the absence of birds in a space that should have them. She does not track by following footprints. She tracks by understanding what the land remembers. She has, on more than one occasion, found something the party wasn't looking for."
+      },
+      {
+        "context": "A blighted or dying plant, tree, or ecosystem could be saved with intervention",
+        "text": "This is the moment Petal exists for. She will spend as long as it takes. The party has learned not to set a time limit on this. Whatever she does here — tending, speaking, coaxing growth back from the edge — is not performed for an audience. She is simply doing the work. It is the most focused anyone will ever see her."
+      }
+    ]
+  },
   "combat_tactics": {
     "role": "Battlefield shaper with serious action-economy at level 5. Conjure Animals floods the field with creatures, Call Lightning fires every turn for free, and WIS 17 makes every save target DC 14 — hard to shake off.",
     "tactics": [

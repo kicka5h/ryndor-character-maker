@@ -53,6 +53,27 @@
       "stat1": "STR"
     }
   },
+  "time_to_shine": {
+    "summary": "Sagittarius earns his reputation outside of combat through altitude — as a scout, a lookout, and an early warning system the party didn't know they needed. His Skywatcher training means he reads the sky the way other people read a map. The third-person announcements are a separate skill. He has not been asked to stop.",
+    "moments": [
+      {
+        "context": "The party needs to scout ahead without being seen",
+        "text": "Sagittarius goes up. At 20–30 feet, he is functionally invisible to ground-level threats and can cover terrain the party would spend an hour crossing in minutes. WIS 12 and Perception proficiency are enough to spot an ambush, a patrol route, or a structural weakness before anyone else knows to look for it. He narrates the report in third person. The information is accurate."
+      },
+      {
+        "context": "The party needs to know what the weather will do",
+        "text": "Skywatcher of Holmea background. Sagittarius reads cloud formation, wind direction, and pressure shifts the way other people read signage. He can tell the party whether the storm is two hours out or six, whether the pass will be crossable by morning, and whether the fog is natural. He is almost always right. He mentions that he is almost always right."
+      },
+      {
+        "context": "Someone needs to reach a ledge, rooftop, or elevated position that isn't accessible by climbing",
+        "text": "He flies there. Athletics proficiency handles whatever happens on arrival. He has carried party members to positions they couldn't reach themselves, dropped a rope from above, and once landed on a moving cart from fifteen feet up. That one has a name. He has used the name in three subsequent conversations."
+      },
+      {
+        "context": "The party enters a new city, outpost, or wilderness area for the first time",
+        "text": "Sagittarius goes up first. He circles once, maybe twice, and comes back with a working mental map of sight lines, entry points, and anything that looks wrong from above. He delivers this as a formal aerial assessment. The party has learned to let him finish before asking questions. The questions are usually answered in the assessment."
+      }
+    ]
+  },
   "combat_tactics": {
     "role": "Aerial reach controller, fully operational at level 5. Flight is live. Extra Attack is live. A halberd at 10-foot reach swung twice per action from above is exactly what the maneuvers were always named after.",
     "tactics": [

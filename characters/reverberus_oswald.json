@@ -8,14 +8,15 @@
   "background_id": "ghost_whisperer",
   "alignment": "Chaotic Good",
   "stats": {
-    "STR": 15,
-    "DEX": 14,
-    "CON": 13,
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
     "INT": 12,
-    "WIS": 10,
-    "CHA": 10
+    "WIS": 11,
+    "CHA": 17
   },
   "stat_method": "Standard Array",
+  "stat_notes": "Pre-racial: STR 8, DEX 13, CON 14, INT 12, WIS 10, CHA 15. Leoporin: +2 DEX, +1 WIS. L4 ASI: +2 CHA.",
   "chosen_skills": [
     "History",
     "Persuasion",
@@ -67,24 +68,64 @@
       "stat1": "CHA"
     }
   },
+  "time_to_shine": {
+    "summary": "Reverberus earns his keep outside of combat — in negotiations where his CHA 17 and Performance/Persuasion expertise turn the room, in the moments between fights where his documentation of every prior event becomes the party's most useful asset, and anywhere the dead have something to say that the living haven't thought to ask.",
+    "moments": [
+      {
+        "context": "The party needs to get past a suspicious official, guard captain, or scholar who won't be bribed",
+        "text": "Reverberus steps forward with his tome open to a relevant passage — possibly something he documented three sessions ago — and recites it in his performance voice (Expertise + CHA 17). The official either believes him or is sufficiently unsettled by someone who knows that much. Reverberus notes which outcome occurs. He considers both useful data."
+      },
+      {
+        "context": "The party encounters an anomaly, creature, or location nobody recognizes",
+        "text": "This is the moment Reverberus has been preparing for. History check. Cross-reference with his notes. Cross-reference again. He cannot be rushed, but he will eventually produce an account so thorough it constitutes primary documentation. The party may have moved on by then. He follows, still reading aloud."
+      },
+      {
+        "context": "A recently deceased NPC has information the party needs",
+        "text": "Ghost Whisperer background. Reverberus speaks to the dead. He does this calmly, professionally, and with an ink already uncapped. He thanks them afterward. He asks follow-up questions. He has, on more than one occasion, been asked by the spirit to please stop taking notes. He cannot stop taking notes."
+      },
+      {
+        "context": "The party is losing a negotiation, a trial, or a social standoff",
+        "text": "Reverberus Suggests (DC 14 WIS) that the opposing party consider a more reasonable position — framed as a perfectly logical next step. Out of combat, this is his most powerful word. He documents every Suggestion he attempts, including the failures, with a brief note on what he would have done differently. The notes are never actionable. He writes them anyway."
+      }
+    ]
+  },
   "combat_tactics": {
-    "role": "Documentation-first support bard. CHA 10 at level 5 gives DC 11 — enough to matter, not enough to rely on. Reverberus enables through Faerie Fire, heals through Healing Word, and now fires Bardic Inspiration d8s that recharge on short rest.",
+    "role": "Documentation-first support bard. CHA 17 at level 5 gives spell save DC 14 and spell attack +6 — save-or-suck spells are now genuinely threatening. Reverberus enables through Faerie Fire, locks down through Hypnotic Pattern, heals through Healing Word, and fires d8 Bardic Inspiration that recharges on short rest.",
+    "key_stats": {
+      "hp": 38,
+      "ac": 13,
+      "ac_note": "Leather (11) + DEX mod (+2)",
+      "initiative": "+2",
+      "speed": "35 ft",
+      "proficiency_bonus": "+3",
+      "spell_save_dc": 14,
+      "spell_attack": "+6",
+      "shortsword_attack": "+5 to hit, 1d6+2 piercing (finesse/DEX)"
+    },
     "tactics": [
       {
         "phase": "Font of Inspiration (L5 Upgrade)",
-        "text": "Bardic Inspiration die is now d8 (up from d6) and recharges on a short rest. This removes the long-rest hoarding problem entirely. Hand out inspiration freely every encounter — it's no longer a scarce resource. Priority: the fighter or barbarian making their key attack, then whoever is rolling the most consequential save."
+        "text": "Bardic Inspiration die is now d8 (up from d6) and recharges on a short rest. This removes the long-rest hoarding problem entirely — hand out inspiration freely every encounter. Priority: the martial character making their critical attack, then whoever is rolling the most consequential save. CHA 17 means Reverberus's own spells are equally worth casting, so don't save inspiration if you have a better action."
       },
       {
-        "phase": "Opening",
-        "text": "Sleep targets HP totals, not saves — still valid at L5 (5d8 HP, starting from lowest). Faerie Fire on the highest-AC enemy (DEX save DC 11) gives advantage on all attacks against it. Even on a save, opponents know Reverberus is a threat. Hypnotic Pattern (new, WIS save DC 11, 30-ft cube) incapacitates affected creatures — unreliable with DC 11, but one good roll ends the fight."
+        "phase": "Opening: Hypnotic Pattern",
+        "text": "DC 14 WIS save, 30-ft cube — incapacitates all affected creatures, and the effect persists until they take damage or someone breaks their concentration. A cluster of 3+ enemies failing this effectively ends the threat. Requires concentration, so hold it for the full encounter. This is now Reverberus's highest-value opening against grouped enemies. He narrates it in real time."
       },
       {
-        "phase": "Suggestion (New)",
-        "text": "WIS save DC 11. On a fail: the target follows a reasonable-sounding instruction for up to 8 hours. In combat, suggest 'withdraw and return to your post.' Out of combat, the most powerful spell Reverberus owns — a single word can redirect an NPC encounter entirely. He narrates the moment in the margin the instant it works."
+        "phase": "Opening: Faerie Fire",
+        "text": "DC 14 DEX save. On a fail, the target sheds light and all attacks against it have advantage. Even if one enemy saves, painting the high-AC fighter or brute gives your martials consistent hits. No concentration conflict with Hypnotic Pattern — if Hypnotic Pattern is already up, Faerie Fire must wait or be used on a separate fight."
+      },
+      {
+        "phase": "Suggestion",
+        "text": "DC 14 WIS save, single target, up to 8 hours. In combat: 'retreat and take cover' redirects an enemy off the board. Out of combat: the most powerful thing Reverberus can do — a single sentence rewrites an NPC encounter. DC 14 is high enough to be reliable against most humanoids. He always narrates Suggestion successes. He also notes failures, but in smaller script."
       },
       {
         "phase": "Core Support Loop",
-        "text": "Bonus action Healing Word keeps downed allies standing without Reverberus entering melee range. Main action: Dissonant Whispers (reaction denial even on save), Faerie Fire (advantage for all allies), or Hypnotic Pattern if clustered enemies present a good target. Bardic Inspiration as bonus action on the same turn as any spell. Leoporin speed keeps him out of range."
+        "text": "Bonus action Healing Word keeps downed allies upright without entering melee (range 60 ft, +3 heal modifier). Main action: Dissonant Whispers (WIS save DC 14, forces reaction-wasting movement even on success), Hold Person (WIS save DC 14, paralyzed for concentration duration — all attacks against paralyzed target in melee are critical hits), or Sleep vs. low-HP clusters. Shortsword (+5, 1d6+2 finesse) is a last resort when cornered; DEX-based so STR 8 is irrelevant."
+      },
+      {
+        "phase": "Positioning",
+        "text": "Leoporin speed (35 ft) plus no melee ambition means Reverberus stays at range, 30–60 ft from any threat. Concentration spells (Hypnotic Pattern, Faerie Fire, Hold Person) require Reverberus to avoid being hit — positioning is how he protects them. If surrounded, Dissonant Whispers forces a creature away (even on a save) and buys space. He documents his own escapes in the third person."
       }
     ]
   }
