@@ -2312,6 +2312,124 @@ li { margin:0.1rem 0; font-size:0.84rem; color:#1a1020; }
     if page2_parts:
         page2_html = f'<div class="page-break">{"".join(page2_parts)}</div>'
 
+    # ── Bonus Actions bar ──────────────────────────────────────────────────────
+    _BA_RE = re.compile(r'\bbonus\s+action\b', re.IGNORECASE)
+    bonus_actions = []  # list of {"name", "desc", "source", "cost"}
+
+    def _extract_ba_cost(ba_desc, ba_name=""):
+        # "bonus action (cost)" or "as a bonus action (cost)" — grab the parenthetical
+        m = re.search(r'\bbonus\s+action\s*\(([^)]+)\)', ba_desc, re.IGNORECASE)
+        if m:
+            return m.group(1).strip()
+        # Channel Divinity features
+        if re.search(r'\bchannel\s+divinity\b', ba_name, re.IGNORECASE):
+            return "Channel Divinity"
+        # Explicit Ki point cost elsewhere in description
+        m2 = re.search(r'\((\d+\s+ki\s+points?)\)', ba_desc, re.IGNORECASE)
+        if m2:
+            return m2.group(1).strip()
+        # Recharge pattern — not a spend cost but worth surfacing
+        m3 = re.search(
+            r'recharges?\s+on\s+(?:a\s+)?(?:short\s+or\s+long|long|short)\s+rest',
+            ba_desc, re.IGNORECASE)
+        if m3:
+            return m3.group(0).replace("recharges", "Recharges").replace("recharge", "Recharge")
+        return None
+
+    def _add_ba(ba_name, ba_desc, ba_source=""):
+        if _BA_RE.search(ba_desc):
+            bonus_actions.append({
+                "name": ba_name,
+                "desc": ba_desc,
+                "source": ba_source,
+                "cost": _extract_ba_cost(ba_desc, ba_name),
+            })
+
+    # Race traits
+    if race:
+        for t in race.get("traits", []):
+            _add_ba(t["name"], t["description"], race["name"])
+
+    # Class features (filtered by level)
+    if cls:
+        _cf_data = CLASS_FEATURES.get(cls["id"], {})
+        for _f in _cf_data.get("features", []):
+            if _f["level"] <= level:
+                _add_ba(_f["name"], _f["description"], cls["name"])
+
+    # Subclass features (filtered by level)
+    if sub:
+        for _f in sub.get("features", []):
+            if _f.get("level", 0) <= level:
+                _add_ba(_f["name"], _f["description"], sub["name"])
+
+    # Sev'rinn combat techniques — cost from tier table
+    if cls and cls["id"] == "sevrinn" and sub:
+        for tech in sub.get("techniques", []):
+            if tech["level"] <= level and _BA_RE.search(tech.get("description", "")):
+                _t_usage = tech.get("usage", "")
+                _t_lvl   = tech["level"]
+                if _t_usage == "Elemental Shift use":
+                    _t_cost = "Elemental Shift use"
+                elif any(x in _t_usage for x in ["/Short Rest", "/Long Rest", "/7 days", "proficiency bonus"]):
+                    _t_cost = _t_usage
+                elif _t_lvl <= 3:
+                    _t_cost = "1 Charge"
+                elif _t_lvl <= 10:
+                    _t_cost = "2 Charges (1 while Shifted)"
+                else:
+                    _t_cost = "3 Charges (2 while Shifted)"
+                bonus_actions.append({
+                    "name": f'{tech["name"]} (Lv.{_t_lvl})',
+                    "desc": tech["description"],
+                    "source": sub["name"],
+                    "cost": _t_cost,
+                })
+
+    # Background feature
+    if bg:
+        _bf = bg.get("feature", {})
+        if _bf:
+            _add_ba(_bf.get("name", "Feature"), _bf.get("description", ""), bg["name"])
+
+    # Spells with "1 bonus action" casting time
+    for _sname_ba in ss.get("chosen_cantrips", []) + ss.get("chosen_spells", []):
+        _spd_ba, _ = lookup_spell_detail(_sname_ba)
+        if _spd_ba and "bonus action" in _spd_ba.get("casting_time", "").lower():
+            bonus_actions.append({
+                "name": _sname_ba,
+                "desc": _spd_ba.get("description", ""),
+                "source": "Spell",
+                "cost": "1 Bonus Action" + (
+                    f" · {_spd_ba['components']}" if _spd_ba.get("components") else ""),
+            })
+
+    ba_html = ""
+    if bonus_actions:
+        def _ba_cost_tag(cost):
+            if not cost:
+                return ""
+            return (f'<span style="font-family:Cinzel,serif;font-size:0.48rem;font-weight:700;'
+                    f'color:#0e6a80;letter-spacing:0.08em;text-transform:uppercase;'
+                    f'display:block;margin:0.06rem 0 0.1rem">Cost: {cost}</span>')
+
+        ba_items = "".join(
+            f'<div style="flex:1;min-width:200px;max-width:340px;'
+            f'border-left:2px solid rgba(100,50,200,0.22);padding-left:0.5rem;margin:0.15rem 0">'
+            f'<span class="fname">{ba["name"]}'
+            f'<span style="font-family:\'Crimson Text\',Georgia,serif;font-size:0.62rem;'
+            f'font-weight:400;color:#5a4a7a;margin-left:0.3rem">({ba["source"]})</span>'
+            f'</span>'
+            + _ba_cost_tag(ba.get("cost"))
+            + f'<span class="fdesc" style="font-size:0.76rem">{ba["desc"]}</span>'
+            f'</div>'
+            for ba in bonus_actions
+        )
+        ba_html = (f'<div class="box" style="margin-top:0.55rem">'
+                   f'<div class="sec-title">Bonus Actions</div>'
+                   f'<div style="display:flex;flex-wrap:wrap;gap:0.35rem 1.1rem">{ba_items}</div>'
+                   f'</div>')
+
     fonts = ("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900"
              "&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap")
     return f"""<!DOCTYPE html>
@@ -2326,6 +2444,7 @@ li { margin:0.1rem 0; font-size:0.84rem; color:#1a1020; }
   <button class="print-btn" onclick="window.print()">&#x1F5A8; Print / Save as PDF</button>
   {top_header}
   {main_grid}
+  {ba_html}
   {page2_html}
 </body>
 </html>"""
