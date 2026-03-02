@@ -2,7 +2,7 @@
 
 > An aesthetic D&D 5e character sheet builder for **Ryndor: The Weirded Lands** — a homebrew sourcebook set in a dark, elemental fantasy world.
 
-[**→ Launch the App**](https://ryndor-character-maker-git-164613525255.us-west1.run.app/) &nbsp;·&nbsp; [**→ Project Site**](https://kicka5h.github.io/ryndor-character-maker)
+[**→ Launch the App**](https://ryndor-character-maker-git-164613525255.us-west1.run.app/) &nbsp;·&nbsp; [**→ Sourcebook**](https://kicka5h.github.io/ryndor-character-maker)
 
 ---
 
