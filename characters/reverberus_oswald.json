@@ -1,7 +1,7 @@
 {
   "char_name": "Reverberus Oswald",
   "player_name": "",
-  "char_level": 3,
+  "char_level": 5,
   "race_id": "leoporin",
   "class_id": "bard",
   "subclass_id": "college_lanterns",
@@ -13,7 +13,7 @@
     "CON": 13,
     "INT": 12,
     "WIS": 10,
-    "CHA": 8
+    "CHA": 10
   },
   "stat_method": "Standard Array",
   "chosen_skills": [
@@ -34,11 +34,11 @@
   "chosen_languages": [
     "Undercommon"
   ],
-  "notes": "Reverberus doesn't play an instrument, but instead recites poetry from a book to do bardic performances.\u00a0 He's a scholar tasked with cataloguing the events of the party's investigations (and the oddities encountered along the way).",
-  "personality": "  - Reverberus narrates events aloud as they happen \u2014 not to be annoying, but because he genuinely cannot tell where living ends and documenting begins. His companions have learned to tune it out. Mostly.\n  - He carries at least three different inks at all times and becomes visibly distressed if asked to summarize something. Summaries, he insists, are where truth goes to die.",
-  "ideals": "The College of the Lantern does not hoard knowledge \u2014 it casts it outward. Every oddity Reverberus catalogues is a candle held against the dark. The weirdness of this world deserves witnesses, not silence.",
-  "bonds": "  The tome strapped to Reverberus's side is two books in one: a meticulous catalogue of every anomaly, creature, and uncanny event the party has encountered \u2014 and, crowding its margins in a cramped, looping script, his own poetry. The verses started as mnemonic aids, a way to fix observations in memory. They became something more. Every page tells two stories: the facts in the center, the feeling in the margins.\n\n  He would sooner lose a limb than the book. He has, on at least one occasion, gone back for it.",
-  "flaws": "  Reverberus is brave on paper and considerably less so in person. His instinct under threat is to freeze, observe, and compose a stanza about it \u2014 which is almost never what the situation calls for. He also has a habit of correcting people mid-sentence when their account of a past event differs from his notes, which has caused more than one diplomatic incident.",
+  "notes": "Reverberus doesn't play an instrument, but instead recites poetry from a book to do bardic performances.  He's a scholar tasked with cataloguing the events of the party's investigations (and the oddities encountered along the way).",
+  "personality": "  - Reverberus narrates events aloud as they happen — not to be annoying, but because he genuinely cannot tell where living ends and documenting begins. His companions have learned to tune it out. Mostly.\n  - He carries at least three different inks at all times and becomes visibly distressed if asked to summarize something. Summaries, he insists, are where truth goes to die.",
+  "ideals": "The College of the Lantern does not hoard knowledge — it casts it outward. Every oddity Reverberus catalogues is a candle held against the dark. The weirdness of this world deserves witnesses, not silence.",
+  "bonds": "  The tome strapped to Reverberus's side is two books in one: a meticulous catalogue of every anomaly, creature, and uncanny event the party has encountered — and, crowding its margins in a cramped, looping script, his own poetry. The verses started as mnemonic aids, a way to fix observations in memory. They became something more. Every page tells two stories: the facts in the center, the feeling in the margins.\n\n  He would sooner lose a limb than the book. He has, on at least one occasion, gone back for it.",
+  "flaws": "  Reverberus is brave on paper and considerably less so in person. His instinct under threat is to freeze, observe, and compose a stanza about it — which is almost never what the situation calls for. He also has a habit of correcting people mid-sentence when their account of a past event differs from his notes, which has caused more than one diplomatic incident.",
   "inv_weapons": [
     "shortsword"
   ],
@@ -57,27 +57,34 @@
     "Sleep",
     "Dissonant Whispers",
     "Hold Person",
-    "Detect Magic"
+    "Detect Magic",
+    "Suggestion",
+    "Hypnotic Pattern"
   ],
-  "asi_choices": {},
+  "asi_choices": {
+    "L4": {
+      "type": "asi_2",
+      "stat1": "CHA"
+    }
+  },
   "combat_tactics": {
-    "role": "Pure enabler. Low spell DC makes save-based spells unreliable — Reverberus wins fights by making everyone else more dangerous, not by being dangerous himself.",
+    "role": "Documentation-first support bard. CHA 10 at level 5 gives DC 11 — enough to matter, not enough to rely on. Reverberus enables through Faerie Fire, heals through Healing Word, and now fires Bardic Inspiration d8s that recharge on short rest.",
     "tactics": [
       {
+        "phase": "Font of Inspiration (L5 Upgrade)",
+        "text": "Bardic Inspiration die is now d8 (up from d6) and recharges on a short rest. This removes the long-rest hoarding problem entirely. Hand out inspiration freely every encounter — it's no longer a scarce resource. Priority: the fighter or barbarian making their key attack, then whoever is rolling the most consequential save."
+      },
+      {
         "phase": "Opening",
-        "text": "Sleep is the opener: it targets HP totals, not saving throws, so it bypasses the low spell DC entirely. Up to 5d8 HP worth of creatures fall unconscious, starting from the lowest HP. Aim at the pack of weaker enemies, not the boss. Alternatively, Faerie Fire on the highest-AC target gives all attackers advantage on rolls against it — useful regardless of whether the target saves."
+        "text": "Sleep targets HP totals, not saves — still valid at L5 (5d8 HP, starting from lowest). Faerie Fire on the highest-AC enemy (DEX save DC 11) gives advantage on all attacks against it. Even on a save, opponents know Reverberus is a threat. Hypnotic Pattern (new, WIS save DC 11, 30-ft cube) incapacitates affected creatures — unreliable with DC 11, but one good roll ends the fight."
       },
       {
-        "phase": "Core Loop",
-        "text": "Bardic Inspiration (d6) goes to whoever is making the round's most important roll — the fighter swinging at the boss, the rogue lining up Sneak Attack, or an ally rolling a critical saving throw. It is a bonus action, so it pairs with a spell or Healing Word on the same turn. Healing Word (bonus action) revives downed allies without Reverberus moving into range."
+        "phase": "Suggestion (New)",
+        "text": "WIS save DC 11. On a fail: the target follows a reasonable-sounding instruction for up to 8 hours. In combat, suggest 'withdraw and return to your post.' Out of combat, the most powerful spell Reverberus owns — a single word can redirect an NPC encounter entirely. He narrates the moment in the margin the instant it works."
       },
       {
-        "phase": "Dissonant Whispers",
-        "text": "Even when targets save against Dissonant Whispers, they must use their reaction to move away from Reverberus — denying their own Opportunity Attack and potentially triggering Opportunity Attacks from allies. Position party members near the target before casting: a saved-against Whispers can still pull an enemy out of position and waste their reaction."
-      },
-      {
-        "phase": "Self-Preservation",
-        "text": "Reverberus should never be hit. His job is Bardic Inspiration, Healing Word, and surviving long enough to do both. Minor Illusion creates distractions for repositioning. Leoporin speed is high — use it to stay far from melee. If engaged: disengage and retreat rather than fight back. Faerie Fire's concentration is more valuable than anything a shortsword can do."
+        "phase": "Core Support Loop",
+        "text": "Bonus action Healing Word keeps downed allies standing without Reverberus entering melee range. Main action: Dissonant Whispers (reaction denial even on save), Faerie Fire (advantage for all allies), or Hypnotic Pattern if clustered enemies present a good target. Bardic Inspiration as bonus action on the same turn as any spell. Leoporin speed keeps him out of range."
       }
     ]
   }

@@ -905,6 +905,7 @@ defaults = {
     "chosen_spells": [],
     "asi_choices": {},
     "combat_tactics": {},
+    "time_to_shine": {},
 }
 for k, v in defaults.items():
     if k not in st.session_state:
@@ -997,7 +998,7 @@ def generate_random_character():
 
     # Clear fields left for AI or user to fill
     for k in ["char_name", "player_name", "notes", "personality", "ideals", "bonds", "flaws",
-              "chosen_cantrips", "chosen_spells", "asi_choices", "combat_tactics",
+              "chosen_cantrips", "chosen_spells", "asi_choices", "combat_tactics", "time_to_shine",
               "expertise_skills", "damage_resistances", "inv_gear", "has_dual_wielder"]:
         st.session_state[k] = defaults[k]
 
@@ -1059,6 +1060,132 @@ Return ONLY valid JSON (no markdown, no commentary) with exactly these keys:
         print(f"[AI] Character enriched: {data.get('name', '?')}", flush=True)
     except Exception as e:
         print(f"[AI] ERROR: {e}\nRaw response: {raw if 'raw' in dir() else 'N/A'}", flush=True)
+
+
+def generate_character_insights():
+    """Call Claude to generate combat tactics AND time-to-shine highlights for the current character."""
+    if not _ai_client:
+        st.warning("ANTHROPIC_API_KEY is not set — cannot generate insights.")
+        return
+
+    race  = get_race(st.session_state.race_id)
+    cls   = get_class(st.session_state.class_id)
+    sub   = get_subclass(cls, st.session_state.subclass_id) if cls else None
+    bg    = get_background(st.session_state.background_id)
+    level = st.session_state.char_level
+    prof  = proficiency_bonus(level)
+    mech  = get_mech(st.session_state.class_id or "")
+
+    STAT_KEYS = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+    stats_str = ", ".join(
+        f"{k} {effective_stat(k, race)} ({modifier(effective_stat(k, race))})"
+        for k in STAT_KEYS
+    )
+
+    race_traits  = [t["name"] for t in (race.get("traits", []) if race else [])]
+    cf_data      = CLASS_FEATURES.get(cls["id"] if cls else "", {})
+    key_features = [f["name"] for f in cf_data.get("features", []) if f["level"] <= level]
+    sub_features = ([f["name"] for f in sub.get("features", []) if f.get("level", 0) <= level]
+                    if sub else [])
+
+    main_wep = get_weapon(st.session_state.get("equipped_main"))
+    off_wep  = get_weapon(st.session_state.get("equipped_offhand"))
+    weapons  = []
+    if main_wep: weapons.append(f"{main_wep['name']} (main hand)")
+    if off_wep:  weapons.append(f"{off_wep['name']} (off-hand)")
+
+    extra_lines = []
+    sc_data = mech.get("spellcasting")
+    if sc_data and st.session_state.class_id != "sevrinn":
+        cantrips = st.session_state.get("chosen_cantrips", [])
+        spells   = st.session_state.get("chosen_spells", [])
+        if cantrips:
+            extra_lines.append(f"Cantrips: {', '.join(cantrips)}")
+        if spells:
+            extra_lines.append(f"Spells Known: {', '.join(spells)}")
+
+    if cls and cls["id"] == "sevrinn" and sub:
+        sv_mech  = cls.get("mechanics", {})
+        lvl_data = next(
+            (r for r in sv_mech.get("level_table", [])
+             if r["min_level"] <= level <= r["max_level"]), None)
+        techs = [t["name"] for t in sub.get("techniques", []) if t["level"] <= level]
+        extra_lines.append(f"Elemental Attunement: {sub['name']}")
+        if lvl_data:
+            extra_lines.append(f"Elemental Charges: {lvl_data['charges']}")
+        if techs:
+            extra_lines.append(f"Combat Techniques: {', '.join(techs[:10])}")
+
+    # Include personality details if present
+    personality_lines = []
+    for field in ["personality", "ideals", "bonds", "flaws"]:
+        val = st.session_state.get(field, "")
+        if val:
+            personality_lines.append(f"{field.capitalize()}: {val}")
+
+    prompt = f"""You are a D&D 5e character advisor for the world of Ryndor: The Weirded Lands.
+
+Analyze this character thoroughly and generate two sets of insights:
+
+CHARACTER:
+- Name: {st.session_state.char_name or "Unnamed"}
+- Race: {race["name"] if race else "Unknown"}{f" (Traits: {', '.join(race_traits)})" if race_traits else ""}
+- Class: {cls["name"] if cls else "Unknown"} Level {level}{f" — {sub['name']}" if sub else ""}
+- Background: {bg["name"] if bg else "Unknown"}
+- Ability Scores: {stats_str}
+- Proficiency Bonus: +{prof}
+- Key Class Features: {', '.join(key_features) if key_features else "none"}
+{f"- Subclass Features: {', '.join(sub_features)}" if sub_features else ""}\
+{f"- Weapons: {', '.join(weapons)}" if weapons else "- No weapons equipped"}
+{chr(10).join("- " + l for l in extra_lines)}
+{chr(10).join(personality_lines)}
+
+Return ONLY valid JSON (no markdown, no code fences) with this exact structure:
+{{
+  "combat_tactics": {{
+    "role": "One sentence describing this character's combat role and fighting style",
+    "tactics": [
+      {{"phase": "Opening Move", "text": "What to do on round 1 to set up the fight"}},
+      {{"phase": "Bonus Action Economy", "text": "How to best use bonus actions each turn"}},
+      {{"phase": "Sustained Combat", "text": "Core action rotation for turns 2 and beyond"}},
+      {{"phase": "Defensive Play", "text": "How to handle being targeted or taking heavy damage"}},
+      {{"phase": "Clutch Moment", "text": "High-impact play when the fight is on the line"}}
+    ]
+  }},
+  "time_to_shine": {{
+    "summary": "One sentence describing what makes this character exceptional outside of combat",
+    "moments": [
+      {{"context": "Skill Check / Social / Exploration category", "text": "Specific scenario where this character excels and why"}},
+      {{"context": "Another category", "text": "Another scenario"}},
+      {{"context": "Another category", "text": "Another scenario"}},
+      {{"context": "Another category", "text": "Another scenario"}}
+    ]
+  }}
+}}"""
+
+    try:
+        with st.spinner("Generating character insights..."):
+            resp = _ai_client.messages.create(
+                model="claude-opus-4-6",
+                max_tokens=2000,
+                messages=[{"role": "user", "content": prompt}],
+            )
+        raw = resp.content[0].text.strip()
+        if raw.startswith("```"):
+            raw = re.sub(r"^```[a-z]*\n?", "", raw)
+            raw = re.sub(r"\n?```$", "", raw.strip())
+        data = json.loads(raw)
+        if "combat_tactics" in data:
+            st.session_state.combat_tactics = data["combat_tactics"]
+        if "time_to_shine" in data:
+            st.session_state.time_to_shine = data["time_to_shine"]
+        st.rerun()
+    except json.JSONDecodeError as e:
+        st.error(f"Could not parse AI response: {e}")
+        st.caption(f"Raw response (first 500 chars): {raw[:500] if 'raw' in dir() else 'N/A'}")
+    except Exception as e:
+        st.error(f"Failed to generate insights: {e}")
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # HELPERS
@@ -2143,9 +2270,15 @@ li { margin:0.1rem 0; font-size:0.84rem; color:#1a1020; }
                 lvl_data = row; break
         sv_res_html = ""
         if lvl_data:
+            _sv_con_mod = modn("CON")
+            _sv_tech_dc  = 8 + prof + _sv_con_mod
+            _sv_tech_atk = prof + _sv_con_mod
+            _sv_atk_str  = f"+{_sv_tech_atk}" if _sv_tech_atk >= 0 else str(_sv_tech_atk)
             sv_res_html += (f'<p style="font-size:0.85rem;margin-bottom:0.4rem">'
                             f'<b>Charges:</b> {lvl_data["charges"]} &nbsp;·&nbsp; '
-                            f'<b>Techniques Known:</b> {lvl_data["techniques"]}</p>')
+                            f'<b>Techniques Known:</b> {lvl_data["techniques"]} &nbsp;·&nbsp; '
+                            f'<b>Technique Save DC:</b> {_sv_tech_dc} &nbsp;·&nbsp; '
+                            f'<b>Technique Attack:</b> {_sv_atk_str}</p>')
         ws = sv_mech.get("weirding_surge", "")
         if ws:
             sv_res_html += feat_item("Weirding Surge", ws)
@@ -2272,6 +2405,18 @@ li { margin:0.1rem 0; font-size:0.84rem; color:#1a1020; }
             details_html += f'<div style="margin:0.35rem 0"><span class="lbl">{label}</span>{val}</div>'
     if details_html:
         page2_parts.append(sec_box("Character Details", details_html))
+
+    # Time to Shine
+    tts_data = ss.get("time_to_shine", {})
+    if tts_data:
+        tts_html = ""
+        if tts_data.get("summary"):
+            tts_html += f'<p style="font-style:italic;color:#5a4a7a;margin:0 0 0.4rem">{tts_data["summary"]}</p>'
+        for mom in tts_data.get("moments", []):
+            tts_html += (f'<div class="feat-item">'
+                         f'<span class="fname">{mom["context"]}</span>'
+                         f'<span class="fdesc">{mom["text"]}</span></div>')
+        page2_parts.append(sec_box("Time to Shine", tts_html))
 
     # Equipment & Inventory (only on page 2 if not already shown in mid col)
     if not _mid_has_equip:
@@ -2797,10 +2942,15 @@ def generate_character_pdf():
         # ─ Elemental Resources ─
         _sec("ELEMENTAL RESOURCES")
         if lvl_data:
+            _sv_con_mod_p = modifier_int(effective_stat("CON", race))
+            _sv_tech_dc_p  = 8 + prof + _sv_con_mod_p
+            _sv_tech_atk_p = prof + _sv_con_mod_p
+            _sv_atk_str_p  = f"+{_sv_tech_atk_p}" if _sv_tech_atk_p >= 0 else str(_sv_tech_atk_p)
             pdf.set_text_color(*C_STAT)
             pdf.set_font("Helvetica", "B", 9)
             pdf.cell(0, 5, _pdf_safe(
                 f"Charges: {lvl_data['charges']}  |  Techniques Known: {lvl_data['techniques']}"
+                f"  |  Technique Save DC: {_sv_tech_dc_p}  |  Technique Attack: {_sv_atk_str_p}"
             ), ln=True)
             pdf.ln(1)
 
@@ -3180,7 +3330,7 @@ def generate_character_pdf():
 # ─────────────────────────────────────────────────────────────────────────────
 # STEP BAR
 # ─────────────────────────────────────────────────────────────────────────────
-STEPS = ["Basics", "Race", "Class", "Features", "Background", "Stats", "Skills", "Gear & Inventory", "Feats", "Sheet"]
+STEPS = ["Basics", "Race", "Class", "Features", "Background", "Stats", "Skills", "Gear & Inventory", "Feats", "Insights", "Sheet"]
 
 def render_step_bar():
     current = st.session_state.step
@@ -3225,7 +3375,7 @@ def _apply_character_upload(uploaded_file):
             if k == "step":
                 continue
             st.session_state[k] = saved.get(k, v)
-        st.session_state.step = 10
+        st.session_state.step = 11
         st.session_state["_loaded_file"] = uploaded_file.name
         return True
     except Exception as e:
@@ -3285,7 +3435,7 @@ if st.session_state.step == 1:
         generate_random_character()
         with st.spinner("✨ Weaving your fate…"):
             _ai_enrich_character()
-        st.session_state.step = 10
+        st.session_state.step = 11
         st.rerun()
 
     _, right = st.columns([6, 1])
@@ -4891,14 +5041,123 @@ elif st.session_state.step == 9:
             st.session_state.step = 8
             st.rerun()
     with col3:
-        if st.button("View Sheet →", type="primary", use_container_width=True, key="asi_next"):
+        if st.button("Character Insights →", type="primary", use_container_width=True, key="asi_next"):
             st.session_state.step = 10
             st.rerun()
 
 # ─────────────────────────────────────────────────────────────────────────────
-# STEP 10 — CHARACTER SHEET
+# STEP 10 — CHARACTER INSIGHTS (AI)
 # ─────────────────────────────────────────────────────────────────────────────
 elif st.session_state.step == 10:
+    race = get_race(st.session_state.race_id)
+    cls = get_class(st.session_state.class_id)
+    sub = get_subclass(cls, st.session_state.subclass_id)
+    level = st.session_state.char_level
+
+    char_display = st.session_state.char_name or "Your Character"
+    cls_name = cls["name"] if cls else "Unknown"
+    sub_name = f" — {sub['name']}" if sub else ""
+
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown(
+        f'<div class="section-header">✨ Character Insights'
+        f'  —  {char_display}, Level {level} {cls_name}{sub_name}</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<p style="font-family:Crimson Text,serif;color:#a99cbf;margin-bottom:1.2rem">'
+        'Generate AI-powered insights to discover how your character thrives in and out of combat. '
+        'These will also appear on your character sheet.</p>',
+        unsafe_allow_html=True,
+    )
+
+    _ct  = st.session_state.get("combat_tactics", {})
+    _tts = st.session_state.get("time_to_shine", {})
+
+    # Generate button
+    if _ai_client:
+        _has_insights = bool(_ct or _tts)
+        _btn_label = "🎲 Regenerate Insights" if _has_insights else "✨ Generate Character Insights"
+        if st.button(_btn_label, type="primary", use_container_width=True, key="gen_insights_btn"):
+            generate_character_insights()
+    else:
+        st.info("Set ANTHROPIC_API_KEY to enable AI-generated character insights.")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ── Combat Tactics ──
+    st.markdown('<div class="sheet-section">', unsafe_allow_html=True)
+    st.markdown('<div class="sheet-section-title">⚔ Combat Tactics</div>', unsafe_allow_html=True)
+    if _ct:
+        if _ct.get("role"):
+            st.markdown(
+                f'<p style="font-family:Crimson Text,serif;font-style:italic;color:#9d8dbf;margin:0 0 0.8rem">'
+                f'{_ct["role"]}</p>',
+                unsafe_allow_html=True,
+            )
+        for _tac in _ct.get("tactics", []):
+            st.markdown(
+                f'<div class="feat-row">'
+                f'<div class="fname">{_tac["phase"]}</div>'
+                f'<div class="fdesc">{_tac["text"]}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+    else:
+        st.markdown(
+            '<p style="font-family:Crimson Text,serif;font-style:italic;color:#6b5a8a;margin:0">'
+            'Generate insights above to see combat tactics tailored to this character.'
+            '</p>',
+            unsafe_allow_html=True,
+        )
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ── Time to Shine ──
+    st.markdown('<div class="sheet-section">', unsafe_allow_html=True)
+    st.markdown('<div class="sheet-section-title">✨ Time to Shine</div>', unsafe_allow_html=True)
+    if _tts:
+        if _tts.get("summary"):
+            st.markdown(
+                f'<p style="font-family:Crimson Text,serif;font-style:italic;color:#9d8dbf;margin:0 0 0.8rem">'
+                f'{_tts["summary"]}</p>',
+                unsafe_allow_html=True,
+            )
+        for _mom in _tts.get("moments", []):
+            st.markdown(
+                f'<div class="feat-row">'
+                f'<div class="fname">{_mom["context"]}</div>'
+                f'<div class="fdesc">{_mom["text"]}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+    else:
+        st.markdown(
+            '<p style="font-family:Crimson Text,serif;font-style:italic;color:#6b5a8a;margin:0">'
+            'Generate insights above to discover when and where this character shines outside of combat.'
+            '</p>',
+            unsafe_allow_html=True,
+        )
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)  # close card
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    col1, _, col3 = st.columns([1, 5, 1])
+    with col1:
+        if st.button("← Edit Feats", use_container_width=True, key="insights_back"):
+            st.session_state.step = 9
+            st.rerun()
+    with col3:
+        if st.button("View Sheet →", type="primary", use_container_width=True, key="insights_next"):
+            st.session_state.step = 11
+            st.rerun()
+
+# ─────────────────────────────────────────────────────────────────────────────
+# STEP 11 — CHARACTER SHEET
+# ─────────────────────────────────────────────────────────────────────────────
+elif st.session_state.step == 11:
     race = get_race(st.session_state.race_id)
     cls = get_class(st.session_state.class_id)
     sub = get_subclass(cls, st.session_state.subclass_id)
@@ -5467,10 +5726,16 @@ elif st.session_state.step == 10:
                     if row["min_level"] <= level:
                         lvl_data = row
             if lvl_data:
+                _sv_con_mod = modifier_int(effective_stat("CON", race))
+                _sv_tech_dc  = 8 + prof + _sv_con_mod
+                _sv_tech_atk = prof + _sv_con_mod
+                _sv_atk_str  = f"+{_sv_tech_atk}" if _sv_tech_atk >= 0 else str(_sv_tech_atk)
                 st.markdown(
-                    f'<div style="display:flex; gap:1rem; margin:0.8rem 0">'
+                    f'<div style="display:flex; gap:1rem; margin:0.8rem 0; flex-wrap:wrap">'
                     f'<span class="badge">⚡ Charges: {lvl_data["charges"]}</span>'
                     f'<span class="badge">📚 Techniques Known: {lvl_data["techniques"]}</span>'
+                    f'<span class="badge">🎯 Technique Save DC: {_sv_tech_dc}</span>'
+                    f'<span class="badge">⚔ Technique Attack: {_sv_atk_str}</span>'
                     f'</div>',
                     unsafe_allow_html=True
                 )
@@ -5633,7 +5898,27 @@ elif st.session_state.step == 10:
                 )
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # ── Combat Tactics ──
+    # ── Time to Shine ──
+    _tts = st.session_state.get("time_to_shine", {})
+    if _tts:
+        st.markdown('<div class="sheet-section">', unsafe_allow_html=True)
+        st.markdown('<div class="sheet-section-title">✨ Time to Shine</div>', unsafe_allow_html=True)
+        if _tts.get("summary"):
+            st.markdown(
+                f'<p style="font-family:Crimson Text,serif;font-style:italic;color:#9d8dbf;margin:0 0 0.8rem">{_tts["summary"]}</p>',
+                unsafe_allow_html=True,
+            )
+        for _mom in _tts.get("moments", []):
+            st.markdown(
+                f'<div class="feat-row">'
+                f'<div class="fname">{_mom["context"]}</div>'
+                f'<div class="fdesc">{_mom["text"]}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    # ── Combat Tactics (read-only — edit in step 10) ──
     _ct = st.session_state.get("combat_tactics", {})
     if _ct:
         st.markdown('<div class="sheet-section">', unsafe_allow_html=True)
@@ -5641,7 +5926,7 @@ elif st.session_state.step == 10:
         if _ct.get("role"):
             st.markdown(
                 f'<p style="font-family:Crimson Text,serif;font-style:italic;color:#9d8dbf;margin:0 0 0.8rem">{_ct["role"]}</p>',
-                unsafe_allow_html=True
+                unsafe_allow_html=True,
             )
         for _tac in _ct.get("tactics", []):
             st.markdown(
@@ -5649,7 +5934,7 @@ elif st.session_state.step == 10:
                 f'<div class="fname">{_tac["phase"]}</div>'
                 f'<div class="fdesc">{_tac["text"]}</div>'
                 f'</div>',
-                unsafe_allow_html=True
+                unsafe_allow_html=True,
             )
         st.markdown('</div>', unsafe_allow_html=True)
 
@@ -5657,8 +5942,8 @@ elif st.session_state.step == 10:
     st.markdown('<br>', unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
-        if st.button("← Edit Feats", use_container_width=True):
-            st.session_state.step = 9
+        if st.button("← Character Insights", use_container_width=True):
+            st.session_state.step = 10
             st.rerun()
     with col2:
         if st.button("🔄 Start Over", use_container_width=True):

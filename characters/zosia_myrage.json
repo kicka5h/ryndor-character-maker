@@ -1,7 +1,7 @@
 {
   "char_name": "Zosia Myrage",
   "player_name": "",
-  "char_level": 3,
+  "char_level": 5,
   "race_id": "human",
   "class_id": "wizard",
   "subclass_id": "school_harmonics",
@@ -11,12 +11,15 @@
     "STR": 8,
     "DEX": 13,
     "CON": 14,
-    "INT": 15,
+    "INT": 17,
     "WIS": 12,
     "CHA": 10
   },
   "stat_method": "Standard Array",
-  "chosen_skills": ["Arcana", "Investigation"],
+  "chosen_skills": [
+    "Arcana",
+    "Investigation"
+  ],
   "equip_choices": {
     "weapon": 1,
     "focus": 1,
@@ -24,38 +27,66 @@
   },
   "class_options": {},
   "expertise_skills": [],
-  "chosen_languages": ["Draconic"],
+  "chosen_languages": [
+    "Draconic"
+  ],
   "notes": "An aristocratic city wizard of genuine arcane talent who finds most aspects of fieldwork deeply beneath her. Her complaints about the conditions are frequent and specific. Her usefulness is not in question.",
   "personality": "I am impeccably dressed at all times, including the field — mud on my boots is a personal insult. I also speak with precision; vague language is its own kind of suffering.",
   "ideals": "Excellence. Mediocrity is a choice, and it is one I refuse to make. The arcane arts reward only those who approach them with complete seriousness.",
   "bonds": "The Myrage name carries weight in this city because those who bore it before me earned it. I will not be the one who squanders that.",
   "flaws": "The moment things become genuinely unpleasant — a wound, something foul underfoot, a close call — my composure fails loudly and I become difficult to work alongside until the situation improves.",
-  "inv_weapons": ["dagger"],
+  "inv_weapons": [
+    "dagger"
+  ],
   "equipped_main": "dagger",
   "equipped_offhand": null,
   "has_dual_wielder": false,
   "inv_gear": [],
-  "chosen_cantrips": ["Prestidigitation", "Minor Illusion", "Fire Bolt"],
-  "chosen_spells": ["Mage Armor", "Shield", "Magic Missile", "Identify", "Misty Step"],
-  "asi_choices": {},
+  "chosen_cantrips": [
+    "Prestidigitation",
+    "Minor Illusion",
+    "Fire Bolt"
+  ],
+  "chosen_spells": [
+    "Mage Armor",
+    "Shield",
+    "Magic Missile",
+    "Identify",
+    "Misty Step",
+    "Scorching Ray",
+    "Web",
+    "Fireball",
+    "Counterspell",
+    "Fly"
+  ],
+  "asi_choices": {
+    "L4": {
+      "type": "asi_2",
+      "stat1": "INT"
+    }
+  },
   "combat_tactics": {
-    "role": "Glass cannon with layered emergency armor. Maximum damage at maximum range — every tactic exists to preserve that range.",
+    "role": "Full-threat glass cannon at level 5. INT 17 at this tier means spell DC 14 and spell attack +6. Fireball rewrites encounter math. Counterspell ends whatever the enemy was about to do.",
     "tactics": [
       {
         "phase": "Pre-Combat",
-        "text": "Mage Armor is always active before any anticipated fight. Without it, AC is 11. With it, AC is 15 (13 + DEX +2). This is non-negotiable and costs one 1st-level slot for 8 hours. Do not skip it."
+        "text": "Mage Armor always active before a known fight. AC 15 (13 + INT... wait, no — Mage Armor = 13 + DEX mod = 13+1=14). Non-negotiable. INT 17 (+3): spell save DC 14, spell attack +6. Fire Bolt: +6 to hit, 1d10 fire. Scorching Ray: three rays at +6 each, 2d6 fire per ray — strong single-target burst."
       },
       {
-        "phase": "Positioning Priority",
-        "text": "Establish and maintain 60+ feet of separation from all melee threats. Fire Bolt is the primary action every round: +5 to hit, 1d10 fire. Stay behind the party's front line. If terrain forces a choice between cover and range, choose cover — a missed attack is worth more than a few feet."
+        "phase": "Fireball (L5 Unlock)",
+        "text": "3rd level. 20-ft radius sphere, 150-ft range. DEX save DC 14 or 8d6 fire damage (half on save). Average 28 fire damage to everything in the radius. At level 5, a well-placed Fireball can end a fight outright. Position first: get 60+ ft back, identify the cluster, cast. Counterspell and Shield can protect the slot if something goes wrong."
       },
       {
-        "phase": "Magic Missile Conditions",
-        "text": "Fire Bolt is better on average, but Magic Missile guarantees 3 hits (1d4+1 force each, no roll required). Use it when: (a) an enemy has very high AC and Fire Bolt is unlikely to connect, (b) an enemy is at low HP and you cannot afford a miss, or (c) you need to split damage across multiple targets to finish them."
+        "phase": "Counterspell (L5 Unlock)",
+        "text": "Reaction. Interrupt any spell being cast within 60 ft. L3 counterspell automatically cancels spells of 3rd level or lower — no roll. For higher-level spells: INT check (DC 10 + spell level), +3 modifier. This is Zosia's answer to enemy casters. The composure lasts exactly as long as the enemy caster is alive and uncountered."
+      },
+      {
+        "phase": "Fly (L5 Unlock)",
+        "text": "3rd level concentration. 60 ft fly speed for 10 minutes. Removes ground-positioning constraints entirely. Cast at the start of a fight with multiple melee threats: float 30+ ft up, continue launching Fire Bolt and Scorching Ray without range penalty, completely safe from melee. Counterplay requires ranged attacks or their own flight."
       },
       {
         "phase": "Emergency Protocol",
-        "text": "When hit or targeted by melee: Shield reaction (+5 AC until start of next turn, likely negates the attack that triggered it). Next turn: Misty Step bonus action to teleport 30 ft to a safe position, then resume Fire Bolt. This sequence survives exactly one bad positioning mistake. There should not be a second."
+        "text": "Shield reaction (+5 AC) negates most attacks that break through. Misty Step teleports 30 ft as a bonus action — the reset button. With Web (2nd level, 20-ft cube, restrains on failed STR save) added to the toolkit: use it to cage a melee threat approaching after a Misty Step. The sequence: Web → Misty Step out → resume Fireball/Fire Bolt from new position."
       }
     ]
   }

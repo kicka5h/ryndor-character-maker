@@ -1042,7 +1042,7 @@
             {
               "level": 7,
               "name": "Blizzard Barrage",
-              "description": "As an action, you launch three shards of ice at up to three creatures within 60 feet (one per creature). Make a ranged spell attack for each (using Wisdom modifier + proficiency bonus). Each shard deals 2d6 cold damage on a hit.",
+              "description": "As an action, you launch three shards of ice at up to three creatures within 60 feet (one per creature). Make a ranged technique attack for each. Each shard deals 2d6 cold damage on a hit.",
               "usage": "1/Short Rest"
             },
             {
@@ -1240,7 +1240,7 @@
             {
               "level": 3,
               "name": "Lightning Lash",
-              "description": "As a bonus action, you snap a whip of lightning at a creature within 15 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 2d6 lightning damage and cannot take reactions until the start of its next turn.",
+              "description": "As a bonus action, you snap a whip of lightning at a creature within 15 feet. Make a ranged technique attack. On a hit, the target takes 2d6 lightning damage and cannot take reactions until the start of its next turn.",
               "usage": "2/Short Rest"
             },
             {
@@ -1339,7 +1339,7 @@
             {
               "level": 10,
               "name": "Chain Lightning",
-              "description": "As an action, you release a bolt of lightning at a creature within 60 feet (ranged spell attack). On a hit, it arcs to up to three additional creatures within 30 feet of the first target, dealing 3d8 lightning damage to the original target and 2d8 to each subsequent one.",
+              "description": "As an action, you release a bolt of lightning at a creature within 60 feet (ranged technique attack). On a hit, it arcs to up to three additional creatures within 30 feet of the first target, dealing 3d8 lightning damage to the original target and 2d8 to each subsequent one.",
               "usage": "1/Long Rest"
             },
             {
@@ -1502,7 +1502,7 @@
             {
               "level": 3,
               "name": "Boulder Toss",
-              "description": "As a bonus action, you tear a chunk of rock from the earth or a nearby surface and hurl it at a creature within 60 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 2d6 bludgeoning damage and must succeed on a Strength saving throw or be knocked prone.",
+              "description": "As a bonus action, you tear a chunk of rock from the earth or a nearby surface and hurl it at a creature within 60 feet. Make a ranged technique attack. On a hit, the target takes 2d6 bludgeoning damage and must succeed on a Strength saving throw or be knocked prone.",
               "usage": "2/Short Rest"
             },
             {
@@ -1727,7 +1727,7 @@
             {
               "level": 1,
               "name": "Thorn Whip",
-              "description": "As a bonus action, you lash out with a vine covered in thorns at a creature within 20 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 1d6 piercing damage and is pulled 5 feet toward you.",
+              "description": "As a bonus action, you lash out with a vine covered in thorns at a creature within 20 feet. Make a ranged technique attack. On a hit, the target takes 1d6 piercing damage and is pulled 5 feet toward you.",
               "usage": "Costs 1 Elemental Charge"
             },
             {
@@ -2529,7 +2529,7 @@
             {
               "level": 1,
               "name": "Fire Bolt",
-              "description": "As a bonus action, you hurl a bolt of fire at a creature within 60 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 1d10 fire damage and, if flammable, it catches fire for 1 round (1d4 damage at the start of its next turn).",
+              "description": "As a bonus action, you hurl a bolt of fire at a creature within 60 feet. Make a ranged technique attack. On a hit, the target takes 1d10 fire damage and, if flammable, it catches fire for 1 round (1d4 damage at the start of its next turn).",
               "usage": "Costs 1 Elemental Charge"
             },
             {
@@ -2610,7 +2610,7 @@
             {
               "level": 7,
               "name": "Magma Barrage",
-              "description": "As an action, you hurl globs of molten rock at up to three creatures within 60 feet. Make a ranged spell attack for each. Each hit deals 2d10 fire damage, and the target is coated in cooling magma \u2014 its speed is reduced by 10 feet and it takes 1d6 fire damage at the start of its next turn.",
+              "description": "As an action, you hurl globs of molten rock at up to three creatures within 60 feet. Make a ranged technique attack for each. Each hit deals 2d10 fire damage, and the target is coated in cooling magma \u2014 its speed is reduced by 10 feet and it takes 1d6 fire damage at the start of its next turn.",
               "usage": "1/Short Rest"
             },
             {
@@ -2773,7 +2773,7 @@
             {
               "level": 1,
               "name": "Soul Tap",
-              "description": "As a bonus action, you reach out with spectral energy to a creature within 30 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 1d6 psychic damage and you regain 1d4 hit points.",
+              "description": "As a bonus action, you reach out with spectral energy to a creature within 30 feet. Make a ranged technique attack. On a hit, the target takes 1d6 psychic damage and you regain 1d4 hit points.",
               "usage": "Costs 1 Elemental Charge"
             },
             {
@@ -3005,7 +3005,7 @@
             {
               "level": 1,
               "name": "Radiant Bolt",
-              "description": "As a bonus action, you launch a bolt of pure light at a creature within 60 feet. Make a ranged spell attack (Wisdom modifier + proficiency bonus). On a hit, the target takes 1d10 radiant damage.",
+              "description": "As a bonus action, you launch a bolt of pure light at a creature within 60 feet. Make a ranged technique attack. On a hit, the target takes 1d10 radiant damage.",
               "usage": "Costs 1 Elemental Charge"
             },
             {
@@ -3042,7 +3042,7 @@
             {
               "level": 3,
               "name": "Searing Ray",
-              "description": "As an action, you fire a concentrated beam of light at a creature within 60 feet. Make a ranged spell attack. On a hit, the target takes 2d10 radiant damage and must succeed on a Constitution saving throw or be blinded until the end of its next turn.",
+              "description": "As an action, you fire a concentrated beam of light at a creature within 60 feet. Make a ranged technique attack. On a hit, the target takes 2d10 radiant damage and must succeed on a Constitution saving throw or be blinded until the end of its next turn.",
               "usage": "2/Short Rest"
             },
             {
@@ -3104,7 +3104,7 @@
             {
               "level": 10,
               "name": "Sunburst Strike",
-              "description": "As an action, you concentrate a beam of solar energy at a creature within 60 feet. Make a ranged spell attack. On a hit, the target takes 5d10 radiant damage and must succeed on a Constitution saving throw or be blinded for 1 minute and have disadvantage on all saving throws against radiant damage.",
+              "description": "As an action, you concentrate a beam of solar energy at a creature within 60 feet. Make a ranged technique attack. On a hit, the target takes 5d10 radiant damage and must succeed on a Constitution saving throw or be blinded for 1 minute and have disadvantage on all saving throws against radiant damage.",
               "usage": "1/Long Rest"
             },
             {

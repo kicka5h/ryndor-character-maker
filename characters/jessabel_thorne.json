@@ -1,14 +1,14 @@
 {
   "char_name": "Jessabel Thorne",
   "player_name": "",
-  "char_level": 3,
+  "char_level": 5,
   "race_id": "tiefling",
   "class_id": "barbarian",
   "subclass_id": "howling_tempest",
   "background_id": "srd_criminal",
   "alignment": "Chaotic Neutral",
   "stats": {
-    "STR": 15,
+    "STR": 17,
     "DEX": 13,
     "CON": 14,
     "INT": 10,
@@ -16,7 +16,10 @@
     "CHA": 8
   },
   "stat_method": "Standard Array",
-  "chosen_skills": ["Athletics", "Intimidation"],
+  "chosen_skills": [
+    "Athletics",
+    "Intimidation"
+  ],
   "equip_choices": {
     "weapon_a": 1,
     "weapon_b": 1,
@@ -25,38 +28,52 @@
   "class_options": {},
   "expertise_skills": [],
   "chosen_languages": [],
-  "damage_resistances": ["Fire"],
+  "damage_resistances": [
+    "Fire"
+  ],
   "notes": "Serving parole as bodyguard for the investigative teams. Dual-wields hand sickles.",
   "personality": "I'm always watching — scanning every room for exits, every face for intentions. Old habits from a life on the wrong side of the law.",
   "ideals": "Freedom. I'll do whatever it takes to earn mine back — but I won't compromise the people depending on me to do it.",
   "bonds": "The investigative team talked the magistrate into parole instead of a cell. I won't let them regret that.",
   "flaws": "I make decisions alone. Communicating a plan feels like showing weakness — which is how people get hurt, usually me.",
-  "inv_weapons": ["sickle", "sickle"],
+  "inv_weapons": [
+    "sickle",
+    "sickle"
+  ],
   "equipped_main": "sickle",
   "equipped_offhand": "sickle",
   "has_dual_wielder": false,
   "inv_gear": [],
   "chosen_cantrips": [],
   "chosen_spells": [],
-  "asi_choices": {},
+  "asi_choices": {
+    "L4": {
+      "type": "asi_2",
+      "stat1": "STR"
+    }
+  },
   "combat_tactics": {
-    "role": "High-aggression melee striker who is most dangerous when surrounded and raging. Takes hits deliberately to fund her Hellish Rebuke retaliation.",
+    "role": "Three-attack dual-sickle striker who crests into full threat at level 5. Extra Attack means two main-hand swings plus the offhand bonus — raging, that's three hits per turn plus Hellish Rebuke retaliation.",
     "tactics": [
       {
         "phase": "Opening",
-        "text": "Rage as a bonus action on the first turn — or before combat if the situation allows. Enter melee immediately. B/P/S resistance while raging halves damage from most physical attackers. The faster she's in the middle of enemies, the better."
+        "text": "Rage as a bonus action on turn 1 (or pre-combat). Enter melee on the densest cluster. At STR 17 (+3) and prof +3: main-hand sickle +6 to hit, 1d4+5. Fast Movement (L5) gives +10 ft speed — 40 ft total, enough to close on most starting positions without needing Dash."
       },
       {
-        "phase": "Core Loop",
-        "text": "Reckless Attack (advantage on STR attacks, enemies get advantage back) + main hand sickle, then bonus action off-hand sickle. With Rage active: main hand deals 1d4+4, off-hand 1d4+2. Yes, enemies will hit her with advantage. That funds the next point."
+        "phase": "Core Loop: Three Attacks",
+        "text": "Extra Attack (L5): action = two sickle swings. Bonus action = offhand sickle (1d4, no STR mod while raging but still benefits from Rage's +2 damage bonus? No — offhand doesn't add STR, adds Rage's flat +2). That's three attacks per turn, all with Reckless Attack advantage available. Raging output: ~17 average damage per turn before retaliation."
       },
       {
-        "phase": "Hellish Rebuke Timing",
-        "text": "When hit (which Reckless Attack guarantees), fire Hellish Rebuke as a reaction: DC 10 DEX save, 3d10 fire damage, half on save. The damage she takes is the price of admission. Save this reaction for hits from priority enemies — not chip damage from minions. One good trigger per round can outpace the incoming damage."
+        "phase": "Hellish Rebuke",
+        "text": "Reckless Attack (advantage on your attacks, enemies get advantage back) guarantees incoming hits. When hit by a priority enemy: Hellish Rebuke reaction — DC 10 DEX save, 3d10 fire damage. With three incoming attack opportunities per enemy, this fires frequently. Don't waste it on minions."
+      },
+      {
+        "phase": "Stormbound Rage Synergy",
+        "text": "Moving 10+ ft before hitting deals +1d6 thunder bonus. With 40 ft speed and enemies scattered: dash in, hit twice on action, trigger Stormbound bonus on first hit. The AoE thunder aura (10 ft) chips every adjacent enemy each round while raging. Enemies in melee with her are constantly paying a tax."
       },
       {
         "phase": "Sustain",
-        "text": "If Rage drops (no attack or damage taken in a turn), re-engage only if the situation demands it — re-raging costs a bonus action and a use. With only 3 Rage uses per long rest, manage them across the session. When she reaches 0 HP: she was doing her job. The goal is to absorb as much as possible before going down."
+        "text": "3 Rage uses per long rest (4 at L6). Con 14: good HP buffer. When at low HP, consider whether Rage has prevented more damage than it cost — if so, it did its job. Re-rage only if the fight genuinely demands it. The goal is to absorb damage, retaliate, and keep swinging three times a turn until someone stops."
       }
     ]
   }

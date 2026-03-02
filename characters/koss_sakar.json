@@ -1,7 +1,7 @@
 {
   "char_name": "Koss Sakar",
   "player_name": "",
-  "char_level": 3,
+  "char_level": 5,
   "race_id": "drakarim",
   "class_id": "cleric",
   "subclass_id": "domain_resonance",
@@ -12,11 +12,14 @@
     "DEX": 8,
     "CON": 13,
     "INT": 10,
-    "WIS": 15,
+    "WIS": 17,
     "CHA": 14
   },
   "stat_method": "Standard Array",
-  "chosen_skills": ["Insight", "Religion"],
+  "chosen_skills": [
+    "Insight",
+    "Religion"
+  ],
   "equip_choices": {
     "weapon": 0,
     "armor": 2,
@@ -25,40 +28,64 @@
   },
   "class_options": {},
   "expertise_skills": [],
-  "chosen_languages": ["Celestial"],
+  "chosen_languages": [
+    "Celestial"
+  ],
   "draconic_ancestry": "Bronze",
-  "damage_resistances": ["Lightning"],
+  "damage_resistances": [
+    "Lightning"
+  ],
   "notes": "Koss Sakar is a Drakarim of old blood and unambiguous confidence in his own importance. He carries his jewelled cane as both divine focus and social statement. The Domain of Resonance suits him precisely — he has always believed that presence is its own form of power, and that the right word delivered at the right frequency can rearrange the world. He is genuinely effective. This does not make him easier to travel with.",
   "personality": "I carry myself as though every room I enter was designed with my arrival in mind. I am not rude — I am precise about expectations. The cane is a divine focus, yes, but it is also a statement, and the statement is that I have considered the matter carefully and arrived.",
   "ideals": "Order. The world has a proper arrangement to it — a frequency beneath the noise, if you listen correctly. My function is to perceive it and, where necessary, enforce it. This is not arrogance. It is a division of responsibility.",
   "bonds": "The Sakar line has held divine attunement for six generations. I am not the first Sakar to carry this domain, and I intend to ensure I am not the last who does so with dignity.",
   "flaws": "I have a documented difficulty accepting that some situations cannot be resolved through authority, correct bearing, or the application of focused sound. I am working on this. I am also, I will note, usually correct in the attempt.",
-  "inv_weapons": ["quarterstaff"],
+  "inv_weapons": [
+    "quarterstaff"
+  ],
   "equipped_main": "quarterstaff",
   "equipped_offhand": null,
   "has_dual_wielder": false,
   "inv_gear": [],
-  "chosen_cantrips": ["Sacred Flame", "Guidance", "Thaumaturgy"],
-  "chosen_spells": ["Healing Word", "Bless", "Guiding Bolt", "Sanctuary", "Cure Wounds"],
-  "asi_choices": {},
+  "chosen_cantrips": [
+    "Sacred Flame",
+    "Guidance",
+    "Thaumaturgy"
+  ],
+  "chosen_spells": [
+    "Healing Word",
+    "Bless",
+    "Guiding Bolt",
+    "Sanctuary",
+    "Cure Wounds",
+    "Spirit Guardians",
+    "Mass Healing Word",
+    "Dispel Magic"
+  ],
+  "asi_choices": {
+    "L4": {
+      "type": "asi_2",
+      "stat1": "WIS"
+    }
+  },
   "combat_tactics": {
-    "role": "Arcane support anchor who opens encounters with explosive burst and sustains through superior positioning and concentration management.",
+    "role": "Resonant battlefield anchor. At level 5, Spirit Guardians makes Koss a melee threat in his own right — enemies that enter or start their turn near him are paying a continuous radiant tax while he sustains the party.",
     "tactics": [
       {
-        "phase": "Opening",
-        "text": "Before melee is joined, sweep the Breath Weapon (DC 11 DEX, 5×30 ft lightning line, 2d6) through the densest enemy cluster. It recharges on a short rest — use it early. Then cast Bless on 3 allies as your first-round action: a consistent +1d4 to every attack roll and saving throw across the full encounter is the highest sustained value play available."
+        "phase": "Opening: Breath + Amplify",
+        "text": "Breath Weapon (5×30 ft line, DC 11 DEX, 2d6 lightning) on the densest cluster before melee is joined. Then: Amplify Vibration Channel Divinity (30-ft radius, 1 min, +1d6 thunder to all spell damage) if large-scale sustained damage is the priority, OR begin the standard Bless loop. WIS 17 (+3) + prof +3 = spell save DC 14, spell attack +6 at level 5."
+      },
+      {
+        "phase": "Spirit Guardians (L5 Unlock)",
+        "text": "3rd-level spell. Concentration. 15-ft radius around Koss: creatures that enter or start their turn there make a WIS save (DC 14) or take 3d8 radiant damage (half on save), and their speed is halved. This aura runs for 10 minutes. Position Koss at the center of the melee — every enemy that engages his frontliners is also taking 3d8 per turn. Stack with Amplify Vibration's thunder bonus on the next save that triggers it."
       },
       {
         "phase": "Core Loop",
-        "text": "With Bless active: use your bonus action for Healing Word to sustain allies, and your action for Sacred Flame (DEX save, ignores cover) on priority targets. When a melee ally needs to break through a high-AC target, Guiding Bolt (4d6 radiant + advantage on the next attack roll against that target) is devastating setup."
+        "text": "Maintain Spirit Guardians concentration. Bonus action: Mass Healing Word (3rd level) heals up to 6 creatures 1d4+3 each — extraordinary action economy. Main action: Sacred Flame on priority targets (DEX save, no cover benefit, 2d8 fire at L5). Guiding Bolt is the burst play: 4d6 radiant and the next attacker has advantage — use on a high-AC target to set up Jukka or Sagittarius."
       },
       {
-        "phase": "Domain Advantage",
-        "text": "Dissonant Whispers and Thunderwave are prepared as domain spells. Thunderwave pushes melee threats 10 feet away in a 15-ft cube — excellent when surrounded. Calm Emotions shuts down raging or frightened enemies. These supplement your slot budget without touching your prepared-spell list."
-      },
-      {
-        "phase": "When Threatened",
-        "text": "Cast Sanctuary (bonus action) on yourself — enemies must succeed on a WIS save to target you. Your role is too valuable to lose to a stray sword. Retreat behind melee and continue healing with Healing Word. If truly cornered, Thunderwave clears melee range and buys positioning."
+        "phase": "Authority in Practice",
+        "text": "Sanctuary (bonus action, WIS save to target Koss) is the panic button when Spirit Guardians draws too much attention. Retreat behind the frontline, Sanctuary yourself, continue casting Mass Healing Word and Sacred Flame. The Sakar line does not go down in undignified circumstances — position prevents that."
       }
     ]
   }

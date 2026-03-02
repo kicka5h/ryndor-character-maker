@@ -1,14 +1,14 @@
 {
   "char_name": "Jukka Kallio",
   "player_name": "",
-  "char_level": 3,
+  "char_level": 5,
   "race_id": "dwarf",
   "class_id": "fighter",
   "subclass_id": "srd_champion",
   "background_id": "srd_guild_artisan",
   "alignment": "Neutral Good",
   "stats": {
-    "STR": 15,
+    "STR": 17,
     "DEX": 10,
     "CON": 14,
     "INT": 8,
@@ -16,7 +16,10 @@
     "CHA": 13
   },
   "stat_method": "Standard Array",
-  "chosen_skills": ["Athletics", "Perception"],
+  "chosen_skills": [
+    "Athletics",
+    "Perception"
+  ],
   "equip_choices": {
     "armor": 0,
     "melee_setup": 0,
@@ -27,39 +30,50 @@
     "fighting_style": "dueling"
   },
   "expertise_skills": [],
-  "chosen_languages": ["Elvish"],
-  "damage_resistances": ["Poison"],
+  "chosen_languages": [
+    "Elvish"
+  ],
+  "damage_resistances": [
+    "Poison"
+  ],
   "notes": "An atypically easygoing dwarf who has spent most of his adult life moving through mixed-culture cities and trade towns. Fights with a battleaxe and shield. Has strong feelings about regional ales.",
   "personality": "I have visited a lot of taverns in a lot of cities and I have opinions about all of them. I also genuinely want to know how you make the things you make — craft is craft, regardless of who's doing it.",
   "ideals": "Good work speaks for itself, regardless of who did it. A well-made thing earns respect, and so does a well-handled situation.",
   "bonds": "I've been away from the mountain clans long enough that going back would feel like visiting somewhere I used to know. I've made my peace with that.",
   "flaws": "I trust people a bit too quickly and have been burned for it more than once. I'll freely admit this and probably do it again anyway.",
-  "inv_weapons": ["battleaxe"],
+  "inv_weapons": [
+    "battleaxe"
+  ],
   "equipped_main": "battleaxe",
   "equipped_offhand": null,
   "has_dual_wielder": false,
   "inv_gear": [],
   "chosen_cantrips": [],
   "chosen_spells": [],
-  "asi_choices": {},
+  "asi_choices": {
+    "L4": {
+      "type": "asi_2",
+      "stat1": "STR"
+    }
+  },
   "combat_tactics": {
-    "role": "Reliable frontliner. No tricks, no variance — just sustained melee pressure, excellent HP, and one decisive burst per short rest.",
+    "role": "Two-attack Champion who crits more often and hits harder. Extra Attack at level 5 doubles sustained output — every round is now two chances at a 19-20 crit with Dueling bonus damage.",
     "tactics": [
       {
         "phase": "Core Loop",
-        "text": "Engage the most dangerous melee threat and hold the line. Battleaxe with Dueling: +4 to hit, 1d8+4 damage. Improved Critical means a crit on 19 or 20 — roughly 10% per attack instead of 5%. Against restrained or prone targets, advantage on attacks doubles this further. Every round Jukka stays standing and swinging is a round of reliable output the party can build around."
+        "text": "Extra Attack (L5): two battleaxe swings per action. STR 17 (+3) + prof +3 + Dueling (+2) = +6 to hit, 1d8+5 per attack. Average ~11 per hit, ~22 per round sustained. Improved Critical crits on 19-20 — with two attacks, that's roughly 19% chance of at least one crit per round, doubling damage dice on the hit."
+      },
+      {
+        "phase": "Crit Fishing Setup",
+        "text": "Two attacks means twice the crit chances. Coordinate with the party for advantage conditions: Petal's Entangle (restrained = advantage), Reverberus's Faerie Fire (advantage on all attacks vs target), Koss's Guiding Bolt (advantage on next attack). With advantage and two rolls, the 19-20 window fires in roughly 34% of turns."
       },
       {
         "phase": "Action Surge",
-        "text": "Bank Action Surge (1/short rest) for one specific moment: a priority target is low on HP and needs to drop before it acts, or an objective requires eliminating a target immediately. Two attacks in one round at level 3 is a meaningful power spike. Don't spend it early in a fight unless the opening is genuinely decisive."
+        "text": "Action Surge at L5 = four battleaxe swings in one turn. Use on the highest-threat enemy, especially when conditions grant advantage. Four attacks with 19-20 crits: a real chance of multiple crits in the burst window. This is a combat-ender against most L5 encounter threats."
       },
       {
-        "phase": "Crit Fishing",
-        "text": "Improved Critical at level 3 means looking for conditions that grant advantage: restrained (Entangle, vines), paralyzed (Hold Person), unconscious (Sleep), flanking if the table uses it. Coordinate with Petal's Entangle or Reverberus's Hold Person — advantage plus Improved Critical makes every attack a real threat. A crit with a d8 weapon doubles all damage dice."
-      },
-      {
-        "phase": "Second Wind",
-        "text": "At 50% HP or below, use Second Wind (bonus action, 1d10+3 healing). This is free sustain that costs no spell slots, no ally actions, and no resources beyond one use per short rest. With CON 16 and d10 hit dice, Jukka has the HP pool to absorb hits — Second Wind keeps him in range long after others have backed off."
+        "phase": "Second Wind + Endurance",
+        "text": "D10 hit die + CON 14: robust HP for a frontliner. Second Wind (bonus action, 1d10+5 at L5) provides 6-15 free HP per short rest. Dwarven resilience: advantage on poison saves. No tricks needed — Jukka's value is consistent, turn-after-turn melee pressure that the rest of the party can rely on absolutely."
       }
     ]
   }
