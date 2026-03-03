@@ -95,3 +95,6 @@ Clicking **🎲 Roll Random Character** on Step 1:
 5. Jumps straight to the completed character sheet
 
 The `ANTHROPIC_API_KEY` environment variable must be set for AI generation. Without it the roll still works — name and traits are simply left blank for manual entry.
+
+
+Ryndor, the Weirded Lands is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.
