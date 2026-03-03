@@ -2,7 +2,7 @@
 
 > A complete sourcebook with custom content, and a character sheet maker for **Ryndor: The Weirded Lands** — a homebrew sourcebook set in a dark, cosmic fantasy world.
 
-[**→ Character Sheet Maker**](https://ryndor-character-maker-git-164613525255.us-west1.run.app/) &nbsp;·&nbsp; [**→ Ryndor Sourcebook**](https://kicka5h.github.io/ryndor-character-maker)
+[**→ Character Sheet Maker**](https://ryndor-character-maker-git-164613525255.us-west1.run.app/) &nbsp;·&nbsp; [**→ Ryndor Sourcebook**](https://kicka5h.github.io/ryndor-the-weirded-lands)
 
 ---
 
