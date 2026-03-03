@@ -95,7 +95,3 @@ Clicking **🎲 Roll Random Character** on Step 1:
 5. Jumps straight to the completed character sheet
 
 The `ANTHROPIC_API_KEY` environment variable must be set for AI generation. Without it the roll still works — name and traits are simply left blank for manual entry.
-
-
-This work includes material from the System Reference Document 5.2 (“SRD 5.2”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2 is licensed under the Creative Commons
-Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
